@@ -1,6 +1,6 @@
 # treeval_gal
 
-## Sanger TreeVal NF DDL workflow translation into Galaxy
+Sanger [TreeVal NF DDL](https://github.com/sanger-tol/treeval/tree/dev) workflow translation into Galaxy
 
 ### Work in Progress
 
@@ -69,9 +69,9 @@ Parameter preparation for module command lines is integrated into the NF workflo
 
 In Galaxy workflows, tools control third-party analysis application code through an abstract interface, configured by the wrapper XML document. This isolation layer allows the Galaxy server to automatically provide data and parameter requirements in a GUI, using familiar input widgets and explanatory text. It also allows Galaxy tools to interoperate transparently for users as they connect them with noodles in workflows.
 
-As a first try, it makes sense to more or less **_ re-use the NF subworkflow and module logic in Galaxy_**.
+As a first try, it makes sense to more or less **re-use the NF subworkflow and module logic in Galaxy**.
 Without content expert guidance, there is no information to guide improvements to the existing workflow logic, so the goal is to copy it and duplicate functionality.
-Optimisation for Galaxy users then becomes possible because users can respond to the working workflow. It may be possible to build complicated Galaxy tools to perform many steps in a subworkflow, but individual components may be re-used in other parts of related pipelines, so **_one tool per module _**may be the most adaptable initial approach.
+Optimisation for Galaxy users then becomes possible because users can respond to the working workflow. It may be possible to build complicated Galaxy tools to perform many steps in a subworkflow, but individual components may be re-used in other parts of related pipelines, so **one tool per module** may be the most adaptable initial approach.
 
 Note that every new tool written will require effort for maintenance. Some will be needed but it is recommended that where it is possible,
 the preference will always be to choose an existing, known-good tool for the new subworkflows if it is possible with minor tweaks in the subworkflow itself.
