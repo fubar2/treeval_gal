@@ -2,7 +2,7 @@
 ### [#4 gap_finder](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/gap_finder.nf)
 
 This writes a new file in a DDL specific way so need some help confirming the logic.
-
+![Flow chart](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_gap_finder.png)
 ```
 workflow GAP_FINDER {
     take:
