@@ -4,7 +4,7 @@
 
 ### Work in Progress
 
-For the “rapid” workflow, 8 subworkflows are needed, so this makes a good first target for implementation.
+For the “rapid” workflow, 11 subworkflows are needed, so this makes a good first target for implementation.
 Links indicate that the subworkflow logic and command lines have been documented.
 
 1. [yaml_input](yaml_input)
