@@ -64,7 +64,7 @@ For the full workflow, the subworkflows to be translated into Galaxy are:
 2. ancestral_gene
 3. busco_annotation
 4. [gap_finder](gap_finder)
-5. [gene_alignment](gene_alignment]
+5. [gene_alignment](gene_alignment)
 6. generate_genome
 7. hic_mapping
 8. insilico_digest
