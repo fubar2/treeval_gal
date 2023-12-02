@@ -60,12 +60,12 @@ For new Galaxy subworkflows preserving this architecture for the [full NF Sanger
 
 For the full workflow, the subworkflows to be translated into Galaxy are:
 
-1. yaml_input
-2. ancestral_gene
-3. busco_annotation
+1. [yaml_input](yaml_input)
+2. [ancestral_gene](ancestral_gene)
+3. [busco_annotation](busco_annotation)
 4. [gap_finder](gap_finder)
 5. [gene_alignment](gene_alignment)
-6. generate_genome
+6. [generate_genome](generate_genome)
 7. hic_mapping
 8. insilico_digest
 9. kmer
@@ -74,7 +74,7 @@ For the full workflow, the subworkflows to be translated into Galaxy are:
 12. pep_alignments
 13. pretext_ingestion
 14. punchlist
-15. repeat_density
+15. [repeat_density](repeat_density)
 16. selfcomp
 17. synteny
 18. [telo_finder](telo_finder)
@@ -82,13 +82,13 @@ For the full workflow, the subworkflows to be translated into Galaxy are:
 For the “rapid” workflow, 8 subworkflows are needed, so this makes a good first target for implementation:
 
 
-1. yaml_input
+1. [yaml_input](yaml_input)
 4. [gap_finder](gap_finder)
-6. generate_genome
+6.  [generate_genome](generate_genome)
 7. hic_mapping
 9. kmer
 10. longread_coverage
-15. repeat_density
+15. [repeat_density](repeat_density)
 18. [telo_finder](telo_finder)
 
 The DDL for these subworkflows must be decomposed into their steps, data flows, and transformation code resources. Module steps must be implemented as Galaxy tools and validated by a content expert.
