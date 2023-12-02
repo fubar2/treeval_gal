@@ -1,11 +1,10 @@
 
 ### [#3 busco annotation](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/busco_annotation.nf)
 
-![Flow chart](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_busco_annotation.png)
+![Flow chart](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_busco_analysis.png)
 (from [https://github.com/sanger-tol/treeval/blob/dev/docs/output.md#busco-analysis](https://github.com/sanger-tol/treeval/blob/dev/docs/output.md#busco-analysis))
 
 This has some odd DDLsyntax, but we can probably figure it out with content expert help to explain, for example, why_ lepidoptera_ are a special case?
-
 
 ```
 workflow BUSCO_ANNOTATION {
