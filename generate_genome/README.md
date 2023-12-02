@@ -49,7 +49,6 @@ workflow GENERATE_GENOME {
         CUSTOM_GETCHROMSIZES.out.sizes
     )
 ```
-```
 
 ### Potential tools to use:
 
