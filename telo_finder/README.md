@@ -75,18 +75,16 @@ find_telomere: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamica
 ```
 
 
-**[find_telomere_windows](https://github.com/sanger-tol/treeval/blob/dev/modules/local/find_telomere_windows.nf)**
+[find_telomere_windows](https://github.com/sanger-tol/treeval/blob/dev/modules/local/find_telomere_windows.nf)
 
 executes a java jar in the /tree/bin directory
 
-
-
-
+```
     java ${telomere_jvm_params} -cp ${projectDir}/bin/${telomere_jar} \ FindTelomereWindows $file $telomere_window_cut > ${prefix}.windows
-
+```
 Again, if this whole thing can be replaced with something more sustainable than these binaries and jar files?
 
-**[extract_telo ](https://github.com/sanger-tol/treeval/blob/dev/modules/local/extract_telo.nf)**
+[extract_telo ](https://github.com/sanger-tol/treeval/blob/dev/modules/local/extract_telo.nf)
 
 runs awk and sed to write bed and bedgraphs
 
@@ -100,9 +98,11 @@ runs awk and sed to write bed and bedgraphs
 
 so again can be replaced with something simpler.
 
-**[TABIX_BGZIPTABIX](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/tabix/bgziptabix/main.nf) **runs some shell lines like the tabix in gap_finder:
+[TABIX_BGZIPTABIX](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/tabix/bgziptabix/main.nf) runs some shell lines like the tabix in gap_finder:
 
 
 ```
     bgzip  --threads ${task.cpus} -c $args $input > ${prefix}.${input.getExtension()}.gz
     tabix $args2 ${prefix}.${input.getExtension()}.gz
+```
+

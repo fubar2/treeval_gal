@@ -111,4 +111,5 @@ Bedtools sort and ucsc_bedtobigbed are both used again so they will already be a
 
 Then there is some odd syntax involving an input database from the #1 yaml subworkflow. Looks like it is setting up a filesystem or streams for the
 #2 ANCESTRAL_GENE subworkflow described above.
-Hooboy. Will need a content expert to make sure the description being given here makes sense and that the data and parameters can be obtained correctly from the user.
+Hooboy.
+Will need a content expert to make sure the description being given here makes sense and that the data and parameters can be obtained correctly from the user.

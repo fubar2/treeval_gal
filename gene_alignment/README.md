@@ -113,7 +113,10 @@ This one is complicated and content expertise is needed to describe the logic pr
 ```
 
 
-The .branch() DDL _appears to allow _optional data dependent alignments for peptides, dna, rna and cds inputs. These in turn involve[ PEP_ALIGNMENTS](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/pep_alignments.nf) and [NUC_ALIGNMENTS ](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/nuc_alignments.nf)subworkflows.
+The .branch() DDL _appears to allow _optional data dependent alignments for peptides, dna, rna and cds inputs._
+These in turn involve [PEP_ALIGNMENTS](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/pep_alignments.nf) and
+[NUC_ALIGNMENTS ](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/nuc_alignments.nf) subworkflows.
+They are complex and need their own decomposition.
 
 They in turn involve miniprot-align [available from the IUC](https://toolshed.g2.bx.psu.edu/repository/browse_repositories?f-free-text-search=miniprot&sort=name&operation=view_or_manage_repository&id=8603bdbca905c70e) in the Toolshed, and PAF2BED and PAFTOOLS that appear to be part of minimap so perhaps supplied from the suite in the Toolshed, plus things already in the Toolshed like samtools_faidx.
 
@@ -140,6 +143,8 @@ paf_to_bed.sh ${file} ${prefix}.bed
 
 That bash script is in /treeval/bin so a new tool is needed.
 
-[PAFTOOLS_SAM2PAF](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/paftools/sam2paf/main.nf) uses samtools and perhaps another minimap suite script ? Looks like a new tool is needed:
+[PAFTOOLS_SAM2PAF](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/paftools/sam2paf/main.nf) uses samtools and
+perhaps another minimap suite script ? Looks like a new tool is needed:
 
-    `samtools view -h ${bam} | paftools.js sam2paf - > ${prefix}.paf`
+```samtools view -h ${bam} | paftools.js sam2paf - > ${prefix}.paf
+```

@@ -135,7 +135,9 @@ workflow REPEAT_DENSITY {
 ```
 
 
-First step, **[WINDOWMASKER_MKCOUNTS](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/windowmasker/mk_counts/main.nf) **uses an NF core module to run [a tool already available ](https://toolshed.g2.bx.psu.edu/view/yating-l/windowmasker_2_5_0/f80c9e6700ba)in the toolshed with this command line:
+First step, [WINDOWMASKER_MKCOUNTS](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/windowmasker/mk_counts/main.nf)
+uses an NF core module to run [a tool already available ](https://toolshed.g2.bx.psu.edu/view/yating-l/windowmasker_2_5_0/f80c9e6700ba) in the toolshed
+with this command line:
 
 
 ```
@@ -159,7 +161,7 @@ That repository also includes the command used in the next **[ustat](https://git
 ```
 
 
-**[extract_repeats](https://github.com/sanger-tol/treeval/blob/dev/modules/local/extract_repeat.nf)** runs a perl script in the /tree/bin directory
+[extract_repeats](https://github.com/sanger-tol/treeval/blob/dev/modules/local/extract_repeat.nf) runs a perl script in the /tree/bin directory
 
 
 ```
@@ -169,13 +171,10 @@ extract_repeat.pl $file > ${prefix}_repeats.bed
 
 so a new simple tool is needed.
 
-Then there are calls to **[makewindows](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/bedtools/makewindows/main.nf)**
-
-
-        `bedtools \\`
-
+Then there are calls to [makewindows](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/bedtools/makewindows/main.nf)
 
 ```
+        bedtools \\
             makewindows \\
             ${arg_input} \\
             ${args} \\
@@ -183,7 +182,7 @@ Then there are calls to **[makewindows](https://github.com/sanger-tol/treeval/bl
 ```
 
 
-and **[intersect](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/bedtools/intersect/main.nf)**
+and [intersect](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/bedtools/intersect/main.nf)
 
 
 ```
@@ -199,13 +198,12 @@ and **[intersect](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core
 
  that can probably be done with existing toolshed bedtools.
 
-**[rename_ids](https://github.com/sanger-tol/treeval/blob/dev/modules/local/rename_ids.nf)** is a simple sed operation to replace a period with 0 - replace_dots below does the same thing.
-
-
-        `$/`
+[rename_ids](https://github.com/sanger-tol/treeval/blob/dev/modules/local/rename_ids.nf) is a simple sed operation to replace a
+period with 0 - replace_dots below does the same thing.
 
 
 ```
+        $/
         cat "${file}" \
         | sed 's/\./0/g' > ${prefix}_renamed.bed
 ```
@@ -213,7 +211,7 @@ and **[intersect](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core
 
 so could use the sed tool or a new specialised tool.
 
-**[reformat_intersect](https://github.com/sanger-tol/treeval/blob/dev/modules/local/reformat_intersect.nf)** is a local NF module that does
+[reformat_intersect](https://github.com/sanger-tol/treeval/blob/dev/modules/local/reformat_intersect.nf) is a local NF module that does
 
 
 ```
@@ -242,7 +240,7 @@ so a new tool perhaps. Odd that it does replace_dots sed - is it redundant below
 
 so can use the existing bedtools tools.
 
-**[replace_dots ](https://github.com/sanger-tol/treeval/blob/dev/modules/local/replace_dots.nf)**(might be redundant give reform_intersect above but) calls the following sed command:
+[replace_dots ](https://github.com/sanger-tol/treeval/blob/dev/modules/local/replace_dots.nf) (might be redundant give reform_intersect above but) calls the following sed command:
 
 
 ```
@@ -253,7 +251,7 @@ so can use the existing bedtools tools.
 
 so a new tool will be needed or the IUC sed tool perhaps.
 
-**[ucsc_bedgraphtobigwig](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/ucsc/bedgraphtobigwig/main.nf) **calls
+[ucsc_bedgraphtobigwig](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/ucsc/bedgraphtobigwig/main.nf) calls
 
 
 ```
@@ -264,5 +262,6 @@ so a new tool will be needed or the IUC sed tool perhaps.
 ```
 
 
-There is a [tool in the toolshed for ribogalaxy](https://toolshed.g2.bx.psu.edu/view/jackcurragh/ribogalaxy_bedgraphtobigwig/66f3a55ff2ec) that may be usable or else a new tool will be needed.
+There is a [tool in the toolshed for ribogalaxy](https://toolshed.g2.bx.psu.edu/view/jackcurragh/ribogalaxy_bedgraphtobigwig/66f3a55ff2ec) that may be usable
+or else a new tool will be needed.
 
