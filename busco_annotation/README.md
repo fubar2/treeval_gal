@@ -97,15 +97,14 @@ workflow BUSCO_ANNOTATION {
 First step needs a nextflow busco module, and that tool[ is available from the iuc](https://toolshed.g2.bx.psu.edu/view/iuc/busco/2a5b8b9936bf) in the Toolshed.
 
 Next is [EXTRACT_BUSCOGENE](https://github.com/sanger-tol/treeval/blob/dev/modules/local/extract_buscogene.nf)
-which runs another of the scripts in the /tree/bin directory,
+which [runs another of the scripts](https://github.com/sanger-tol/treeval/blob/460268b5872102e1e0796eeeb532b0ae72af4530/bin/get_busco_gene.sh#L4) in the /tree/bin directory,
 
 
 ```
 get_busco_gene.sh $fulltable > ${prefix}_buscogene.csv
 ```
 
-
-so need a new tool to run that.
+so need a new tool to run that. This tool in converting the busco table into BED to be consumed by JBrowse. Its a simple awk command, so I think we can convert this without a new tool.
 
 Bedtools sort and ucsc_bedtobigbed are both used again so they will already be available.
 
