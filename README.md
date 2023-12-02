@@ -13,6 +13,8 @@ Links indicate that the subworkflow logic and command lines have been documented
 7. hic_mapping
 9. kmer
 10. longread_coverage
+11. nuc_alignments
+12. pep_alignments
 15. [repeat_density](repeat_density)
 18. [telo_finder](telo_finder)
 
