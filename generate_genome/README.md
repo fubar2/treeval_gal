@@ -1,8 +1,5 @@
 ### [#6 generate_genome](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/generate_genome.nf)
 
-@bgruening suggests this tool here: https://usegalaxy.eu/root?tool_id=toolshed.g2.bx.psu.edu/repos/devteam/fasta_compute_length/fasta_compute_length/1.0.3 and I hope/think this can replace generate_genome
-
-
 ![Flow chart](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_generate_genome.png)
 
 This executes three lines of shell script in [custom_get_chromsizes](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/custom/getchromsizes/main.nf) so probably needs a new tool:
@@ -44,13 +41,6 @@ workflow GENERATE_GENOME {
     GNU_SORT (
         CUSTOM_GETCHROMSIZES.out.sizes
     )
-```
-
-### Potential tools to use:
-
-* https://usegalaxy.eu/root?tool_id=toolshed.g2.bx.psu.edu/repos/devteam/fasta_compute_length/fasta_compute_length/1.0.3
-
-
     //
     // MODULE: Cut out the largest scaffold size and use as comparator against 512MB
     //          This is the cut off for TABIX using tbi indexes
@@ -59,3 +49,10 @@ workflow GENERATE_GENOME {
         CUSTOM_GETCHROMSIZES.out.sizes
     )
 ```
+```
+
+### Potential tools to use:
+
+* https://usegalaxy.eu/root?tool_id=toolshed.g2.bx.psu.edu/repos/devteam/fasta_compute_length/fasta_compute_length/1.0.3
+
+
