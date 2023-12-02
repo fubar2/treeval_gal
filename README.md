@@ -64,7 +64,7 @@ For the full workflow, the subworkflows to be translated into Galaxy are:
 2. ancestral_gene
 3. busco_annotation
 4. [gap_finder](gap_finder)
-5. gene_alignment
+5. [gene_alignment](gene_alignment]
 6. generate_genome
 7. hic_mapping
 8. insilico_digest
@@ -77,19 +77,19 @@ For the full workflow, the subworkflows to be translated into Galaxy are:
 15. repeat_density
 16. selfcomp
 17. synteny
-18. telo_finder
+18. [telo_finder](telo_finder)
 
 For the “rapid” workflow, 8 subworkflows are needed, so this makes a good first target for implementation:
 
 
 1. yaml_input
-4. gap_finder
+4. [gap_finder](gap_finder)
 6. generate_genome
 7. hic_mapping
 9. kmer
 10. longread_coverage
 15. repeat_density
-18. telo_finder
+18. [telo_finder](telo_finder)
 
 The DDL for these subworkflows must be decomposed into their steps, data flows, and transformation code resources. Module steps must be implemented as Galaxy tools and validated by a content expert.
 That is what this repository is for.
