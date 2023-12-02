@@ -1,7 +1,5 @@
 ### [#2 ancestral_gene](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/ancestral_gene.nf)
 
-![Flow chart](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_ancestral_gene.png)
-
 Calls 4 functions (modules or subworkflows) in **bold** below:
 
 
@@ -55,13 +53,13 @@ Calls 4 functions (modules or subworkflows) in **bold** below:
 
 The first step calls a local NF DDL module **[EXTRACT_ANCESTRAL](https://github.com/sanger-tol/treeval/blob/dev/modules/local/extract_ancestral.nf)** - mostly setup code in preparation for running the following command:
 
-**_     buscopainter.py -r $ancestraltable -q $fulltable _**
+``` buscopainter.py -r $ancestraltable -q $fulltable```
 
 [buscopainter ](https://github.com/charlottewright/buscopainter)is not part of [Busco,](https://toolshed.g2.bx.psu.edu/repository?repository_id=99f4c45aebf38997&changeset_revision=2a5b8b9936bf) so a new tool is needed with a content expert to advise and test. Need a content expert to help figure out how these parameters should be setup in Galaxy tool XML.
 
 The second step, **[ASSIGN_ANCESTRAL](https://github.com/sanger-tol/treeval/blob/dev/modules/local/assign_ancestral.nf)**, is a local NF module. It runs a one line bash script:
 
-**_assign_anc.py -l $comp_location -f $fulltable -c ${prefix}_assigned.bed_**
+```assign_anc.py -l $comp_location -f $fulltable -c ${prefix}_assigned.bed```
 
 [That python code](https://github.com/sanger-tol/treeval/blob/f8e4b3bbbd75be6fa7ea6788337664d2533cdbdb/bin/assign_anc.py) is also found in the treeval/bin directory. Again, a new tool is needed and a content expert to advise and to test. The _$variables_ are DDL but work for Galaxy tools too._ ${prefix}_ is a subtask name idiom in DDL. Need a content expert to help figure out how these parameters should be setup in Galaxy tool XML.
 
@@ -69,10 +67,8 @@ The third step is a bedtools sort on that output, already available as an IUC be
 
 The last step is [UCSC-bedtobigbed](https://open.bioqueue.org/home/knowledge/showKnowledge/sig/ucsc-bedtobigbed) using:
 
-**_ `bedToBigBed \\`_**
-
-
 ```
+  bedToBigBed
         $bed \\
         $sizes \\
         $as_option \\

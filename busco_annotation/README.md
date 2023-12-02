@@ -97,7 +97,8 @@ workflow BUSCO_ANNOTATION {
 
 First step needs a nextflow busco module, and that tool[ is available from the iuc](https://toolshed.g2.bx.psu.edu/view/iuc/busco/2a5b8b9936bf) in the Toolshed.
 
-Next is [EXTRACT_BUSCOGENE](https://github.com/sanger-tol/treeval/blob/dev/modules/local/extract_buscogene.nf) which runs another of the scripts in the /tree/bin directory,
+Next is [EXTRACT_BUSCOGENE](https://github.com/sanger-tol/treeval/blob/dev/modules/local/extract_buscogene.nf)
+which runs another of the scripts in the /tree/bin directory,
 
 
 ```
@@ -109,4 +110,6 @@ so need a new tool to run that.
 
 Bedtools sort and ucsc_bedtobigbed are both used again so they will already be available.
 
-Then there is some odd syntax involving an input database from the #1 yaml subworkflow. Looks like it is setting up a filesystem or streams for the #2 ANCESTRAL_GENE subworkflow described above. Hooboy. Will need a content expert to make sure the description being given here makes sense and that the data and parameters can be obtained correctly from the user.
+Then there is some odd syntax involving an input database from the #1 yaml subworkflow. Looks like it is setting up a filesystem or streams for the
+#2 ANCESTRAL_GENE subworkflow described above.
+Hooboy. Will need a content expert to make sure the description being given here makes sense and that the data and parameters can be obtained correctly from the user.
