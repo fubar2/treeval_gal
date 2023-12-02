@@ -8,13 +8,11 @@
 
 This executes three lines of shell script in [custom_get_chromsizes](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/custom/getchromsizes/main.nf) so probably needs a new tool:
 
-
 ```
 ln -s ${fasta} ${prefix}.fa
     samtools faidx ${prefix}.fa -o ${prefix}.fa.fai
     cut -f 1,2 ${prefix}.fa.fai > ${prefix}.${suffix}
 ```
-
 
 There’s a sort and the largest scaffold is found.
 
@@ -47,6 +45,12 @@ workflow GENERATE_GENOME {
     GNU_SORT (
         CUSTOM_GETCHROMSIZES.out.sizes
     )
+```
+
+### Potential tools to use:
+
+* https://usegalaxy.eu/root?tool_id=toolshed.g2.bx.psu.edu/repos/devteam/fasta_compute_length/fasta_compute_length/1.0.3
+
 
     //
     // MODULE: Cut out the largest scaffold size and use as comparator against 512MB
