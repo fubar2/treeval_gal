@@ -4,10 +4,6 @@
 
 Binary and jar files make this a good candidate for a rewrite using existing Galaxy tools with executables of known provenance. It seems to write masked telomere windows into a tabix file and that might already be part of a VGP workflow?
 
-  For telomers @bguening found:
-  * https://github.com/zd1/telseq
-  * https://github.com/tolkit/telomeric-identifier
-
 
 
 ```
@@ -101,7 +97,6 @@ runs awk and sed to write bed and bedgraphs
     cat "${file}" |awk '{print $2"\t"$4"\t"$5"\t"$6}'|sed 's/>//g' > ${prefix}_telomere.bedgraph
 ```
 
-
 so again can be replaced with something simpler.
 
 **[TABIX_BGZIPTABIX](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/tabix/bgziptabix/main.nf) **runs some shell lines like the tabix in gap_finder:
@@ -110,3 +105,11 @@ so again can be replaced with something simpler.
 ```
     bgzip  --threads ${task.cpus} -c $args $input > ${prefix}.${input.getExtension()}.gz
     tabix $args2 ${prefix}.${input.getExtension()}.gz
+
+
+
+### potential tools that we could use instead
+
+* https://github.com/zd1/telseq
+* https://github.com/tolkit/telomeric-identifier
+
