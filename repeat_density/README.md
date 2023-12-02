@@ -262,6 +262,7 @@ so a new tool will be needed or the IUC sed tool perhaps.
 ```
 
 
-There is a [tool in the toolshed for ribogalaxy](https://toolshed.g2.bx.psu.edu/view/jackcurragh/ribogalaxy_bedgraphtobigwig/66f3a55ff2ec) that may be usable
-or else a new tool will be needed.
+We do have a bedgraph2BigWig wrapper: https://usegalaxy.eu/root?tool_id=wig_to_bigWig
+~There is a [tool in the toolshed for ribogalaxy](https://toolshed.g2.bx.psu.edu/view/jackcurragh/ribogalaxy_bedgraphtobigwig/66f3a55ff2ec) that may be usable
+or else a new tool will be needed.~
 
