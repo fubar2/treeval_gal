@@ -16,7 +16,7 @@ Dedicated resources including expertise and effort will be needed for:
 * the specific scientific context for checking data flows and testing new tools,
 * tool and workflow technical skills for building, testing and documentation.
 
-<h3>Reources</h3>
+<h3>Resources</h3>
 
 
 Sanger publish [usage](https://pipelines.tol.sanger.ac.uk/treeval/dev/usage) and [technical ](https://github.com/sanger-tol/treeval/blob/dev/docs/usage.md)documentation for the [TreeVal](https://github.com/sanger-tol/treeval/tree/dev) workflow source code. There is an[ overview flow diagram](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_full_diagram.png), [detailed output description](https://github.com/sanger-tol/treeval/blob/dev/docs/output.md) for each subworkflow, and an online [analysis service](https://pipelines.tol.sanger.ac.uk/launch?id=1700725399_4e71a73a94cf).
@@ -51,24 +51,6 @@ Parameter preparation for module command lines is integrated into the NF workflo
 In Galaxy workflows, tools control third-party analysis application code through an abstract interface, configured by the wrapper XML document. This isolation layer allows the Galaxy server to automatically provide data and parameter requirements in a GUI, using familiar input widgets and explanatory text. It also allows Galaxy tools to interoperate transparently for users as they connect them with noodles in workflows.
 
 As a first try, it makes sense to more or less**_ re-use the NF subworkflow and module logic in Galaxy_**. Without content expert guidance, there is no information to guide improvements to the existing workflow logic, so the goal is to copy it and duplicate functionality. Optimisation for Galaxy users then becomes possible because users can respond to the working workflow. It may be possible to build complicated Galaxy tools to perform many steps in a subworkflow, but individual components may be re-used in other parts of related pipelines, so **_one tool per module _**may be the most adaptable initial approach.
-
-(Partial new tool list needed to implement subworkflows #2..#5
-
-
-
-1. <code>[buscopainter ](https://github.com/charlottewright/buscopainter)</code>
-2. <code>[assign_ancestry](https://github.com/sanger-tol/treeval/blob/f8e4b3bbbd75be6fa7ea6788337664d2533cdbdb/bin/assign_anc.py)</code>
-3. <code>[ucsc bedtobigbed](http://UCSC-bedtobigbed)</code>
-4. <code>[EXTRACT_BUSCOGENE](https://github.com/sanger-tol/treeval/blob/dev/modules/local/extract_buscogene.nf)</code>
-5. <code>[SEQTK_CUTN](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/seqtk/cutn/main.nf)</code>
-6. <code>[GAP_LENGTH](https://github.com/sanger-tol/treeval/blob/dev/modules/local/gap_length.nf)</code>
-7. <code>[PAF2BED](https://github.com/sanger-tol/treeval/blob/dev/modules/local/paf_to_bed.nf)</code>
-8. [PAFTOOLS_SAM2PAF](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/paftools/sam2paf/main.nf)
-
-
-```
-)
-```
 
 
 <h2>NF component descriptions and work plans</h2>
@@ -126,3 +108,4 @@ For the “rapid” workflow, 8 subworkflows are needed, so this makes a good fi
     18. telo_finder
 
 The DDL for these subworkflows must be decomposed into their steps, data flows, and transformation code resources. Module steps must be implemented as Galaxy tools and validated by a content expert.
+That is what this repository is for.
