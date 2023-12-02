@@ -4,6 +4,10 @@
 
 Binary and jar files make this a good candidate for a rewrite using existing Galaxy tools with executables of known provenance. It seems to write masked telomere windows into a tabix file and that might already be part of a VGP workflow?
 
+  For telomers @bguening found:
+  * https://github.com/zd1/telseq
+  * https://github.com/tolkit/telomeric-identifier
+
 
 
 ```

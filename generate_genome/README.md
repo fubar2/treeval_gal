@@ -1,5 +1,7 @@
 ### [#6 generate_genome](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/generate_genome.nf)
 
+@bgruening suggests this tool here: https://usegalaxy.eu/root?tool_id=toolshed.g2.bx.psu.edu/repos/devteam/fasta_compute_length/fasta_compute_length/1.0.3 and I hope/think this can replace generate_genome
+
 
 ![Flow chart](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_generate_genome.png)
 
