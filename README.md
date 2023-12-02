@@ -1,12 +1,29 @@
 # treeval_gal
 
-### sanger treeval nf workflow translation into Galaxy
-### work in progress
+## Sanger TreeVal NF DDL workflow translation into Galaxy
+
+### Work in Progress
+
+For the “rapid” workflow, 8 subworkflows are needed, so this makes a good first target for implementation:
+Links indicate that the subworkflow logic and command lines have been documented.
+
+1. [yaml_input](yaml_input)
+4. [gap_finder](gap_finder)
+6.  [generate_genome](generate_genome)
+7. hic_mapping
+9. kmer
+10. longread_coverage
+15. [repeat_density](repeat_density)
+18. [telo_finder](telo_finder)
+
 
 <h2>Background</h2>
 
+Anton has nominated [TreeVal](https://github.com/sanger-tol/treeval/tree/dev) as a test case for translating a NextFlow (NF) workflow into Galaxy.
 
-Anton has nominated [TreeVal](https://github.com/sanger-tol/treeval/tree/dev) as a test case for translating a NextFlow (NF) workflow into Galaxy. The first challenge is to understand and document what parameters and data TreeVal needs from the user, and what it does at each step. Steps can be re-created using existing or new Galaxy tools, combined into Galaxy subworkflows and a complete Galaxy workflow implemented, tested and documented.
+The first challenge is to understand and document what parameters and data TreeVal needs from the user, and what it does at each step.
+
+Steps can be re-created using existing or new Galaxy tools, combined into Galaxy subworkflows and a complete Galaxy workflow implemented, tested and documented.
 
 Dedicated resources including expertise and effort will be needed for:
 
@@ -55,10 +72,14 @@ As a first try, it makes sense to more or less**_ re-use the NF subworkflow and 
 
 <h2>NF component descriptions and work plans</h2>
 
+For new Galaxy subworkflows preserving the logic in
+the [full NF Sanger workflow](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_full_diagram.png),
+some **_50+ components will be needed_**.
+Each more or less corresponds to a Galaxy tool, so the workflow will probably involve 50+ individual tools.
+Some are already available in the Toolshed but many are not.
 
-For new Galaxy subworkflows preserving this architecture for the [full NF Sanger workflow](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_full_diagram.png), some **_50+ components will be needed_**, each more or less corresponding to a Galaxy tool, so the workflow will probably involve 50+ individual tools. Some are already available in the Toolshed but many are not.
-
-For the full workflow, the subworkflows to be translated into Galaxy are:
+For the full workflow, the subworkflows to be translated into Galaxy are listed below.
+As each one is documented, a link will indicate that there is useful material available for that subworkflow.
 
 1. [yaml_input](yaml_input)
 2. [ancestral_gene](ancestral_gene)
@@ -79,17 +100,6 @@ For the full workflow, the subworkflows to be translated into Galaxy are:
 17. synteny
 18. [telo_finder](telo_finder)
 
-For the “rapid” workflow, 8 subworkflows are needed, so this makes a good first target for implementation:
-
-
-1. [yaml_input](yaml_input)
-4. [gap_finder](gap_finder)
-6.  [generate_genome](generate_genome)
-7. hic_mapping
-9. kmer
-10. longread_coverage
-15. [repeat_density](repeat_density)
-18. [telo_finder](telo_finder)
-
 The DDL for these subworkflows must be decomposed into their steps, data flows, and transformation code resources. Module steps must be implemented as Galaxy tools and validated by a content expert.
+
 That is what this repository is for.
