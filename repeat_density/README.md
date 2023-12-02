@@ -160,6 +160,7 @@ That repository also includes the command used in the next **[ustat](https://git
             -out ${output}
 ```
 
+https://github.com/goeckslab/WindowMasker may be useful here.
 
 [extract_repeats](https://github.com/sanger-tol/treeval/blob/dev/modules/local/extract_repeat.nf) runs a perl script in the /tree/bin directory
 
