@@ -1,7 +1,6 @@
 ### [#5 gene_alignment](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/gene_alignment.nf)
 
-
-[https://github.com/sanger-tol/treeval/blob/dev/docs/output.md#gene-alignment](https://github.com/sanger-tol/treeval/blob/dev/docs/output.md#gene-alignment))
+![Flow chart](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_gene_alignment.png)
 
 This one is complicated and content expertise is needed to describe the logic properly. Looks like a few new tools too. I am just guessing at the DDL - the flow diagram helps.
 
