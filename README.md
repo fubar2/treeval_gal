@@ -12,7 +12,7 @@ only know when all these have been documented.
 4. [gap_finder](gap_finder)
 6.  [generate_genome](generate_genome)
 7. [hic_mapping](hic_mapping)
-9. kmer
+9. [kmer](kmer)
 10. longread_coverage
 11. nuc_alignments
 12. pep_alignments
@@ -97,7 +97,7 @@ As each one is documented, a link will indicate that there is useful material av
 6. [generate_genome](generate_genome)
 7. [hic_mapping](hic_mapping)
 8. insilico_digest
-9. kmer
+9. [kmer](kmer)
 10. longread_coverage
 11. nuc_alignments
 12. pep_alignments
