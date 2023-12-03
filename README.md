@@ -7,8 +7,7 @@ translate the Sanger [TreeVal NF DDL](https://github.com/sanger-tol/treeval/tree
 ### Work in Progress - documenting TreeVal
 
 For the “rapid” workflow, not all the 18 subworkflows are needed, so this makes a good first target for implementation.
-Links indicate that the subworkflow logic and command lines have been documented. There may be others that are called by ones listed here - will
-only know when all these have been documented.
+There may be others that are called by ones listed here - will only know when all these have been documented.
 
 1. [yaml_input](yaml_input)
 4. [gap_finder](gap_finder)
