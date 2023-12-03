@@ -85,7 +85,10 @@ workflow KMER {
         > ${prefix}
 
 ```
-[FASTTK_FASTTK](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/fastk/fastk/main.nf) uses a specific container 'ghcr.io/nbisweden/fastk_genescopefk_merquryfk:1.2' for merquryfk. Merqury itself is already [in the toolshed](https://toolshed.g2.bx.psu.edu/view/iuc/merqury/09c589057ee8) but fastk may be something else? The module executes:
+[FASTTK_FASTTK](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/fastk/fastk/main.nf) uses a specific container *ghcr.io/nbisweden/fastk_genescopefk_merquryfk:1.2* for merquryfk. 
+
+Merqury itself is already [in the toolshed](https://toolshed.g2.bx.psu.edu/view/iuc/merqury/09c589057ee8) but id fastk part of that? 
+The module executes:
 ```
 FastK \\
         $args \\
