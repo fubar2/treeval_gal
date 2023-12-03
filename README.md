@@ -10,7 +10,7 @@ Links indicate that the subworkflow logic and command lines have been documented
 1. [yaml_input](yaml_input)
 4. [gap_finder](gap_finder)
 6.  [generate_genome](generate_genome)
-7. hic_mapping
+7. [hic_mapping](hic_mapping)
 9. kmer
 10. longread_coverage
 11. nuc_alignments
@@ -94,7 +94,7 @@ As each one is documented, a link will indicate that there is useful material av
 4. [gap_finder](gap_finder)
 5. [gene_alignment](gene_alignment)
 6. [generate_genome](generate_genome)
-7. hic_mapping
+7. [hic_mapping](hic_mapping)
 8. insilico_digest
 9. kmer
 10. longread_coverage
