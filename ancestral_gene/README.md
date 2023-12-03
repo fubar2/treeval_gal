@@ -1,10 +1,9 @@
 ### [#2 ancestral_gene](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/ancestral_gene.nf)
 
-Calls 4 functions (modules or subworkflows) in **bold** below:
-
+The DDL calls 4 functions (modules or subworkflows) described below:
 
 ```
-        //
+    //
     // MODULE: EXTRACTS ANCESTRALLY LINKED BUSCO GENES FROM FULL TABLE
     //
     EXTRACT_ANCESTRAL(
@@ -51,13 +50,13 @@ Calls 4 functions (modules or subworkflows) in **bold** below:
 ```
 
 
-The first step calls a local NF DDL module **[EXTRACT_ANCESTRAL](https://github.com/sanger-tol/treeval/blob/dev/modules/local/extract_ancestral.nf)** - mostly setup code in preparation for running the following command:
+The first step calls a local NF DDL module [EXTRACT_ANCESTRAL](https://github.com/sanger-tol/treeval/blob/dev/modules/local/extract_ancestral.nf) - mostly setup code in preparation for running the following command:
 
 ``` buscopainter.py -r $ancestraltable -q $fulltable```
 
 [buscopainter ](https://github.com/charlottewright/buscopainter)is not part of [Busco,](https://toolshed.g2.bx.psu.edu/repository?repository_id=99f4c45aebf38997&changeset_revision=2a5b8b9936bf) so a new tool is needed with a content expert to advise and test. Need a content expert to help figure out how these parameters should be setup in Galaxy tool XML.
 
-The second step, **[ASSIGN_ANCESTRAL](https://github.com/sanger-tol/treeval/blob/dev/modules/local/assign_ancestral.nf)**, is a local NF module. It runs a one line bash script:
+The second step, [ASSIGN_ANCESTRAL](https://github.com/sanger-tol/treeval/blob/dev/modules/local/assign_ancestral.nf), is a local NF module. It runs a one line bash script:
 
 ```assign_anc.py -l $comp_location -f $fulltable -c ${prefix}_assigned.bed```
 
