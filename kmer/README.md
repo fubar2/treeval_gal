@@ -87,7 +87,7 @@ workflow KMER {
 ```
 [FASTTK_FASTTK](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/fastk/fastk/main.nf) uses a specific container *ghcr.io/nbisweden/fastk_genescopefk_merquryfk:1.2* for merquryfk. 
 
-Merqury itself is already [in the toolshed](https://toolshed.g2.bx.psu.edu/view/iuc/merqury/09c589057ee8) but id fastk part of that? 
+FastK is currently in PR state: https://github.com/galaxyproject/tools-iuc/pull/5550
 The module executes:
 ```
 FastK \\
@@ -98,6 +98,7 @@ FastK \\
         $reads
 ```
 
+Merqury itself is already [in the toolshed](https://toolshed.g2.bx.psu.edu/view/iuc/merqury/09c589057ee8) but Merqury.FK is missing and needs to be integrated. A conda package exist.
 [MERQURYFK_MERQURYFK](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/merquryfk/merquryfk/main.nf) uses the same container to execute:
 
 ```
