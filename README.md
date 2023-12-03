@@ -1,8 +1,8 @@
 # treeval_gal
 
 ### tl;dr
-
-Translate the Sanger [TreeVal NF DDL](https://github.com/sanger-tol/treeval/tree/dev) workflow into Galaxy. Extends ongoing collaboration between the [Galaxy](https://galaxyproject.org/) and [VGP](https://vertebrategenomesproject.org/) communities. Just started. If you would like to contribute, please join us. 
+Very new proposal in the ongoing collaboration between the [Galaxy](https://galaxyproject.org/) and [VGP](https://vertebrategenomesproject.org/) communities to 
+translate the Sanger [TreeVal NF DDL](https://github.com/sanger-tol/treeval/tree/dev) workflow into Galaxy. Anyone with an interest is cordially invited to pitch in.
 
 ### Work in Progress - documenting TreeVal
 
@@ -23,40 +23,35 @@ only know when all these have been documented.
 18. [telo_finder](telo_finder)
 
 
-<h2>Background</h2>
+<h2>Background and approach</h2>
 
 Anton has nominated [TreeVal](https://github.com/sanger-tol/treeval/tree/dev) as a test case for translating a NextFlow (NF) workflow into Galaxy.
 
-The first challenge is to understand and document what parameters and data TreeVal needs from the user, and what it does at each step.
+That translation process needs a clear understanding of the parameters and data TreeVal needs from the user, and what specific application, data and command line is executed at each step.
 
-Steps can be re-created using existing or new Galaxy tools, combined into Galaxy subworkflows and a complete Galaxy workflow implemented, tested and documented.
+Once understood, workflows that re-create the same logic can be built using existing or new Galaxy tools, combined into Galaxy subworkflows and a complete Galaxy workflow implemented, tested and documented.
 
-Dedicated resources including expertise and effort will be needed for:
-
-
+Expertise and effort will be needed for:
 
 * NF DDL for insight into how the workflow works
-  * Warning! All analysis so far is by someone who has never run NF DDL, so it needs to be fixed.
+  * Warning! The DDL analysis here is guesswork by Galaxy collaborators, who have never actually used NF!
+  * It needs to be reviewed properly.
 * the specific scientific context for checking data flows and testing new tools,
 * tool and workflow technical skills for building, testing and documentation.
 
 <h3>Sources of truth</h3>
 
-
 Sanger publish [usage](https://pipelines.tol.sanger.ac.uk/treeval/dev/usage) and [technical ](https://github.com/sanger-tol/treeval/blob/dev/docs/usage.md)documentation for the [TreeVal](https://github.com/sanger-tol/treeval/tree/dev) workflow source code. There is an[ overview flow diagram](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_full_diagram.png), [detailed output description](https://github.com/sanger-tol/treeval/blob/dev/docs/output.md) for each subworkflow, and an online [analysis service](https://pipelines.tol.sanger.ac.uk/launch?id=1700725399_4e71a73a94cf).
 
 Test data is available using:
-
 
 ```
 curl https://tolit.cog.sanger.ac.uk/test-data/resources/treeval/TreeValTinyData.tar.gz | tar xzf -
 ```
 
-
 The download is 1.2GB so the tiny test data is vast.
 
 <h3>NF workflow DDL code</h3>
-
 
 Understanding the NF DDL used to write workflows and modules is key to replicating the functionality needed for Galaxy. Content expertise is also a key ingredient because it can help understand how to adapt NF idioms and idiosyncrasies for Galaxy, confirm process logic, and to test and validate tools and subworkflows as they become available.
 
