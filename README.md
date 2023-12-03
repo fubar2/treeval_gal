@@ -4,7 +4,7 @@
 
 Translate the Sanger [TreeVal NF DDL](https://github.com/sanger-tol/treeval/tree/dev) workflow into Galaxy. Extends ongoing collaboration between the [Galaxy](https://galaxyproject.org/) and [VGP](https://vertebrategenomesproject.org/) communities. Just started. If you would like to contribute, please join us. 
 
-### Work in Progress
+### Work in Progress - documenting TreeVal
 
 For the “rapid” workflow, not all the 18 subworkflows are needed, so this makes a good first target for implementation.
 Links indicate that the subworkflow logic and command lines have been documented. There may be others that are called by ones listed here - will
