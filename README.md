@@ -1,6 +1,6 @@
 # treeval_gal
 
-Sanger [TreeVal NF DDL](https://github.com/sanger-tol/treeval/tree/dev) workflow translation into Galaxy
+## Sanger [TreeVal NF DDL](https://github.com/sanger-tol/treeval/tree/dev) workflow translation into Galaxy
 
 ### Work in Progress
 
