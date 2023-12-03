@@ -15,9 +15,9 @@ only know when all these have been documented.
 6.  [generate_genome](generate_genome)
 7. [hic_mapping](hic_mapping)
 9. [kmer](kmer)
-10. longread_coverage
+10. [longread_coverage](longread_coverage)
 11. [nuc_alignments](nuc_alignments)
-12. pep_alignments
+12. [pep_alignments](pep_alignments)
 15. [repeat_density](repeat_density)
 18. [telo_finder](telo_finder)
 
