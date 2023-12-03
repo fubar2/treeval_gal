@@ -1,6 +1,6 @@
 [pep_alignments](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/pep_alignments.nf)
 
-Part of hic_mapping
+Protein pathway for hic_mapping
 
 ```
 workflow PEP_ALIGNMENTS {
