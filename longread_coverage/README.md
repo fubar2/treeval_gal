@@ -2,7 +2,18 @@
 
 ![Flow chart](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_longread_coverage.png)
 
-Lots of DDL steps:
+Lots of DDL steps
+Outputs are:
+```
+    treeval_upload/
+        coverage.bw: Coverage of aligned reads across the reference genome in bigwig format.
+        coverage_log.bw: A log corrected coverage file which aims to smooth out the above track.
+    treeval_upload/punchlists/
+        maxdepth.bigbed: Max read depth punchlist in bigBed format.
+        zerodepth.bigbed: Zero read depth punchlist in bigBed format.
+        halfcoverage.bigbed: Half read depth punchlist in bigBed format.
+```
+
 ```
 workflow LONGREAD_COVERAGE {
 
@@ -549,5 +560,65 @@ GNU_SORT is used again, followed by BED2BW_NORMAL - that's an alias for [ucsc_be
 
 There is an existing bedgraph2BigWig wrapper: https://usegalaxy.eu/root?tool_id=wig_to_bigWig
 
+Then there is a repeat of the above steps after log scaling with 
 
+[LONGREADCOVERAGESCALELOG](https://github.com/sanger-tol/treeval/blob/dev/modules/local/longreadcoveragescalelog.nf) that runs a python script from the /tree/bin directory using
+```
+longread_cov_log.py -i $bedfile > ${prefix}.bed
+```
+That python script is 
+```
+#!/usr/bin/env python
+
+import optparse
+import math
+
+# Script originally developed by Will Eagles (we3@sanger.ac.uk)
+
+
+def process_line(line):
+    line_values = line.rsplit(None, 1)
+
+    try:
+        cov_val = float(line_values[1])
+    except:
+        cov_val = 0
+
+    if cov_val > 0:
+        log_cov_val = math.log(cov_val)
+    else:
+        log_cov_val = 0
+
+    return line_values[0] + "\t" + str(round(log_cov_val, 2))
+
+
+def main():
+    parser = optparse.OptionParser(version="%prog 1.0")
+    parser.add_option(
+        "-i",
+        "--inputfile",
+        dest="inputfile",
+        default="default.input",
+    )
+
+    options, remainder = parser.parse_args()
+
+    cov_bed = open(options.inputfile, "r")
+
+    for line in cov_bed:
+        print(process_line(line))
+
+
+if __name__ == "__main__":
+    main()
+```
+
+The output is processed with BED2BW_log, another alias for [ucsc_bedgraphtobigwig](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/ucsc/bedgraphtobigwig/main.nf) that calls
+
+```
+    bedGraphToBigWig \\
+            $bedgraph \\
+            $sizes \\
+            ${prefix}.bigWig
+```
 
