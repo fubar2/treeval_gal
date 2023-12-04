@@ -30,8 +30,10 @@ That translation process needs a clear understanding of the parameters and data 
 
 Once understood, workflows that re-create the same logic can be built using existing or new Galaxy tools, combined into Galaxy subworkflows and a complete Galaxy workflow implemented, tested and documented.
 
-In the longer term, this is intended to serve as a prototype, to allow users to test it on their own data. Galaxy makes it easy to implement suggestions that improve working workflows. 
-Reaching consensus on an optimal design starting from scratch may be a more difficult path.
+**In the longer term, this is intended to serve as a prototype, to allow users to test it on their own data.**
+Reaching consensus on an optimal design when starting from scratch, may be a challenging path, but once all the needed tools are available, Galaxy's GUI workflow editing makes it easy to implement ideas
+from users trying things out to incrementally improve working workflows.
+
 
 Expertise and effort will be needed for:
 
