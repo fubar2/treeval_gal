@@ -1,8 +1,9 @@
 # treeval_gal
 
 ### tl;dr
-Very new proposal in the ongoing collaboration between the [Galaxy](https://galaxyproject.org/) and [VGP](https://vertebrategenomesproject.org/) communities to 
-translate the Sanger [TreeVal NF DDL](https://github.com/sanger-tol/treeval/tree/dev) workflow into Galaxy. Anyone with an interest is cordially invited to pitch in.
+*Very new proposal in the ongoing collaboration between the [Galaxy](https://galaxyproject.org/) and [VGP](https://vertebrategenomesproject.org/) communities to 
+translate the Sanger [TreeVal NF DDL](https://github.com/sanger-tol/treeval/tree/dev) workflow into Galaxy. Everyone with an interest in contributing to
+this effort is cordially invited to pitch in.*
 
 ### Work in Progress - documenting TreeVal
 
