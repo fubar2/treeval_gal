@@ -3,6 +3,9 @@
 
 This writes a new file in a DDL specific way so need some help confirming the logic.
 ![Flow chart](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_gap_finder.png)
+
+This DDL has function calls explained below. Most of the rest of the DDL is not going to be needed other than to
+figure out exactly how each function gets parameters supplied - but that should be easy given the actual command lines.
 ```
 workflow GAP_FINDER {
     take:
