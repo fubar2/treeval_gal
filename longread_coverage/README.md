@@ -14,6 +14,10 @@ Outputs are:
         halfcoverage.bigbed: Half read depth punchlist in bigBed format.
 ```
 
+The DDL has function calls explained below.
+Most of the rest of the DDL is not going to be needed other than to
+figure out exactly how each function gets parameters supplied to the actual command lines.
+
 ```
 workflow LONGREAD_COVERAGE {
 
@@ -403,7 +407,7 @@ adjustments ids and merge - there is a comment:
     //         EMITS A MERGED BAM
 ```
 
-using [SAMTOOLS_MERGE](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/samtools/merge/main.nf) is called - also in [nuc_alignments](nuc_alignments) and [hic_mapping](hic_mapping) 
+using [SAMTOOLS_MERGE](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/samtools/merge/main.nf) is called - also in [nuc_alignments](nuc_alignments) and [hic_mapping](hic_mapping)
 uses *conda "bioconda::samtools=1.17"* to run
 
 ```
@@ -450,7 +454,7 @@ samtools \\
         > ${prefix}.bed
 ```
 
-[BEDTOOLS_GENOMECOV](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/bedtools/genomecov/main.nf) uses *bioconda::bedtools=2.31.0"*. 
+[BEDTOOLS_GENOMECOV](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/bedtools/genomecov/main.nf) uses *bioconda::bedtools=2.31.0"*.
 That runs one of two separate command lines depending on whether the inputs are .bam files using odd DDL logic:
 
 ```
@@ -498,7 +502,7 @@ bedtools \\
 ```
 It is called separately on the min/max output files from the GETMINMAXPUNCHES step above.
 
-A depth graph is generated using [GRAPHOVERALLCOVERAGE](https://github.com/sanger-tol/treeval/blob/dev/modules/local/graphoverallcoverage.nf) using *"conda-forge::perl=5.26.2"* to run 
+A depth graph is generated using [GRAPHOVERALLCOVERAGE](https://github.com/sanger-tol/treeval/blob/dev/modules/local/graphoverallcoverage.nf) using *"conda-forge::perl=5.26.2"* to run
 a perl script from the tree/bin directory
 
 ```
@@ -560,13 +564,13 @@ GNU_SORT is used again, followed by BED2BW_NORMAL - that's an alias for [ucsc_be
 
 There is an existing bedgraph2BigWig wrapper: https://usegalaxy.eu/root?tool_id=wig_to_bigWig
 
-Then there is a repeat of the above steps after log scaling with 
+Then there is a repeat of the above steps after log scaling with
 
 [LONGREADCOVERAGESCALELOG](https://github.com/sanger-tol/treeval/blob/dev/modules/local/longreadcoveragescalelog.nf) that runs a python script from the /tree/bin directory using
 ```
 longread_cov_log.py -i $bedfile > ${prefix}.bed
 ```
-That python script is 
+That python script is
 ```
 #!/usr/bin/env python
 

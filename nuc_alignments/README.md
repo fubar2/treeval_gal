@@ -1,5 +1,9 @@
 [nuc_alignments](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/nuc_alignments.nf) is the nucleotide pathway for hic_mapping
 
+This DDL has function calls explained below.
+Most of the rest of the DDL is not going to be needed other than to
+figure out exactly how each function gets parameters supplied to the actual command lines.
+
 ```
 
 workflow NUC_ALIGNMENTS {
@@ -178,7 +182,7 @@ samtools \\
         > ${prefix}.bed
 ```
 
-bedtools sort is then needed and available 
+bedtools sort is then needed and available
 followed by [UCSC-bedtobigbed](https://open.bioqueue.org/home/knowledge/showKnowledge/sig/ucsc-bedtobigbed) using:
 
 ```

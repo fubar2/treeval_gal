@@ -2,6 +2,10 @@
 
 Protein pathway for hic_mapping
 
+This DDL has function calls explained below.
+Most of the rest of the DDL is not going to be needed other than to
+figure out exactly how each function gets parameters supplied to the actual command lines.
+
 ```
 workflow PEP_ALIGNMENTS {
     take:

@@ -4,6 +4,9 @@
 
 This one is complicated and content expertise is needed to describe the logic properly. Looks like a few new tools too. I am just guessing at the DDL - the flow diagram helps.
 
+This DDL has function calls explained below.
+Most of the rest of the DDL is not going to be needed other than to
+figure out exactly how each function gets parameters supplied to the actual command lines.
 
 ```
     // This subworkflow takes an input fasta sequence and csv style list of organisms to return

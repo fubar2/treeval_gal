@@ -4,8 +4,10 @@
 This writes a new file in a DDL specific way so need some help confirming the logic.
 ![Flow chart](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_gap_finder.png)
 
-This DDL has function calls explained below. Most of the rest of the DDL is not going to be needed other than to
-figure out exactly how each function gets parameters supplied - but that should be easy given the actual command lines.
+This DDL has function calls explained below.
+Most of the rest of the DDL is not going to be needed other than to
+figure out exactly how each function gets parameters supplied to the actual command lines.
+
 ```
 workflow GAP_FINDER {
     take:
@@ -93,7 +95,7 @@ There is some intriguing DDL that seems to write a file with metadata added to e
                 )}
             .set { modified_bed_ch }
 ```
-[TABIX_BGZIPTABIX](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/gap_finder.nf) uses *bioconda::tabix=1.11* preceded by 
+[TABIX_BGZIPTABIX](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/gap_finder.nf) uses *bioconda::tabix=1.11* preceded by
 some interesting DDL that seems to flag the need for csi indexes if largest scaffold is too big to use tabix:
 
 ```

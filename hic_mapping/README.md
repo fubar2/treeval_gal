@@ -5,6 +5,10 @@
 
 This is a lot of steps, but the breakdown suggests only need a few new tools....
 
+This DDL has function calls explained below.
+Most of the rest of the DDL is not going to be needed other than to
+figure out exactly how each function gets parameters supplied to the actual command lines.
+
 ```
 workflow HIC_MAPPING {
     take:
@@ -376,7 +380,7 @@ generate_cram_csv.sh $crampath >> ${prefix}_cram.csv
     fi
 ```
 
-[PRETEXT_INGEST_SNDRD](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/pretext_ingestion.nf) uses 
+[PRETEXT_INGEST_SNDRD](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/pretext_ingestion.nf) uses
 [pretext_graph](https://github.com/sanger-tol/treeval/blob/dev/modules/local/pretext_graph.nf) with *conda "bioconda::pretextgraph=0.0.6 bioconda::ucsc-bigwigtobedgraph=448"* and runs:
 
 ```
