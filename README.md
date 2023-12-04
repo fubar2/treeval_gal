@@ -1,17 +1,18 @@
 # treeval_gal
 
 ### tl;dr
-*Very new proposal in the ongoing collaboration between the [Galaxy](https://galaxyproject.org/) and [VGP](https://vertebrategenomesproject.org/) communities to
+*New proposal in the ongoing collaboration between the [Galaxy](https://galaxyproject.org/) and [VGP](https://vertebrategenomesproject.org/) communities to
 translate the Sanger [TreeVal NF DDL](https://github.com/sanger-tol/treeval/tree/dev) workflow into Galaxy. Everyone with an interest in contributing to
 this effort is cordially invited to pitch in.*
 
 ### Work in Progress - documenting TreeVal
 
-Plans are being discussed and documented at [the work plan discussion](https://github.com/fubar2/treeval_gal/discussions/7#discussion-5920941)
+Plans are documented for discussion and refinement at [the work plan discussion](https://github.com/fubar2/treeval_gal/discussions/7#discussion-5920941)
 
 For the “rapid” workflow, not all the 18 subworkflows are needed, so this makes a good first target for implementation.
 A first pass at documenting each subworkflow at the level of dependencies and command lines executed at each step has been completed ready for comment and review.
-While discussions about what's needed continue, prototype Galaxy subworkflows can be created with existing and some new tools, so users can test them and help inform the design of improved versions.
+While clarifying the best long term solutions, prototype TreeVal Galaxy subworkflows can be created with existing and some new tools, so users can test them.
+These prototypes will help drive the design and features of an optimal production workflow, as discussions progress.
 
 1. [yaml_input](yaml_input)
 4. [gap_finder](gap_finder)

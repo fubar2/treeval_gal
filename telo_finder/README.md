@@ -3,15 +3,13 @@
 ![Flow chart](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_telo_finder.png)
 Binary and jar files make this a good candidate for a rewrite using existing Galaxy tools with executables of known provenance. It seems to write masked telomere windows into a tabix file and that might already be part of a VGP workflow?
 
-As a prototype, a temporary tool with all these unsustainable jar files and shell scripts would be useful as a demonstration.
-Also possible to test for consistent output with test data. Long term a sustainable solution is needed.
-
-### potential tools that we could use instead
+As a prototype, a temporary tool with all these unsustainable jar files and shell scripts would be useful as a demonstration and test for consistent output
+with TreeVal test data, when a sustainable long term solution is built for the final production version. Potential tools that we could use include:
 
 * [telseq](https://github.com/zd1/telseq)
 * [telomeric-identifier](https://github.com/tolkit/telomeric-identifier)
 
-This DDL has function calls explained below.
+The DDL has function calls explained below.
 Most of the rest of the DDL is not going to be needed other than to
 figure out exactly how each function gets parameters supplied to the actual command lines.
 

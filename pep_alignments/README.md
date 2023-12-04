@@ -1,6 +1,7 @@
 [pep_alignments](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/pep_alignments.nf)
 
-Protein pathway for hic_mapping
+
+This subworkflow is used in [hic_mapping](hic_mapping) as the peptide aligner.
 
 This DDL has function calls explained below.
 Most of the rest of the DDL is not going to be needed other than to

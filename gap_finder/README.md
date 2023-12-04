@@ -14,8 +14,7 @@ Output files
         *.bed: The raw bed file needed for ingestion into Pretext
 ```
 
-Tools for this subworkflow are available already except for absolute values from $3-$2 for bedgraph.
-
+Tools for this subworkflow are available already except for absolute values from $3-$2 for bedgraph, so it is ideal for quick implementation and testing.
 
 
 This DDL has function calls explained below.

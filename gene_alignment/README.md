@@ -136,6 +136,7 @@ figure out exactly how each function gets parameters supplied to the actual comm
 The .branch() DDL _appears to allow _optional data dependent alignments for peptides, dna, rna and cds inputs._
 These in turn involve [PEP_ALIGNMENTS](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/pep_alignments.nf) and
 [NUC_ALIGNMENTS ](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/nuc_alignments.nf) subworkflows.
+
 They are complex and have their own decompositions at [nuc_alignments](nuc_alignments) and [pep_alignments](pep_alignments).
 
 They in turn involve miniprot-align [available from the IUC](https://toolshed.g2.bx.psu.edu/repository/browse_repositories?f-free-text-search=miniprot&sort=name&operation=view_or_manage_repository&id=8603bdbca905c70e) in the Toolshed, and PAF2BED and PAFTOOLS that appear to be part of minimap so perhaps supplied from the suite in the Toolshed, plus things already in the Toolshed like samtools_faidx.
@@ -152,6 +153,7 @@ They in turn involve miniprot-align [available from the IUC](https://toolshed.g2
     include { PAF2BED               } from '../../modules/local/paf_to_bed'
 ```
 
+The other steps needed for this subworkflow are:
 
 [PAF2BED](https://github.com/sanger-tol/treeval/blob/dev/modules/local/paf_to_bed.nf) is a local module that calls the following command line :
 
@@ -161,10 +163,31 @@ paf_to_bed.sh ${file} ${prefix}.bed
 ```
 
 
-That bash script is in /treeval/bin so a new tool is needed.
+That bash script is in /treeval/bin and is an exotic awk exercise.
+
+```
+#!/bin/bash
+
+# paf_to_bed12.sh
+# -------------------
+# A shell script to convert a
+# paf into bed format for use
+# in JBrowse
+# -------------------
+# Author = yy5
+
+version='1.0.0'
+
+if [ $1 == '-v'];
+then
+    echo "$version"
+else
+    cat $1 | awk 'BEGIN{FS="\t";}{a[$1]++;if(a[$1]==2)print v[$1] ORS $0;if(a[$1]>2)print;v[$1]=$0;}' | awk '$(NF+1) = ($10/$11)*100' | awk '$(NF+1) = ($10/$2)*100' | awk -vOFS='\t' '{print $6,$8,$9,$1,$2,$10,$(NF-1),$NF}' > $2
+fi
+```
 
 [PAFTOOLS_SAM2PAF](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/paftools/sam2paf/main.nf) uses samtools and
-perhaps another minimap suite script ? Looks like a new tool is needed:
+perhaps another minimap suite script ? Looks like a new tool is needed for that undocumented jar.
 
 ```
 samtools view -h ${bam} | paftools.js sam2paf - > ${prefix}.paf
