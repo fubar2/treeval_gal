@@ -90,22 +90,31 @@ There is some intriguing DDL that seems to write a file with metadata added to e
                 )}
             .set { modified_bed_ch }
 ```
+[TABIX_BGZIPTABIX](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/gap_finder.nf) uses *bioconda::tabix=1.11* preceded by 
+some interesting DDL that seems to flag the need for csi indexes if largest scaffold is too big to use tabix:
 
+```
+ SEQTK_CUTN.out.bed
+        .combine(max_scaff_size)
+        .map {meta, row, scaff ->
+            tuple([ id          : meta.id,
+                    max_scaff   : scaff >= 500000000 ? 'csi': ''
+                ],
+                file(row)
+            )}
+        .set { modified_bed_ch }
+    //
+```
+The actual call is just:
+
+```
+ bgzip  --threads ${task.cpus} -c $args $input > ${prefix}.${input.getExtension()}.gz
+ tabix $args2 ${prefix}.${input.getExtension()}.gz
+```
 
 The 500MB max_scaff limit is a tabix limit apparently….
-
-
 ```
 The tabix (.tbi) and BAI index formats can handle individual chromosomes up to 512 Mbp (2^29 bases) in length. If your input file might contain data lines with begin or end positions greater than that, you will need to use a CSI index.
 ```
 
-
 Tabix bgzip [is available from the IUC](https://toolshed.g2.bx.psu.edu/repository/browse_repositories?f-free-text-search=tabix&sort=name&operation=view_or_manage_repository&id=2c71da8851968c89) in the Toolshed to run on that output file.
-
-The tabix call ends up running:
-
-
-```
-    bgzip  --threads ${task.cpus} -c $args $input > ${prefix}.${input.getExtension()}.gz
-        tabix $args2 ${prefix}.${input.getExtension()}.gz
-```
