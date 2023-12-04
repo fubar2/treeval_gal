@@ -81,20 +81,6 @@ workflow GAP_FINDER {
 
 Should not be hard to implement.
 
-There is some intriguing DDL that seems to write a file with metadata added to each row of an intermediate bed file. Need some content expertise to understand, duplicate and test this.
-
-
-```
-    SEQTK_CUTN.out.bed
-            .combine(max_scaff_size)
-            .map {meta, row, scaff ->
-                tuple([ id          : meta.id,
-                        max_scaff   : scaff >= 500000000 ? 'csi': ''
-                    ],
-                    file(row)
-                )}
-            .set { modified_bed_ch }
-```
 [TABIX_BGZIPTABIX](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/gap_finder.nf) uses *bioconda::tabix=1.11* preceded by
 some interesting DDL that seems to flag the need for csi indexes if largest scaffold is too big to use tabix:
 
