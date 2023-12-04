@@ -8,7 +8,7 @@ this effort is cordially invited to pitch in.*
 ### Work in Progress - documenting TreeVal
 
 For the “rapid” workflow, not all the 18 subworkflows are needed, so this makes a good first target for implementation.
-There may be others that are called by ones listed here - will only know when all these have been documented.
+A first pass at documenting each subworkflow at the level of dependencies and command lines has been completed ready for comment and review.
 
 1. [yaml_input](yaml_input)
 4. [gap_finder](gap_finder)
