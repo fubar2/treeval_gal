@@ -71,7 +71,8 @@ Parameter preparation for module command lines is integrated into the NF workflo
 <h3>Galaxy architecture - workflows, subworkflows and tools</h3>
 
 Galaxy tools are configured to control third-party analysis application code by a wrapper XML document. Applications are hidden from the server behind an abstract tool interface. This isolation layer allows the
-Galaxy workflow user to control data and parameter requirements for any tool, using familiar input widgets and explanatory text, without any additional programming. Data flow between any two suitable tools is controlled by connecting them in a GUI, without additional programming.
+Galaxy workflow user to control data and parameter requirements for any tool, using familiar input widgets and explanatory text, without additional programming.
+Data flow between any two tools is controlled by connecting an input to an output with matching datatypes in a GUI - no additional programming is required.
 
 As a first try, it makes sense to more or less **re-use the NF subworkflow and module logic in Galaxy**.
 Without content expert guidance, there is no information to guide improvements to the existing workflow logic, so the goal is to copy it and duplicate functionality.
