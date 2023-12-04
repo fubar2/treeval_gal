@@ -140,7 +140,7 @@ workflow NUC_ALIGNMENTS {
     )
 ```
 
-[MINIMAP2_ALIGN]{https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/minimap2/align/main.nf}
+[MINIMAP2_ALIGN](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/minimap2/align/main.nf)
 Uses *conda "bioconda::minimap2=2.24 bioconda::samtools=1.14"* to run
 
 ```
