@@ -46,7 +46,7 @@ Expertise and effort will be needed for:
 
 <h3>Sources of truth</h3>
 
-Sanger publish [usage](https://pipelines.tol.sanger.ac.uk/treeval/dev/usage) and [technical ](https://github.com/sanger-tol/treeval/blob/dev/docs/usage.md)documentation for the [TreeVal](https://github.com/sanger-tol/treeval/tree/dev) workflow source code. There is an[ overview flow diagram](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_full_diagram.png), [detailed output description](https://github.com/sanger-tol/treeval/blob/dev/docs/output.md) for each subworkflow, and an online [analysis service](https://pipelines.tol.sanger.ac.uk/launch?id=1700725399_4e71a73a94cf).
+Sanger publish [usage](https://pipelines.tol.sanger.ac.uk/treeval/dev/usage) and [technical ](https://github.com/sanger-tol/treeval/blob/dev/docs/usage.md)documentation for the [TreeVal](https://github.com/sanger-tol/treeval/tree/dev) workflow source code. There is an[ overview flow diagram](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_full_diagram.png), [detailed output description](https://github.com/sanger-tol/treeval/blob/dev/docs/output.md) for each subworkflow, and an online [NF setup generator](https://pipelines.tol.sanger.ac.uk/launch?id=1700725399_4e71a73a94cf).
 
 Test data is available using:
 
