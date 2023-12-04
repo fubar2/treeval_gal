@@ -8,7 +8,8 @@ this effort is cordially invited to pitch in.*
 ### Work in Progress - documenting TreeVal
 
 For the “rapid” workflow, not all the 18 subworkflows are needed, so this makes a good first target for implementation.
-A first pass at documenting each subworkflow at the level of dependencies and command lines has been completed ready for comment and review.
+A first pass at documenting each subworkflow at the level of dependencies and command lines executed at each step has been completed ready for comment and review.
+While discussions about what's needed continue, prototype Galaxy subworkflows can be created with existing and some new tools, so users can test them and help inform the design of improved versions. 
 
 1. [yaml_input](yaml_input)
 4. [gap_finder](gap_finder)
