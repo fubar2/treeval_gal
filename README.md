@@ -57,14 +57,10 @@ curl https://tolit.cog.sanger.ac.uk/test-data/resources/treeval/TreeValTinyData.
 
 The download is 1.2GB so the tiny test data is vast.
 
-<h3>NF workflow DDL code</h3>
-
-Understanding the NF DDL used to write workflows and modules is key to replicating the functionality needed for Galaxy. Content expertise is also a key ingredient because it can help understand how to adapt NF idioms and idiosyncrasies for Galaxy, confirm process logic, and to test and validate tools and subworkflows as they become available.
-
-There will be new tools, mostly trivial bash or other “one liners” but some more complex. Once the inputs, parameters and processing are well understood, the components available as Galaxy tools and the subworkflows as Galaxy subworkflows, then it will be possible to put the entire thing together for testing and documentation.
 
 <h3>NF architecture - workflows, subworkflows and modules</h3>
 
+Understanding the NF DDL used to write workflows and modules is key to replicating the functionality needed for Galaxy. Content expertise is also a key ingredient because it can help understand how to adapt NF idioms and idiosyncrasies for Galaxy, confirm process logic, and to test and validate tools and subworkflows as they become available.
 
 NF workflows contain calls to subworkflows and modules. The functionality of a single NF module is usually the Galaxy equivalent of a tool. There are 2 TreeVal workflows . The full one has [18 subworkflows](https://github.com/sanger-tol/treeval/tree/dev/subworkflows/local). They depend on [20 NF-core modules](https://github.com/sanger-tol/treeval/tree/dev/modules/nf-core) and [35 local workflow-specific NF DDL modules](https://github.com/sanger-tol/treeval/tree/dev/subworkflows/local) that depend on [22 specialised scripts and jar files](https://github.com/sanger-tol/treeval/tree/dev/bin) supplied in the _/tree/bin_ directory.  The “rapid” workflow uses only [a subset of those subworkflows](https://github.com/sanger-tol/treeval/blob/dev/workflows/treeval_rapid.nf).
 
