@@ -3,10 +3,17 @@
 ![Flow chart](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_hic_mapping.png)
 (from [https://github.com/sanger-tol/treeval/blob/dev/docs/output.md#busco-analysis](https://github.com/sanger-tol/treeval/blob/dev/docs/output.md#hic_mapping))
 
-This is a lot of steps, but the breakdown suggests only need a few new tools....
+```
+Output files
+    hic_files/
+        *_pretext_hr.pretext: High resolution pretext map.
+        *_pretext_normal.pretext: Standard resolution pretext map.
+        *.mcool: HiC map required for HiGlass
 
-This DDL has function calls explained below.
-Most of the rest of the DDL is not going to be needed other than to
+```
+This is a lot of steps. Some local code - could need new tools. Juicer? Cooler? cram_filter?
+
+This DDL has function calls explained below. Most of the rest of the DDL is not going to be needed other than to
 figure out exactly how each function gets parameters supplied to the actual command lines.
 
 ```
@@ -324,6 +331,9 @@ workflow HIC_MAPPING {
         }
         .set { ch_reporting_cram }
 ```
+
+## Steps broken down
+
 BWAMEM2_INDEX is an NF-core module that executes:
 
 ```
@@ -340,7 +350,9 @@ mkdir bwamem2
 generate_cram_csv.sh $crampath >> ${prefix}_cram.csv
 ```
 
-[CRAM_FILTER_ALIGN_BWAMEM2_FIXMATE_SORT](https://github.com/sanger-tol/treeval/blob/dev/modules/local/cram_filter_align_bwamem2_fixmate_sort.nf) runs some conventional tools:
+[CRAM_FILTER_ALIGN_BWAMEM2_FIXMATE_SORT](https://github.com/sanger-tol/treeval/blob/dev/modules/local/cram_filter_align_bwamem2_fixmate_sort.nf)
+runs cram_filter and some conventional tools:
+
 ```
  // Please be aware one of the tools here required mem = 28 * reference size!!!
     """
@@ -362,7 +374,8 @@ generate_cram_csv.sh $crampath >> ${prefix}_cram.csv
         $input_files
 ```
 
-[pretext_map](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/pretextmap/main.nf) uses *bioconda::pretextmap=0.1.9 bioconda::samtools=1.17* and logic depends on single or paired data:
+[pretext_map](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/pretextmap/main.nf) uses
+*bioconda::pretextmap=0.1.9 bioconda::samtools=1.17* and logic depends on single or paired data:
 
 ```
  if [[ $input == *.pairs.gz ]]; then
@@ -432,7 +445,7 @@ samtools view -@${st_cores} -u -F0x400 ${bam} | bamToBed | sort -k4 --parallel=$
 bed_to_contacts.sh $file > pre.bed
 ```
 
-That script is some fugly awk and sorting:
+That script is some awk and sorting:
 
 ```
 #!/bin/bash

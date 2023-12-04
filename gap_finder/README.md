@@ -4,6 +4,20 @@
 This writes a new file in a DDL specific way so need some help confirming the logic.
 ![Flow chart](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_gap_finder.png)
 
+```
+Output files
+
+    treeval_upload/
+        *.bed.gz: A bgzipped file containing gap locations
+        *.bed.gz.tbi: A tabix index file for the above file.
+    hic_files/
+        *.bed: The raw bed file needed for ingestion into Pretext
+```
+
+Tools for this subworkflow are available already except for absolute values from $3-$2 for bedgraph.
+
+
+
 This DDL has function calls explained below.
 Most of the rest of the DDL is not going to be needed other than to
 figure out exactly how each function gets parameters supplied to the actual command lines.
@@ -58,7 +72,7 @@ workflow GAP_FINDER {
 
 
 [seqtk is available](https://toolshed.g2.bx.psu.edu/view/iuc/package_seqtk_1_0_r75/8b7d6f6cb89b) in the Toolshed. [SEQTK_CUTN](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/seqtk/cutn/main.nf) is a nf-core module and it just does this:
-
+Uses *"bioconda::seqtk=1.4"*
 
 ```
     seqtk \\

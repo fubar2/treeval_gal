@@ -1,15 +1,17 @@
 # treeval_gal
 
 ### tl;dr
-*Very new proposal in the ongoing collaboration between the [Galaxy](https://galaxyproject.org/) and [VGP](https://vertebrategenomesproject.org/) communities to 
+*Very new proposal in the ongoing collaboration between the [Galaxy](https://galaxyproject.org/) and [VGP](https://vertebrategenomesproject.org/) communities to
 translate the Sanger [TreeVal NF DDL](https://github.com/sanger-tol/treeval/tree/dev) workflow into Galaxy. Everyone with an interest in contributing to
 this effort is cordially invited to pitch in.*
 
 ### Work in Progress - documenting TreeVal
 
+Plans are being discussed and documented at [the work plan discussion](https://github.com/fubar2/treeval_gal/discussions/7#discussion-5920941)
+
 For the “rapid” workflow, not all the 18 subworkflows are needed, so this makes a good first target for implementation.
 A first pass at documenting each subworkflow at the level of dependencies and command lines executed at each step has been completed ready for comment and review.
-While discussions about what's needed continue, prototype Galaxy subworkflows can be created with existing and some new tools, so users can test them and help inform the design of improved versions. 
+While discussions about what's needed continue, prototype Galaxy subworkflows can be created with existing and some new tools, so users can test them and help inform the design of improved versions.
 
 1. [yaml_input](yaml_input)
 4. [gap_finder](gap_finder)
@@ -40,8 +42,8 @@ from users trying things out to incrementally improve working workflows.
 Expertise and effort will be needed for:
 
 * NF DDL for insight into how the workflow works
-  * Warning! The DDL analysis here is guesswork by Galaxy collaborators, who have never actually used NF!
-  * It needs to be reviewed properly.
+    * Warning! The DDL analysis here is guesswork by Galaxy collaborators, who have never actually used NF!
+    * It needs to be reviewed properly.
 * the specific scientific context for checking data flows and testing new tools,
 * tool and workflow technical skills for building, testing and documentation.
 
@@ -68,8 +70,8 @@ Parameter preparation for module command lines is integrated into the NF workflo
 
 <h3>Galaxy architecture - workflows, subworkflows and tools</h3>
 
-Galaxy tools are configured to control third-party analysis application code by a wrapper XML document. Applications are hidden from the server behind an abstract tool interface. This isolation layer allows the 
-Galaxy workflow user to control data and parameter requirements for any tool, using familiar input widgets and explanatory text, without any additional programming. Data flow between any two suitable tools is controlled by connecting them in a GUI, without additional programming.  
+Galaxy tools are configured to control third-party analysis application code by a wrapper XML document. Applications are hidden from the server behind an abstract tool interface. This isolation layer allows the
+Galaxy workflow user to control data and parameter requirements for any tool, using familiar input widgets and explanatory text, without any additional programming. Data flow between any two suitable tools is controlled by connecting them in a GUI, without additional programming.
 
 As a first try, it makes sense to more or less **re-use the NF subworkflow and module logic in Galaxy**.
 Without content expert guidance, there is no information to guide improvements to the existing workflow logic, so the goal is to copy it and duplicate functionality.

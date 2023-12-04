@@ -4,6 +4,23 @@
 
 This one is complicated and content expertise is needed to describe the logic properly. Looks like a few new tools too. I am just guessing at the DDL - the flow diagram helps.
 
+```
+Output files
+
+    treeval_upload/
+        *.gff.gz: Zipped .gff for each species with peptide data.
+        *.gff.gz.tbi: TBI index file of each zipped .gff.
+        *_cdna.bigBed: BigBed file for each species with complementary DNA data.
+        *_cds.bigBed: BigBed file for each species with nuclear DNA data.
+        *_rna.bigBed: BigBed file for each species with nRNA data.
+    treeval_upload/punchlists/
+        *_pep_punchlist.bed: Punchlist for peptide track.
+        *_cdna_punchlist.bed: Punchlist for cdna track.
+        *_cds_punchlist.bed: Punchlist for cds track.
+        *_rna_punchlist.bed: Punchlist for rna track.
+
+```
+
 This DDL has function calls explained below.
 Most of the rest of the DDL is not going to be needed other than to
 figure out exactly how each function gets parameters supplied to the actual command lines.
@@ -119,7 +136,7 @@ figure out exactly how each function gets parameters supplied to the actual comm
 The .branch() DDL _appears to allow _optional data dependent alignments for peptides, dna, rna and cds inputs._
 These in turn involve [PEP_ALIGNMENTS](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/pep_alignments.nf) and
 [NUC_ALIGNMENTS ](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/nuc_alignments.nf) subworkflows.
-They are complex and need their own decomposition.
+They are complex and have their own decompositions at [nuc_alignments](nuc_alignments) and [pep_alignments](pep_alignments).
 
 They in turn involve miniprot-align [available from the IUC](https://toolshed.g2.bx.psu.edu/repository/browse_repositories?f-free-text-search=miniprot&sort=name&operation=view_or_manage_repository&id=8603bdbca905c70e) in the Toolshed, and PAF2BED and PAFTOOLS that appear to be part of minimap so perhaps supplied from the suite in the Toolshed, plus things already in the Toolshed like samtools_faidx.
 
@@ -149,5 +166,6 @@ That bash script is in /treeval/bin so a new tool is needed.
 [PAFTOOLS_SAM2PAF](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/paftools/sam2paf/main.nf) uses samtools and
 perhaps another minimap suite script ? Looks like a new tool is needed:
 
-```samtools view -h ${bam} | paftools.js sam2paf - > ${prefix}.paf
+```
+samtools view -h ${bam} | paftools.js sam2paf - > ${prefix}.paf
 ```

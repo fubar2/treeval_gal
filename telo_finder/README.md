@@ -3,9 +3,18 @@
 ![Flow chart](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_telo_finder.png)
 Binary and jar files make this a good candidate for a rewrite using existing Galaxy tools with executables of known provenance. It seems to write masked telomere windows into a tabix file and that might already be part of a VGP workflow?
 
+As a prototype, a temporary tool with all these unsustainable jar files and shell scripts would be useful as a demonstration.
+Also possible to test for consistent output with test data. Long term a sustainable solution is needed.
+
+### potential tools that we could use instead
+
+* [telseq](https://github.com/zd1/telseq)
+* [telomeric-identifier](https://github.com/tolkit/telomeric-identifier)
+
 This DDL has function calls explained below.
 Most of the rest of the DDL is not going to be needed other than to
 figure out exactly how each function gets parameters supplied to the actual command lines.
+
 ```
         //
         // MODULE: FINDS THE TELOMERIC SEQEUNCE IN REFERENCE
@@ -54,9 +63,9 @@ figure out exactly how each function gets parameters supplied to the actual comm
         )
         ch_versions     = ch_versions.mix( TABIX_BGZIPTABIX.out.versions )
 
-FIND_TELOMERE_REGIONS
-```
 
+```
+[FIND_TELOMERE_REGIONS](https://github.com/sanger-tol/treeval/blob/dev/modules/local/find_telomere_regions.nf)
 
 executes a binary in the /tree/bin directory (!)
 
@@ -104,10 +113,3 @@ so again can be replaced with something simpler.
     bgzip  --threads ${task.cpus} -c $args $input > ${prefix}.${input.getExtension()}.gz
     tabix $args2 ${prefix}.${input.getExtension()}.gz
 ```
-
-
-### potential tools that we could use instead
-
-* https://github.com/zd1/telseq
-* https://github.com/tolkit/telomeric-identifier
-
