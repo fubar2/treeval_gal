@@ -440,7 +440,7 @@ samtools \\
 ```
 
 [BEDTOOLS_GENOMECOV](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/bedtools/genomecov/main.nf) uses *bioconda::bedtools=2.31.0"*. 
-That runs one of two separate command lines depending on whether the inputs are bam using odd DDL logic:
+That runs one of two separate command lines depending on whether the inputs are .bam files using odd DDL logic:
 
 ```
  if (intervals.name =~ /\.bam/) {
@@ -465,5 +465,89 @@ That runs one of two separate command lines depending on whether the inputs are 
             $args \\
             > ${prefix}.${extension}
 ```
+[GNU_SORT](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/gnu/sort/main.nf) uses coreutils sort on the output merge called as:
+```
+ sort ${args} ${input} > ${output_file}
+```
 
-TO BE COMPLETED - need a break.
+The sorted file is passed to [GETMINMAXPUNCHES](https://github.com/sanger-tol/treeval/blob/dev/modules/local/getminmaxpunches.nf) to run awk:
+
+```
+  $/
+    cat "${bedfile}" \
+    | awk '{ if ($4 == 0) {print $0 >> "zero.bed" } else if ($4 > 1000) {print $0 >> "max.bed"}}'
+```
+BEDTOOLS_MERGE_MIN and MAX are aliases for [BEDTOOLS_MERGE](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/bedtools/merge/main.nf) using *"bioconda::bedtools=2.31.0"* to execute:
+```
+bedtools \\
+        merge \\
+        -i $bed \\
+        $args \\
+        > ${prefix}.bed
+```
+It is called separately on the min/max output files from the GETMINMAXPUNCHES step above.
+
+A depth graph is generated using [GRAPHOVERALLCOVERAGE](https://github.com/sanger-tol/treeval/blob/dev/modules/local/graphoverallcoverage.nf) using *"conda-forge::perl=5.26.2"* to run 
+a perl script from the tree/bin directory
+
+```
+graph_overall_coverage.pl $bed > ${prefix}.part
+```
+
+The script is:
+
+```
+#!/usr/bin/env perl
+
+# Script originally developed by Yumi Sims (yy5@sanger.ac.uk)
+
+use warnings;
+
+# my $file = shift;
+
+my ($file) = @ARGV;
+
+if (!@ARGV || ($ARGV[0] eq '--version')) {
+    print "1.0\n";
+    exit 0;
+}
+
+open (FILE, $file) || die "can't open file $file\n";
+
+my %depthcount;
+while (my $line = <FILE>) {
+    chomp $line;
+    my ($id, $start, $end, $depth) = split ("\t", $line);
+    my $length = $end - $start;
+
+    if ($depthcount{$depth}){
+        $depthcount{$depth} += $length;
+    }
+    else {
+        $depthcount{$depth} = $length;
+    }
+}
+
+foreach my $depth (sort {$a<=>$b} keys %depthcount){
+    print join("\t", $depth, $depthcount{$depth}) ."\n";
+}
+```
+[FINDHALFCOVERAGE](https://github.com/sanger-tol/treeval/blob/dev/modules/local/findhalfcoverage.nf) runs a [python script](https://github.com/sanger-tol/treeval/blob/dev/bin/findHalfcoverage.py) from the bin directory
+using the command:
+```
+  findHalfcoverage.py -c $bedfile -m $my_genome -d $depthgraph > ${prefix}.bed
+```
+
+GNU_SORT is used again, followed by BED2BW_NORMAL - that's an alias for [ucsc_bedgraphtobigwig](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/ucsc/bedgraphtobigwig/main.nf) that calls
+
+```
+    bedGraphToBigWig \\
+            $bedgraph \\
+            $sizes \\
+            ${prefix}.bigWig
+```
+
+There is an existing bedgraph2BigWig wrapper: https://usegalaxy.eu/root?tool_id=wig_to_bigWig
+
+
+
