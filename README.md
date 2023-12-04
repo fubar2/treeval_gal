@@ -99,11 +99,11 @@ As each one is documented, a link will indicate that there is useful material av
 7. [hic_mapping](hic_mapping)
 8. insilico_digest
 9. [kmer](kmer)
-10. longread_coverage
-11. nuc_alignments
-12. pep_alignments
+10. [longread_coverage](longread_coverage)
+11. [nuc_alignments](nuc_alignments)
+12. [pep_alignments](pep_alignments)
 13. pretext_ingestion
-14. punchlist
+14. [punchlist](punchlist)
 15. [repeat_density](repeat_density)
 16. selfcomp
 17. synteny
