@@ -70,7 +70,7 @@ workflow GAP_FINDER {
 ```
 
 
-[seqtk is available](https://toolshed.g2.bx.psu.edu/view/iuc/seqtk/3da72230c066] in the Toolshed. [SEQTK_CUTN](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/seqtk/cutn/main.nf) is a nf-core module and it just does this:
+[seqtk is available](https://toolshed.g2.bx.psu.edu/view/iuc/seqtk/3da72230c066) in the Toolshed. [SEQTK_CUTN](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/seqtk/cutn/main.nf) is a nf-core module and it just does this:
 Uses *"bioconda::seqtk=1.4"*
 
 ```
