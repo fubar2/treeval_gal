@@ -1,7 +1,8 @@
 
 ### [#4 gap_finder](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/gap_finder.nf)
 
-This writes a new file in a DDL specific way so need some help confirming the logic.
+This writes a tabix file with all the NNNN removed and the gap lengths added as absolute values to the end of each row of the bed file from seqtk-cutn
+
 ![Flow chart](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_gap_finder.png)
 
 ```
@@ -83,7 +84,8 @@ Uses *"bioconda::seqtk=1.4"*
 
 
 [GAP_LENGTH](https://github.com/sanger-tol/treeval/blob/dev/modules/local/gap_length.nf) is a local nf module that runs awk. If _a = $3-$2_ the math seems to return sqrt(a*a) or abs(a) - awk does not have an abs function, to enforce positive values, on the output from seqtk.:
-
+This takes the seqtk cutn output bed file and appends the absolute value of the gap length to the end of each bed row
+Needs a new tool.
 
 ```
     $/
