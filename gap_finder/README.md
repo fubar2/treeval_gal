@@ -116,9 +116,8 @@ The actual call is just:
  tabix $args2 ${prefix}.${input.getExtension()}.gz
 ```
 
-The 500MB max_scaff limit is a tabix limit apparently….
-```
-The tabix (.tbi) and BAI index formats can handle individual chromosomes up to 512 Mbp (2^29 bases) in length. If your input file might contain data lines with begin or end positions greater than that, you will need to use a CSI index.
-```
+The 500MB max_scaff limit is a tabix limit according to the documentation:
+
+>The tabix (.tbi) and BAI index formats can handle individual chromosomes up to 512 Mbp (2^29 bases) in length. If your input file might contain data lines with begin or end positions greater than that, you will need to use a CSI index.
 
 Tabix bgzip [is available from the IUC](https://toolshed.g2.bx.psu.edu/repository/browse_repositories?f-free-text-search=tabix&sort=name&operation=view_or_manage_repository&id=2c71da8851968c89) in the Toolshed to run on that output file.
