@@ -8,7 +8,7 @@ In particular, [this](https://github.com/VGP/vgp-assembly/blob/53edb61e3bda9f872
 There's a [build.sh](https://github.com/VGP/vgp-assembly/blob/53edb61e3bda9f8725a83ab756231fa7214dc062/pipeline/telomere/build.sh) for a jar and some c code to search for a user supplied or vertebrate default sequence.
 If that's true, getting those dependencies into Conda becomes feasible and new Galaxy tools are then possible for a new workflow.
 
-As a prototype, a temporary tool with all these unsustainable jar files and shell scripts would be useful as a demonstration and test for consistent output
+As a prototype, a temporary tool with using the existing executable, jar files and shell scripts would be useful as a demonstration and test for consistent output
 with TreeVal test data, when a sustainable long term solution is built for the final production version. Potential tools that we could use include:
 
 * [telseq](https://github.com/zd1/telseq)
