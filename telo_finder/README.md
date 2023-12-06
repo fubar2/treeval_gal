@@ -1,7 +1,12 @@
 [#18 telo_finder](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/telo_finder.nf)</h3>
 
 ![Flow chart](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_telo_finder.png)
-Binary and jar files make this a good candidate for a rewrite using existing Galaxy tools with executables of known provenance. It seems to write masked telomere windows into a tabix file and that might already be part of a VGP workflow?
+Binary and jar files make this a good candidate for a rewrite using existing Galaxy tools with executables of known provenance. 
+It seems to write masked telomere windows into a tabix file and that might already be part of a VGP workflow?
+
+In particular, [this](https://github.com/VGP/vgp-assembly/blob/53edb61e3bda9f8725a83ab756231fa7214dc062/pipeline/telomere/find_telomere.sh#L4) might be the origin of the NF /tree/bin telomere jar and binary? 
+There's a [build.sh](https://github.com/VGP/vgp-assembly/blob/53edb61e3bda9f8725a83ab756231fa7214dc062/pipeline/telomere/build.sh) for a jar and some c code to search for a user supplied or vertebrate default sequence.
+If that's true, getting those dependencies into Conda becomes feasible and new Galaxy tools are then possible for a new workflow.
 
 As a prototype, a temporary tool with all these unsustainable jar files and shell scripts would be useful as a demonstration and test for consistent output
 with TreeVal test data, when a sustainable long term solution is built for the final production version. Potential tools that we could use include:
