@@ -85,6 +85,14 @@ Uses *"bioconda::seqtk=1.4"*
 
 [GAP_LENGTH](https://github.com/sanger-tol/treeval/blob/dev/modules/local/gap_length.nf) is a local nf module that runs awk. If _a = $3-$2_ the math seems to return sqrt(a*a) or abs(a) - awk does not have an abs function, to enforce positive values, on the output from seqtk. This takes the seqtk cutn output bed file and appends the absolute value of the gap length to the end of each bed row
 
+```
+    $/
+    cat "${file}" \
+    | awk '{print $0"\t"sqrt(($3-$2)*($3-$2))}' > ${prefix}_gap.bedgraph
+```
+
+Should not be hard to implement.
+
 There is [a generic tool available](https://usegalaxy.eu/root?tool_id=toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/2.0) - requires the workflow builder to set up the conversion function as a text string
 
 There is an [alternate specialised version](https://toolshed.g2.bx.psu.edu/view/fubar2/abslen_bed/551c076a635c) that does not require any configuration - just drop into the workflow.
@@ -92,16 +100,6 @@ There is an [alternate specialised version](https://toolshed.g2.bx.psu.edu/view/
 There is a trade off between the cost of maintaining a single generic tool because it requires well informed configuration like the one above *by every workflow builder*. The specialised version requires zero configuration for use in a workflow but is one more tool. Fortunately it is so trivial that the need for maintenance is close to zero.
 
 **Would our VGP colleagues prefer to configure generic tools or use a plethora of highly specialised tools?**
-
-
-```
-    $/
-    cat "${file}" \
-    | awk '{print $0"\t"sqrt(($3-$2)*($3-$2))}' > ${prefix}_gap.bedgraph
-```
-
-
-Should not be hard to implement.
 
 [TABIX_BGZIPTABIX](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/gap_finder.nf) uses *bioconda::tabix=1.11* preceded by
 some interesting DDL that seems to flag the need for csi indexes if largest scaffold is too big to use tabix:
