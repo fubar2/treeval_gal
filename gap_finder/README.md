@@ -117,6 +117,10 @@ The actual call is just:
  bgzip  --threads ${task.cpus} -c $args $input > ${prefix}.${input.getExtension()}.gz
  tabix $args2 ${prefix}.${input.getExtension()}.gz
 ```
+Tabix is told to use csi indexes if max_scaffold exceeds 500M bases with
+```
+def args2   = meta.max_scaff == 'csi' ? "--csi" : ''
+```
 
 The 500MB max_scaff limit is a tabix limit according to the documentation:
 
