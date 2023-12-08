@@ -71,7 +71,9 @@ workflow GAP_FINDER {
 ```
 
 
-[seqtk is available](https://toolshed.g2.bx.psu.edu/view/iuc/seqtk/3da72230c066) in the Toolshed. [SEQTK_CUTN](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/seqtk/cutn/main.nf) is a nf-core module and it just does this:
+[seqtk is available](https://toolshed.g2.bx.psu.edu/view/iuc/seqtk/3da72230c066) in the Toolshed.
+
+[SEQTK_CUTN](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/seqtk/cutn/main.nf) is a nf-core module and it just does this:
 Uses *"bioconda::seqtk=1.4"*
 
 ```
@@ -93,11 +95,14 @@ Uses *"bioconda::seqtk=1.4"*
 
 Should not be hard to implement.
 
-There is [a generic tool available](https://usegalaxy.eu/root?tool_id=toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/2.0) - requires the workflow builder to set up the conversion function as a text string
+There is [a generic tool available](https://usegalaxy.eu/root?tool_id=toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/2.0) - requires the workflow builder to set up the conversion function as a text string. Unfortunately, it insists on converting the input to tabular first which then requires a different syntax for column names because of a header now added. Expecting the generic tool to be correctly configured by inexperienced builders is perhaps expecting too much of them. Fortunately, there is an [alternate specialised version](https://toolshed.g2.bx.psu.edu/view/fubar2/abslen_bed/551c076a635c) that does not require any configuration - just drop into the workflow and it runs.
 
-There is an [alternate specialised version](https://toolshed.g2.bx.psu.edu/view/fubar2/abslen_bed/551c076a635c) that does not require any configuration - just drop into the workflow.
-
-There is a trade off between the cost of maintaining a single generic tool because it requires well informed configuration like the one above *by every workflow builder*. The specialised version requires zero configuration for use in a workflow but is one more tool. Fortunately it is so trivial that the need for maintenance is close to zero.
+There is a always going to be a trade off between 
+* the cost of maintaining a single generic tool
+  * Requires well informed configuration like the one above *by every workflow builder*.
+* and the cost of maintaining multiple highly specialised tools
+  * require zero configuration for use in a workflow so no user error
+  * require one more tool. Fortunately it is so trivial that the need for maintenance is effectively zero.
 
 **Would our VGP colleagues prefer to configure generic tools or use a plethora of highly specialised tools?**
 
