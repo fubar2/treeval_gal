@@ -136,4 +136,4 @@ The 500MB max_scaff limit is a tabix limit according to the documentation:
 
 >The tabix (.tbi) and BAI index formats can handle individual chromosomes up to 512 Mbp (2^29 bases) in length. If your input file might contain data lines with begin or end positions greater than that, you will need to use a CSI index.
 
-Tabix bgzip [is available from the IUC](https://toolshed.g2.bx.psu.edu/repository/browse_repositories?f-free-text-search=tabix&sort=name&operation=view_or_manage_repository&id=84a670226cfe30f4) in the Toolshed. It needs a separate compression step so a new tool will be needed.
+Tabix bgzip [is available from the IUC](https://toolshed.g2.bx.psu.edu/repository/browse_repositories?f-free-text-search=tabix&sort=name&operation=view_or_manage_repository&id=84a670226cfe30f4) in the Toolshed. It needs a separate compression step, but if tabix is only being run for Jbrowse, Galaxy does not need this step.
