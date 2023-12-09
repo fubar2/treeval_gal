@@ -50,7 +50,11 @@ Expertise and effort will be needed for:
 
 <h3>Sources of truth</h3>
 
-Sanger publish [usage](https://pipelines.tol.sanger.ac.uk/treeval/dev/usage) and [technical ](https://github.com/sanger-tol/treeval/blob/dev/docs/usage.md)documentation for the [TreeVal](https://github.com/sanger-tol/treeval/tree/dev) workflow source code. There is an[ overview flow diagram](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_full_diagram.png), [detailed output description](https://github.com/sanger-tol/treeval/blob/dev/docs/output.md) for each subworkflow, and an online [NF setup generator](https://pipelines.tol.sanger.ac.uk/launch?id=1700725399_4e71a73a94cf).
+Sanger publish [usage](https://pipelines.tol.sanger.ac.uk/treeval/dev/usage) and [technical ](https://github.com/sanger-tol/treeval/blob/dev/docs/usage.md)
+documentation for the [TreeVal](https://github.com/sanger-tol/treeval/tree/dev) workflow source code.
+There is an[ overview flow diagram](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_full_diagram.png),
+ [detailed output description](https://github.com/sanger-tol/treeval/blob/dev/docs/output.md) for each subworkflow, and an online
+ [NF setup generator](https://pipelines.tol.sanger.ac.uk/launch?id=1700725399_4e71a73a94cf).
 
 Test data is available using:
 
@@ -58,7 +62,7 @@ Test data is available using:
 curl https://tolit.cog.sanger.ac.uk/test-data/resources/treeval/TreeValTinyData.tar.gz | tar xzf -
 ```
 
-The download is 1.2GB so the tiny test data is vast.
+The tiny test data is 1.2GB
 
 
 <h3>NF architecture - workflows, subworkflows and modules</h3>
@@ -83,16 +87,16 @@ Note that every new tool written will require effort for maintenance. Some will 
 the preference will always be to choose an existing, known-good tool for the new subworkflows if it is possible with minor tweaks in the subworkflow itself.
 
 
-<h2>NF component descriptions and work plans</h2>
-
-For new Galaxy subworkflows preserving the logic in
+<h2>Full TreeVal subworkflows</h2>
+The first target is the rapid workflow described above.
+Once that is done, new Galaxy subworkflows preserving the logic in
 the [full NF Sanger workflow](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_full_diagram.png),
 some **_50+ components will be needed_**.
 Each more or less corresponds to a Galaxy tool, so the workflow will probably involve 50+ individual tools.
-Some are already available in the Toolshed but many are not.
 
 For the full workflow, the subworkflows to be translated into Galaxy are listed below.
 As each one is documented, a link will indicate that there is useful material available for that subworkflow.
+
 
 1. [yaml_input](yaml_input)
 2. [ancestral_gene](ancestral_gene)
@@ -113,6 +117,3 @@ As each one is documented, a link will indicate that there is useful material av
 17. synteny
 18. [telo_finder](telo_finder)
 
-The DDL for these subworkflows must be decomposed into their steps, data flows, and transformation code resources. Module steps must be implemented as Galaxy tools and validated by a content expert.
-
-That is what this repository is for.
