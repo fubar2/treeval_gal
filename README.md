@@ -86,6 +86,7 @@ Optimisation for Galaxy users then becomes possible because users can respond to
 Note that every new tool written will require effort for maintenance. Some will be needed but it is recommended that where it is possible,
 the preference will always be to choose an existing, known-good tool for the new subworkflows if it is possible with minor tweaks in the subworkflow itself.
 
+Note: TreeVal uses tabix at the end of many subworkflows. This may be so the outputs can be viewed using Jbrowse. Galaxy's Jbrowse does the compression and indexing automatically so there is no need for that step unless the tabix file is used downstream for some other subworkflow.
 
 <h2>Full TreeVal subworkflows</h2>
 The first target is the rapid workflow described above.
