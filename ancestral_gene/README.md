@@ -62,6 +62,9 @@ The second step, [ASSIGN_ANCESTRAL](https://github.com/sanger-tol/treeval/blob/d
 
 [That python code](https://github.com/sanger-tol/treeval/blob/f8e4b3bbbd75be6fa7ea6788337664d2533cdbdb/bin/assign_anc.py) is also found in the treeval/bin directory. Again, a new tool is needed and a content expert to advise and to test. The _$variables_ are DDL but work for Galaxy tools too._ ${prefix}_ is a subtask name idiom in DDL. Need a content expert to help figure out how these parameters should be setup in Galaxy tool XML.
 
+BG: The python script is using pandas to play around with the table. With a bit of luck, we can use https://usegalaxy.eu/root?tool_id=toolshed.g2.bx.psu.edu/repos/iuc/table_compute/table_compute/1.2.4+galaxy0 which is a tool offering many of pandas functionality. 
+
+
 The third step is a bedtools sort on that output, already available as an IUC bedtools tool.
 
 The last step is [UCSC-bedtobigbed](https://open.bioqueue.org/home/knowledge/showKnowledge/sig/ucsc-bedtobigbed) using:
