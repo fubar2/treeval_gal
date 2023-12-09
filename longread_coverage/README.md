@@ -567,6 +567,9 @@ There is an existing bedgraph2BigWig wrapper: https://usegalaxy.eu/root?tool_id=
 Then there is a repeat of the above steps after log scaling with
 
 [LONGREADCOVERAGESCALELOG](https://github.com/sanger-tol/treeval/blob/dev/modules/local/longreadcoveragescalelog.nf) that runs a python script from the /tree/bin directory using
+
+BG: This script can be replaced by https://usegalaxy.eu/root?tool_id=toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/2.0
+
 ```
 longread_cov_log.py -i $bedfile > ${prefix}.bed
 ```
