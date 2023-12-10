@@ -5,8 +5,11 @@
 translate the Sanger [TreeVal NF DDL](https://github.com/sanger-tol/treeval/tree/dev) workflow into Galaxy. Everyone with an interest in contributing to
 this effort is cordially invited to pitch in.*
 
-### Work in Progress - documenting TreeVal
+#### December 10 2023 announcements
+1. A [prototype gap_finder workflow](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/Galaxy-Workflow-gap_finder_vgp_0.ga) is now available for testing.
+2. seqtk-telo is now available in the seqtk suite from the Toolshed.
 
+### Work in Progress
 Plans are documented for discussion and refinement at [the work plan discussion](https://github.com/fubar2/treeval_gal/discussions/7#discussion-5920941)
 
 For the “rapid” workflow, not all the 18 subworkflows are needed, so this makes a good first target for implementation.
