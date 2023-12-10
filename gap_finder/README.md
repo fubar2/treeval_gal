@@ -8,7 +8,9 @@ It is very simple in Galaxy compared to TreeVal NF DDL shown below.
 ![image](https://github.com/fubar2/treeval_gal/assets/6016266/81ed1757-8a87-4e10-af4c-4f3fae83bf95)
 
 This github folder contains an ecoli sample reference sequence for Jbrowse [gapsjbrowseref.fa](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/gapsjbrowseref.fa) duplicated from the GTN [Jbrowse tutorial](https://training.galaxyproject.org/training-material/topics/visualisation/tutorials/jbrowse/tutorial.html).
-Gaps have been edited into a copy [gapsjbrowsegaps.fa](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/gapsjbrowsegaps.fa) to testing the workflow.
+
+Gaps have been overwritten more or less haphazardly in a copy of the reference, and saved as [gapsjbrowsegaps.fa](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/gapsjbrowsegaps.fa) for testing the workflow.
+
 The expected bed [gapsjbrowse.bed](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/gapsjbrowse.bed) workflow output file can be added as a Jbrowse track,
 after loading that ecoli reference file. 
 
@@ -16,7 +18,8 @@ It should look like:
 
 ![jbrowse_gap_finder_bed](https://github.com/fubar2/treeval_gal/assets/6016266/41b3675d-9634-4087-bfc1-97e076cae409)
 
-VGP and other interested researchers are asked to take a look at it. Please discuss, suggest improvements or raise issues here.
+VGP and other interested researchers are asked to try it out on their own data to see if it is helpful. 
+Please discuss, suggest improvements or raise issues here.
 
 ### Treeval NF DDL subworkflow deconstruction and explanation
 
