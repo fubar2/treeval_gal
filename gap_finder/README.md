@@ -1,7 +1,9 @@
 
 ### [#4 gap_finder](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/gap_finder.nf)
 
-This writes a tabix file with all the NNNN removed and the gap lengths added as absolute values to the end of each row of the bed file from seqtk-cutn
+This writes a tabix file with gap lengths added as absolute values to the end of each row of the bed file from seqtk-cutn
+Galaxy jbrowse does not require tabix, but will work with bed or other feature files tracks on the appropriate reference.
+A [prototype gap_finder workflow](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/Galaxy-Workflow-gap_finder_vgp_0.ga) is now available for testing and feedback.
 
 ![Flow chart](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_gap_finder.png)
 
@@ -15,8 +17,7 @@ Output files
         *.bed: The raw bed file needed for ingestion into Pretext
 ```
 
-Tools for this subworkflow are available already except for absolute values from $3-$2 for bedgraph, so it is ideal for quick implementation and testing.
-
+Tools for this subworkflow are available already so it is ideal for quick implementation and testing.
 
 This DDL has function calls explained below.
 Most of the rest of the DDL is not going to be needed other than to
