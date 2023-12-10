@@ -1,20 +1,20 @@
-### [#4 gap_finder](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/gap_finder.nf)
+## [#4 gap_finder](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/gap_finder.nf)
 
-#### Galaxy prototype solution
+### Galaxy prototype solution
 
 A [prototype gap_finder workflow](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/Galaxy-Workflow-gap_finder_vgp_0.ga) is now available for testing and feedback.
 
 ![image](https://github.com/fubar2/treeval_gal/assets/6016266/81ed1757-8a87-4e10-af4c-4f3fae83bf95)
 
-This github folder contains an ecoli sample reference sequence for Jbrowse (gapsjbrowsegaps.fa) duplicated from the GTN Jbrowse tutorial.
-Gaps have been edited into a copy (gapsjbrowsegaps.fa) to use as a test in the workflow.
-The expected bed (gapsjbrowse.bed) workflow output can be added as a track after loading the reference file. 
+This github folder contains an ecoli sample reference sequence for Jbrowse **gapsjbrowsegaps.fa** duplicated from the GTN [Jbrowse tutorial](https://training.galaxyproject.org/training-material/topics/visualisation/tutorials/jbrowse/tutorial.html).
+Gaps have been edited into a copy **gapsjbrowsegaps.fa** to use as a test in the workflow.
+The expected bed **gapsjbrowse.bed** workflow output can be added as a track after loading the reference file. 
 It should look like:
 
 ![jbrowse_gap_finder_bed](https://github.com/fubar2/treeval_gal/assets/6016266/41b3675d-9634-4087-bfc1-97e076cae409)
 
 
-#### Treeval NF DDL subworkflow deconstruction and explanation
+### Treeval NF DDL subworkflow deconstruction and explanation
 
 This writes a tabix file with gap lengths added as absolute values to the end of each row of the bed file from seqtk-cutn.
 
