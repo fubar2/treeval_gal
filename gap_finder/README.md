@@ -6,11 +6,13 @@ Galaxy's Jbrowse automatically indexes with tabix, and will work using a bed fil
 
 A [prototype gap_finder workflow](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/Galaxy-Workflow-gap_finder_vgp_0.ga) is now available for testing and feedback.
 
+![image](https://github.com/fubar2/treeval_gal/assets/6016266/81ed1757-8a87-4e10-af4c-4f3fae83bf95)
+
 This github folder contains an ecoli sample [reference](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/gapsjbrowsegaps.fa) from the GTN Jbrowse tutorial.
 Gaps have been edited into [a copy](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/gapsjbrowsegaps.fa) for use in the workflow.
-The [expected bed](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/gapsjbrowsegaps.bed) file output can be used as a track with Jbrowse on the reference file. It should look like:
+The [expected bed](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/gapsjbrowse.bed) file output can be used as a track with Jbrowse on the reference file. It should look like:
 
-![image](https://github.com/fubar2/treeval_gal/assets/6016266/81ed1757-8a87-4e10-af4c-4f3fae83bf95)
+![jbrowse_gap_finder_bed](https://github.com/fubar2/treeval_gal/assets/6016266/41b3675d-9634-4087-bfc1-97e076cae409)
 
 ![Flow chart](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_gap_finder.png)
 
