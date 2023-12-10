@@ -9,16 +9,15 @@ It could be created quickly because it did not require any new Galaxy tools, unl
 
 ![image](https://github.com/fubar2/treeval_gal/assets/6016266/81ed1757-8a87-4e10-af4c-4f3fae83bf95)
 
-#### Testing the prototype
+#### Tutorial: steps for testing the prototype
 
-In a Galaxy session, [import this URL](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/Galaxy-Workflow-gap_finder_vgp_0.ga) to your Galaxy user workflows. 
+In a Galaxy session, [import this link](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/Galaxy-Workflow-gap_finder_vgp_0.ga) to your Galaxy user workflows. 
 
-In a new history, upload an ecoli sample reference sequence for Jbrowse [gapsjbrowseref.fa](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/gapsjbrowseref.fa) duplicated from the GTN [Jbrowse tutorial](https://training.galaxyproject.org/training-material/topics/visualisation/tutorials/jbrowse/tutorial.html). Or if you prefer, download it to your own machine for a Jbrowse session. 
+In a new history, upload an ecoli sample reference sequence for Jbrowse [gapsjbrowseref.fa from this link](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/gapsjbrowseref.fa) duplicated from the GTN [Jbrowse tutorial](https://training.galaxyproject.org/training-material/topics/visualisation/tutorials/jbrowse/tutorial.html). Or if you prefer, download it to your own machine for a Jbrowse session. 
 
-Gaps have been overwritten, more or less haphazardly, in a copy of that reference, and saved as a faked *gappy* sample input fasta [gapsjbrowsegaps.fa](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/gapsjbrowsegaps.fa) for testing the workflow. Upload that to your history and run the workflow. Use that gappy file as the input. It will produce an output bed file in your history.
+Gaps have been overwritten, more or less haphazardly, in a copy of that reference, and saved as a faked *gappy* sample input fasta for testing the workflow. Upload that to your history and run the workflow. Upload [gapsjbrowsegaps.fa from this link](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/gapsjbrowsegaps.fa) to the history. Run the workflow, selecting that gappy file as the input. It will run and create a new output bed file in your history.
 
-The expected bed [gapsjbrowse.bed](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/gapsjbrowse.bed) workflow output file can be added as a Jbrowse track,
-after loading the ecoli reference fasta. 
+The expected bed [gapsjbrowse.bed](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/gapsjbrowse.bed) output file can be added as a Jbrowse track on the ecoli reference fasta. 
 
 Run the Jbrowse tool in Galaxy with that ecoli reference sequence, or if you prefer your local Jbrowser, download the reference and the bed file to view as a track.
 Either way, it should look like:
