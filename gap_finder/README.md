@@ -3,7 +3,7 @@
 ### Galaxy prototype solution
 
 A [prototype gap_finder workflow](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/Galaxy-Workflow-gap_finder_vgp_0.ga) is now available for testing and feedback. 
-It is very simple in Galaxy compared to TreeVal NF DDL.
+It is very simple in Galaxy compared to TreeVal NF DDL shown below.
 
 ![image](https://github.com/fubar2/treeval_gal/assets/6016266/81ed1757-8a87-4e10-af4c-4f3fae83bf95)
 
