@@ -1,10 +1,14 @@
 ### [#4 gap_finder](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/gap_finder.nf)
 
-This writes a tabix file with gap lengths added as absolute values to the end of each row of the bed file from seqtk-cutn. 
+This writes a tabix file with gap lengths added as absolute values to the end of each row of the bed file from seqtk-cutn.
 
 Galaxy's Jbrowse automatically indexes with tabix, and will work using a bed file, such as this workflow produces, or other feature track on the appropriate reference.
 
 A [prototype gap_finder workflow](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/Galaxy-Workflow-gap_finder_vgp_0.ga) is now available for testing and feedback.
+
+This github folder contains an ecoli sample [reference](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/gapsjbrowsegaps.fa) from the GTN Jbrowse tutorial.
+Gaps have been edited into [a copy](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/gapsjbrowsegaps.fa) for use in the workflow.
+The [expected bed](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/gapsjbrowsegaps.bed) file output can be used as a track with Jbrowse on the reference file. It should look like:
 
 ![image](https://github.com/fubar2/treeval_gal/assets/6016266/81ed1757-8a87-4e10-af4c-4f3fae83bf95)
 
@@ -101,7 +105,7 @@ Should not be hard to implement.
 
 There is [a generic tool available](https://usegalaxy.eu/root?tool_id=toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/2.0) - requires the workflow builder to set up the conversion function as a text string. Unfortunately, it insists on converting the input to tabular first which then requires a different syntax for column names because of a header now added. Expecting the generic tool to be correctly configured by inexperienced builders is perhaps expecting too much of them. Fortunately, there is an [alternate specialised version](https://toolshed.g2.bx.psu.edu/view/fubar2/abslen_bed/551c076a635c) that does not require any configuration - just drop into the workflow and it runs.
 
-There is a always going to be a trade off between 
+There is a always going to be a trade off between
 * the cost of maintaining a single generic tool
   * Requires well informed configuration like the one above *by every workflow builder*.
 * and the cost of maintaining multiple highly specialised tools
