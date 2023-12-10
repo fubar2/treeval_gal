@@ -1,11 +1,11 @@
-[#18 telo_finder](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/telo_finder.nf)</h3>
+### [#18 telo_finder](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/telo_finder.nf)</h3>
+
+#### Update: 
+As of early December, seqtk-telo is now available as an IUC tool in the toolshed and may provide a basis for a replacement after evaluation and advice from VGP.
 
 ![Flow chart](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_telo_finder.png)
 
 Binary and jar files make this a good candidate for a rewrite using existing Galaxy tools with executables of known provenance. 
-
-seqtk-telo is now available as an IUC tool in the toolshed and may provide a basis for a replacement - need advice from a telomere biologist.
-
 It seems to write masked telomere windows into a tabix file and that might already be part of a VGP workflow?
 
 In particular, [this](https://github.com/VGP/vgp-assembly/blob/53edb61e3bda9f8725a83ab756231fa7214dc062/pipeline/telomere/find_telomere.sh#L4) might be the origin of the NF /tree/bin telomere jar and binary? 
