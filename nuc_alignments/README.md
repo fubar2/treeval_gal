@@ -1,6 +1,7 @@
 [nuc_alignments](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/nuc_alignments.nf) is the nucleotide pathway for hic_mapping
 
 This subworkflow is used in [hic_mapping](hic_mapping) as the nucleotide aligner.
+![Flow chart](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_gene_alignment.png)
 
 This DDL has function calls explained below.
 Most of the rest of the DDL is not going to be needed other than to
