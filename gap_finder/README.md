@@ -15,7 +15,11 @@ In a Galaxy session, [import this link](https://github.com/fubar2/treeval_gal/bl
 
 In a new history, upload an ecoli sample reference sequence for Jbrowse [gapsjbrowseref.fa from this link](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/gapsjbrowseref.fa) duplicated from the GTN [Jbrowse tutorial](https://training.galaxyproject.org/training-material/topics/visualisation/tutorials/jbrowse/tutorial.html). Or if you prefer, download it to your own machine for a Jbrowse session. 
 
-Gaps have been overwritten, more or less haphazardly, in a copy of that reference, and saved as a faked *gappy* sample input fasta for testing the workflow. Upload that to your history and run the workflow. Upload [gapsjbrowsegaps.fa from this link](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/gapsjbrowsegaps.fa) to the history. Run the workflow, selecting that gappy file as the input. It will run and create a new output bed file in your history.
+Gaps have been overwritten, more or less haphazardly, in a copy of that reference, and saved as a faked *gappy* sample input fasta for testing the workflow. Upload that to your history. 
+
+Upload [gapsjbrowsegaps.fa from this link](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/gapsjbrowsegaps.fa) to the history. 
+
+Run the workflow, selecting that *gappy* file as the input. It will run and create a new output bed file with all the gaps found as feature rows, in your history.
 
 The expected bed [gapsjbrowse.bed](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/gapsjbrowse.bed) output file can be added as a Jbrowse track on the ecoli reference fasta. 
 
