@@ -9,7 +9,7 @@ Could this be usefully shown to NF users?
 
 It could be created quickly because it did not require any new Galaxy tools, unlike many of the other remaining TreeVal subworkflows.
 
-![image](https://github.com/fubar2/treeval_gal/assets/6016266/81ed1757-8a87-4e10-af4c-4f3fae83bf95)
+![image](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/treevalgal_gap_finder_wf.png)
 
 #### Tutorial: steps for testing the prototype
 
