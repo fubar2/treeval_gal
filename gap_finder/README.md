@@ -21,12 +21,14 @@ Gaps have been overwritten, more or less haphazardly, in a copy of that referenc
 
 Upload [gapsjbrowsegaps.fa from this link](https://github.com/fubar2/treeval_gal/raw/main/gap_finder/gapsjbrowsegaps.fa) to the history as input for the workflow.
 
-Run the workflow. Selecting that *gappy* file as the input and select the option to show the full workflow because for this test to work,
+Execute the workflow. Select that *gappy* file as the input and select the option to *expand the full workflow* because for this test to work,
 the **Minimum size of N tract** must be set to a small value for this test run - use 1 for example. Otherwise the small fake gaps will be missed.
+![image](https://github.com/fubar2/treeval_gal/assets/6016266/3a633765-c8b1-46c9-8278-789ddf6cb9bc)
 
-It will run and create a new output bed file with all the gaps found as feature rows, in your history.
 
-With that data and a setting for **Minimum size of N tract** of 1, the expected output is this bed [gapsjbrowse.bed](https://github.com/fubar2/treeval_gal/raw/main/gap_finder/gapsjbrowse.bed) output. It can be added as a Jbrowse track on the ecoli reference fasta. 
+Run the workflow. Two jobs will be submitted and when completed, a new output bed file with all the gaps found as feature rows, will appear in the history.
+
+Using that input data and a setting for **Minimum size of N tract** of 1, the expected output is this bed [gapsjbrowse.bed](https://github.com/fubar2/treeval_gal/raw/main/gap_finder/gapsjbrowse.bed) output. It can be added as a Jbrowse track on the ecoli reference fasta. 
 
 Run the Jbrowse tool in Galaxy with that ecoli reference sequence, or if you prefer your local Jbrowser, download the reference and the bed file to view as a track.
 Either way, it should look like:

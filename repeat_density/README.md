@@ -164,13 +164,30 @@ https://github.com/goeckslab/WindowMasker may be useful here.
 
 [extract_repeats](https://github.com/sanger-tol/treeval/blob/dev/modules/local/extract_repeat.nf) runs a perl script in the /tree/bin directory
 
-
 ```
 extract_repeat.pl $file > ${prefix}_repeats.bed
 ```
+so a new simple tool is needed to do:
+```
+#!/usr/local/bin/perl
 
+use strict;
 
-so a new simple tool is needed.
+my $file = shift;
+open(IN,$file);
+my $last;
+while (<IN>) {
+    if (/\>(\S+)/) {
+        $last = $1;
+    }
+    elsif (/(\d+)\s+-\s+(\d+)/) {
+        print "$last\t$1\t$2\n";
+    }
+    else {
+        die("Eh? $_");
+    }
+}
+```
 
 Then there are calls to [makewindows](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/bedtools/makewindows/main.nf)
 
