@@ -29,8 +29,7 @@ workflow PUNCHLIST {
 ```
 
 [PAFTOOLS_SAM2PAF](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/paftools/sam2paf/main.nf) uses samtools and
-perhaps another minimap suite jar file ? Looks like a new tool is needed.
-
+a minimap suite js ? 
 ```
 samtools view -h ${bam} | paftools.js sam2paf - > ${prefix}.paf
 ```
