@@ -26,11 +26,11 @@ the **Minimum size of N tract** must be set to a small value for this test run -
 ![image](https://github.com/fubar2/treeval_gal/assets/6016266/3a633765-c8b1-46c9-8278-789ddf6cb9bc)
 
 
-Run the workflow. Two jobs will be submitted and when completed, a new output bed file with all the gaps found as feature rows, will appear in the history.
+Run the workflow. A new output JBrowse file with all the gaps found as a track, will appear in the history.
 
-Using that input data and a setting for **Minimum size of N tract** of 1, the expected output is this bed [gapsjbrowse.bed](https://github.com/fubar2/treeval_gal/raw/main/gap_finder/gapsjbrowse.bed) output. It can be added as a Jbrowse track on the ecoli reference fasta. 
+Using that input data and a setting for **Minimum size of N tract** of 1, the expected output is this bed [gapsjbrowse.bed](https://github.com/fubar2/treeval_gal/raw/main/gap_finder/gapsjbrowse.bed) output. 
 
-Run the Jbrowse tool in Galaxy with that ecoli reference sequence, or if you prefer your local Jbrowser, download the reference and the bed file to view as a track.
+View that JBrowse html history file with JBrowse installed and working on your desktop and the JBrowse tool whitelisted for HTML on the server.
 Either way, it should look like:
 
 ![jbrowse_gap_finder_bed](https://github.com/fubar2/treeval_gal/assets/6016266/41b3675d-9634-4087-bfc1-97e076cae409)
