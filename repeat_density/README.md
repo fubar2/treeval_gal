@@ -1,9 +1,73 @@
-### [#15 repeat_density](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/repeat_density.nf)
+## [#15 repeat_density](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/repeat_density.nf)
+
+### Galaxy prototype solution
+
+A [prototype repeat_density workflow](https://github.com/fubar2/treeval_gal/blob/main/repeat_density/Galaxy-Workflow-repeat_finder.ga) is now available for testing and feedback. 
+Galaxy makes it simple compared to TreeVal NF DDL shown in the following section. 
+
+Could this be usefully shown to NF users?
+
+It could be created quickly because it did not require any new Galaxy tools, unlike many of the other remaining TreeVal subworkflows.
+
+![image](https://github.com/fubar2/treeval_gal/blob/main/repeat_density/treevalgal_repeat_density.png)
+
+#### Tutorial: steps for testing the prototype
+
+In a Galaxy session, [import this link](https://github.com/fubar2/treeval_gal/raw/main/gap_finder/Galaxy-Workflow-repeat_finder.ga) to your Galaxy user workflows. 
+
+In a new history, upload a sample assembly [GCA_031772095.1_chr1.fasta from this link](https://github.com/fubar2/treeval_gal/raw/main/repeat_density/GCA_031772095.1_chr1.fasta) from a nematode assembly as the input fasta to test the workflow
+
+Execute the workflow with the nematode chromosome. 
+
+A new output JBrowse file with the repeats found as a track, will appear in the history. Depending on the zoom level of JBrowse, you will see individual repeat sequences or for larger windows, JBrowse will estimate the density of repeats as a bar chart.
+
+When zoomed in, individual repeats are shown
+
+When zoomed out, a bar chart of density is shown
 
 
+View that JBrowse html history file. Note that the JBrowse tool whitelisted for HTML on the Galaxy server for this to work.
+It should look like:
+
+![jbrowse_gap_finder_bed](https://github.com/fubar2/treeval_gal/assets/6016266/41b3675d-9634-4087-bfc1-97e076cae409)
+
+VGP and other interested researchers are asked to try it out on their own data to see if it is helpful. 
+Please discuss, suggest improvements or raise issues here.
+
+### Treeval NF DDL subworkflow deconstruction and explanation
 
 ![Flow chart](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_repeat_density.png)
 
+
+
+#### Tutorial: steps for testing the prototype
+
+In a Galaxy session, [import this link](https://github.com/fubar2/treeval_gal/raw/main/gap_finder/Galaxy-Workflow-gap_finder_vgp_0.ga) to your Galaxy user workflows. 
+
+In a new history, upload an ecoli sample reference sequence for Jbrowse [gapsjbrowseref.fa from this link](https://github.com/fubar2/treeval_gal/raw/main/gap_finder/gapsjbrowseref.fa) duplicated from the GTN [Jbrowse tutorial](https://training.galaxyproject.org/training-material/topics/visualisation/tutorials/jbrowse/tutorial.html). Or if you prefer, download it to your own machine for a Jbrowse session. 
+
+Gaps have been overwritten, more or less haphazardly, in a copy of that reference, and saved as a faked *gappy* sample input fasta for testing the workflow. 
+
+Upload [gapsjbrowsegaps.fa from this link](https://github.com/fubar2/treeval_gal/raw/main/gap_finder/gapsjbrowsegaps.fa) to the history as input for the workflow.
+
+Execute the workflow. Select that *gappy* file as the input and select the option to *expand the full workflow* because for this test to work,
+the **Minimum size of N tract** must be set to a small value for this test run - use 1 for example. Otherwise the small fake gaps will be missed.
+![image](https://github.com/fubar2/treeval_gal/assets/6016266/3a633765-c8b1-46c9-8278-789ddf6cb9bc)
+
+
+Run the workflow. A new output JBrowse file with all the gaps found as a track, will appear in the history.
+
+Using that input data and a setting for **Minimum size of N tract** of 1, the expected output is this bed [gapsjbrowse.bed](https://github.com/fubar2/treeval_gal/raw/main/gap_finder/gapsjbrowse.bed) output. 
+
+View that JBrowse html history file. Note that the JBrowse tool whitelisted for HTML on the Galaxy server for this to work.
+It should look like:
+
+![jbrowse_gap_finder_bed](https://github.com/fubar2/treeval_gal/assets/6016266/41b3675d-9634-4087-bfc1-97e076cae409)
+
+VGP and other interested researchers are asked to try it out on their own data to see if it is helpful. 
+Please discuss, suggest improvements or raise issues here.
+
+#### 
 
 ```
 workflow REPEAT_DENSITY {
