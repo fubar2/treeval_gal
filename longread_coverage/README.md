@@ -1,4 +1,10 @@
-[longread_coverage](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/longread_coverage.nf)
+## [longread_coverage](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/longread_coverage.nf)
+
+### Galaxy proposed solution
+
+Note: bedtools does [coverage](https://bedtools.readthedocs.io/en/latest/content/tools/genomecov.html) so no need for the TreeVal perl script!
+
+### Treeval NF DDL subworkflow deconstruction and explanation
 
 ![Flow chart](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_longread_coverage.png)
 
