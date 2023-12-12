@@ -13,6 +13,8 @@ It could be created quickly because it did not require any new Galaxy tools, unl
 
 #### Tutorial: steps for testing the prototype
 
+**The server you are using must have the window_masker tool installed or this workflow will not work. Not yet an IUC tool so not on any usegalaxy servers yet.**
+
 In a Galaxy session, [import this link](https://github.com/fubar2/treeval_gal/raw/main/repeat_density/Galaxy-Workflow-repeat_finder.ga) to your Galaxy user workflows. 
 
 In a new history, upload a sample assembly [GCA_031772095.1_chr1.fasta from this link](https://github.com/fubar2/treeval_gal/raw/main/repeat_density/GCA_031772095.1_chr1.fasta) from a nematode assembly as the input fasta to test the workflow
