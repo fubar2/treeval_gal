@@ -1,5 +1,13 @@
 ### [#6 generate_genome](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/generate_genome.nf)
 
+### Galaxy prototype solution
+
+The Galaxy [Samtools chromosome sizes](https://dev.gvl.org.au/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fjackcurragh%2Fribogalaxy_samtools_faidx%2Fsamtools_chrom_sizes%2F2.0.4&version=latest#) tool 
+gives sizes as an faidx format text file that is easily manipulated as needed downstream.
+
+
+### Treeval NF DDL subworkflow deconstruction and explanation
+
 ![Flow chart](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_generate_genome.png)
 
 This executes three lines of shell script in [custom_get_chromsizes](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/custom/getchromsizes/main.nf) so probably needs a new tool:
