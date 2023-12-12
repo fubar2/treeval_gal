@@ -1,6 +1,6 @@
 {
     "a_galaxy_workflow": "true",
-    "annotation": "",
+    "annotation": "for vgp - repeats and repeat density tracks visualisation from assembly",
     "creator": [
         {
             "class": "Person",
@@ -9,7 +9,7 @@
         }
     ],
     "format-version": "0.1",
-    "name": "repeat_finder",
+    "name": "repeat_density_0",
     "steps": {
         "0": {
             "annotation": "",
@@ -28,7 +28,7 @@
             "outputs": [],
             "position": {
                 "left": 0,
-                "top": 0
+                "top": 195
             },
             "tool_id": null,
             "tool_state": "{\"optional\": false, \"tag\": null}",
@@ -59,8 +59,8 @@
                 }
             ],
             "position": {
-                "left": 279.99871766270695,
-                "top": 241
+                "left": 280,
+                "top": 15
             },
             "post_job_actions": {},
             "tool_id": "toolshed.g2.bx.psu.edu/repos/yating-l/windowmasker_2_5_0/windowmasker_mkcounts/1.0",
@@ -79,48 +79,9 @@
         },
         "2": {
             "annotation": "",
-            "content_id": "toolshed.g2.bx.psu.edu/repos/jackcurragh/ribogalaxy_samtools_faidx/samtools_chrom_sizes/2.0.4",
-            "errors": null,
-            "id": 2,
-            "input_connections": {
-                "input1": {
-                    "id": 0,
-                    "output_name": "output"
-                }
-            },
-            "inputs": [],
-            "label": null,
-            "name": "Samtools Chromosome Sizes",
-            "outputs": [
-                {
-                    "name": "output1",
-                    "type": "fai"
-                }
-            ],
-            "position": {
-                "left": 559.9974353254139,
-                "top": 72
-            },
-            "post_job_actions": {},
-            "tool_id": "toolshed.g2.bx.psu.edu/repos/jackcurragh/ribogalaxy_samtools_faidx/samtools_chrom_sizes/2.0.4",
-            "tool_shed_repository": {
-                "changeset_revision": "e1fe804af4bd",
-                "name": "ribogalaxy_samtools_faidx",
-                "owner": "jackcurragh",
-                "tool_shed": "toolshed.g2.bx.psu.edu"
-            },
-            "tool_state": "{\"__input_ext\": \"input\", \"chromInfo\": \"/mnt/galaxy/tool-data/shared/ucsc/chrom/mm39.len\", \"input1\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
-            "tool_version": "2.0.4",
-            "type": "tool",
-            "uuid": "bff8c8da-b30c-47e2-bab8-f3c7601a94ed",
-            "when": null,
-            "workflow_outputs": []
-        },
-        "3": {
-            "annotation": "",
             "content_id": "toolshed.g2.bx.psu.edu/repos/yating-l/windowmasker_2_5_0/windowmasker_ustat/1.0",
             "errors": null,
-            "id": 3,
+            "id": 2,
             "input_connections": {
                 "fasta_input": {
                     "id": 0,
@@ -141,8 +102,8 @@
                 }
             ],
             "position": {
-                "left": 559.9974353254139,
-                "top": 226
+                "left": 560,
+                "top": 0
             },
             "post_job_actions": {},
             "tool_id": "toolshed.g2.bx.psu.edu/repos/yating-l/windowmasker_2_5_0/windowmasker_ustat/1.0",
@@ -159,14 +120,14 @@
             "when": null,
             "workflow_outputs": []
         },
-        "4": {
+        "3": {
             "annotation": "",
             "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/2.0",
             "errors": null,
-            "id": 4,
+            "id": 3,
             "input_connections": {
                 "input": {
-                    "id": 3,
+                    "id": 2,
                     "output_name": "mask_output"
                 }
             },
@@ -180,8 +141,8 @@
                 }
             ],
             "position": {
-                "left": 839.9961529881209,
-                "top": 269
+                "left": 840,
+                "top": 66
             },
             "post_job_actions": {},
             "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/2.0",
@@ -198,77 +159,27 @@
             "when": null,
             "workflow_outputs": []
         },
-        "5": {
-            "annotation": "",
-            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_map/2.30.0.3",
-            "errors": null,
-            "id": 5,
-            "input_connections": {
-                "genome_file_opts|genome": {
-                    "id": 2,
-                    "output_name": "output1"
-                },
-                "inputA": {
-                    "id": 3,
-                    "output_name": "mask_output"
-                },
-                "inputB": {
-                    "id": 4,
-                    "output_name": "out_file1"
-                }
-            },
-            "inputs": [],
-            "label": null,
-            "name": "bedtools MapBed",
-            "outputs": [
-                {
-                    "name": "output",
-                    "type": "input"
-                }
-            ],
-            "position": {
-                "left": 1113,
-                "top": 88
-            },
-            "post_job_actions": {
-                "RenameDatasetActionoutput": {
-                    "action_arguments": {
-                        "newname": "Repeat mask as bed for JBrowse"
-                    },
-                    "action_type": "RenameDatasetAction",
-                    "output_name": "output"
-                }
-            },
-            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_map/2.30.0.3",
-            "tool_shed_repository": {
-                "changeset_revision": "a1a923cd89e8",
-                "name": "bedtools",
-                "owner": "iuc",
-                "tool_shed": "toolshed.g2.bx.psu.edu"
-            },
-            "tool_state": "{\"__input_ext\": \"input\", \"c_and_o_argument_repeat\": [{\"__index__\": 0, \"col\": \"4\", \"operation\": \"mean\"}], \"chromInfo\": \"/mnt/galaxy/tool-data/shared/ucsc/chrom/mm39.len\", \"genome_file_opts\": {\"genome_file_opts_selector\": \"hist\", \"__current_case__\": 1, \"genome\": {\"__class__\": \"ConnectedValue\"}}, \"header\": false, \"inputA\": {\"__class__\": \"ConnectedValue\"}, \"inputB\": {\"__class__\": \"ConnectedValue\"}, \"overlap\": null, \"overlapB\": null, \"reciprocal\": false, \"split\": false, \"strand\": \"\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
-            "tool_version": "2.30.0.3",
-            "type": "tool",
-            "uuid": "20ab02b7-6de9-44c3-921b-57e831d1185c",
-            "when": null,
-            "workflow_outputs": []
-        },
-        "6": {
+        "4": {
             "annotation": "",
             "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/jbrowse/jbrowse/1.16.11+galaxy1",
             "errors": null,
-            "id": 6,
+            "id": 4,
             "input_connections": {
                 "reference_genome|genome": {
                     "id": 0,
                     "output_name": "output"
                 },
                 "track_groups_0|data_tracks_0|data_format|annotation": {
-                    "id": 5,
-                    "output_name": "output"
+                    "id": 3,
+                    "output_name": "out_file1"
                 }
             },
-            "inputs": [],
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool JBrowse",
+                    "name": "reference_genome"
+                }
+            ],
             "label": "view repeats",
             "name": "JBrowse",
             "outputs": [
@@ -278,8 +189,8 @@
                 }
             ],
             "position": {
-                "left": 1400,
-                "top": 88
+                "left": 1120,
+                "top": 143
             },
             "post_job_actions": {},
             "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/jbrowse/jbrowse/1.16.11+galaxy1",
@@ -289,7 +200,7 @@
                 "owner": "iuc",
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             },
-            "tool_state": "{\"action\": {\"action_select\": \"create\", \"__current_case__\": 0}, \"gencode\": \"1\", \"jbgen\": {\"defaultLocation\": \"\", \"trackPadding\": \"20\", \"shareLink\": true, \"aboutDescription\": \"\", \"show_tracklist\": true, \"show_nav\": true, \"show_overview\": true, \"show_menu\": true, \"hideGenomeOptions\": false}, \"plugins\": {\"BlastView\": true, \"ComboTrackSelector\": false, \"GCContent\": false}, \"reference_genome\": {\"genome_type_select\": \"history\", \"__current_case__\": 1, \"genome\": {\"__class__\": \"ConnectedValue\"}}, \"standalone\": \"minimal\", \"track_groups\": [{\"__index__\": 0, \"category\": \"#date#TreeValGal repeat_finder\", \"data_tracks\": [{\"__index__\": 0, \"data_format\": {\"data_format_select\": \"gene_calls\", \"__current_case__\": 2, \"annotation\": {\"__class__\": \"ConnectedValue\"}, \"match_part\": {\"match_part_select\": false, \"__current_case__\": 1}, \"index\": false, \"track_config\": {\"track_class\": \"NeatHTMLFeatures/View/Track/NeatFeatures\", \"__current_case__\": 3, \"html_options\": {\"topLevelFeatures\": null}}, \"jbstyle\": {\"style_classname\": \"feature\", \"style_label\": \"product,name,id\", \"style_description\": \"note,description\", \"style_height\": \"10px\", \"max_height\": \"600\"}, \"jbcolor_scale\": {\"color_score\": {\"color_score_select\": \"none\", \"__current_case__\": 0, \"color\": {\"color_select\": \"automatic\", \"__current_case__\": 0}}}, \"jb_custom_config\": {\"option\": []}, \"jbmenu\": {\"track_menu\": []}, \"track_visibility\": \"default_on\", \"override_apollo_plugins\": \"False\", \"override_apollo_drag\": \"False\"}}]}], \"uglyTestingHack\": \"\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_state": "{\"action\": {\"action_select\": \"create\", \"__current_case__\": 0}, \"gencode\": \"1\", \"jbgen\": {\"defaultLocation\": \"\", \"trackPadding\": \"20\", \"shareLink\": true, \"aboutDescription\": \"\", \"show_tracklist\": true, \"show_nav\": true, \"show_overview\": true, \"show_menu\": true, \"hideGenomeOptions\": false}, \"plugins\": {\"BlastView\": true, \"ComboTrackSelector\": false, \"GCContent\": false}, \"reference_genome\": {\"genome_type_select\": \"history\", \"__current_case__\": 1, \"genome\": {\"__class__\": \"RuntimeValue\"}}, \"standalone\": \"minimal\", \"track_groups\": [{\"__index__\": 0, \"category\": \"#date#TreeValGal repeat_finder\", \"data_tracks\": [{\"__index__\": 0, \"data_format\": {\"data_format_select\": \"gene_calls\", \"__current_case__\": 2, \"annotation\": {\"__class__\": \"RuntimeValue\"}, \"match_part\": {\"match_part_select\": false, \"__current_case__\": 1}, \"index\": false, \"track_config\": {\"track_class\": \"NeatHTMLFeatures/View/Track/NeatFeatures\", \"__current_case__\": 3, \"html_options\": {\"topLevelFeatures\": null}}, \"jbstyle\": {\"style_classname\": \"feature\", \"style_label\": \"product,name,id\", \"style_description\": \"note,description\", \"style_height\": \"10px\", \"max_height\": \"600\"}, \"jbcolor_scale\": {\"color_score\": {\"color_score_select\": \"none\", \"__current_case__\": 0, \"color\": {\"color_select\": \"automatic\", \"__current_case__\": 0}}}, \"jb_custom_config\": {\"option\": []}, \"jbmenu\": {\"track_menu\": []}, \"track_visibility\": \"always\", \"override_apollo_plugins\": \"False\", \"override_apollo_drag\": \"False\"}}]}], \"uglyTestingHack\": \"\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
             "tool_version": "1.16.11+galaxy1",
             "type": "tool",
             "uuid": "c9241854-ee7c-418f-9d77-c69f774ee4e3",
@@ -304,6 +215,6 @@
         }
     },
     "tags": [],
-    "uuid": "327c9b59-5712-4254-b69f-95ab7997e4e2",
+    "uuid": "9e3fb4c5-3c3e-486d-900f-d5740075990d",
     "version": 6
 }
