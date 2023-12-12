@@ -54,7 +54,7 @@ The first step calls a local NF DDL module [EXTRACT_ANCESTRAL](https://github.co
 
 ``` buscopainter.py -r $ancestraltable -q $fulltable```
 
-[buscopainter ](https://github.com/charlottewright/buscopainter)is not part of [Busco,](https://toolshed.g2.bx.psu.edu/repository?repository_id=99f4c45aebf38997&changeset_revision=2a5b8b9936bf) so a new tool is needed with a content expert to advise and test. Need a content expert to help figure out how these parameters should be setup in Galaxy tool XML.
+[buscopainter ]([https://github.com/charlottewright/buscopainter](https://github.com/lstevens17/buscopainter))is not part of [Busco,](https://toolshed.g2.bx.psu.edu/repository?repository_id=99f4c45aebf38997&changeset_revision=2a5b8b9936bf) so a new tool is needed with a content expert to advise and test. Need a content expert to help figure out how these parameters should be setup in Galaxy tool XML.
 
 The second step, [ASSIGN_ANCESTRAL](https://github.com/sanger-tol/treeval/blob/dev/modules/local/assign_ancestral.nf), is a local NF module. It runs a one line bash script:
 
