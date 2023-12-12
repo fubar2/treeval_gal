@@ -17,16 +17,16 @@ A first pass at documenting each subworkflow at the level of dependencies and co
 While clarifying the best long term solutions, prototype TreeVal Galaxy subworkflows can be created with existing and some new tools, so users can test them.
 These prototypes will help drive the design and features of an optimal production workflow, as discussions progress.
 
-1. [yaml_input](yaml_input)
-4. [gap_finder](gap_finder)
-6.  [generate_genome](generate_genome)
+1. [yaml_input](yaml_input) Not needed
+4. [gap_finder](gap_finder) Prototype available
+6. [generate_genome](generate_genome) Samtools chromosome lengths makes a text .fai file
 7. [hic_mapping](hic_mapping)
 9. [kmer](kmer)
 10. [longread_coverage](longread_coverage)
 11. [nuc_alignments](nuc_alignments)
 12. [pep_alignments](pep_alignments)
 14. [punchlist](punchlist)
-15. [repeat_density](repeat_density)
+15. [repeat_density](repeat_density) Prototype available.
 18. [telo_finder](telo_finder)
 
 
