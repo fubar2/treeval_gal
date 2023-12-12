@@ -3,7 +3,8 @@
 ### Galaxy prototype solution
 
 A [prototype repeat_density workflow](https://github.com/fubar2/treeval_gal/blob/main/repeat_density/Galaxy-Workflow-repeat_finder.ga) is now available for testing and feedback. 
-Galaxy makes it simple compared to TreeVal NF DDL shown in the deconstruction explanation below.
+
+##### Galaxy makes it simple, with 5 steps including preparing the JBrowse visualisation, compared to the 13 steps of the TreeVal NF DDL shown in the deconstruction explanation below.
 
 Could this be usefully shown to NF users?
 
@@ -26,9 +27,10 @@ A new output JBrowse file with the repeats found as a track, will appear in the 
 View that JBrowse html history file. Note that the JBrowse tool *must be whitelisted for HTML on the Galaxy server* for this to work.
 Depending on the zoom level of JBrowse, you will see individual repeat sequences or for larger windows, JBrowse will estimate the density of repeats as a bar chart.
 
+Zoomed in:
 ![When zoomed in, individual repeats are shown](https://github.com/fubar2/treeval_gal/raw/main/repeat_density/repeat_density_example2.png)
 
-
+Zoomed out:
 ![When zoomed out, a bar chart of density is displayed ](https://github.com/fubar2/treeval_gal/raw/main/repeat_density/repeat_density_example1.png)
 
 VGP and other interested researchers are asked to try it out on their own data to see if it is helpful. 
