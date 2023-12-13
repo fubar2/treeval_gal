@@ -2,14 +2,14 @@
 
 ### Galaxy proposed solution
 
-Partial workflow - missing log coverage and punchlists - TBA:
+#### Partial workflow - missing log coverage and punchlists - TBA:
 ![Partial workflow](https://github.com/fubar2/treeval_gal/blob/main/longread_coverage/treevalgal_longread_coverage_wf0.png)
 
-Sample JBrowse:
+#### Sample JBrowse:
 
 ![Partial workflow](https://github.com/fubar2/treeval_gal/blob/main/longread_coverage/treevalgal_long_coverage_sample.png)
 
-Zoomed in:
+#### Zoomed in at a certian point gives a kind of pileup instead of a coverage histogram:
 
 ![Partial workflow](https://github.com/fubar2/treeval_gal/blob/main/longread_coverage/treevalgal_longread_coverage_zoom.png)
 
