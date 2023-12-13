@@ -3,7 +3,7 @@
 ### Galaxy prototype solution
 
 A [prototype gap_finder workflow](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/Galaxy-Workflow-gap_finder_vgp_0.ga) is now available for testing and feedback. 
-A Galaxy user builds a workflow's tools, data flows and default parameter settings entirely through the GUI, compared to writing all that custom DDL needed for the NF implementation. 
+A Galaxy user builds a workflow's tools, data flows and default parameter settings entirely through the GUI, compared to writing the 50+ lines of DDL needed for the NF implementation. 
 A preconfigured, shareable JBrowse viewer shows the Galaxy version outputs immediately to the user, without the need to manually shuffle files around.
 
 Could this be usefully shown to NF users?
@@ -64,12 +64,23 @@ Most of the rest of the DDL is not going to be needed other than to
 figure out exactly how each function gets parameters supplied to the actual command lines.
 
 ```
+#!/usr/bin/env nextflow
+
+//
+// MODULE IMPORT BLOCK
+//
+include { SEQTK_CUTN        } from '../../modules/nf-core/seqtk/cutn/main'
+include { GAP_LENGTH        } from '../../modules/local/gap_length'
+include { TABIX_BGZIPTABIX  } from '../../modules/nf-core/tabix/bgziptabix/main'
+
 workflow GAP_FINDER {
     take:
-    reference_tuple     // Channel [ val(meta), path(fasta) ]
-    max_scaff_size      // val(size of largest scaffold in bp)
+    reference_tuple     // Channel: tuple [ val(meta), path(fasta) ]
+    max_scaff_size      // Channel: val(size of largest scaffold in bp)
+
     main:
     ch_versions     = Channel.empty()
+
     //
     // MODULE: GENERATES A GAP SUMMARY FILE
     //
@@ -77,6 +88,7 @@ workflow GAP_FINDER {
         reference_tuple
     )
     ch_versions     = ch_versions.mix( SEQTK_CUTN.out.versions )
+
     //
     // MODULE: ADD THE LENGTH OF GAP TO BED FILE - INPUT FOR PRETEXT MODULE
     //
@@ -84,6 +96,7 @@ workflow GAP_FINDER {
         SEQTK_CUTN.out.bed
     )
     ch_versions     = ch_versions.mix( GAP_LENGTH.out.versions )
+
     //
     // LOGIC: Adding the largest scaffold size to the meta data so it can be used in the modules.config
     //
@@ -96,6 +109,7 @@ workflow GAP_FINDER {
                 file(row)
             )}
         .set { modified_bed_ch }
+
     //
     // MODULE: BGZIP AND TABIX THE GAP FILE
     //
