@@ -5,11 +5,15 @@
 translate the Sanger [TreeVal NF DDL](https://github.com/sanger-tol/treeval/tree/dev) workflow into Galaxy. Everyone with an interest in contributing to
 this effort is cordially invited to pitch in.*
 
-#### December 12 2023 announcements
-1. A [prototype repeat_density workflow](https://github.com/fubar2/treeval_gal/tree/main/repeat_density#readme) is now available for testing. Not yet working on the usegalaxy servers. Needs the window_masker tool installed.
+#### December 13 
+1. Some sample outputs from a [prototype longread_coverage workflow](https://github.com/fubar2/treeval_gal/tree/main/longread_coverage#readme) under development and testing. 
+
+#### December 12
+1. Some sample outputs from a [prototype repeat_density workflow](https://github.com/fubar2/treeval_gal/tree/main/repeat_density#readme), now available for testing.
+Not yet working on the usegalaxy servers. Needs the window_masker tool installed.
    
 #### December 10 2023 announcements
-1. A [prototype gap_finder workflow](https://github.com/fubar2/treeval_gal/tree/main/gap_finder#readme) is now available for testing.
+1. See sample outputs from a [prototype gap_finder workflow](https://github.com/fubar2/treeval_gal/tree/main/gap_finder#readme), now available for testing.
 2. seqtk-telo is now available in the seqtk suite from the Toolshed.
 
 ### Work in Progress

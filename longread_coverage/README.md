@@ -2,6 +2,20 @@
 
 ### Galaxy proposed solution
 
+#### Partial workflow - missing log coverage and punchlists - TBA. 
+![Partial workflow](https://github.com/fubar2/treeval_gal/blob/main/longread_coverage/treevalgal_longread_coverage_wf0.png)
+
+#### Sample JBrowse: 
+(Uses Sanger TinyTestData pac-bio sample, so coverage only seen over a small region):
+
+![Partial workflow](https://github.com/fubar2/treeval_gal/blob/main/longread_coverage/treevalgal_long_coverage_sample.png)
+
+#### Zoomed in at a certian point gives a kind of pileup instead of a coverage histogram:
+
+![Partial workflow](https://github.com/fubar2/treeval_gal/blob/main/longread_coverage/treevalgal_longread_coverage_zoom.png)
+
+
+
 Note: bedtools does [coverage](https://bedtools.readthedocs.io/en/latest/content/tools/genomecov.html) so no need for the TreeVal perl script!
 
 ### Treeval NF DDL subworkflow deconstruction and explanation
