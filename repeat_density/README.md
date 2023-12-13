@@ -7,7 +7,7 @@ A preconfigured, shareable JBrowse viewer makes Galaxy workflow outputs immediat
 
 A [prototype repeat_density workflow](https://github.com/fubar2/treeval_gal/blob/main/repeat_density/Galaxy-Workflow-repeat_finder.ga) is now available for testing and feedback. 
 
-##### Galaxy makes it simple, with 5 steps including preparing the JBrowse visualisation, compared to the 13 steps of the TreeVal NF DDL shown in the deconstruction explanation below.
+##### Galaxy makes it simple, compared to the TreeVal NF DDL described below.
 
 Could this be usefully shown to NF users?
 
