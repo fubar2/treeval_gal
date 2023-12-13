@@ -2,7 +2,7 @@
 
 ### Galaxy prototype solution
 
-A Galaxy user builds a workflow's tools, data flows and default parameter settings entirely through the GUI, compared to writing all the custom DDL written for the NF subworkflow 
+A Galaxy user builds a workflow's tools, data flows and default parameter settings entirely through the GUI, compared to writing 100+ lines of custom DDL needed for this NF subworkflow 
 A preconfigured, shareable JBrowse viewer makes Galaxy workflow outputs immediately accessible, without the need to manually shuffle individual track files around.
 
 A [prototype repeat_density workflow](https://github.com/fubar2/treeval_gal/blob/main/repeat_density/Galaxy-Workflow-repeat_finder.ga) is now available for testing and feedback. 
@@ -44,10 +44,30 @@ Please discuss, suggest improvements or raise issues here.
 ![Flow chart](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_repeat_density.png)
 
 ```
+#!/usr/bin/env nextflow
+
+//
+// MODULE IMPORT BLOCK
+//
+include { WINDOWMASKER_USTAT                } from '../../modules/nf-core/windowmasker/ustat/main'
+include { WINDOWMASKER_MKCOUNTS             } from '../../modules/nf-core/windowmasker/mk_counts/main'
+include { EXTRACT_REPEAT                    } from '../../modules/local/extract_repeat'
+include { BEDTOOLS_INTERSECT                } from '../../modules/nf-core/bedtools/intersect/main'
+include { BEDTOOLS_MAKEWINDOWS              } from '../../modules/nf-core/bedtools/makewindows/main'
+include { BEDTOOLS_MAP                      } from '../../modules/nf-core/bedtools/map/main'
+include { RENAME_IDS                        } from '../../modules/local/rename_ids'
+include { UCSC_BEDGRAPHTOBIGWIG             } from '../../modules/nf-core/ucsc/bedgraphtobigwig/main'
+include { GNU_SORT as GNU_SORT_A            } from '../../modules/nf-core/gnu/sort/main'
+include { GNU_SORT as GNU_SORT_B            } from '../../modules/nf-core/gnu/sort/main'
+include { GNU_SORT as GNU_SORT_C            } from '../../modules/nf-core/gnu/sort/main'
+include { REFORMAT_INTERSECT                } from '../../modules/local/reformat_intersect'
+include { REPLACE_DOTS                      } from '../../modules/local/replace_dots'
+
 workflow REPEAT_DENSITY {
     take:
     reference_tuple     // Channel: tuple [ val(meta), path(file) ]
     dot_genome
+
     main:
     ch_versions         = Channel.empty()
     //
@@ -57,6 +77,7 @@ workflow REPEAT_DENSITY {
         reference_tuple
     )
     ch_versions         = ch_versions.mix( WINDOWMASKER_MKCOUNTS.out.versions )
+
     //
     // MODULE: CALCULATE THE STATISTICS OF THE MARKED UP REGIONS
     //
@@ -65,6 +86,7 @@ workflow REPEAT_DENSITY {
         reference_tuple
     )
     ch_versions         = ch_versions.mix( WINDOWMASKER_USTAT.out.versions )
+
     //
     // MODULE: USE USTAT OUTPUT TO EXTRACT REPEATS FROM FASTA
     //
@@ -72,6 +94,7 @@ workflow REPEAT_DENSITY {
         WINDOWMASKER_USTAT.out.intervals
     )
     ch_versions         = ch_versions.mix( EXTRACT_REPEAT.out.versions )
+
     //
     // MODULE: CREATE WINDOWS FROM .GENOME FILE
     //
@@ -79,6 +102,7 @@ workflow REPEAT_DENSITY {
         dot_genome
     )
     ch_versions         = ch_versions.mix( BEDTOOLS_MAKEWINDOWS.out.versions )
+
     //
     // LOGIC: COMBINE TWO CHANNELS AND OUTPUT tuple(meta, windows_file, repeat_file)
     //
@@ -92,6 +116,7 @@ workflow REPEAT_DENSITY {
                     )
         }
         .set { intervals }
+
     //
     // MODULE: GENERATES THE REPEAT FILE FROM THE WINDOW FILE AND GENOME FILE
     //
@@ -100,6 +125,7 @@ workflow REPEAT_DENSITY {
         dot_genome
     )
     ch_versions         = ch_versions.mix( BEDTOOLS_INTERSECT.out.versions )
+
     //
     // MODULE: FIXES IDS FOR REPEATS
     //
@@ -107,6 +133,7 @@ workflow REPEAT_DENSITY {
         BEDTOOLS_INTERSECT.out.intersect
     )
     ch_versions         = ch_versions.mix( RENAME_IDS.out.versions )
+
     //
     // MODULE: SORTS THE ABOVE BED FILES
     //
@@ -114,14 +141,17 @@ workflow REPEAT_DENSITY {
         RENAME_IDS.out.bed              // Intersect file
     )
     ch_versions         = ch_versions.mix( GNU_SORT_A.out.versions )
+
     GNU_SORT_B (
         dot_genome                      // Genome file - Will not run unless genome file is sorted to
     )
     ch_versions         = ch_versions.mix( GNU_SORT_B.out.versions )
+
     GNU_SORT_C (
         BEDTOOLS_MAKEWINDOWS.out.bed    // Windows file
     )
     ch_versions         = ch_versions.mix( GNU_SORT_C.out.versions )
+
     //
     // MODULE: ADDS 4TH COLUMN TO BED FILE USED IN THE REPEAT DENSITY GRAPH
     //
@@ -129,9 +159,10 @@ workflow REPEAT_DENSITY {
         GNU_SORT_A.out.sorted
     )
     ch_versions         = ch_versions.mix( GNU_SORT_C.out.versions )
+
     //
     // LOGIC: COMBINES THE REFORMATTED INTERSECT FILE AND WINDOWS FILE CHANNELS AND SORTS INTO
-    //      tuple(intersect_meta, windows file, intersect file)
+    //        tuple(intersect_meta, windows file, intersect file)
     //
     REFORMAT_INTERSECT.out.bed
         .combine( GNU_SORT_C.out.sorted )
@@ -143,6 +174,7 @@ workflow REPEAT_DENSITY {
                     )
         }
         .set { for_mapping }
+
     //
     // MODULE: MAPS THE REPEATS AGAINST THE REFERENCE GENOME
     //
@@ -151,6 +183,7 @@ workflow REPEAT_DENSITY {
         GNU_SORT_B.out.sorted
     )
     ch_versions         = ch_versions.mix( BEDTOOLS_MAP.out.versions )
+
     //
     // MODULE: REPLACES . WITH 0 IN MAPPED FILE
     //
@@ -158,6 +191,7 @@ workflow REPEAT_DENSITY {
         BEDTOOLS_MAP.out.map
     )
     ch_versions         = ch_versions.mix( REPLACE_DOTS.out.versions )
+
     //
     // MODULE: CONVERTS GENOME FILE AND BED INTO A BIGWIG FILE
     //
@@ -166,6 +200,7 @@ workflow REPEAT_DENSITY {
         GNU_SORT_B.out.sorted.map { it[1] } // Pulls file from tuple of meta and file
     )
     ch_versions         = ch_versions.mix( UCSC_BEDGRAPHTOBIGWIG.out.versions )
+
     emit:
     repeat_density      = UCSC_BEDGRAPHTOBIGWIG.out.bigwig
     versions            = ch_versions.ifEmpty(null)
