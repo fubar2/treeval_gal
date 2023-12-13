@@ -31,7 +31,7 @@ Run the workflow. A new output JBrowse file with all the gaps found as a track, 
 
 Using that input data and a setting for **Minimum size of N tract** of 1, the expected output is this bed [gapsjbrowse.bed](https://github.com/fubar2/treeval_gal/raw/main/gap_finder/gapsjbrowse.bed) output. 
 
-View that JBrowse html history file. Note that the JBrowse tool whitelisted for HTML on the Galaxy server for this to work.
+View that JBrowse html history file. Note that the JBrowse tool must be whitelisted for HTML on the Galaxy server for this to work.
 It should look like:
 
 ![jbrowse_gap_finder_bed](https://github.com/fubar2/treeval_gal/assets/6016266/41b3675d-9634-4087-bfc1-97e076cae409)
