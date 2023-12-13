@@ -2,10 +2,11 @@
 
 ### Galaxy proposed solution
 
-#### Partial workflow - missing log coverage and punchlists - TBA:
+#### Partial workflow - missing log coverage and punchlists - TBA. 
 ![Partial workflow](https://github.com/fubar2/treeval_gal/blob/main/longread_coverage/treevalgal_longread_coverage_wf0.png)
 
-#### Sample JBrowse:
+#### Sample JBrowse: 
+(Uses Sanger TinyTestData pac-bio sample, so coverage only seen over a small region):
 
 ![Partial workflow](https://github.com/fubar2/treeval_gal/blob/main/longread_coverage/treevalgal_long_coverage_sample.png)
 
