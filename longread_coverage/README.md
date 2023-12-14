@@ -14,9 +14,13 @@
 
 ![Partial workflow](https://github.com/fubar2/treeval_gal/blob/main/longread_coverage/treevalgal_longread_coverage_zoom.png)
 
+The partial workflow is [Available in this repository](https://github.com/fubar2/treeval_gal/raw/main/longread_coverage/Galaxy-Workflow-treevalgal_longread_coverage_dev_0.ga)
+Upload the [test reference](https://github.com/fubar2/treeval_gal/raw/main/longread_coverage/LaetiporusSulphureus.fasta) and the "tiny" [PacBio sequence sample](https://zenodo.org/records/10376059/files/Galaxy1-%5BseqkitPacbio50000.fasta.gz%5D.fasta.gz?download=1). It's too big for github repositories so in Zenodo.
 
+Run the workflow with the correct choice of input files and a Jbrowse history item should eventually appear. Minimap can take a while to run.
+**Warning:** The only contig with any sequence coverage in the test sample is **ENA|OV656687|OV656687.1** so in Jbrowse, choose that or you won't find any coverage!
 
-Note: bedtools does [coverage](https://bedtools.readthedocs.io/en/latest/content/tools/genomecov.html) so no need for the TreeVal perl script!
+Bedtools does [coverage](https://bedtools.readthedocs.io/en/latest/content/tools/genomecov.html) so no need for the TreeVal perl script!
 
 ### Treeval NF DDL subworkflow deconstruction and explanation
 
