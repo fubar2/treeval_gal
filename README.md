@@ -29,7 +29,7 @@ These prototypes will help drive the design and features of an optimal productio
 6. [generate_genome](generate_genome) Samtools chromosome lengths makes a text .fai file
 7. [hic_mapping](hic_mapping)
 9. [kmer](kmer)
-10. [longread_coverage](longread_coverage)
+10. [longread_coverage](longread_coverage) Partial prototype available
 11. [nuc_alignments](nuc_alignments)
 12. [pep_alignments](pep_alignments)
 14. [punchlist](punchlist)
