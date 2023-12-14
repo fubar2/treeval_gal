@@ -14,6 +14,9 @@ It could be created quickly because it did not require any new Galaxy tools, unl
 
 #### Tutorial: steps for testing the prototype
 
+The server must be using a recently updated seqtk package. Please get the admin to make sure the very latest seqtk from the IUC is installed before you try to use this prototype.
+Older versions will fail with a complaint about `abs(c3-c2)` in the compute step.
+
 In a Galaxy session, [import this link](https://github.com/fubar2/treeval_gal/raw/main/gap_finder/Galaxy-Workflow-gap_finder_vgp_0.ga) to your Galaxy user workflows. 
 
 In a new history, upload an ecoli sample reference sequence for Jbrowse [gapsjbrowseref.fa from this link](https://github.com/fubar2/treeval_gal/raw/main/gap_finder/gapsjbrowseref.fa) duplicated from the GTN [Jbrowse tutorial](https://training.galaxyproject.org/training-material/topics/visualisation/tutorials/jbrowse/tutorial.html). Or if you prefer, download it to your own machine for a Jbrowse session. 
