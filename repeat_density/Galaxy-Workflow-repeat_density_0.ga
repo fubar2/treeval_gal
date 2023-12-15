@@ -9,13 +9,46 @@
         }
     ],
     "format-version": "0.1",
-    "name": "repeat_density_0",
+    "name": "repeat_density_0 (imported from URL)",
     "steps": {
         "0": {
-            "annotation": "",
+            "annotation": "Set to true when running the workflow by itself, false if running as a subworkflow where all outputs are collected into one JBrowse",
             "content_id": null,
             "errors": null,
             "id": 0,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "Set to true when running the workflow by itself, false if running as a subworkflow where all outputs are collected into one JBrowse",
+                    "name": "Create JBrowse output for this step"
+                }
+            ],
+            "label": "Create JBrowse output for this step",
+            "name": "Input parameter",
+            "outputs": [],
+            "position": {
+                "left": 0,
+                "top": 0
+            },
+            "tool_id": null,
+            "tool_state": "{\"default\": true, \"parameter_type\": \"boolean\", \"optional\": true}",
+            "tool_version": null,
+            "type": "parameter_input",
+            "uuid": "7194df71-4338-4921-96c5-41f70608ac90",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "output",
+                    "uuid": "6d592187-9757-4ed7-84e9-0b7ce958a1ed"
+                }
+            ]
+        },
+        "1": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 1,
             "input_connections": {},
             "inputs": [
                 {
@@ -27,8 +60,8 @@
             "name": "Input dataset",
             "outputs": [],
             "position": {
-                "left": 0,
-                "top": 195
+                "left": 18,
+                "top": 195.1999969482422
             },
             "tool_id": null,
             "tool_state": "{\"optional\": false, \"tag\": null}",
@@ -38,20 +71,20 @@
             "when": null,
             "workflow_outputs": []
         },
-        "1": {
+        "2": {
             "annotation": "",
-            "content_id": "toolshed.g2.bx.psu.edu/repos/yating-l/windowmasker_2_5_0/windowmasker_mkcounts/1.0",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/windowmasker/windowmasker_mkcounts/1.0",
             "errors": null,
-            "id": 1,
+            "id": 2,
             "input_connections": {
                 "fasta_input": {
-                    "id": 0,
+                    "id": 1,
                     "output_name": "output"
                 }
             },
             "inputs": [],
             "label": null,
-            "name": "WindowMasker_mkcounts",
+            "name": "WindowMasker mkcounts",
             "outputs": [
                 {
                     "name": "mkcount_output",
@@ -59,42 +92,42 @@
                 }
             ],
             "position": {
-                "left": 280,
-                "top": 15
+                "left": 298,
+                "top": 15.199996948242188
             },
             "post_job_actions": {},
-            "tool_id": "toolshed.g2.bx.psu.edu/repos/yating-l/windowmasker_2_5_0/windowmasker_mkcounts/1.0",
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/windowmasker/windowmasker_mkcounts/1.0",
             "tool_shed_repository": {
-                "changeset_revision": "f80c9e6700ba",
-                "name": "windowmasker_2_5_0",
-                "owner": "yating-l",
+                "changeset_revision": "d90ae4a02efd",
+                "name": "windowmasker",
+                "owner": "iuc",
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             },
-            "tool_state": "{\"__input_ext\": \"fasta\", \"adv\": {\"checkdup\": false, \"genome_size\": null, \"sformat\": \"oascii\", \"t_low\": null, \"t_high\": null, \"unit\": null}, \"chromInfo\": \"/mnt/galaxy/tool-data/shared/ucsc/chrom/mm39.len\", \"fasta_input\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_state": "{\"adv\": {\"checkdup\": false, \"genome_size\": null, \"sformat\": \"oascii\", \"t_low\": null, \"t_high\": null, \"unit\": null}, \"fasta_input\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
             "tool_version": "1.0",
             "type": "tool",
-            "uuid": "d564e4fc-6fd5-468f-b492-70910a0f750b",
+            "uuid": "bb1158c3-ede8-43f9-baf5-dccad801270e",
             "when": null,
             "workflow_outputs": []
         },
-        "2": {
+        "3": {
             "annotation": "",
-            "content_id": "toolshed.g2.bx.psu.edu/repos/yating-l/windowmasker_2_5_0/windowmasker_ustat/1.0",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/windowmasker/windowmasker_ustat/1.0",
             "errors": null,
-            "id": 2,
+            "id": 3,
             "input_connections": {
                 "fasta_input": {
-                    "id": 0,
+                    "id": 1,
                     "output_name": "output"
                 },
                 "mkcount_input": {
-                    "id": 1,
+                    "id": 2,
                     "output_name": "mkcount_output"
                 }
             },
             "inputs": [],
             "label": null,
-            "name": "WindowMasker_ustat",
+            "name": "WindowMasker ustat",
             "outputs": [
                 {
                     "name": "mask_output",
@@ -102,32 +135,32 @@
                 }
             ],
             "position": {
-                "left": 560,
-                "top": 0
+                "left": 578,
+                "top": 0.1999969482421875
             },
             "post_job_actions": {},
-            "tool_id": "toolshed.g2.bx.psu.edu/repos/yating-l/windowmasker_2_5_0/windowmasker_ustat/1.0",
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/windowmasker/windowmasker_ustat/1.0",
             "tool_shed_repository": {
-                "changeset_revision": "f80c9e6700ba",
-                "name": "windowmasker_2_5_0",
-                "owner": "yating-l",
+                "changeset_revision": "d90ae4a02efd",
+                "name": "windowmasker",
+                "owner": "iuc",
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             },
-            "tool_state": "{\"__input_ext\": \"fasta\", \"adv\": {\"set_t_high\": null, \"set_t_low\": null, \"t_extend\": null, \"t_low\": null, \"t_high\": null, \"t_thres\": null, \"window\": null}, \"chromInfo\": \"/mnt/galaxy/tool-data/shared/ucsc/chrom/mm39.len\", \"fasta_input\": {\"__class__\": \"ConnectedValue\"}, \"mkcount_input\": {\"__class__\": \"ConnectedValue\"}, \"output_format\": \"interval\", \"parse_seqids\": false, \"use_dust\": {\"use_dust_selector\": \"yes\", \"__current_case__\": 0, \"dust_level\": \"20\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_state": "{\"adv\": {\"set_t_high\": null, \"set_t_low\": null, \"t_extend\": null, \"t_low\": null, \"t_high\": null, \"t_thres\": null, \"window\": null}, \"fasta_input\": {\"__class__\": \"ConnectedValue\"}, \"mkcount_input\": {\"__class__\": \"ConnectedValue\"}, \"output_format\": \"interval\", \"parse_seqids\": false, \"use_dust\": {\"use_dust_selector\": \"yes\", \"__current_case__\": 0, \"dust_level\": \"20\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
             "tool_version": "1.0",
             "type": "tool",
-            "uuid": "0e8dfb9f-1218-4b32-90cd-d31ccd917f41",
+            "uuid": "c5734258-5e74-4c6d-95f3-081619e33ff1",
             "when": null,
             "workflow_outputs": []
         },
-        "3": {
+        "4": {
             "annotation": "",
             "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/2.0",
             "errors": null,
-            "id": 3,
+            "id": 4,
             "input_connections": {
                 "input": {
-                    "id": 2,
+                    "id": 3,
                     "output_name": "mask_output"
                 }
             },
@@ -141,10 +174,18 @@
                 }
             ],
             "position": {
-                "left": 840,
-                "top": 66
+                "left": 858,
+                "top": 66.19999694824219
             },
-            "post_job_actions": {},
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "repeats on #{input}"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "out_file1"
+                }
+            },
             "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/2.0",
             "tool_shed_repository": {
                 "changeset_revision": "6595517c2dd8",
@@ -157,30 +198,35 @@
             "type": "tool",
             "uuid": "c23912b5-f6df-4f0f-9c26-934f010f5744",
             "when": null,
-            "workflow_outputs": []
+            "workflow_outputs": [
+                {
+                    "label": "Repeat bed file",
+                    "output_name": "out_file1",
+                    "uuid": "6a0c1749-78cc-43b4-88fc-0205a190e89d"
+                }
+            ]
         },
-        "4": {
+        "5": {
             "annotation": "",
             "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/jbrowse/jbrowse/1.16.11+galaxy1",
             "errors": null,
-            "id": 4,
+            "id": 5,
             "input_connections": {
                 "reference_genome|genome": {
-                    "id": 0,
+                    "id": 1,
                     "output_name": "output"
                 },
                 "track_groups_0|data_tracks_0|data_format|annotation": {
-                    "id": 3,
+                    "id": 4,
                     "output_name": "out_file1"
+                },
+                "when": {
+                    "id": 0,
+                    "output_name": "output"
                 }
             },
-            "inputs": [
-                {
-                    "description": "runtime parameter for tool JBrowse",
-                    "name": "reference_genome"
-                }
-            ],
-            "label": "view repeats",
+            "inputs": [],
+            "label": "Jbrowse repeat density",
             "name": "JBrowse",
             "outputs": [
                 {
@@ -189,10 +235,18 @@
                 }
             ],
             "position": {
-                "left": 1120,
-                "top": 143
+                "left": 1138,
+                "top": 123.19999694824219
             },
-            "post_job_actions": {},
+            "post_job_actions": {
+                "RenameDatasetActionoutput": {
+                    "action_arguments": {
+                        "newname": "Jbrowse_repeat_density_on_#{reference_genome.genome}"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "output"
+                }
+            },
             "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/jbrowse/jbrowse/1.16.11+galaxy1",
             "tool_shed_repository": {
                 "changeset_revision": "a6e57ff585c0",
@@ -200,21 +254,21 @@
                 "owner": "iuc",
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             },
-            "tool_state": "{\"action\": {\"action_select\": \"create\", \"__current_case__\": 0}, \"gencode\": \"1\", \"jbgen\": {\"defaultLocation\": \"\", \"trackPadding\": \"20\", \"shareLink\": true, \"aboutDescription\": \"\", \"show_tracklist\": true, \"show_nav\": true, \"show_overview\": true, \"show_menu\": true, \"hideGenomeOptions\": false}, \"plugins\": {\"BlastView\": true, \"ComboTrackSelector\": false, \"GCContent\": false}, \"reference_genome\": {\"genome_type_select\": \"history\", \"__current_case__\": 1, \"genome\": {\"__class__\": \"RuntimeValue\"}}, \"standalone\": \"minimal\", \"track_groups\": [{\"__index__\": 0, \"category\": \"#date#TreeValGal repeat_finder\", \"data_tracks\": [{\"__index__\": 0, \"data_format\": {\"data_format_select\": \"gene_calls\", \"__current_case__\": 2, \"annotation\": {\"__class__\": \"RuntimeValue\"}, \"match_part\": {\"match_part_select\": false, \"__current_case__\": 1}, \"index\": false, \"track_config\": {\"track_class\": \"NeatHTMLFeatures/View/Track/NeatFeatures\", \"__current_case__\": 3, \"html_options\": {\"topLevelFeatures\": null}}, \"jbstyle\": {\"style_classname\": \"feature\", \"style_label\": \"product,name,id\", \"style_description\": \"note,description\", \"style_height\": \"10px\", \"max_height\": \"600\"}, \"jbcolor_scale\": {\"color_score\": {\"color_score_select\": \"score\", \"__current_case__\": 1, \"score_scaling\": \"linear\", \"score_scales\": {\"scale_select\": \"automatic\", \"__current_case__\": 0}, \"color_scheme\": {\"score_scheme\": \"opacity\", \"__current_case__\": 0, \"color\": {\"color_select\": \"automatic\", \"__current_case__\": 0}}}}, \"jb_custom_config\": {\"option\": []}, \"jbmenu\": {\"track_menu\": []}, \"track_visibility\": \"always\", \"override_apollo_plugins\": \"False\", \"override_apollo_drag\": \"False\"}}]}], \"uglyTestingHack\": \"\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_state": "{\"action\": {\"action_select\": \"create\", \"__current_case__\": 0}, \"gencode\": \"1\", \"jbgen\": {\"defaultLocation\": \"\", \"trackPadding\": \"20\", \"shareLink\": true, \"aboutDescription\": \"\", \"show_tracklist\": true, \"show_nav\": true, \"show_overview\": true, \"show_menu\": true, \"hideGenomeOptions\": false}, \"plugins\": {\"BlastView\": true, \"ComboTrackSelector\": false, \"GCContent\": false}, \"reference_genome\": {\"genome_type_select\": \"history\", \"__current_case__\": 1, \"genome\": {\"__class__\": \"ConnectedValue\"}}, \"standalone\": \"minimal\", \"track_groups\": [{\"__index__\": 0, \"category\": \"#date#TreeValGal repeat_finder\", \"data_tracks\": [{\"__index__\": 0, \"data_format\": {\"data_format_select\": \"gene_calls\", \"__current_case__\": 2, \"annotation\": {\"__class__\": \"ConnectedValue\"}, \"match_part\": {\"match_part_select\": false, \"__current_case__\": 1}, \"index\": false, \"track_config\": {\"track_class\": \"NeatHTMLFeatures/View/Track/NeatFeatures\", \"__current_case__\": 3, \"html_options\": {\"topLevelFeatures\": null}}, \"jbstyle\": {\"style_classname\": \"feature\", \"style_label\": \"product,name,id\", \"style_description\": \"note,description\", \"style_height\": \"10px\", \"max_height\": \"600\"}, \"jbcolor_scale\": {\"color_score\": {\"color_score_select\": \"score\", \"__current_case__\": 1, \"score_scaling\": \"linear\", \"score_scales\": {\"scale_select\": \"automatic\", \"__current_case__\": 0}, \"color_scheme\": {\"score_scheme\": \"opacity\", \"__current_case__\": 0, \"color\": {\"color_select\": \"automatic\", \"__current_case__\": 0}}}}, \"jb_custom_config\": {\"option\": []}, \"jbmenu\": {\"track_menu\": []}, \"track_visibility\": \"always\", \"override_apollo_plugins\": \"False\", \"override_apollo_drag\": \"False\"}}]}], \"uglyTestingHack\": \"\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
             "tool_version": "1.16.11+galaxy1",
             "type": "tool",
             "uuid": "c9241854-ee7c-418f-9d77-c69f774ee4e3",
-            "when": null,
+            "when": "$(inputs.when)",
             "workflow_outputs": [
                 {
-                    "label": "output",
+                    "label": "JBrowse repeat density",
                     "output_name": "output",
-                    "uuid": "5ed9a846-1952-45d3-aad8-6e5fdca24e5c"
+                    "uuid": "55ff862e-2bf3-4d12-96d8-9d9d1030451e"
                 }
             ]
         }
     },
     "tags": [],
-    "uuid": "0c4b7531-4567-48e9-b974-f4d974759cfe",
-    "version": 15
+    "uuid": "9b5b9288-e9fb-4aa9-84ae-f88a66938822",
+    "version": 12
 }

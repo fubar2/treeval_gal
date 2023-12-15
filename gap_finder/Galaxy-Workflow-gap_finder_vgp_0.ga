@@ -15,8 +15,8 @@
             "name": "Input dataset",
             "outputs": [],
             "position": {
-                "left": 0,
-                "top": 0.47476000002771457
+                "left": 18,
+                "top": 88
             },
             "tool_id": null,
             "tool_state": "{\"optional\": false, \"tag\": null}",
@@ -27,22 +27,50 @@
             "workflow_outputs": []
         },
         "1": {
+            "annotation": "Set to true when running the workflow by itself, false if running as a subworkflow where all outputs are collected into one JBrowse",
+            "content_id": null,
+            "errors": null,
+            "id": 1,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "Set to true when running the workflow by itself, false if running as a subworkflow where all outputs are collected into one JBrowse",
+                    "name": "Create JBrowse output"
+                }
+            ],
+            "label": "Create JBrowse output",
+            "name": "Input parameter",
+            "outputs": [],
+            "position": {
+                "left": 0,
+                "top": 259.5
+            },
+            "tool_id": null,
+            "tool_state": "{\"default\": true, \"parameter_type\": \"boolean\", \"optional\": true}",
+            "tool_version": null,
+            "type": "parameter_input",
+            "uuid": "4f399fdf-82e5-46c9-8eb1-409d498fb609",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "output",
+                    "uuid": "a5d94ffa-7221-4813-ac82-ea18a65994a3"
+                }
+            ]
+        },
+        "2": {
             "annotation": "",
             "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/seqtk/seqtk_cutN/1.4+galaxy0",
             "errors": null,
-            "id": 1,
+            "id": 2,
             "input_connections": {
                 "in_file": {
                     "id": 0,
                     "output_name": "output"
                 }
             },
-            "inputs": [
-                {
-                    "description": "runtime parameter for tool seqtk_cutN",
-                    "name": "in_file"
-                }
-            ],
+            "inputs": [],
             "label": null,
             "name": "seqtk_cutN",
             "outputs": [
@@ -52,8 +80,8 @@
                 }
             ],
             "position": {
-                "left": 265,
-                "top": 60
+                "left": 298,
+                "top": 82
             },
             "post_job_actions": {},
             "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/seqtk/seqtk_cutN/1.4+galaxy0",
@@ -63,18 +91,18 @@
                 "owner": "iuc",
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             },
-            "tool_state": "{\"g\": true, \"in_file\": {\"__class__\": \"RuntimeValue\"}, \"n\": \"1\", \"p\": \"1\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_state": "{\"g\": true, \"in_file\": {\"__class__\": \"ConnectedValue\"}, \"n\": \"1\", \"p\": \"1\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
             "tool_version": "1.4+galaxy0",
             "type": "tool",
             "uuid": "cc1dcd45-a752-4905-9f2a-864e20686468",
             "when": null,
             "workflow_outputs": []
         },
-        "2": {
+        "3": {
             "annotation": "",
             "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/gfastats/gfastats/1.3.6+galaxy0",
             "errors": null,
-            "id": 2,
+            "id": 3,
             "input_connections": {
                 "input_file": {
                     "id": 0,
@@ -91,8 +119,8 @@
                 }
             ],
             "position": {
-                "left": 265,
-                "top": 214
+                "left": 298,
+                "top": 226
             },
             "post_job_actions": {
                 "ChangeDatatypeActionstats": {
@@ -117,14 +145,14 @@
             "when": null,
             "workflow_outputs": []
         },
-        "3": {
+        "4": {
             "annotation": "",
             "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/2.0",
             "errors": null,
-            "id": 3,
+            "id": 4,
             "input_connections": {
                 "input": {
-                    "id": 1,
+                    "id": 2,
                     "output_name": "default"
                 }
             },
@@ -138,8 +166,8 @@
                 }
             ],
             "position": {
-                "left": 545,
-                "top": 60
+                "left": 578,
+                "top": 72
             },
             "post_job_actions": {
                 "RenameDatasetActionout_file1": {
@@ -170,14 +198,14 @@
                 }
             ]
         },
-        "4": {
+        "5": {
             "annotation": "",
             "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/2.0",
             "errors": null,
-            "id": 4,
+            "id": 5,
             "input_connections": {
                 "input": {
-                    "id": 2,
+                    "id": 3,
                     "output_name": "stats"
                 }
             },
@@ -191,8 +219,8 @@
                 }
             ],
             "position": {
-                "left": 545,
-                "top": 214
+                "left": 578,
+                "top": 226
             },
             "post_job_actions": {
                 "RenameDatasetActionout_file1": {
@@ -223,23 +251,27 @@
                 }
             ]
         },
-        "5": {
+        "6": {
             "annotation": "Log and raw scaled tracks are available.",
             "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/jbrowse/jbrowse/1.16.11+galaxy1",
             "errors": null,
-            "id": 5,
+            "id": 6,
             "input_connections": {
                 "reference_genome|genome": {
                     "id": 0,
                     "output_name": "output"
                 },
                 "track_groups_0|data_tracks_0|data_format|annotation": {
-                    "id": 3,
+                    "id": 4,
                     "output_name": "out_file1"
                 },
                 "track_groups_0|data_tracks_1|data_format|annotation": {
-                    "id": 4,
+                    "id": 5,
                     "output_name": "out_file1"
+                },
+                "when": {
+                    "id": 1,
+                    "output_name": "output"
                 }
             },
             "inputs": [],
@@ -252,10 +284,18 @@
                 }
             ],
             "position": {
-                "left": 825,
+                "left": 858,
                 "top": 0
             },
-            "post_job_actions": {},
+            "post_job_actions": {
+                "RenameDatasetActionoutput": {
+                    "action_arguments": {
+                        "newname": "Jbrowse_gaps_on_#{reference_genome.genome}"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "output"
+                }
+            },
             "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/jbrowse/jbrowse/1.16.11+galaxy1",
             "tool_shed_repository": {
                 "changeset_revision": "a6e57ff585c0",
@@ -267,7 +307,7 @@
             "tool_version": "1.16.11+galaxy1",
             "type": "tool",
             "uuid": "dd288d13-795e-4a34-9ee8-1eaa3ca58336",
-            "when": null,
+            "when": "$(inputs.when)",
             "workflow_outputs": [
                 {
                     "label": "Gaps for Jbrowse",
@@ -278,6 +318,6 @@
         }
     },
     "tags": [],
-    "uuid": "b8b75361-a186-436d-a245-909042848a9a",
-    "version": 4
+    "uuid": "cd4056a1-d014-487b-94dd-8f04c8e300aa",
+    "version": 5
 }
