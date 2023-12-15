@@ -1,12 +1,10 @@
 # treeval_gal
-
-### tl;dr
 *New proposal in the ongoing collaboration between the [Galaxy](https://galaxyproject.org/) and [VGP](https://vertebrategenomesproject.org/) communities to
 translate the Sanger [TreeVal NF DDL](https://github.com/sanger-tol/treeval/tree/dev) workflow into Galaxy. Everyone with an interest in contributing to
 this effort is cordially invited to pitch in.*
 
 #### December 15
-With thanks to @bgruening and @annasyme for helping with testing and tools, there is now a WIP workflow on usegalaxy.eu that creates the two gap tracks, the repeats track and the coverage track for the TreeVal small sample test data. 
+With thanks to @bgruening and @annasyme for helping with testing and tools, there is now a WIP workflow on usegalaxy.eu that combines the two gap tracks, the repeats track and the coverage track for the TreeVal small sample test data into a single JBrowse viewer.
 
 *Note that there are only 3 gaps in the entire test reference so hard to find them, and the pacbio sample only covers some of a single contig, so make sure you select ENA|OV656687|OV656687.1 for display, otherwise there is no coverage to show in this demonstration.*
 
