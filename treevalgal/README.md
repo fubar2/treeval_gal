@@ -10,7 +10,7 @@ the current (December 15) version combines the two gap tracks, the repeats track
 
 *Note that there are only 3 gaps in the entire test reference so hard to find them, and the pacbio sample only covers some of a single contig, so select ENA|OV656687|OV656687.1 for display, otherwise there will not be any coverage to see in this tiny sample demonstration.*
 
-History is shared here [on usegalaxy.eu](https://usegalaxy.eu/u/fubar/h/vgpdemogapsrepeatscoveragecombineddec15) and so is [the prototype workflow](https://usegalaxy.eu/u/fubar/w/vgpdemogapsrepeatscoveragecombined) so please try it on your own pacbio/refseq data.
+A demonsration history with the viewable preconfigured JBrowse is shared here [on usegalaxy.eu](https://usegalaxy.eu/u/fubar/h/vgpdemogapsrepeatscoveragecombineddec15) and so is [the prototype workflow](https://usegalaxy.eu/u/fubar/w/vgpdemogapsrepeatscoveragecombined) so please try it on your own pacbio/refseq data.
 
 Sample images show how JBrowse does all the work of density and other displays based on the zoom level. 
 All tracks are also in the history as bed files if the user wants them for downstream analyses. 
