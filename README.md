@@ -5,7 +5,7 @@ translate the Sanger [TreeVal NF DDL](https://github.com/sanger-tol/treeval/tree
 this effort is cordially invited to pitch in.*
 
 #### December 15
-With thanks to @bgruening and @annasyme for helping with testing and tools, there is now a [WIP TreeValGal workflow](treevalgal) on usegalaxy.eu that combines the two gap tracks, the repeats track and the coverage track for the TreeVal small sample test data into a single JBrowse viewer.
+With thanks to @bgruening and @annasyme for helping with testing and tools, and the support of Galaxy Australia, there is now a [WIP TreeValGal workflow](treevalgal) on usegalaxy.eu that combines the two gap tracks, the repeats track and the coverage track for the TreeVal small sample test data into a single JBrowse viewer.
 
 Please try it on your own pacbio/refseq data and let me know if this is worth more work to add additional TreeVal tracks to for your use?
 
