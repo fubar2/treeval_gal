@@ -5,14 +5,18 @@
 #### Partial workflow - missing log coverage and punchlists - TBA. 
 ![Partial workflow](https://github.com/fubar2/treeval_gal/blob/main/longread_coverage/treevalgal_longread_coverage_wf0.png)
 
+*Not yet complete*. 
+The Galaxy version adds a preconfigured JBrowse browser as an output, and implements the first part of the nearly 300+ lines of DDL needed for the NF TreeVal subworkflow described in the section below.
+It performs a simple mapping of the reference using minimap for PacBio sample data. **Any** mapper with bam or other standard output that can be converted into bed would work in place of minimap, for other data.
+
 #### Sample JBrowse: 
 (Uses Sanger TinyTestData pac-bio sample, so coverage only seen over a small region):
 
-![Partial workflow](https://github.com/fubar2/treeval_gal/blob/main/longread_coverage/treevalgal_long_coverage_sample.png)
+![sample Jbrowse](https://github.com/fubar2/treeval_gal/blob/main/longread_coverage/treevalgal_long_coverage_sample.png)
 
-#### Zoomed in at a certian point gives a kind of pileup instead of a coverage histogram:
+#### Zoomed in at a certain point gives a kind of pileup instead of a coverage histogram:
 
-![Partial workflow](https://github.com/fubar2/treeval_gal/blob/main/longread_coverage/treevalgal_longread_coverage_zoom.png)
+![sample Jbrowse zoomed in](https://github.com/fubar2/treeval_gal/blob/main/longread_coverage/treevalgal_longread_coverage_zoom.png)
 
 The partial workflow is [Available in this repository](https://github.com/fubar2/treeval_gal/raw/main/longread_coverage/Galaxy-Workflow-treevalgal_longread_coverage_dev_0.ga)
 Upload the [test reference](https://github.com/fubar2/treeval_gal/raw/main/longread_coverage/LaetiporusSulphureus.fasta) and the "tiny" [PacBio sequence sample](https://zenodo.org/records/10376059/files/Galaxy1-%5BseqkitPacbio50000.fasta.gz%5D.fasta.gz?download=1). It's too big for github repositories so in Zenodo.
@@ -43,6 +47,29 @@ Most of the rest of the DDL is not going to be needed other than to
 figure out exactly how each function gets parameters supplied to the actual command lines.
 
 ```
+#!/usr/bin/env nextflow
+
+//
+// MODULE IMPORT BLOCK
+//
+include { BEDTOOLS_BAMTOBED                         } from '../../modules/nf-core/bedtools/bamtobed/main'
+include { BEDTOOLS_GENOMECOV                        } from '../../modules/nf-core/bedtools/genomecov/main'
+include { BEDTOOLS_MERGE as BEDTOOLS_MERGE_MAX      } from '../../modules/nf-core/bedtools/merge/main'
+include { BEDTOOLS_MERGE as BEDTOOLS_MERGE_MIN      } from '../../modules/nf-core/bedtools/merge/main'
+include { GNU_SORT                                  } from '../../modules/nf-core/gnu/sort/main'
+include { MINIMAP2_INDEX                            } from '../../modules/nf-core/minimap2/index/main'
+include { MINIMAP2_ALIGN as MINIMAP2_ALIGN_SPLIT    } from '../../modules/nf-core/minimap2/align/main'
+include { MINIMAP2_ALIGN                            } from '../../modules/nf-core/minimap2/align/main'
+include { SAMTOOLS_MERGE                            } from '../../modules/nf-core/samtools/merge/main'
+include { SAMTOOLS_SORT                             } from '../../modules/nf-core/samtools/sort/main'
+include { SAMTOOLS_VIEW                             } from '../../modules/nf-core/samtools/view/main'
+include { UCSC_BEDGRAPHTOBIGWIG as BED2BW_NORMAL    } from '../../modules/nf-core/ucsc/bedgraphtobigwig/main'
+include { UCSC_BEDGRAPHTOBIGWIG as BED2BW_LOG       } from '../../modules/nf-core/ucsc/bedgraphtobigwig/main'
+include { GRAPHOVERALLCOVERAGE                      } from '../../modules/local/graphoverallcoverage'
+include { GETMINMAXPUNCHES                          } from '../../modules/local/getminmaxpunches'
+include { FINDHALFCOVERAGE                          } from '../../modules/local/findhalfcoverage'
+include { LONGREADCOVERAGESCALELOG                  } from '../../modules/local/longreadcoveragescalelog'
+
 workflow LONGREAD_COVERAGE {
 
     take:
@@ -393,7 +420,30 @@ workflow LONGREAD_COVERAGE {
             }
             .set { ch_reporting_pacbio }
 
-```
+    emit:
+    ch_minbed               = BEDTOOLS_MERGE_MIN.out.bed
+    ch_halfbed              = FINDHALFCOVERAGE.out.bed
+    ch_maxbed               = BEDTOOLS_MERGE_MAX.out.bed
+    ch_reporting            = ch_reporting_pacbio.collect()
+    ch_covbw_nor            = BED2BW_NORMAL.out.bigwig
+    ch_covbw_log            = BED2BW_LOG.out.bigwig
+    versions                = ch_versions
+}
+
+process GrabFiles {
+    label 'process_tiny'
+
+    tag "${meta.id}"
+    executor 'local'
+
+    input:
+    tuple val(meta), path("in")
+
+    output:
+    tuple val(meta), path("in/*.fasta.gz")
+
+    "true"
+}
 
 [MINIMAP2_INDEX](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/minimap2/index/main.nf) uses *conda "bioconda::minimap2=2.24"* to execute
 
