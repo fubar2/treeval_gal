@@ -59,14 +59,14 @@
             "workflow_outputs": []
         },
         "2": {
-            "annotation": "Set to true when running the workflow by itself, false if running as a subworkflow where all outputs are collected into one JBrowse",
+            "annotation": "Set to true when running the workflow by itself, false if running as a subworkflow where all outputs are collected into one JBrowse at the end",
             "content_id": null,
             "errors": null,
             "id": 2,
             "input_connections": {},
             "inputs": [
                 {
-                    "description": "Set to true when running the workflow by itself, false if running as a subworkflow where all outputs are collected into one JBrowse",
+                    "description": "Set to true when running the workflow by itself, false if running as a subworkflow where all outputs are collected into one JBrowse at the end",
                     "name": "Create JBrowse output?"
                 }
             ],
@@ -74,7 +74,7 @@
             "name": "Input parameter",
             "outputs": [],
             "position": {
-                "left": 0.0,
+                "left": 0,
                 "top": 413.6278402214897
             },
             "tool_id": null,
@@ -83,13 +83,7 @@
             "type": "parameter_input",
             "uuid": "f1a84e25-ce4b-463e-976a-d76b857b69f8",
             "when": null,
-            "workflow_outputs": [
-                {
-                    "label": null,
-                    "output_name": "output",
-                    "uuid": "27b29aa5-562e-40d9-80ef-42128b7fb45a"
-                }
-            ]
+            "workflow_outputs": []
         },
         "3": {
             "annotation": "",
@@ -250,7 +244,7 @@
                 },
                 "RenameDatasetActionoutput": {
                     "action_arguments": {
-                        "newname": "longreadcoverage_on_#{input_type.genome_file_opts.genome}}"
+                        "newname": "longreadcoverage"
                     },
                     "action_type": "RenameDatasetAction",
                     "output_name": "output"
@@ -339,6 +333,6 @@
         }
     },
     "tags": [],
-    "uuid": "b7bccf3e-fafa-4652-8962-7e60ad156b10",
-    "version": 8
+    "uuid": "99f8647f-44bc-4fbf-aad5-bd26eb565d65",
+    "version": 10
 }

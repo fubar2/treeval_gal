@@ -51,13 +51,7 @@
             "type": "parameter_input",
             "uuid": "4f399fdf-82e5-46c9-8eb1-409d498fb609",
             "when": null,
-            "workflow_outputs": [
-                {
-                    "label": null,
-                    "output_name": "output",
-                    "uuid": "a5d94ffa-7221-4813-ac82-ea18a65994a3"
-                }
-            ]
+            "workflow_outputs": []
         },
         "2": {
             "annotation": "",
@@ -318,6 +312,6 @@
         }
     },
     "tags": [],
-    "uuid": "cd4056a1-d014-487b-94dd-8f04c8e300aa",
-    "version": 5
+    "uuid": "925fa292-a607-438b-a566-d5a1b8a2c7e5",
+    "version": 6
 }

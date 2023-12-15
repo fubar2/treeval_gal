@@ -36,13 +36,7 @@
             "type": "parameter_input",
             "uuid": "7194df71-4338-4921-96c5-41f70608ac90",
             "when": null,
-            "workflow_outputs": [
-                {
-                    "label": null,
-                    "output_name": "output",
-                    "uuid": "6d592187-9757-4ed7-84e9-0b7ce958a1ed"
-                }
-            ]
+            "workflow_outputs": []
         },
         "1": {
             "annotation": "",
@@ -180,7 +174,7 @@
             "post_job_actions": {
                 "RenameDatasetActionout_file1": {
                     "action_arguments": {
-                        "newname": "repeats on #{input}"
+                        "newname": "repeatdensity"
                     },
                     "action_type": "RenameDatasetAction",
                     "output_name": "out_file1"
@@ -269,6 +263,6 @@
         }
     },
     "tags": [],
-    "uuid": "9b5b9288-e9fb-4aa9-84ae-f88a66938822",
-    "version": 12
+    "uuid": "474989ef-3f96-4492-801a-d01318ebf4be",
+    "version": 13
 }
