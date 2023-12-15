@@ -2,7 +2,8 @@
 
 ### Galaxy prototype solution
 
-A Galaxy user builds a workflow's tools, data flows and default parameter settings entirely through the GUI, compared to writing 100+ lines of custom DDL needed for this NF subworkflow 
+A Galaxy user builds a workflow's tools, data flows and default parameter settings entirely through the GUI, compared to writing 100+ lines of custom DDL needed for this NF subworkflow described in the section that follows.
+
 A preconfigured, shareable JBrowse viewer makes Galaxy workflow outputs immediately accessible, without the need to manually shuffle individual track files around.
 
 A [prototype repeat_density workflow](https://github.com/fubar2/treeval_gal/blob/main/repeat_density/Galaxy-Workflow-repeat_finder.ga) is now available for testing and feedback. 
