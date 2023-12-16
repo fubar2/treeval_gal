@@ -5,7 +5,7 @@ translate the Sanger [TreeVal NF DDL](https://github.com/sanger-tol/treeval/tree
 this effort is cordially invited to pitch in.*
 
 #### December 15
-With thanks to @bgruening and @annasyme for helping with testing and tools, and the support of Galaxy Australia, there is now a [WIP TreeValGal workflow](treevalgal) on usegalaxy.eu that combines the two gap tracks, the repeats track and the coverage track for the TreeVal small sample test data into a single JBrowse viewer.
+With thanks to @bgruening and @annasyme for helping with testing and tools, and the support of Galaxy Australia, there is now a [WIP TreeValGal workflow](treevalgal) on usegalaxy.eu that combines the two gap tracks, the repeats track, a telomere track and the coverage track for the TreeVal small sample test data into a single JBrowse viewer.
 
 Please try it on your own pacbio/refseq data and let me know if this is worth more work to add additional TreeVal tracks to for your use?
 
@@ -52,17 +52,17 @@ include { KMER                                          } from '../subworkflows/
 ```
 HIC_MAPPING needs some additional subworkflows so the working list for implementation is:
 
-1. [yaml_input](yaml_input) Not needed
-4. [gap_finder](gap_finder) Prototype available
-6. [generate_genome](generate_genome) Not needed. Existing chromosome lengths tool works in one step.
+1. [yaml_input](yaml_input) **Not needed**
+4. [gap_finder](gap_finder) **Prototype available**
+6. [generate_genome](generate_genome) **Not needed** Existing chromosome lengths tool works in one step.
 7. [hic_mapping](hic_mapping)
 9. [kmer](kmer)
-10. [longread_coverage](longread_coverage) Partial prototype available
+10. [longread_coverage](longread_coverage) **Partial prototype available**
 11. [nuc_alignments](nuc_alignments)
 12. [pep_alignments](pep_alignments)
-14. [punchlist](punchlist)
-15. [repeat_density](repeat_density) Prototype available.
-18. [telo_finder](telo_finder)
+14. [punchlist](punchlist) **Redundant** - avoiding PAF removes the need for this complexity
+15. [repeat_density](repeat_density) **Prototype available.**
+18. [telo_finder](telo_finder) **Prototype available in treevalgal workflow now** using seqtk-telo
 
 A first pass at documenting each subworkflow at the level of dependencies and command lines executed at each step has been completed ready for comment and review.
 While clarifying the best long term solutions, prototype TreeVal Galaxy subworkflows can be created with existing and some new tools, so users can test them.
