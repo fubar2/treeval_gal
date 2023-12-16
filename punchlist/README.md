@@ -2,8 +2,18 @@
 
 Called by [nuc_alignments](nuc_alignments)
 
+### Note that PAF is an optional output from minimap outputs. Galaxy's minimap can produce a bam transparently to convert to a bed for viewing.
+This 33 line DDL subworkflow to make bed files from paf is redundant for TreeValGal.
 
 ```
+#!/usr/bin/env nextflow
+
+//
+// MODULE IMPORT BLOCK
+//
+include { PAFTOOLS_SAM2PAF      } from '../../modules/nf-core/paftools/sam2paf/main'
+include { PAF2BED               } from '../../modules/local/paf_to_bed'
+
 workflow PUNCHLIST {
     take:
     reference_tuple // Channel: tuple [ val(meta), path(reference)]
@@ -26,6 +36,12 @@ workflow PUNCHLIST {
     PAF2BED (
         PAFTOOLS_SAM2PAF.out.paf
     )
+    ch_versions         = ch_versions.mix( PAF2BED.out.versions )
+
+    emit:
+    punchlist           = PAF2BED.out.punchlist
+    versions            = ch_versions.ifEmpty(null)
+}
 ```
 
 [PAFTOOLS_SAM2PAF](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/paftools/sam2paf/main.nf) uses samtools and
