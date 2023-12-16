@@ -50,7 +50,7 @@ include { TELO_FINDER                                   } from '../subworkflows/
 include { HIC_MAPPING                                   } from '../subworkflows/local/hic_mapping'
 include { KMER                                          } from '../subworkflows/local/kmer'
 ```
-HIC_MAPPING needs some additional subworkflows.
+HIC_MAPPING needs some additional subworkflows so the working list for implementation is:
 
 1. [yaml_input](yaml_input) Not needed
 4. [gap_finder](gap_finder) Prototype available
