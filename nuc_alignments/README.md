@@ -6,6 +6,7 @@ This subworkflow is used in [hic_mapping](hic_mapping) as the nucleotide aligner
 This DDL has function calls explained below.
 Most of the rest of the DDL is not going to be needed other than to
 figure out exactly how each function gets parameters supplied to the actual command lines.
+Tools needed to handle the PAF format can easily be avoided - the Galaxy minimap2 tool can create a bam output automatically.
 
 ```
 
