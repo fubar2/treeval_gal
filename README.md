@@ -4,6 +4,22 @@
 translate the Sanger [TreeVal NF DDL](https://github.com/sanger-tol/treeval/tree/dev) workflow into Galaxy. Everyone with an interest in contributing to
 this effort is cordially invited to pitch in.*
 
+## Current status of TreeVal modules needed for the rapid workflow 
+
+1. [yaml_input](yaml_input) **Not needed**
+4. [gap_finder](gap_finder) **Prototype available**
+6. [generate_genome](generate_genome) **Not needed** Existing chromosome lengths tool works in one step.
+7. [hic_mapping](hic_mapping)
+9. [kmer](kmer)
+10. [longread_coverage](longread_coverage) **Partial prototype available**
+11. [nuc_alignments](nuc_alignments)
+12. [pep_alignments](pep_alignments)
+14. [punchlist](punchlist) **Redundant** - avoiding PAF removes the need for complication
+15. [repeat_density](repeat_density) **Prototype available.**
+18. [telo_finder](telo_finder) **Prototype available in treevalgal workflow now** using seqtk-telo
+
+## News
+
 #### December 15
 With thanks to @bgruening and @annasyme for helping with testing and tools, and the support of Galaxy Australia, there is now a [WIP TreeValGal workflow](treevalgal) on usegalaxy.eu that combines the two gap tracks, the repeats track, a telomere track and the coverage track for the TreeVal small sample test data into a single JBrowse viewer.
 
