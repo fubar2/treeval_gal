@@ -54,7 +54,7 @@ HIC_MAPPING needs some additional subworkflows so the working list for implement
 
 1. [yaml_input](yaml_input) Not needed
 4. [gap_finder](gap_finder) Prototype available
-6. [generate_genome](generate_genome) Samtools chromosome lengths makes a text .fai file
+6. [generate_genome](generate_genome) Not needed. Existing chromosome lengths tool works in one step.
 7. [hic_mapping](hic_mapping)
 9. [kmer](kmer)
 10. [longread_coverage](longread_coverage) Partial prototype available
