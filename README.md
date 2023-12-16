@@ -36,9 +36,21 @@ Not yet working on the usegalaxy servers. Needs the window_masker tool installed
 Plans are documented for discussion and refinement at [the work plan discussion](https://github.com/fubar2/treeval_gal/discussions/7#discussion-5920941)
 
 For the “rapid” workflow, not all the 18 subworkflows are needed, so this makes a good first target for implementation.
-A first pass at documenting each subworkflow at the level of dependencies and command lines executed at each step has been completed ready for comment and review.
-While clarifying the best long term solutions, prototype TreeVal Galaxy subworkflows can be created with existing and some new tools, so users can test them.
-These prototypes will help drive the design and features of an optimal production workflow, as discussions progress.
+The NF DDL shows the main submodules needed:
+```
+//
+// IMPORT: SUBWORKFLOWS CALLED BY THE MAIN
+//
+include { YAML_INPUT                                    } from '../subworkflows/local/yaml_input'
+include { GENERATE_GENOME                               } from '../subworkflows/local/generate_genome'
+include { REPEAT_DENSITY                                } from '../subworkflows/local/repeat_density'
+include { GAP_FINDER                                    } from '../subworkflows/local/gap_finder'
+include { LONGREAD_COVERAGE                             } from '../subworkflows/local/longread_coverage'
+include { TELO_FINDER                                   } from '../subworkflows/local/telo_finder'
+include { HIC_MAPPING                                   } from '../subworkflows/local/hic_mapping'
+include { KMER                                          } from '../subworkflows/local/kmer'
+```
+HIC_MAPPING needs some additional subworkflows.
 
 1. [yaml_input](yaml_input) Not needed
 4. [gap_finder](gap_finder) Prototype available
@@ -52,6 +64,9 @@ These prototypes will help drive the design and features of an optimal productio
 15. [repeat_density](repeat_density) Prototype available.
 18. [telo_finder](telo_finder)
 
+A first pass at documenting each subworkflow at the level of dependencies and command lines executed at each step has been completed ready for comment and review.
+While clarifying the best long term solutions, prototype TreeVal Galaxy subworkflows can be created with existing and some new tools, so users can test them.
+These prototypes will help drive the design and features of an optimal production workflow, as discussions progress.
 
 <h2>Background and approach</h2>
 
