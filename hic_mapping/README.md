@@ -1,5 +1,6 @@
 ### [#3 hic_mapping](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/hic_mapping.nf)
 
+
 ![Flow chart](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_hic_mapping.png)
 (from [https://github.com/sanger-tol/treeval/blob/dev/docs/output.md#busco-analysis](https://github.com/sanger-tol/treeval/blob/dev/docs/output.md#hic_mapping))
 
@@ -11,12 +12,40 @@ Output files
         *.mcool: HiC map required for HiGlass
 
 ```
-This is a lot of steps. Some local code - could need new tools. Juicer? Cooler? cram_filter?
+This is 300+ lines of DDL and lot of steps. Some local code - could need new tools. Juicer? Cooler? cram_filter?
 
 This DDL has function calls explained below. Most of the rest of the DDL is not going to be needed other than to
 figure out exactly how each function gets parameters supplied to the actual command lines.
 
 ```
+#!/usr/bin/env nextflow
+
+// This subworkflow takes an input fasta sequence and csv style list of hic cram file to return
+// alignment files including .mcool, pretext and .hic.
+// Input - Assembled genomic fasta file, cram file directory
+// Output - .mcool, .pretext, .hic
+
+//
+// MODULE IMPORT BLOCK
+//
+include { BWAMEM2_INDEX                             } from '../../modules/nf-core/bwamem2/index/main'
+include { COOLER_CLOAD                              } from '../../modules/nf-core/cooler/cload/main'
+include { COOLER_ZOOMIFY                            } from '../../modules/nf-core/cooler/zoomify/main'
+include { PRETEXTMAP as PRETEXTMAP_STANDRD          } from '../../modules/nf-core/pretextmap/main'
+include { PRETEXTMAP as PRETEXTMAP_HIGHRES          } from '../../modules/nf-core/pretextmap/main'
+include { PRETEXTSNAPSHOT as SNAPSHOT_SRES          } from '../../modules/nf-core/pretextsnapshot/main'
+include { PRETEXTSNAPSHOT as SNAPSHOT_HRES          } from '../../modules/nf-core/pretextsnapshot/main'
+include { SAMTOOLS_MARKDUP                          } from '../../modules/nf-core/samtools/markdup/main'
+include { SAMTOOLS_MERGE                            } from '../../modules/nf-core/samtools/merge/main'
+include { BAMTOBED_SORT                             } from '../../modules/local/bamtobed_sort.nf'
+include { GENERATE_CRAM_CSV                         } from '../../modules/local/generate_cram_csv'
+include { CRAM_FILTER_ALIGN_BWAMEM2_FIXMATE_SORT    } from '../../modules/local/cram_filter_align_bwamem2_fixmate_sort'
+include { JUICER_TOOLS_PRE                          } from '../../modules/local/juicer_tools_pre'
+include { GET_PAIRED_CONTACT_BED                    } from '../../modules/local/get_paired_contact_bed'
+include { PRETEXT_INGESTION as PRETEXT_INGEST_SNDRD } from '../../subworkflows/local/pretext_ingestion'
+include { PRETEXT_INGESTION as PRETEXT_INGEST_HIRES } from '../../subworkflows/local/pretext_ingestion'
+
+
 workflow HIC_MAPPING {
     take:
     reference_tuple     // Channel: tuple [ val(meta), path( file )      ]
@@ -162,39 +191,28 @@ workflow HIC_MAPPING {
     ch_versions         = ch_versions.mix( PRETEXT_INGEST_SNDRD.out.versions )
 
     //
-    // LOGIC: HIRES IS TOO INTENSIVE FOR RUNNING IN GITHUB CI SO THIS STOPS IT RUNNING
+    // MODULE: GENERATE PRETEXT MAP FROM MAPPED BAM FOR HIGH RES
     //
-    if ( params.config_profile_name ) {
-        config_profile_name = params.config_profile_name
-    } else {
-        config_profile_name = 'Local'
-    }
+    PRETEXTMAP_HIGHRES (
+        pretext_input.input_bam,
+        pretext_input.reference
+    )
+    ch_versions         = ch_versions.mix( PRETEXTMAP_HIGHRES.out.versions )
 
-    if ( !config_profile_name.contains('GitHub') ) {
-        //
-        // MODULE: GENERATE PRETEXT MAP FROM MAPPED BAM FOR HIGH RES
-        //
-        PRETEXTMAP_HIGHRES (
-            pretext_input.input_bam,
-            pretext_input.reference
-        )
-        ch_versions         = ch_versions.mix( PRETEXTMAP_HIGHRES.out.versions )
-
-        //
-        // NOTICE: This could fail on LARGE hires maps due to some memory parameter in the C code
-        //         of pretext graph. There is a "fixed" version in sanger /software which may need
-        //         to be released in this case
-        //
-        PRETEXT_INGEST_HIRES (
-            PRETEXTMAP_HIGHRES.out.pretext,
-            gap_file,
-            coverage_file,
-            logcoverage_file,
-            telo_file,
-            repeat_density_file
-        )
-        ch_versions         = ch_versions.mix( PRETEXT_INGEST_HIRES.out.versions )
-    }
+    //
+    // NOTICE: This could fail on LARGE hires maps due to some memory parameter in the C code
+    //         of pretext graph. There is a "fixed" version in sanger /software which may need
+    //         to be released in this case
+    //
+    PRETEXT_INGEST_HIRES (
+        PRETEXTMAP_HIGHRES.out.pretext,
+        gap_file,
+        coverage_file,
+        logcoverage_file,
+        telo_file,
+        repeat_density_file
+    )
+    ch_versions         = ch_versions.mix( PRETEXT_INGEST_HIRES.out.versions )
 
     //
     // MODULE: GENERATE PNG FROM STANDARD PRETEXT
@@ -235,32 +253,26 @@ workflow HIC_MAPPING {
     ch_versions         = ch_versions.mix( GET_PAIRED_CONTACT_BED.out.versions )
 
     //
-    // LOGIC: SECTION ONLY NEEDED FOR TREEVAL VISUALISATION, NOT RAPID ANALYSIS
+    // LOGIC: PREPARE JUICER TOOLS INPUT
     //
-    if (workflow_setting == 'FULL' && !config_profile_name.contains('GitHub')) {
-        //
-        // LOGIC: PREPARE JUICER TOOLS INPUT
-        //
-        GET_PAIRED_CONTACT_BED.out.bed
-            .combine( dot_genome )
-            .multiMap {  meta, paired_contacts, meta_my_genome, my_genome ->
-                paired      :   tuple([ id: meta.id, single_end: true], paired_contacts )
-                genome      :   my_genome
-                id          :   meta.id
-            }
-            .set { ch_juicer_input }
+    GET_PAIRED_CONTACT_BED.out.bed
+        .combine( dot_genome )
+        .multiMap {  meta, paired_contacts, meta_my_genome, my_genome ->
+            paired      :   tuple([ id: meta.id, single_end: true], paired_contacts )
+            genome      :   my_genome
+            id          :   meta.id
+        }
+        .set { ch_juicer_input }
 
-        //
-        // MODULE: GENERATE HIC MAP, ONLY IS PIPELINE IS RUNNING ON ENTRY FULL
-        //
-
-        JUICER_TOOLS_PRE(
-            ch_juicer_input.paired,
-            ch_juicer_input.genome,
-            ch_juicer_input.id
-        )
-        ch_versions         = ch_versions.mix( JUICER_TOOLS_PRE.out.versions )
-    }
+    //
+    // MODULE: GENERATE HIC MAP, ONLY IS PIPELINE IS RUNNING ON ENTRY FULL
+    //
+    JUICER_TOOLS_PRE(
+        ch_juicer_input.paired,
+        ch_juicer_input.genome,
+        ch_juicer_input.id
+    )
+    ch_versions         = ch_versions.mix( JUICER_TOOLS_PRE.out.versions )
 
     //
     // LOGIC: BIN CONTACT PAIRS
@@ -330,6 +342,27 @@ workflow HIC_MAPPING {
             )
         }
         .set { ch_reporting_cram }
+
+    emit:
+    mcool               = COOLER_ZOOMIFY.out.mcool
+    ch_reporting        = ch_reporting_cram.collect()
+    versions            = ch_versions.ifEmpty(null)
+}
+
+process GrabFiles {
+    label 'process_tiny'
+
+    tag "${meta.id}"
+    executor 'local'
+
+    input:
+    tuple val(meta), path("in")
+
+    output:
+    tuple val(meta), path("in/*.cram")
+
+    "true"
+}
 ```
 
 ## Steps broken down
