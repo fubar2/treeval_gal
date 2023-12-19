@@ -2,7 +2,7 @@
     "a_galaxy_workflow": "true",
     "annotation": "",
     "format-version": "0.1",
-    "name": "treevalgal_longread_coverage_dev_0 (imported from URL)",
+    "name": "treevalgal_longread_coverage_dev_0 (imported from URL) (imported from uploaded file)",
     "steps": {
         "0": {
             "annotation": "",
@@ -13,15 +13,15 @@
             "inputs": [
                 {
                     "description": "",
-                    "name": "seqkitPacbio50000.fasta.gz"
+                    "name": "PacBio reads"
                 }
             ],
-            "label": "seqkitPacbio50000.fasta.gz",
+            "label": "PacBio reads",
             "name": "Input dataset",
             "outputs": [],
             "position": {
-                "left": 9.909480646128902,
-                "top": 140
+                "left": 9.91668701171875,
+                "top": 139
             },
             "tool_id": null,
             "tool_state": "{\"optional\": false, \"tag\": null}",
@@ -40,10 +40,10 @@
             "inputs": [
                 {
                     "description": "",
-                    "name": "LaetiporusSulphureus.fasta"
+                    "name": "genome assembly"
                 }
             ],
-            "label": "LaetiporusSulphureus.fasta",
+            "label": "genome assembly",
             "name": "Input dataset",
             "outputs": [],
             "position": {
@@ -83,7 +83,13 @@
             "type": "parameter_input",
             "uuid": "f1a84e25-ce4b-463e-976a-d76b857b69f8",
             "when": null,
-            "workflow_outputs": []
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "output",
+                    "uuid": "ab88f934-0018-47ab-be6b-1f79062467a0"
+                }
+            ]
         },
         "3": {
             "annotation": "",
@@ -110,8 +116,8 @@
                 }
             ],
             "position": {
-                "left": 289.9094806461289,
-                "top": 123
+                "left": 274.91668701171875,
+                "top": 41
             },
             "post_job_actions": {},
             "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/minimap2/minimap2/2.26+galaxy0",
@@ -121,7 +127,7 @@
                 "owner": "iuc",
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             },
-            "tool_state": "{\"__input_ext\": \"input\", \"alignment_options\": {\"splicing\": {\"splice_mode\": \"preset\", \"__current_case__\": 0}, \"A\": null, \"B\": null, \"O\": null, \"O2\": null, \"E\": null, \"E2\": null, \"z\": null, \"z2\": null, \"s\": null, \"no_end_flt\": true}, \"chromInfo\": \"/mnt/galaxy/tool-data/shared/ucsc/chrom/?.len\", \"fastq_input\": {\"fastq_input_selector\": \"single\", \"__current_case__\": 0, \"fastq_input1\": {\"__class__\": \"ConnectedValue\"}, \"analysis_type_selector\": \"map-hifi\"}, \"indexing_options\": {\"H\": false, \"k\": null, \"w\": null, \"I\": \"2\"}, \"io_options\": {\"output_format\": \"BAM\", \"Q\": false, \"L\": false, \"K\": null, \"cs\": null, \"c\": false, \"eqx\": false, \"Y\": false}, \"mapping_options\": {\"N\": null, \"F\": null, \"f\": null, \"kmer_ocurrence_interval\": {\"interval\": \"\", \"__current_case__\": 1}, \"min_occ_floor\": null, \"q_occ_frac\": \"0.01\", \"g\": null, \"r\": null, \"n\": null, \"m\": null, \"max_chain_skip\": null, \"max_chain_iter\": null, \"X\": false, \"p\": null, \"mask_len\": null}, \"reference_source\": {\"reference_source_selector\": \"history\", \"__current_case__\": 1, \"ref_file\": {\"__class__\": \"ConnectedValue\"}}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_state": "{\"alignment_options\": {\"splicing\": {\"splice_mode\": \"preset\", \"__current_case__\": 0}, \"A\": null, \"B\": null, \"O\": null, \"O2\": null, \"E\": null, \"E2\": null, \"z\": null, \"z2\": null, \"s\": null, \"no_end_flt\": true}, \"fastq_input\": {\"fastq_input_selector\": \"single\", \"__current_case__\": 0, \"fastq_input1\": {\"__class__\": \"ConnectedValue\"}, \"analysis_type_selector\": \"map-hifi\"}, \"indexing_options\": {\"H\": false, \"k\": null, \"w\": null, \"I\": null}, \"io_options\": {\"output_format\": \"BAM\", \"Q\": false, \"L\": false, \"K\": null, \"cs\": null, \"c\": false, \"eqx\": false, \"Y\": false}, \"mapping_options\": {\"N\": null, \"F\": null, \"f\": null, \"kmer_ocurrence_interval\": {\"interval\": \"\", \"__current_case__\": 1}, \"min_occ_floor\": null, \"q_occ_frac\": \"0.01\", \"g\": null, \"r\": null, \"n\": null, \"m\": null, \"max_chain_skip\": null, \"max_chain_iter\": null, \"X\": false, \"p\": null, \"mask_len\": null}, \"reference_source\": {\"reference_source_selector\": \"history\", \"__current_case__\": 1, \"ref_file\": {\"__class__\": \"ConnectedValue\"}}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
             "tool_version": "2.26+galaxy0",
             "type": "tool",
             "uuid": "ef0268d6-54bb-4fd4-b8a1-6a1bcf80da75",
@@ -299,8 +305,8 @@
                 }
             ],
             "position": {
-                "left": 1129.909480646129,
-                "top": 236
+                "left": 1142.0980111279364,
+                "top": 108
             },
             "post_job_actions": {
                 "RenameDatasetActionoutput": {
@@ -333,6 +339,6 @@
         }
     },
     "tags": [],
-    "uuid": "99f8647f-44bc-4fbf-aad5-bd26eb565d65",
-    "version": 10
+    "uuid": "c98e7434-90b8-49ec-baa3-5ec5863d7e27",
+    "version": 3
 }
