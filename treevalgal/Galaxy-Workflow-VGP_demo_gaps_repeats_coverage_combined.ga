@@ -56,13 +56,7 @@
             "type": "parameter_input",
             "uuid": "0d9e6b5f-78c8-43f2-b42f-18463f773abe",
             "when": null,
-            "workflow_outputs": [
-                {
-                    "label": null,
-                    "output_name": "output",
-                    "uuid": "a2b49ec8-5720-487c-bf3e-af8fb9515f3d"
-                }
-            ]
+            "workflow_outputs": []
         },
         "2": {
             "annotation": "",
@@ -116,13 +110,7 @@
             "type": "parameter_input",
             "uuid": "2d4f481d-3af2-4862-aff0-6bee08173cc8",
             "when": null,
-            "workflow_outputs": [
-                {
-                    "label": null,
-                    "output_name": "output",
-                    "uuid": "c94e140d-6bb7-4fc7-b405-b2654527daff"
-                }
-            ]
+            "workflow_outputs": []
         },
         "4": {
             "annotation": "",
@@ -499,13 +487,7 @@
             "type": "subworkflow",
             "uuid": "82b8fe20-967c-4970-88bb-58b1fd0097e2",
             "when": null,
-            "workflow_outputs": [
-                {
-                    "label": null,
-                    "output_name": "2:output",
-                    "uuid": "eac047bf-9718-48ec-80b9-580dbecc5258"
-                }
-            ]
+            "workflow_outputs": []
         },
         "5": {
             "annotation": "",
@@ -1080,11 +1062,6 @@
             "when": null,
             "workflow_outputs": [
                 {
-                    "label": null,
-                    "output_name": "1:output",
-                    "uuid": "18e1f396-2054-4439-bf58-889b1ea1bbd8"
-                },
-                {
                     "label": "gfastats -b g ",
                     "output_name": "gfastats -b g ",
                     "uuid": "228238c7-61af-481b-b714-e0a6025724c2"
@@ -1158,6 +1135,10 @@
                     "id": 2,
                     "output_name": "output"
                 },
+                "track_groups_0|data_tracks_0|data_format|annotation": {
+                    "id": 4,
+                    "output_name": "Longread Coverage"
+                },
                 "track_groups_0|data_tracks_1|data_format|annotation": {
                     "id": 5,
                     "output_name": "Repeat bed file"
@@ -1207,6 +1188,6 @@
         }
     },
     "tags": [],
-    "uuid": "14e3e50f-f387-4eac-a8d5-3275b7da233c",
-    "version": 17
+    "uuid": "a14dd51b-c9b0-493c-9e8d-2aea73fd20b3",
+    "version": 18
 }
