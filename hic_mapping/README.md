@@ -2,7 +2,7 @@
 
 
 ![Flow chart](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_hic_mapping.png)
-(from [https://github.com/sanger-tol/treeval/blob/dev/docs/output.md#busco-analysis](https://github.com/sanger-tol/treeval/blob/dev/docs/output.md#hic_mapping))
+(from [https://github.com/sanger-tol/treeval/blob/dev/docs/output.md#hic_mapping](https://github.com/sanger-tol/treeval/blob/dev/docs/output.md#hic_mapping))
 
 ```
 Output files
