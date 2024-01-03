@@ -382,6 +382,39 @@ mkdir bwamem2
 ```
 generate_cram_csv.sh $crampath >> ${prefix}_cram.csv
 ```
+generate_cram_csv.sh is:
+
+```
+#!/bin/bash
+cram_path=$1
+chunkn=0
+for cram in ${cram_path}/*.cram; do
+    rgline=$(samtools view -H $cram|grep "RG"|sed 's/\t/\\t/g'|sed "s/'//g")
+
+    crampath=$(readlink -f ${cram})
+
+    ncontainers=$(zcat ${crampath}.crai|wc -l)
+    base=$(basename $cram .cram)
+
+    from=0
+    to=10000
+
+
+    while [ $to -lt $ncontainers ]
+    do
+        echo $crampath,${crampath}.crai,${from},${to},${base},${chunkn},${rgline}
+        from=$((to+1))
+        ((to+=10000))
+        ((chunkn++))
+    done
+
+    if [ $from -le $ncontainers ]
+    then
+        echo $crampath,${crampath}.crai,${from},${ncontainers},${base},${chunkn},${rgline}
+        ((chunkn++))
+    fi
+done
+```
 
 [CRAM_FILTER_ALIGN_BWAMEM2_FIXMATE_SORT](https://github.com/sanger-tol/treeval/blob/dev/modules/local/cram_filter_align_bwamem2_fixmate_sort.nf)
 runs cram_filter and some conventional tools:
