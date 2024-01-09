@@ -174,7 +174,7 @@ samtools \\
         $input_files
 ```
 
-[PUNCHLIST](punchlist) is another subworkflow
+[PUNCHLIST](../punchlist) is another subworkflow
 
 [BEDTOOLS_BAMTOBED](https://github.com/sanger-tol/treeval/blob/dev/modules/nf-core/bedtools/bamtobed/main.nf) calls
 
