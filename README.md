@@ -20,6 +20,11 @@ this effort is cordially invited to pitch in.*
 
 ## News
 
+#### January 21
+A lot of work has gone into JBrowse2 and it is nearing release I hope.
+Wiggle tracks for very dense features - like 6.5M repeats - that slow down the browser badly, are about to appear in the workflows.
+
+
 #### December 15
 With thanks to Bjoern Gruening and Anna Syme for helping with testing and tools, and the support of Galaxy Australia, there is now a [WIP TreeValGal workflow](treevalgal) on usegalaxy.eu that combines the two gap tracks, the repeats track, a telomere track and the coverage track for the TreeVal small sample test data into a single JBrowse viewer.
 
