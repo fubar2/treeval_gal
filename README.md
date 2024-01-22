@@ -21,8 +21,10 @@ this effort is cordially invited to pitch in.*
 ## News
 
 #### January 21
-A lot of work has gone into JBrowse2 and it is nearing release I hope.
-Wiggle tracks for very dense features - like 6.5M repeats - that slow down the browser badly, are about to appear in the workflows.
+
+A lot of work has gone into JBrowse2 in the past month, and it is nearing release.
+Very dense features - like 6.5M repeats - slow down the browser badly, are now bigwig tracks in the workflows.
+Next steps need some new tools like merquryFK. Bjoern is thinking about how best to integrate binary HiC format data into the existing infrastructure. Jb2 has specialised tracks for synteny and Multiple Alignment Format (MAF), and those are all useful in VGP work. Galaxy's integrated support for genomic feature visualisation at scale will be very hard to match. 
 
 
 #### December 15
