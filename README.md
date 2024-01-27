@@ -1,8 +1,12 @@
-# [TreeValGal](https://github.com/fubar2/treeval_gal/blob/main/treevalgal/README.md)
+# [TreeValGal Project](https://github.com/fubar2/treeval_gal/blob/main/treevalgal/README.md)
 
 *New proposal in the ongoing collaboration between the [Galaxy](https://galaxyproject.org/) and [VGP](https://vertebrategenomesproject.org/) communities to
 translate the Sanger [TreeVal NF DDL](https://github.com/sanger-tol/treeval/tree/dev) workflow into Galaxy. Everyone with an interest in contributing to
 this effort is cordially invited to pitch in.*
+
+## The [treevalgal workflow](treevalgal) 
+
+Uses TreeValGal subworkflows as they become available from translating NF modules into Galaxy tools and workflows.
 
 ## Status for TreeValGal modules 
 
@@ -27,12 +31,11 @@ this effort is cordially invited to pitch in.*
 
 A lot of work has gone into updating to JBrowse2 over the past 5 weeks.
 
-Working very well, but currently [not acceptable](https://github.com/galaxyproject/tools-iuc/pull/5697#issuecomment-1912905739) to a reviewer, so not in IUC tools.
+Working well, but currently [not acceptable](https://github.com/galaxyproject/tools-iuc/pull/5697#issuecomment-1912905739) to a reviewer, so not in IUC tools.
 
-Deployed on EU as a test tool. This is how the synteny track can be configured:
+Deployed on EU as a test tool.
 
-![image](https://github.com/fubar2/treeval_gal/assets/6016266/a73aa3e6-ba15-4cff-96fc-65a29e83376d)
-
+![image](https://github.com/fubar2/treeval_gal/assets/6016266/d0b85ab9-d31e-4a5c-bc83-eb57786d5400)
 
 ##### Next steps 
  - need some new tools like merquryFK.
