@@ -1,10 +1,10 @@
-# [treevalgal](https://github.com/fubar2/treeval_gal/blob/main/treevalgal/README.md)
+# [TreeValGal](https://github.com/fubar2/treeval_gal/blob/main/treevalgal/README.md)
 
 *New proposal in the ongoing collaboration between the [Galaxy](https://galaxyproject.org/) and [VGP](https://vertebrategenomesproject.org/) communities to
 translate the Sanger [TreeVal NF DDL](https://github.com/sanger-tol/treeval/tree/dev) workflow into Galaxy. Everyone with an interest in contributing to
 this effort is cordially invited to pitch in.*
 
-## Status for TreeValgal modules 
+## Status for TreeValGal modules 
 
 | Module | Status |
 |---------------------|-----------------------|
@@ -25,11 +25,11 @@ this effort is cordially invited to pitch in.*
 
 #### January 21
 
-A lot of work has gone into JBrowse2 in the past month. 
+A lot of work has gone into JBrowse2 in the past 5 weeks or so.
 
 Currently not acceptable to a reviewer, so not in IUC tools.
 
-Deployed on EU as a test tool.
+Deployed on EU as a test tool. This is how the synteny track can be configured:
 
 ![image](https://github.com/fubar2/treeval_gal/assets/6016266/a73aa3e6-ba15-4cff-96fc-65a29e83376d)
 
