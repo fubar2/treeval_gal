@@ -25,9 +25,9 @@ this effort is cordially invited to pitch in.*
 
 #### January 21
 
-A lot of work has gone into JBrowse2 in the past 5 weeks or so.
+A lot of work has gone into updating to JBrowse2 over the past 5 weeks.
 
-Currently not acceptable to a reviewer, so not in IUC tools.
+Working very well, but currently [not acceptable](https://github.com/galaxyproject/tools-iuc/pull/5697#issuecomment-1912905739) to a reviewer, so not in IUC tools.
 
 Deployed on EU as a test tool. This is how the synteny track can be configured:
 
