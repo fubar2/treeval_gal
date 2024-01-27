@@ -19,7 +19,14 @@ Clicking on a syntenic feature shows the details of the match and the fish seque
 
 ![image](https://github.com/fubar2/treeval_gal/assets/6016266/e4bbf907-8555-45d8-94ba-ddb57040760e)
 
-Nadolina's Lancet fish is still running. Will update when it's done
+Nadolina's Lancet fish - same workflow:
+
+![image](https://github.com/fubar2/treeval_gal/assets/6016266/0ace5ce1-e5d4-4f34-864a-0f0bbaa27bb5)
+
+and this time, the detailed view of a syntenic region shows a syntenic segment of bird sequence
+![image](https://github.com/fubar2/treeval_gal/assets/6016266/dace8f97-ee02-4eed-bd85-7a615a5849f3)
+
+
 
 The whole workflow is shared on EU as `treevalgal_jan27` from **fubar** :
 
