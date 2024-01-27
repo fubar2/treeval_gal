@@ -1,8 +1,8 @@
 {
     "a_galaxy_workflow": "true",
-    "annotation": "",
+    "annotation": "no_seqtk-cutn because it fails with the compute tool no matter what format it's changed to.",
     "format-version": "0.1",
-    "name": "gap_finder_vgp_no_seqtk_temporarily",
+    "name": "gap_finder_vgp_1_noseqtk",
     "steps": {
         "0": {
             "annotation": "",
@@ -20,11 +20,11 @@
             "name": "Input dataset",
             "outputs": [],
             "position": {
-                "left": 18,
-                "top": 88.0
+                "left": 0,
+                "top": 262
             },
             "tool_id": null,
-            "tool_state": "{\"optional\": false, \"tag\": null}",
+            "tool_state": "{\"optional\": false, \"format\": [\"fasta\"], \"tag\": null}",
             "tool_version": null,
             "type": "data_input",
             "uuid": "5764eab8-7fb8-44e3-b7b6-47a6b43ac5fe",
@@ -32,43 +32,64 @@
             "workflow_outputs": []
         },
         "1": {
-            "annotation": "Set to true when running the workflow by itself, false if running as a subworkflow where all outputs are collected into one JBrowse",
+            "annotation": "",
             "content_id": null,
             "errors": null,
             "id": 1,
             "input_connections": {},
             "inputs": [
                 {
-                    "description": "Set to true when running the workflow by itself, false if running as a subworkflow where all outputs are collected into one JBrowse",
-                    "name": "Create JBrowse output"
+                    "description": "",
+                    "name": "Reference assembly contig lengths file"
                 }
             ],
-            "label": "Create JBrowse output",
-            "name": "Input parameter",
+            "label": "Reference assembly contig lengths file",
+            "name": "Input dataset",
             "outputs": [],
             "position": {
-                "left": 0,
-                "top": 259.5
+                "left": 560,
+                "top": 0
             },
             "tool_id": null,
-            "tool_state": "{\"default\": true, \"parameter_type\": \"boolean\", \"optional\": true}",
+            "tool_state": "{\"optional\": false, \"format\": [\"txt\"], \"tag\": null}",
             "tool_version": null,
-            "type": "parameter_input",
-            "uuid": "4f399fdf-82e5-46c9-8eb1-409d498fb609",
+            "type": "data_input",
+            "uuid": "c55a897b-8491-4f41-a3fc-7e51587eb572",
             "when": null,
-            "workflow_outputs": [
-                {
-                    "label": null,
-                    "output_name": "output",
-                    "uuid": "2f9c3964-f058-42fd-a820-b2330be1ff98"
-                }
-            ]
+            "workflow_outputs": []
         },
         "2": {
             "annotation": "",
-            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/gfastats/gfastats/1.3.6+galaxy0",
+            "content_id": null,
             "errors": null,
             "id": 2,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "Windowbed_for_wiggle"
+                }
+            ],
+            "label": "Windowbed_for_wiggle",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 560,
+                "top": 123
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": null}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "60f1301c-ff9d-4199-a218-2e07c90737f3",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "3": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/gfastats/gfastats/1.3.6+galaxy0",
+            "errors": null,
+            "id": 3,
             "input_connections": {
                 "input_file": {
                     "id": 0,
@@ -85,8 +106,8 @@
                 }
             ],
             "position": {
-                "left": 298,
-                "top": 226.0
+                "left": 280,
+                "top": 256
             },
             "post_job_actions": {
                 "ChangeDatatypeActionstats": {
@@ -111,14 +132,14 @@
             "when": null,
             "workflow_outputs": []
         },
-        "3": {
+        "4": {
             "annotation": "",
             "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/2.0",
             "errors": null,
-            "id": 3,
+            "id": 4,
             "input_connections": {
                 "input": {
-                    "id": 2,
+                    "id": 3,
                     "output_name": "stats"
                 }
             },
@@ -132,10 +153,17 @@
                 }
             ],
             "position": {
-                "left": 575,
-                "top": 288.0
+                "left": 560,
+                "top": 246
             },
             "post_job_actions": {
+                "ChangeDatatypeActionout_file1": {
+                    "action_arguments": {
+                        "newtype": "bed"
+                    },
+                    "action_type": "ChangeDatatypeAction",
+                    "output_name": "out_file1"
+                },
                 "RenameDatasetActionout_file1": {
                     "action_arguments": {
                         "newname": "gfastatsgaps"
@@ -158,80 +186,278 @@
             "when": null,
             "workflow_outputs": [
                 {
-                    "label": "gfastats -b g ",
+                    "label": "gfastats_gaps_bed",
                     "output_name": "out_file1",
-                    "uuid": "edca9f0b-6729-4d44-92c2-d0589f874b01"
+                    "uuid": "32e6f706-589a-41c5-bd12-546977b567d7"
                 }
             ]
         },
-        "4": {
-            "annotation": "Log and raw scaled tracks are available.",
-            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/jbrowse/jbrowse/1.16.11+galaxy1",
-            "errors": null,
-            "id": 4,
+        "5": {
+            "annotation": "",
+            "id": 5,
             "input_connections": {
-                "reference_genome|genome": {
-                    "id": 0,
+                "Contig lengths from reference": {
+                    "id": 1,
+                    "input_subworkflow_step_id": 0,
                     "output_name": "output"
                 },
-                "track_groups_0|data_tracks_0|data_format|annotation": {
-                    "id": 3,
+                "Dense bed track file": {
+                    "id": 4,
+                    "input_subworkflow_step_id": 2,
                     "output_name": "out_file1"
                 },
-                "when": {
-                    "id": 1,
+                "windowbed_for_wiggle": {
+                    "id": 2,
+                    "input_subworkflow_step_id": 1,
                     "output_name": "output"
                 }
             },
-            "inputs": [
-                {
-                    "description": "runtime parameter for tool JBrowse",
-                    "name": "reference_genome"
-                }
-            ],
-            "label": "Jbrowse gaps",
-            "name": "JBrowse",
-            "outputs": [
-                {
-                    "name": "output",
-                    "type": "html"
-                }
-            ],
+            "inputs": [],
+            "label": null,
+            "name": "Make a bigwig from very dense repeat or other bed. For TreeValGal (imported from uploaded file)",
+            "outputs": [],
             "position": {
-                "left": 858,
-                "top": 0.0
+                "left": 850,
+                "top": 147
             },
-            "post_job_actions": {
-                "RenameDatasetActionoutput": {
-                    "action_arguments": {
-                        "newname": "Jbrowse_gaps_on_#{reference_genome.genome}"
+            "subworkflow": {
+                "a_galaxy_workflow": "true",
+                "annotation": "",
+                "format-version": "0.1",
+                "name": "Make a bigwig from very dense repeat or other bed. For TreeValGal (imported from uploaded file)",
+                "steps": {
+                    "0": {
+                        "annotation": "",
+                        "content_id": null,
+                        "errors": null,
+                        "id": 0,
+                        "input_connections": {},
+                        "inputs": [
+                            {
+                                "description": "",
+                                "name": "Contig lengths from reference"
+                            }
+                        ],
+                        "label": "Contig lengths from reference",
+                        "name": "Input dataset",
+                        "outputs": [],
+                        "position": {
+                            "left": 0,
+                            "top": 0
+                        },
+                        "tool_id": null,
+                        "tool_state": "{\"optional\": false, \"tag\": null}",
+                        "tool_version": null,
+                        "type": "data_input",
+                        "uuid": "8353a0fc-900a-4d43-9c20-2af42b542194",
+                        "when": null,
+                        "workflow_outputs": []
                     },
-                    "action_type": "RenameDatasetAction",
-                    "output_name": "output"
-                }
+                    "1": {
+                        "annotation": "",
+                        "content_id": null,
+                        "errors": null,
+                        "id": 1,
+                        "input_connections": {},
+                        "inputs": [
+                            {
+                                "description": "",
+                                "name": "windowbed_for_wiggle"
+                            }
+                        ],
+                        "label": "windowbed_for_wiggle",
+                        "name": "Input dataset",
+                        "outputs": [],
+                        "position": {
+                            "left": 11.5,
+                            "top": 166
+                        },
+                        "tool_id": null,
+                        "tool_state": "{\"optional\": false, \"tag\": null}",
+                        "tool_version": null,
+                        "type": "data_input",
+                        "uuid": "3f60fd0e-4ec2-4605-b950-e410b5c966a3",
+                        "when": null,
+                        "workflow_outputs": []
+                    },
+                    "2": {
+                        "annotation": "",
+                        "content_id": null,
+                        "errors": null,
+                        "id": 2,
+                        "input_connections": {},
+                        "inputs": [
+                            {
+                                "description": "",
+                                "name": "Dense bed track file"
+                            }
+                        ],
+                        "label": "Dense bed track file",
+                        "name": "Input dataset",
+                        "outputs": [],
+                        "position": {
+                            "left": 280,
+                            "top": 62
+                        },
+                        "tool_id": null,
+                        "tool_state": "{\"optional\": false, \"format\": [\"bed\"], \"tag\": null}",
+                        "tool_version": null,
+                        "type": "data_input",
+                        "uuid": "160d05ea-2a52-4aa6-a4ba-2ee82d767f18",
+                        "when": null,
+                        "workflow_outputs": []
+                    },
+                    "3": {
+                        "annotation": "",
+                        "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_coveragebed/2.30.0+galaxy1",
+                        "errors": null,
+                        "id": 3,
+                        "input_connections": {
+                            "inputA": {
+                                "id": 1,
+                                "output_name": "output"
+                            },
+                            "reduce_or_iterate|inputB": {
+                                "id": 2,
+                                "output_name": "output"
+                            }
+                        },
+                        "inputs": [],
+                        "label": null,
+                        "name": "bedtools Compute both the depth and breadth of coverage",
+                        "outputs": [
+                            {
+                                "name": "output",
+                                "type": "bed"
+                            }
+                        ],
+                        "position": {
+                            "left": 560,
+                            "top": 62
+                        },
+                        "post_job_actions": {},
+                        "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_coveragebed/2.30.0+galaxy1",
+                        "tool_shed_repository": {
+                            "changeset_revision": "a1a923cd89e8",
+                            "name": "bedtools",
+                            "owner": "iuc",
+                            "tool_shed": "toolshed.g2.bx.psu.edu"
+                        },
+                        "tool_state": "{\"__input_ext\": \"input\", \"a_or_b\": false, \"chromInfo\": \"/mnt/galaxy/tool-data/shared/ucsc/chrom/?.len\", \"d\": false, \"hist\": false, \"inputA\": {\"__class__\": \"ConnectedValue\"}, \"mean\": false, \"overlap_a\": null, \"overlap_b\": null, \"reciprocal_overlap\": false, \"reduce_or_iterate\": {\"reduce_or_iterate_selector\": \"iterate\", \"__current_case__\": 0, \"inputB\": {\"__class__\": \"ConnectedValue\"}}, \"sorted\": false, \"split\": false, \"strandedness\": false, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+                        "tool_version": "2.30.0+galaxy1",
+                        "type": "tool",
+                        "uuid": "2fcf2cfc-5e0c-43f4-a57f-72d42c2fdffb",
+                        "when": null,
+                        "workflow_outputs": []
+                    },
+                    "4": {
+                        "annotation": "",
+                        "content_id": "Cut1",
+                        "errors": null,
+                        "id": 4,
+                        "input_connections": {
+                            "input": {
+                                "id": 3,
+                                "output_name": "output"
+                            }
+                        },
+                        "inputs": [],
+                        "label": null,
+                        "name": "Cut",
+                        "outputs": [
+                            {
+                                "name": "out_file1",
+                                "type": "tabular"
+                            }
+                        ],
+                        "position": {
+                            "left": 840,
+                            "top": 118
+                        },
+                        "post_job_actions": {
+                            "ChangeDatatypeActionout_file1": {
+                                "action_arguments": {
+                                    "newtype": "bedgraph"
+                                },
+                                "action_type": "ChangeDatatypeAction",
+                                "output_name": "out_file1"
+                            }
+                        },
+                        "tool_id": "Cut1",
+                        "tool_state": "{\"__input_ext\": \"bedgraph\", \"chromInfo\": \"/mnt/galaxy/tool-data/shared/ucsc/chrom/?.len\", \"columnList\": \"c1,c2,c3,c4\", \"delimiter\": \"T\", \"input\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+                        "tool_version": "1.0.2",
+                        "type": "tool",
+                        "uuid": "665c6c09-5456-43df-8b5c-d8edc5f3e6d2",
+                        "when": null,
+                        "workflow_outputs": []
+                    },
+                    "5": {
+                        "annotation": "",
+                        "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/ucsc_wigtobigwig/ucsc_wigtobigwig/447+galaxy0",
+                        "errors": null,
+                        "id": 5,
+                        "input_connections": {
+                            "hist_or_builtin|chromfile": {
+                                "id": 0,
+                                "output_name": "output"
+                            },
+                            "hist_or_builtin|input1": {
+                                "id": 4,
+                                "output_name": "out_file1"
+                            }
+                        },
+                        "inputs": [],
+                        "label": null,
+                        "name": "wigtobigwig",
+                        "outputs": [
+                            {
+                                "name": "out_file1",
+                                "type": "bigwig"
+                            }
+                        ],
+                        "position": {
+                            "left": 1120,
+                            "top": 10
+                        },
+                        "post_job_actions": {},
+                        "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/ucsc_wigtobigwig/ucsc_wigtobigwig/447+galaxy0",
+                        "tool_shed_repository": {
+                            "changeset_revision": "a2f83a375bf2",
+                            "name": "ucsc_wigtobigwig",
+                            "owner": "iuc",
+                            "tool_shed": "toolshed.g2.bx.psu.edu"
+                        },
+                        "tool_state": "{\"__input_ext\": \"input\", \"chromInfo\": \"/mnt/galaxy/tool-data/shared/ucsc/chrom/?.len\", \"hist_or_builtin\": {\"genome_type_select\": \"history\", \"__current_case__\": 1, \"input1\": {\"__class__\": \"ConnectedValue\"}, \"chromfile\": {\"__class__\": \"ConnectedValue\"}}, \"settings\": {\"settingsType\": \"preset\", \"__current_case__\": 0}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+                        "tool_version": "447+galaxy0",
+                        "type": "tool",
+                        "uuid": "be65aaba-bbdb-426e-9b84-464097c3e1b7",
+                        "when": null,
+                        "workflow_outputs": [
+                            {
+                                "label": "out_file1",
+                                "output_name": "out_file1",
+                                "uuid": "5ce728bf-40e9-4c92-8d43-05f95d134b70"
+                            }
+                        ]
+                    }
+                },
+                "tags": "",
+                "uuid": "7f9a4a53-9a90-4b8c-8f2c-780f29e79032"
             },
-            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/jbrowse/jbrowse/1.16.11+galaxy1",
-            "tool_shed_repository": {
-                "changeset_revision": "a6e57ff585c0",
-                "name": "jbrowse",
-                "owner": "iuc",
-                "tool_shed": "toolshed.g2.bx.psu.edu"
-            },
-            "tool_state": "{\"action\": {\"action_select\": \"create\", \"__current_case__\": 0}, \"gencode\": \"1\", \"jbgen\": {\"defaultLocation\": \"\", \"trackPadding\": \"20\", \"shareLink\": true, \"aboutDescription\": \"\", \"show_tracklist\": true, \"show_nav\": true, \"show_overview\": true, \"show_menu\": true, \"hideGenomeOptions\": false}, \"plugins\": {\"BlastView\": true, \"ComboTrackSelector\": false, \"GCContent\": false}, \"reference_genome\": {\"genome_type_select\": \"history\", \"__current_case__\": 1, \"genome\": {\"__class__\": \"RuntimeValue\"}}, \"standalone\": \"minimal\", \"track_groups\": [{\"__index__\": 0, \"category\": \"Default\", \"data_tracks\": [{\"__index__\": 0, \"data_format\": {\"data_format_select\": \"gene_calls\", \"__current_case__\": 2, \"annotation\": {\"__class__\": \"RuntimeValue\"}, \"match_part\": {\"match_part_select\": false, \"__current_case__\": 1}, \"index\": false, \"track_config\": {\"track_class\": \"NeatHTMLFeatures/View/Track/NeatFeatures\", \"__current_case__\": 3, \"html_options\": {\"topLevelFeatures\": null}}, \"jbstyle\": {\"style_classname\": \"feature\", \"style_label\": \"product,name,id\", \"style_description\": \"note,description\", \"style_height\": \"10px\", \"max_height\": \"600\"}, \"jbcolor_scale\": {\"color_score\": {\"color_score_select\": \"score\", \"__current_case__\": 1, \"score_scaling\": \"linear\", \"score_scales\": {\"scale_select\": \"automatic\", \"__current_case__\": 0}, \"color_scheme\": {\"score_scheme\": \"opacity\", \"__current_case__\": 0, \"color\": {\"color_select\": \"automatic\", \"__current_case__\": 0}}}}, \"jb_custom_config\": {\"option\": []}, \"jbmenu\": {\"track_menu\": []}, \"track_visibility\": \"force\", \"override_apollo_plugins\": \"False\", \"override_apollo_drag\": \"False\"}}]}], \"uglyTestingHack\": \"\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
-            "tool_version": "1.16.11+galaxy1",
-            "type": "tool",
-            "uuid": "dd288d13-795e-4a34-9ee8-1eaa3ca58336",
-            "when": "$(inputs.when)",
+            "tool_id": null,
+            "type": "subworkflow",
+            "uuid": "f1aa1e83-caa9-41fb-a425-8780fd8ed3a1",
+            "when": null,
             "workflow_outputs": [
                 {
-                    "label": "Gaps for Jbrowse",
-                    "output_name": "output",
-                    "uuid": "b2944509-bacc-4f11-adbc-e0ecdf4142f3"
+                    "label": "gfastats_gaps_wig",
+                    "output_name": "out_file1",
+                    "uuid": "fae01654-9bc0-4c2c-b783-e015018ff74a"
                 }
             ]
         }
     },
     "tags": [],
-    "uuid": "8e28e1ae-124b-481b-80c2-f7b7dc85a94a",
-    "version": 2
+    "uuid": "0b6f8733-f114-4f79-b95a-08dc3cad46e0",
+    "version": 10
 }
