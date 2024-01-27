@@ -4,7 +4,8 @@
 translate the Sanger [TreeVal NF DDL](https://github.com/sanger-tol/treeval/tree/dev) workflow into Galaxy. Everyone with an interest in contributing to
 this effort is cordially invited to pitch in.*
 
-## Current status of TreeVal modules 
+## Status for TreeValgal modules 
+
 | Module | Status |
 |---------------------|-----------------------|
 | [yaml_input](yaml_input) | **Not needed** | 
@@ -20,12 +21,14 @@ this effort is cordially invited to pitch in.*
 | [synteny](synteny)  |  **Prototype available.** | 
 | [telo_finder](telo_finder) |  **Prototype available in treevalgal workflow now** using seqtk-telo | 
 
-## News
+## News and updates
 
 #### January 21
 
 A lot of work has gone into JBrowse2 in the past month. 
+
 Currently not acceptable to a reviewer, so not in IUC tools.
+
 Deployed on EU as a test tool.
 
 ![image](https://github.com/fubar2/treeval_gal/assets/6016266/a73aa3e6-ba15-4cff-96fc-65a29e83376d)
