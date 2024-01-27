@@ -4,27 +4,40 @@
 translate the Sanger [TreeVal NF DDL](https://github.com/sanger-tol/treeval/tree/dev) workflow into Galaxy. Everyone with an interest in contributing to
 this effort is cordially invited to pitch in.*
 
-## Current status of TreeVal modules needed for the rapid workflow 
-
-1. [yaml_input](yaml_input) **Not needed**
-4. [gap_finder](gap_finder) **Prototype available**
-6. [generate_genome](generate_genome) **Not needed** Existing chromosome lengths tool works in one step.
-7. [hic_mapping](hic_mapping)
-9. [kmer](kmer)
-10. [longread_coverage](longread_coverage) **Partial prototype available**
-11. [nuc_alignments](nuc_alignments)
-12. [pep_alignments](pep_alignments)
-14. [punchlist](punchlist) **Redundant** - avoiding PAF removes the need for complication
-15. [repeat_density](repeat_density) **Prototype available.**
-18. [telo_finder](telo_finder) **Prototype available in treevalgal workflow now** using seqtk-telo
+## Current status of TreeVal modules 
+| Module | Status |
+|---------------------|-----------------------|
+| [yaml_input](yaml_input) | **Not needed** | 
+| [gap_finder](gap_finder) | **Prototype available** | 
+| [generate_genome](generate_genome) | **Not needed** Existing chromosome lengths tool works in one step. | 
+| [hic_mapping](hic_mapping)  | **Needs a new tool to write hic binaries | 
+| [kmer](kmer)  | **Awaiting fastk and merquryfk tool wrappers**  | 
+| [longread_coverage](longread_coverage)  | **Partial prototype available**  | 
+| [nuc_alignments](nuc_alignments)  | 
+| [pep_alignments](pep_alignments) | 
+| [punchlist](punchlist)   | **Redundant** - avoiding PAF removes the need for complication  | 
+| [repeat_density](repeat_density)  | **Prototype available.** | 
+| [synteny](synteny)  |  **Prototype available.** | 
+| [telo_finder](telo_finder) |  **Prototype available in treevalgal workflow now** using seqtk-telo | 
 
 ## News
 
 #### January 21
 
-A lot of work has gone into JBrowse2 in the past month, and it is nearing release.
-Very dense features - like 6.5M repeats - slow down the browser badly, are now bigwig tracks in the workflows.
-Next steps need some new tools like merquryFK. Bjoern is thinking about how best to integrate binary HiC format data into the existing infrastructure. Jb2 has specialised tracks for synteny and Multiple Alignment Format (MAF), and those are all useful in VGP work. Galaxy's integrated support for genomic feature visualisation at scale will be very hard to match. 
+A lot of work has gone into JBrowse2 in the past month. 
+Currently not acceptable to a reviewer, so not in IUC tools.
+Deployed on EU as a test tool.
+
+![image](https://github.com/fubar2/treeval_gal/assets/6016266/a73aa3e6-ba15-4cff-96fc-65a29e83376d)
+
+
+##### Next steps 
+ - need some new tools like merquryFK.
+ - Bjoern is thinking about how best to integrate binary HiC format data into the existing infrastructure.
+ - Jb2 has specialised Multiple Alignment Format (MAF) tracks and those are all useful in VGP work.
+    - awaiting update to BCBIO-GFF conda dependency from Brad Chapman.
+      
+Galaxy's integrated support for genomic feature visualisation at scale will be very hard to match. 
 
 
 #### December 15
@@ -167,6 +180,6 @@ As each one is documented, a link will indicate that there is useful material av
 14. [punchlist](punchlist)
 15. [repeat_density](repeat_density)
 16. selfcomp
-17. synteny
+17. [synteny](synteny)
 18. [telo_finder](telo_finder)
 
