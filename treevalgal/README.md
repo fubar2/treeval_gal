@@ -30,7 +30,7 @@ and this time, the detailed view of a syntenic region shows a syntenic segment o
 
 
 
-The whole workflow is shared on EU as `treevalgal_jan27` from **fubar** :
+The main treevalgal workflow and the subworkflows it calls are shared on EU as `treevalgal_jan27` from **fubar** :
 
 ![image](https://github.com/fubar2/treeval_gal/assets/6016266/2811a123-d073-4128-b96b-058ca72c79ae)
 
