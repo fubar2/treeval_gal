@@ -14,8 +14,8 @@ Only a solitary telomere. Does the bird need a different telomere repeat?
 Fixes for the uninformative wiggle and paf track names will be live on EU shortly....
 
 Sample image after manually adding a dot plot:
+![image](https://github.com/fubar2/treeval_gal/assets/6016266/8724c707-8fa3-4b34-8b04-708d93c9a28e)
 
-![image](https://github.com/fubar2/treeval_gal/assets/6016266/1d30a3ec-0193-4532-97a9-c31f547e49a5)
 
 Clicking on a syntenic feature shows the details of the match and the fish sequence if wanted:
 
