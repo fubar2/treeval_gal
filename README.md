@@ -20,7 +20,7 @@ Uses TreeValGal subworkflows as they become available from translating NF module
 | [longread_coverage](longread_coverage)  | **Partial prototype available**  | 
 | [nuc_alignments](nuc_alignments)  | 
 | [pep_alignments](pep_alignments) | 
-| [punchlist](punchlist)   | **Redundant** - avoiding PAF removes the need for complication  | 
+| [punchlist](punchlist)   | **Is this needed?** Need help understanding what this does  | 
 | [repeat_density](repeat_density)  | **Prototype available.** | 
 | [synteny](synteny)  |  **Prototype available.** | 
 | [telo_finder](telo_finder) |  **Prototype available in treevalgal workflow now** using seqtk-telo | 
