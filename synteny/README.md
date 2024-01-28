@@ -1,6 +1,6 @@
 ## [Synteny](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/synteny.nf)
 
-This is now implemented as a simple Galaxy subworkflow to make a paf for JBRowse2 viewing.
+This is now implemented as a simple Galaxy subworkflow to make a paf for JBrowse2 viewing.
 
 JBrowse2 synteny tracks have been available since January 20 2024.
 Minimap2 will produce a paf.
