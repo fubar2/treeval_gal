@@ -7,8 +7,9 @@ Minimap2 will produce a paf.
 
 #### Recipe:
 
-If the reference is ref and the syntenic genome reference is synt, then 
-run minimap2 with `synt` as the reference, and `ref` as the reads to map. Set the output to `paf`
+If the reference is `ref` and the syntenic genome reference is `synt`, then 
+run minimap2 with `synt` as the reference, and `ref` as the reads to map and be sure to set the advanced options output format to `paf`,
+or use the workflow below.
 
 The resulting paf can be provided on the JBrowse tool form together with `synt` as the genome.
 
