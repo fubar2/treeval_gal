@@ -3,7 +3,7 @@
 This workflow integrates tracks from prototype TreeVal subworkflows into a single JBrowse2 configuration, ready to view, share and download.
 
 > [!WARNING]
-> The compressed archives can be very big, because they contain the reference sequences and tracks, albiet compressed and indexed.
+> The compressed archives can be very big, because they contain the reference sequences and tracks, albeit compressed and indexed.
 
 Testing results, suggestions and contributions are very welcome.
 
