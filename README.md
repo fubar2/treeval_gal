@@ -33,7 +33,7 @@ A lot of work has gone into updating to JBrowse2 over the past 5 weeks.
 
 Working well, but currently [in an unusual IUC review standoff](https://github.com/galaxyproject/tools-iuc/pull/5697#issuecomment-1912905739).
 
-Deployed on EU as a test tool. See [treevalgal workflow](treevalgal) for more details. Broken wiggle labels in the samples are fixed and will soon be updated on EU.
+Deployed on EU as a test tool. See [treevalgal workflow](treevalgal) for more details. Broken wiggle and paf labels in the samples have been fixed.
 
 ![image](https://github.com/fubar2/treeval_gal/assets/6016266/7bad8842-3b25-4cfc-a711-29a71eaa6b28)
 
