@@ -11,7 +11,7 @@ Using the hummingbird test data from Anna Syme on the EU server, it produces [th
 
 Only a solitary telomere. Does the bird need a different telomere repeat?
 
-Fixes for the uninformative wiggle track names will be live on EU shortly....
+Fixes for the uninformative wiggle and paf track names will be live on EU shortly....
 
 Sample image after manually adding a dot plot:
 
