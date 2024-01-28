@@ -29,9 +29,9 @@ Uses TreeValGal subworkflows as they become available from translating NF module
 
 #### January 21
 
-A lot of work has gone into updating to JBrowse2 over the past 5 weeks.
+Updating JBrowse1 tool code to JBrowse2 over the past 5 weeks.
 
-Working well, but not in IUC yet.
+Working well, but not in IUC yet. Alternative PR is being resurrected so may take some time. 
 
 Deployed on EU as a test tool. See [treevalgal workflow](treevalgal) for more details. Broken wiggle and paf labels in the samples have been fixed.
 
