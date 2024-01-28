@@ -39,10 +39,11 @@ Deployed on EU as a test tool. See [treevalgal workflow](treevalgal) for more de
 
 
 ##### Next steps 
- - need some new tools like merquryFK.
+ - Need fastk/merquryFK for a KMER subworkflow.
+   - A [Fastk wrapper](https://github.com/galaxyproject/tools-iuc/pull/5550) is currently being developed.
  - Bjoern is thinking about how best to integrate binary HiC format data into the existing infrastructure.
- - Jb2 has specialised Multiple Alignment Format (MAF) tracks and those are all useful in VGP work.
-    - awaiting update to BCBIO-GFF conda dependency from Brad Chapman.
+ - Jb2 has specialised Multiple Alignment Format (MAF) tracks, and a blastXML track (translated into GFF3), and those will all be useful in VGP work.
+    - awaiting update to BCBIO-GFF conda dependency from Brad Chapman to get these activated.
       
 Galaxy's integrated support for genomic feature visualisation at scale will be very hard to match. 
 
