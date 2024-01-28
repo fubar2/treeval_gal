@@ -35,7 +35,8 @@ Working well, but currently [in an unusual IUC review standoff](https://github.c
 
 Deployed on EU as a test tool. See [treevalgal workflow](treevalgal) for more details. Broken wiggle labels in the samples are fixed and will soon be updated on EU.
 
-![image](https://github.com/fubar2/treeval_gal/assets/6016266/d0b85ab9-d31e-4a5c-bc83-eb57786d5400)
+![image](https://github.com/fubar2/treeval_gal/assets/6016266/7bad8842-3b25-4cfc-a711-29a71eaa6b28)
+
 
 ##### Next steps 
  - need some new tools like merquryFK.
