@@ -15,12 +15,12 @@ Uses TreeValGal subworkflows as they become available from translating NF module
 | [yaml_input](yaml_input) | **Not needed** | 
 | [gap_finder](gap_finder) | **Prototype available** | 
 | [generate_genome](generate_genome) | **Not needed** Existing chromosome lengths tool works in one step. | 
-| [hic_mapping](hic_mapping)  | **Needs a new tool to write hic binaries | 
+| [hic_mapping](hic_mapping)  | **Needs a new tool to write hic binaries** | 
 | [kmer](kmer)  | **Awaiting fastk and merquryfk tool wrappers**  | 
 | [longread_coverage](longread_coverage)  | **Partial prototype available**  | 
 | [nuc_alignments](nuc_alignments)  | 
 | [pep_alignments](pep_alignments) | 
-| [punchlist](punchlist)   | **Need help** understanding this - part of hic generation  | 
+| [punchlist](punchlist)   | **Need help** - part of hic generation  | 
 | [repeat_density](repeat_density)  | **Prototype available.** | 
 | [synteny](synteny)  |  **Prototype available.** | 
 | [telo_finder](telo_finder) |  **Prototype available in treevalgal workflow now** using seqtk-telo | 
