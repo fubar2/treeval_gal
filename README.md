@@ -31,7 +31,7 @@ Uses TreeValGal subworkflows as they become available from translating NF module
 
 A lot of work has gone into updating to JBrowse2 over the past 5 weeks.
 
-Working well, but currently [not acceptable](https://github.com/galaxyproject/tools-iuc/pull/5697#issuecomment-1912905739) to a reviewer, so not in IUC tools.
+Working well, but currently [in an unusual IUC review standoff](https://github.com/galaxyproject/tools-iuc/pull/5697#issuecomment-1912905739).
 
 Deployed on EU as a test tool. See [treevalgal workflow](treevalgal) for more details. 
 
