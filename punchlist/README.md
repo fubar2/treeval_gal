@@ -2,8 +2,9 @@
 
 Called by [nuc_alignments](nuc_alignments)
 
-### Note that PAF is an optional output from minimap outputs. Galaxy's minimap can produce a bam transparently to convert to a bed for viewing.
-This 33 line DDL subworkflow to make bed files from paf is redundant for TreeValGal.
+#### PAF is an optional output from minimap. Galaxy's minimap can produce a bam transparently to convert to a bed for viewing without pfaffing about with paf
+
+This 33 line DDL subworkflow to make bed files from paf is largely redundant for Galaxy use.
 
 ```
 #!/usr/bin/env nextflow
