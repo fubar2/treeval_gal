@@ -7,7 +7,7 @@ This workflow integrates tracks from prototype TreeVal subworkflows into a singl
 
 Testing results, suggestions and contributions are very welcome.
 
-Using the hummingbird test data from Anna Syme on the EU server, it produces [this live JBrowse2 instance](https://usegalaxy.eu/datasets/4838ba20a6d86765a3a465ade83523e0/preview). Nadolina's Lancet fish shown below was chosen as the synteny genome. 
+Using the hummingbird test data from Anna Syme on the EU server, it produces [this live JBrowse2 instance](https://usegalaxy.eu/datasets/4838ba20a6d86765abb0a6a22fe9087d/preview). Nadolina's Lancet fish shown below was chosen as the synteny genome. 
 
 Only a solitary telomere. Does the bird need a different telomere repeat?
 
