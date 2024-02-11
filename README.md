@@ -15,7 +15,7 @@ Uses TreeValGal subworkflows as they become available from translating NF module
 | [yaml_input](yaml_input) | **Not needed** | 
 | [gap_finder](gap_finder) | **Prototype available** | 
 | [generate_genome](generate_genome) | **Not needed** Existing chromosome lengths tool works in one step. | 
-| [hic_mapping](hic_mapping)  | **Needs a new tool to write hic binaries** | 
+| [hic_mapping](hic_mapping)  | **Fixed hicexplorer so could generate a cool output in the existing VGP hic workflow** | 
 | [kmer](kmer)  | **Awaiting fastk and merquryfk tool wrappers**  | 
 | [longread_coverage](longread_coverage)  | **Partial prototype available**  | 
 | [nuc_alignments](nuc_alignments)  | 
@@ -26,6 +26,15 @@ Uses TreeValGal subworkflows as they become available from translating NF module
 | [telo_finder](telo_finder) |  **Prototype available in treevalgal workflow now** using seqtk-telo | 
 
 ## News and updates
+
+#### February 11 2024
+1. With much help from @bgruening, fixing hicexplorer and hicBuildMatrix so they now work and a dbkey can be supplied.
+   - When mapping is to a history genome, *no metadata dbkey is added* so the user must supply one for the cool format contact matrix.
+   - Unfortunately that meant a version bump for hicexplorer and fixes are needed for half a dozen of the suite's tools :(
+3. Restructuring the main TreeValGal workflow.
+   - Subworkflow changes like name or adding tags seems to break the automated main workflow update, so moving the main subworkflow steps back into the main TreeValGal workflow.
+3. Experimenting with windowed wiggle tracks compared to bedgraphs converted directly into wiggle. The former are smoothed, and the bedgraphs are very chunky - but look much more like the windowed (1000bp) versions when switched to log scale in the browser.   
+
 
 #### January 21
 
