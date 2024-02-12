@@ -28,8 +28,7 @@ Uses TreeValGal subworkflows as they become available from translating NF module
 ## News and updates
 
 #### February 11 2024
-1. With much help from @bgruening, fixing hicexplorer and hicBuildMatrix so they now work and a dbkey can be supplied.
-   - When mapping is to a history genome, *no metadata dbkey is added* so the user must supply one for the cool format contact matrix.
+1. With much help from @bgruening, fixing hicexplorer and hicBuildMatrix.
    - Unfortunately that meant a version bump for hicexplorer and fixes are needed for half a dozen of the suite's tools :(
 3. Restructuring the main TreeValGal workflow.
    - Subworkflow changes like name or adding tags seems to break the automated main workflow update, so moving the main subworkflow steps back into the main TreeValGal workflow.
