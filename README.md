@@ -15,7 +15,7 @@ Uses TreeValGal subworkflows as they become available from translating NF module
 | [yaml_input](yaml_input) | **Not needed** | 
 | [gap_finder](gap_finder) | **Prototype available** | 
 | [generate_genome](generate_genome) | **Not needed** Existing chromosome lengths tool works in one step. | 
-| [hic_mapping](hic_mapping)  | **Fixed hicexplorer so could generate a cool output in the existing VGP hic workflow** | 
+| [hic_mapping](hic_mapping)  | **Fixing hicBuildMatrix - can make a cool matrix using the existing VGP hic workflow** | 
 | [kmer](kmer)  | **Awaiting fastk and merquryfk tool wrappers**  | 
 | [longread_coverage](longread_coverage)  | **Partial prototype available**  | 
 | [nuc_alignments](nuc_alignments)  | 
