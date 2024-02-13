@@ -32,9 +32,13 @@ Uses TreeValGal subworkflows as they become available from translating NF module
    - Unfortunately that meant a version bump for hicexplorer and fixes are needed for half a dozen of the suite's tools :(
 3. Restructuring the main TreeValGal workflow.
    - Subworkflow changes like name or adding tags seems to break the automated main workflow update, so moving the main subworkflow steps back into the main TreeValGal workflow.
-3. Experimenting with windowed wiggle tracks compared to bedgraphs converted directly into wiggle. The former are smoothed, and the bedgraphs are very chunky - but look much more like the windowed (1000bp) versions when switched to log scale in the browser.   
 
-##### Question: How best to represent repeat density?
+##### How to incorporate tracks from VGP workflow files?
+- What is available.
+- What would be useful in JBrowse2
+- How to incorporate useful tracks.
+
+##### How best to represent repeat density?
 The zoomed in start of this screenshot from the [fish TreeValGal demonstration](https://usegalaxy.eu/datasets/4838ba20a6d8676593a004b88f7c8ab8/preview) shows how a repeat (corresponding to the telomere) counts as 1 for the wiggle on the left, then a group of 3 tiny repeats bump the wiggle to 3. Needs to be normalised to give the proportion of repetitive sequence in a window - the actual count of small repeats might also be useful.
 
 ![image](https://github.com/fubar2/treeval_gal/assets/6016266/80331cb3-5459-4c40-b4de-c14a881bf306)
