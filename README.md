@@ -46,7 +46,7 @@ The zoomed in start of this screenshot from the [fish TreeValGal demonstration](
 
 #### January 21
 
-Updating JBrowse1 tool code to JBrowse2 over the past 5 weeks.
+Updating JBrowse1 tool code to JBrowse2 over the past 5 weeks. These are 8 samples - paf and hic are also available.
 
 ![image](https://github.com/fubar2/temporary-tools/blob/nohash/jbrowse2/jbrowse8.png)
 
@@ -179,8 +179,6 @@ Note that every new tool written will require effort for maintenance. Some will 
 the preference will always be to choose an existing, known-good tool for the new subworkflows if it is possible with minor tweaks in the subworkflow itself.
 
 Note: TreeVal uses tabix at the end of many subworkflows. This may be so the outputs can be viewed using Jbrowse. Galaxy's Jbrowse does the compression and indexing automatically so there is no need for that step unless the tabix file is used downstream for some other subworkflow.
-
-![fdlfunf](https://github.com/fubar2/treeval_gal/assets/6016266/ac088d32-f5f9-4f3b-9a4d-1a0f427b81e9)
 
 
 <h2>Full TreeVal subworkflows</h2>
