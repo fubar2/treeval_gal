@@ -1,33 +1,23 @@
 # [TreeValGal Project](https://github.com/fubar2/treeval_gal/blob/main/treevalgal/README.md)
 
-*New proposal in the ongoing collaboration between the [Galaxy](https://galaxyproject.org/) and [VGP](https://vertebrategenomesproject.org/) communities to
-translate the Sanger [TreeVal NF DDL](https://github.com/sanger-tol/treeval/tree/dev) workflow into Galaxy. Everyone with an interest in contributing to
+*Collaboration between the [Galaxy](https://galaxyproject.org/) and [VGP](https://vertebrategenomesproject.org/) communities to
+translate the Sanger [TreeVal NF DDL](https://github.com/sanger-tol/treeval/tree/dev) workflow into something equivalent or better in Galaxy. Everyone with an interest in contributing to
 this effort is cordially invited to pitch in.*
 
-## The [treevalgal workflow](treevalgal) 
+## Treevalgal [workflow](treevalgal) 
 
-Uses TreeValGal subworkflows as they become available from translating NF modules into Galaxy tools and workflows.
+Depends on JBrowse2 so only available on usegalaxy.eu for testing. 
 
-## Status for TreeValGal modules 
+Uses TreeValGal subworkflows as they become available from translating [NF modules](https://github.com/sanger-tol/treeval/tree/dev) into Galaxy tools and workflows.
 
-| Module | Status |
-|---------------------|-----------------------|
-| [yaml_input](yaml_input) | **Not needed** | 
-| [gap_finder](gap_finder) | **Prototype available** | 
-| [generate_genome](generate_genome) | **Not needed** Existing chromosome lengths tool works in one step. | 
-| [hic_mapping](hic_mapping)  | **Fixing hicBuildMatrix - can make a cool matrix using the existing VGP hic workflow** | 
-| [kmer](kmer)  | **Awaiting fastk and merquryfk tool wrappers**  | 
-| [longread_coverage](longread_coverage)  | **Partial prototype available**  | 
-| [nuc_alignments](nuc_alignments)  | 
-| [pep_alignments](pep_alignments) | 
-| [punchlist](punchlist)   | **Need help** - part of hic generation  | 
-| [repeat_density](repeat_density)  | **Prototype available.** | 
-| [synteny](synteny)  |  **Prototype available.** | 
-| [telo_finder](telo_finder) |  **Prototype available in treevalgal workflow now** using seqtk-telo | 
+### February 14
 
-## News and updates
+1. With much help from @bgruening, fixing hicexplorer and hicBuildMatrix.
+   - Unfortunately that meant a version bump for hicexplorer and fixes are needed for half a dozen of the suite's tools :(
+2. Restructuring the main TreeValGal workflow.
+   - Subworkflow changes like name or adding tags seems to break the automated main workflow update, so moving the main subworkflow steps back into the main TreeValGal workflow.
 
-#### For discussion February 11 2024
+#### For discussion - what's next? 
 
 ##### Incorporate tracks from VGP workflow runs into JBrowse2 ?
 - What additional tracks would be useful for TreeValGal?
@@ -35,6 +25,10 @@ Uses TreeValGal subworkflows as they become available from translating NF module
    - for scientists and the public
 - What is available? 
 - How to incorporate useful tracks into JBrowse2 objects?
+- How to allow access to genomes efficiently?
+    - JBrowse2 archives contain compressed/indexed reference sequence and track files - so are big.
+    - Build centrally with a static public link, for each organism
+       - View without redundant copies! 
 
 ##### Downstream uses for JBrowse2 archives
   - JBrowse2 archive contents can be displayed by a byte-range static web server
@@ -48,13 +42,22 @@ The zoomed in start of this screenshot from the [fish TreeValGal demonstration](
 
 ![image](https://github.com/fubar2/treeval_gal/assets/6016266/80331cb3-5459-4c40-b4de-c14a881bf306)
 
-##### Progress
+##### TreeValGal modules 
 
-1. With much help from @bgruening, fixing hicexplorer and hicBuildMatrix.
-   - Unfortunately that meant a version bump for hicexplorer and fixes are needed for half a dozen of the suite's tools :(
-2. Restructuring the main TreeValGal workflow.
-   - Subworkflow changes like name or adding tags seems to break the automated main workflow update, so moving the main subworkflow steps back into the main TreeValGal workflow.
-
+| Module | Status |
+|---------------------|-----------------------|
+| [yaml_input](yaml_input) | **Not needed** | 
+| [gap_finder](gap_finder) | **Prototype available** | 
+| [generate_genome](generate_genome) | **Not needed** Existing chromosome lengths tool works in one step. | 
+| [hic_mapping](hic_mapping)  | **Fixing hicBuildMatrix for a cool matrix from the VGP hic workflows** | 
+| [kmer](kmer)  | **Awaiting fastk and merquryfk tool wrappers**  | 
+| [longread_coverage](longread_coverage)  | **Partial prototype available**  | 
+| [nuc_alignments](nuc_alignments)  | 
+| [pep_alignments](pep_alignments) | 
+| [punchlist](punchlist)   | **Need help** - part of hic generation  | 
+| [repeat_density](repeat_density)  | **Prototype available.** | 
+| [synteny](synteny)  |  **Prototype available.** | 
+| [telo_finder](telo_finder) |  **Prototype available in treevalgal workflow now** using seqtk-telo | 
 
 #### January 21
 
