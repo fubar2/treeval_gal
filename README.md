@@ -13,14 +13,7 @@ time to load a half matrix for a whole chromosome. Probably best turned off unle
 
 These are from a new version that only has a couple of small subworkflows - for making wiggles, hic and paf.
 
-### February 14
-
-1. With much help from @bgruening, fixing hicexplorer and hicBuildMatrix.
-   - Unfortunately that meant a version bump for hicexplorer and fixes are needed for half a dozen of the suite's tools :(
-2. Restructuring the main TreeValGal workflow.
-   - Subworkflow changes like name or adding tags seems to break the automated main workflow update, so moving the main subworkflow steps back into the main TreeValGal workflow.
-
-#### For discussion - what's next? 
+### February 14: For discussion - what's next? 
 
 ##### Incorporate tracks from VGP workflow runs into JBrowse2 ?
 - What additional tracks would be useful for TreeValGal?
