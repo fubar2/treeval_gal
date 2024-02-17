@@ -24,14 +24,15 @@ These are from a new version that only has a couple of small subworkflows - for 
 
 ##### Incorporate tracks from VGP workflow runs into JBrowse2 ?
 - What additional tracks would be useful for TreeValGal?
-   - for VGP internal use
-   - for scientists and the public
-- What is available? 
-- How to incorporate useful tracks into JBrowse2 objects?
-- How to allow access to genomes efficiently?
+   - for VGP internal use?
+   - for scientists and the public?
+- What's being generated
+  - how to find those tagged VGP WF outputs?
+- How to allow access to big JBrowse2 configurations efficiently?
     - JBrowse2 archives contain compressed/indexed reference sequence and track files - so are big.
-    - Build centrally with a static public link, for each organism
-       - View without redundant copies! 
+    - What would these look like to be useful enough to expose with other VGP assembly artifacts?
+       - Build centrally with a static public link, for each organism
+       - View without redundant data copies using stable URI for remote on-line viewing.
 
 ##### Downstream uses for JBrowse2 archives
   - JBrowse2 archive contents can be displayed by a byte-range static web server
