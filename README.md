@@ -9,7 +9,7 @@ this effort is cordially invited to pitch in.*
 Depends on JBrowse2 so only available on usegalaxy.eu for testing. 
 [Hummingbird sample output](https://usegalaxy.eu/datasets/4838ba20a6d86765a51578280077dbb3/preview) and [Amphioxus fish sample](https://usegalaxy.eu/datasets/4838ba20a6d8676502c02a6659f467a8/preview) outputs are available. 
 This [hummingbird one](https://usegalaxy.eu/datasets/4838ba20a6d86765a82288eace3c126d/preview) has a crude hic track added as a demonstration but it takes a long
-time to load a half matrix for a whole chromosome. Probably best turned off unless zoomed in.
+time to load a half matrix for a whole chromosome. Probably best turned off unless zoomed in. Not needed since the current pretextview solution works well.
 
 These are from a new version that only has a couple of small subworkflows - for making wiggles, hic and paf.
 
