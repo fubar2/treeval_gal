@@ -2,7 +2,8 @@
 
 ### Galaxy prototype solution
 
-A [prototype gap_finder workflow](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/Galaxy-Workflow-gap_finder_vgp_0.ga) is now available for testing and feedback. 
+A [prototype gap_finder workflow](https://github.com/fubar2/treeval_gal/blob/main/gap_finder/Galaxy-Workflow-gap_finder_vgp_0.ga) was developed as a subworkflow but is now incorporated into the main [treevalgal](treevalgal) workflow.
+
 A Galaxy user builds a workflow's tools, data flows and default parameter settings entirely through the GUI, compared to writing the 50+ lines of DDL needed for the NF implementation. 
 A preconfigured, shareable JBrowse viewer shows the Galaxy version outputs immediately to the user, without the need to manually shuffle files around.
 
