@@ -1,4 +1,23 @@
-## TreeValGal demonstration workflow January 2024 update
+## TreeValGal workflow 
+
+### February 21 update
+
+TreeValGal WF depends on JBrowse2 so only available on usegalaxy.eu for testing.
+
+[Hummingbird sample output](https://usegalaxy.eu/datasets/4838ba20a6d86765a51578280077dbb3/preview) and [Amphioxus fish sample](https://usegalaxy.eu/datasets/4838ba20a6d8676502c02a6659f467a8/preview) outputs are available. 
+
+These samples include repeatmasker GFF tracks, from the latest Feb_11 revision, that only has a couple of small subworkflows - for making wiggles and for optional hic and paf.
+
+![image](https://github.com/fubar2/treeval_gal/assets/6016266/aa6c2e1b-e7c8-4149-8746-5c710b58afb4)
+
+The wiggle maker is the most complicated subworkflow and is used for 3 tracks.
+
+![image](https://github.com/fubar2/treeval_gal/assets/6016266/75bdf6aa-62af-4cbf-a8e2-d650ae4314d1)
+
+The optional synteny and hic track subworkflows are relatively trivial...
+
+
+### January 2024 update
 
 This workflow integrates tracks from prototype TreeVal subworkflows into a single JBrowse2 configuration, ready to view, share and download.
 
