@@ -2,6 +2,10 @@
 
 ### Galaxy proposed solution
 
+As at February 21, this has been incorporated into the main [treevalgal](treevalgal) workflow.
+
+### Previous progress notes 
+
 #### Partial workflow - missing log coverage and punchlists - TBA. 
 ![Partial workflow](https://github.com/fubar2/treeval_gal/blob/main/longread_coverage/treevalgal_longread_coverage_wf0.png)
 
