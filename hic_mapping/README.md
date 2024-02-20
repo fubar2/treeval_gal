@@ -1,5 +1,9 @@
 ### [#3 hic_mapping](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/hic_mapping.nf)
 
+The VGP curators report that pretextmap and pretextview satisfy their needs for hic viewing, generated from the [VGP8 workflow](https://github.com/iwc-workflows/Scaffolding-HiC-VGP8) so this
+module is already available and does not need to be recreated.
+
+The new JBrowse2 tool can generate hic tracks from juicebox_hic, cool, mcool and scool if required so hic tracks are easy to add later if wanted.
 
 ![Flow chart](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_hic_mapping.png)
 (from [https://github.com/sanger-tol/treeval/blob/dev/docs/output.md#hic_mapping](https://github.com/sanger-tol/treeval/blob/dev/docs/output.md#hic_mapping))
