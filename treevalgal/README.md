@@ -4,7 +4,7 @@
 
 The [TreeValGal WF](Galaxy-Workflow-TreeValGal_Feb11.ga) is [available on usegalaxy.eu](https://usegalaxy.eu/published/workflow?id=4d44b055b557cba5) depends on JBrowse2 so only available on usegalaxy.eu for testing.
 
-[Hummingbird sample output](https://usegalaxy.eu/datasets/4838ba20a6d86765a51578280077dbb3/preview) and [Amphioxus fish sample](https://usegalaxy.eu/datasets/4838ba20a6d8676502c02a6659f467a8/preview) outputs are available to view there. 
+[Hummingbird sample output](https://usegalaxy.eu/datasets/4838ba20a6d8676565fed5852c79ff4d/preview) and [Amphioxus fish sample](https://usegalaxy.eu/datasets/4838ba20a6d867655aedf35d84ed3d59/preview) outputs are available. 
 
 These JBrowse configurations now include repeatmasker GFF tracks, from the latest Feb_11 revision, that only has a couple of small subworkflows - for making wiggles and for optional hic and paf.
 
