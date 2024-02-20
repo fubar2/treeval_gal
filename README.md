@@ -23,8 +23,8 @@ These are from [the current version](treevalgal) that only has a couple of small
      - add or replace with repeatmasker?
         - seems fewer hits with default settings but a nice GFF track to view. 
    - for scientists and the public?
-- What's being generated
-  - how to find those tagged VGP WF outputs?
+- What's being generated?
+  - how to find [all the tagged](https://galaxyproject.org/projects/vgp/workflows/) existing VGP WF outputs to add?
 - How to allow access to big JBrowse2 configurations efficiently?
     - JBrowse2 archives contain compressed/indexed reference sequence and track files - so are big.
     - What would these look like to be useful enough to expose with other VGP assembly artifacts?
@@ -39,7 +39,7 @@ These are from [the current version](treevalgal) that only has a couple of small
      - a tiny pop-up python webserver is included with the data for local use.
   
 ##### How best to represent repeat density?
-Anna asked about a repeatmasker version of the repeats, so there's a gff track (no dfam species and defaults) to compare to the windowmasker bed and wiggle on the current [fish JBrowse2](https://usegalaxy.eu/datasets/4838ba20a6d867655aedf35d84ed3d59/preview).
+Anna asked about a repeatmasker version of the repeats, so there's a gff track (no dfam species and defaults) to compare to the windowmasker bed and wiggle on the current [Amphioxus JBrowse2](https://usegalaxy.eu/datasets/4838ba20a6d867655aedf35d84ed3d59/preview).
 
 ![image](https://github.com/fubar2/treeval_gal/assets/6016266/860af67f-00bc-4848-af2f-ba47e9762710)
 
