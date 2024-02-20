@@ -38,11 +38,21 @@ These are from a new version that only has a couple of small subworkflows - for 
      - a tiny pop-up python webserver is included with the data for local use.
   
 ##### How best to represent repeat density?
-The zoomed in start of this screenshot from the [fish TreeValGal demonstration](https://usegalaxy.eu/datasets/4838ba20a6d8676593a004b88f7c8ab8/preview) shows how a repeat (corresponding to the telomere) counts as 1 for the wiggle on the left, then a group of 3 tiny repeats bump the wiggle to 3. Needs to be normalised to give the proportion of repetitive sequence in a window - the actual count of small repeats might also be useful.
+Anna asked about a repeatmasker version of the repeats, so there's a gff track (no dfam species and defaults) to compare to the windowmasker bed and wiggle on the current [fish JBrowse2](https://usegalaxy.eu/datasets/4838ba20a6d867655aedf35d84ed3d59/preview).
 
-![image](https://github.com/fubar2/treeval_gal/assets/6016266/80331cb3-5459-4c40-b4de-c14a881bf306)
+![image](https://github.com/fubar2/treeval_gal/assets/6016266/860af67f-00bc-4848-af2f-ba47e9762710)
 
-##### TreeValGal modules 
+Repeatmasker seems more selective with half or fewer but bigger hits.
+
+The other repeat data is from a model-free method - [NCBI windowmasker](https://doi.org/10.1093/bioinformatics/bti774) - so no surprise that a model-based method like repeatmasker is verrrrry different with defaults - suggestions appreciated!
+
+Here's a zoomed in part of the current hummingbird TreeValGal output after hiding the other tracks and opening the repeatmasker gff and the repeat bed. The wiggle is windowmaker smoothed over 1k windows and reflects that detail differently, particularly when zoomed in.
+
+![image](https://github.com/fubar2/treeval_gal/assets/6016266/3af7e2a8-e2c7-4e32-995d-6619435caaf9)
+
+Each method and view gives different information about the complex underlying biology here and JBrowse2 makes it easy to pick and choose between them.
+
+#### TreeValGal modules 
 
 | Module | Status |
 |---------------------|-----------------------|
