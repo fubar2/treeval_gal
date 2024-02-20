@@ -1,0 +1,432 @@
+{
+    "a_galaxy_workflow": "true",
+    "annotation": "Crude cool matrix from hic paired reads and the reference assembly as a placeholder for the proper VGP one using YAHS.",
+    "format-version": "0.1",
+    "name": "TreeValGal simple HiC mapping Feb 8",
+    "steps": {
+        "0": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 0,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "HIC reads 2"
+                }
+            ],
+            "label": "HIC reads 2",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 0,
+                "top": 10
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": null}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "799b125b-6c3b-46ee-9e18-5c67630fc6b7",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "1": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 1,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "Reference genome assembly"
+                }
+            ],
+            "label": "Reference genome assembly",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 0,
+                "top": 231
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": null}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "879e2cb1-2c9e-4601-ba04-58405fc6f67f",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "2": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 2,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "HIC reads 1"
+                }
+            ],
+            "label": "HIC reads 1",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 0,
+                "top": 451
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": null}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "67f55546-8489-4f71-ae04-45098bdfaf79",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "3": {
+            "annotation": "eg GCAT for dm4",
+            "content_id": null,
+            "errors": null,
+            "id": 3,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "eg GCAT for dm4",
+                    "name": "HiC restriction enzyme sequence"
+                }
+            ],
+            "label": "HiC restriction enzyme sequence",
+            "name": "Input parameter",
+            "outputs": [],
+            "position": {
+                "left": 0,
+                "top": 748
+            },
+            "tool_id": null,
+            "tool_state": "{\"parameter_type\": \"text\", \"optional\": false}",
+            "tool_version": null,
+            "type": "parameter_input",
+            "uuid": "c2263e7c-666f-4be0-8007-8cbae27c7a1e",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "output",
+                    "uuid": "62df5ae0-d743-4d4e-9fe8-df7d40153f82"
+                }
+            ]
+        },
+        "4": {
+            "annotation": "eg GCAT for dm4",
+            "content_id": null,
+            "errors": null,
+            "id": 4,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "eg GCAT for dm4",
+                    "name": "Dangling sequence at enzyme cut"
+                }
+            ],
+            "label": "Dangling sequence at enzyme cut",
+            "name": "Input parameter",
+            "outputs": [],
+            "position": {
+                "left": 280,
+                "top": 810
+            },
+            "tool_id": null,
+            "tool_state": "{\"parameter_type\": \"text\", \"optional\": false}",
+            "tool_version": null,
+            "type": "parameter_input",
+            "uuid": "a6cceec0-184e-45ee-8c3b-09523201784a",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "output",
+                    "uuid": "66217223-7a79-408e-8a0e-ce11e7830a8c"
+                }
+            ]
+        },
+        "5": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/bowtie2/bowtie2/2.5.0+galaxy0",
+            "errors": null,
+            "id": 5,
+            "input_connections": {
+                "library|input_1": {
+                    "id": 0,
+                    "output_name": "output"
+                },
+                "reference_genome|own_file": {
+                    "id": 1,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Bowtie2",
+                    "name": "library"
+                },
+                {
+                    "description": "runtime parameter for tool Bowtie2",
+                    "name": "reference_genome"
+                }
+            ],
+            "label": null,
+            "name": "Bowtie2",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "bam"
+                }
+            ],
+            "position": {
+                "left": 280,
+                "top": 0
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/bowtie2/bowtie2/2.5.0+galaxy0",
+            "tool_shed_repository": {
+                "changeset_revision": "03e9b2fbc005",
+                "name": "bowtie2",
+                "owner": "devteam",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"analysis_type\": {\"analysis_type_selector\": \"simple\", \"__current_case__\": 0, \"presets\": \"no_presets\"}, \"library\": {\"type\": \"single\", \"__current_case__\": 0, \"input_1\": {\"__class__\": \"RuntimeValue\"}, \"unaligned_file\": false, \"aligned_file\": false}, \"reference_genome\": {\"source\": \"history\", \"__current_case__\": 1, \"own_file\": {\"__class__\": \"RuntimeValue\"}}, \"rg\": {\"rg_selector\": \"do_not_set\", \"__current_case__\": 3}, \"sam_options\": {\"sam_options_selector\": \"yes\", \"__current_case__\": 0, \"sam_opt\": true, \"no_unal\": false, \"omit_sec_seq\": false, \"sam_no_qname_trunc\": false, \"xeq\": false, \"soft_clipped_unmapped_tlen\": false, \"reorder\": true}, \"save_mapping_stats\": false, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.5.0+galaxy0",
+            "type": "tool",
+            "uuid": "af427927-8d4a-443a-83cb-d2225e4bca4f",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "6": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/fasta_compute_length/fasta_compute_length/1.0.3",
+            "errors": null,
+            "id": 6,
+            "input_connections": {
+                "ref|input": {
+                    "id": 1,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Compute sequence length",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "tabular"
+                }
+            ],
+            "position": {
+                "left": 280,
+                "top": 205
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/fasta_compute_length/fasta_compute_length/1.0.3",
+            "tool_shed_repository": {
+                "changeset_revision": "7d37cfda8e00",
+                "name": "fasta_compute_length",
+                "owner": "devteam",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__input_ext\": \"input\", \"chromInfo\": \"/opt/galaxy/tool-data/shared/ucsc/chrom/?.len\", \"ref\": {\"ref_source\": \"history\", \"__current_case__\": 0, \"input\": {\"__class__\": \"ConnectedValue\"}, \"keep_first\": \"0\", \"keep_first_word\": false}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.0.3",
+            "type": "tool",
+            "uuid": "1e14d9f7-e7e4-45dd-85eb-72bbf04fcf34",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "7": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/bowtie2/bowtie2/2.5.0+galaxy0",
+            "errors": null,
+            "id": 7,
+            "input_connections": {
+                "library|input_1": {
+                    "id": 2,
+                    "output_name": "output"
+                },
+                "reference_genome|own_file": {
+                    "id": 1,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Bowtie2",
+                    "name": "library"
+                },
+                {
+                    "description": "runtime parameter for tool Bowtie2",
+                    "name": "reference_genome"
+                }
+            ],
+            "label": null,
+            "name": "Bowtie2",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "bam"
+                }
+            ],
+            "position": {
+                "left": 280,
+                "top": 379
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/bowtie2/bowtie2/2.5.0+galaxy0",
+            "tool_shed_repository": {
+                "changeset_revision": "03e9b2fbc005",
+                "name": "bowtie2",
+                "owner": "devteam",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"analysis_type\": {\"analysis_type_selector\": \"simple\", \"__current_case__\": 0, \"presets\": \"--fast-local\"}, \"library\": {\"type\": \"single\", \"__current_case__\": 0, \"input_1\": {\"__class__\": \"RuntimeValue\"}, \"unaligned_file\": false, \"aligned_file\": false}, \"reference_genome\": {\"source\": \"history\", \"__current_case__\": 1, \"own_file\": {\"__class__\": \"RuntimeValue\"}}, \"rg\": {\"rg_selector\": \"do_not_set\", \"__current_case__\": 3}, \"sam_options\": {\"sam_options_selector\": \"yes\", \"__current_case__\": 0, \"sam_opt\": true, \"no_unal\": false, \"omit_sec_seq\": false, \"sam_no_qname_trunc\": false, \"xeq\": false, \"soft_clipped_unmapped_tlen\": false, \"reorder\": true}, \"save_mapping_stats\": false, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.5.0+galaxy0",
+            "type": "tool",
+            "uuid": "18c12570-ea04-4eb6-a7f7-1bf4975b2512",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "8": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/hicexplorer_hicfindrestrictionsites/hicexplorer_hicfindrestrictionsites/3.7.2+galaxy0",
+            "errors": null,
+            "id": 8,
+            "input_connections": {
+                "fasta": {
+                    "id": 1,
+                    "output_name": "output"
+                },
+                "searchPattern": {
+                    "id": 3,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "hicFindRestSite",
+            "outputs": [
+                {
+                    "name": "restrictionSites",
+                    "type": "bed"
+                }
+            ],
+            "position": {
+                "left": 280,
+                "top": 584
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/hicexplorer_hicfindrestrictionsites/hicexplorer_hicfindrestrictionsites/3.7.2+galaxy0",
+            "tool_shed_repository": {
+                "changeset_revision": "6c5097f6d41e",
+                "name": "hicexplorer_hicfindrestrictionsites",
+                "owner": "bgruening",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"fasta\": {\"__class__\": \"ConnectedValue\"}, \"searchPattern\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "3.7.2+galaxy0",
+            "type": "tool",
+            "uuid": "8784346a-2bb5-4b36-a288-c689b50a1fc6",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "9": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/hicexplorer_hicbuildmatrix/hicexplorer_hicbuildmatrix/3.7.2+galaxy0",
+            "errors": null,
+            "id": 9,
+            "input_connections": {
+                "chromosomeSizes": {
+                    "id": 6,
+                    "output_name": "output"
+                },
+                "danglingSequence": {
+                    "id": 4,
+                    "output_name": "output"
+                },
+                "restrictionCutFile": {
+                    "id": 8,
+                    "output_name": "restrictionSites"
+                },
+                "restrictionSequence": {
+                    "id": 3,
+                    "output_name": "output"
+                },
+                "samFiles_0|samFile": {
+                    "id": 7,
+                    "output_name": "output"
+                },
+                "samFiles_1|samFile": {
+                    "id": 5,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "hicBuildMatrix",
+            "outputs": [
+                {
+                    "name": "outFileName",
+                    "type": "h5"
+                },
+                {
+                    "name": "qc",
+                    "type": "html"
+                },
+                {
+                    "name": "raw_qc",
+                    "type": "txt"
+                }
+            ],
+            "position": {
+                "left": 580,
+                "top": 482
+            },
+            "post_job_actions": {
+                "RenameDatasetActionoutFileName": {
+                    "action_arguments": {
+                        "newname": "hic_cool"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "outFileName"
+                },
+                "TagDatasetActionoutFileName": {
+                    "action_arguments": {
+                        "tags": "#AutoJB"
+                    },
+                    "action_type": "TagDatasetAction",
+                    "output_name": "outFileName"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/hicexplorer_hicbuildmatrix/hicexplorer_hicbuildmatrix/3.7.2+galaxy0",
+            "tool_shed_repository": {
+                "changeset_revision": "ed2cca6b5de4",
+                "name": "hicexplorer_hicbuildmatrix",
+                "owner": "bgruening",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"binSizes\": [{\"__index__\": 0, \"binSize\": \"10000\"}], \"chromosomeSizes\": {\"__class__\": \"ConnectedValue\"}, \"danglingSequence\": {\"__class__\": \"ConnectedValue\"}, \"keepSelfCircles\": false, \"keepSelfLigation\": false, \"maxLibraryInsertSize\": null, \"minDistance\": null, \"minMappingQuality\": null, \"outBam\": false, \"outputFormat\": \"cool\", \"region\": null, \"restrictionCutFile\": {\"__class__\": \"ConnectedValue\"}, \"restrictionSequence\": {\"__class__\": \"ConnectedValue\"}, \"samFiles\": [{\"__index__\": 0, \"samFile\": {\"__class__\": \"ConnectedValue\"}}, {\"__index__\": 1, \"samFile\": {\"__class__\": \"ConnectedValue\"}}], \"skipDuplicationCheck\": false, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "3.7.2+galaxy0",
+            "type": "tool",
+            "uuid": "582c8a0c-a3a8-452c-99a6-6ea8734d6c6b",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": "hic_cool",
+                    "output_name": "outFileName",
+                    "uuid": "5bd75444-a6b0-40bd-bef1-d92961a42e35"
+                }
+            ]
+        }
+    },
+    "tags": [],
+    "uuid": "04042e74-0738-43e5-87e0-524faff49c62",
+    "version": 13
+}

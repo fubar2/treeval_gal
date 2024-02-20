@@ -40,10 +40,10 @@
             "inputs": [
                 {
                     "description": "This must be the reference sequence used by minimap to map the real reference sequence as if it was a series of reads. ",
-                    "name": "Genome for systenic species"
+                    "name": "Genome for syntenic species"
                 }
             ],
-            "label": "Genome for systenic species",
+            "label": "Genome for syntenic species",
             "name": "Input dataset",
             "outputs": [],
             "position": {
@@ -86,7 +86,22 @@
                 "left": 280.0000000000001,
                 "top": 0
             },
-            "post_job_actions": {},
+            "post_job_actions": {
+                "RenameDatasetActionalignment_output": {
+                    "action_arguments": {
+                        "newname": "#{reference_source.ref_file}_paf"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "alignment_output"
+                },
+                "TagDatasetActionalignment_output": {
+                    "action_arguments": {
+                        "tags": "#AutoJB"
+                    },
+                    "action_type": "TagDatasetAction",
+                    "output_name": "alignment_output"
+                }
+            },
             "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/minimap2/minimap2/2.26+galaxy0",
             "tool_shed_repository": {
                 "changeset_revision": "be1d967337e4",
@@ -101,14 +116,14 @@
             "when": null,
             "workflow_outputs": [
                 {
-                    "label": "alignment_output",
+                    "label": "paf",
                     "output_name": "alignment_output",
-                    "uuid": "c0f67ab3-cecd-43a9-b590-f4665a57218f"
+                    "uuid": "ccaf715e-380d-45da-bca7-6562576ab011"
                 }
             ]
         }
     },
     "tags": [],
-    "uuid": "ca836db4-b2b1-4e9e-84b6-48c611d6ba9f",
-    "version": 2
+    "uuid": "c74146f9-d6a9-4824-93ba-37055809bbee",
+    "version": 10
 }
