@@ -52,6 +52,23 @@ Here's a zoomed in part of the current hummingbird TreeValGal output after hidin
 
 Each method and view gives different information about the complex underlying biology here and JBrowse2 makes it easy to pick and choose between them.
 
+#### Jbrowse2
+
+![image](https://github.com/fubar2/treeval_gal/assets/6016266/8e03a285-efba-49e9-840e-cf9dbfb6b4ec)
+
+Now does 10 track types - any of these datatypes in a Galaxy history or workflow can be added as a track to a JBrowse instance. Outputs are immediately viewable in Galaxy. The JBrowse2 directory can be archived and downloaded for local viewing using a provided tiny python web server. They tend to be huge - GB in size, with the reference and all tracks in compressed and indexed formats.
+
+    bam
+    bed
+    bigwig
+    blastxml to gff3
+    cram
+    gff3
+    hic
+    maf
+    paf
+    vcf
+
 #### TreeValGal modules 
 
 | Module | Status |
