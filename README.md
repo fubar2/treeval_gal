@@ -4,9 +4,7 @@
 translate the Sanger [TreeVal NF DDL](https://github.com/sanger-tol/treeval/tree/dev) workflow into something equivalent or better in Galaxy. Everyone with an interest in contributing to
 this effort is cordially invited to pitch in.*
 
-### Treevalgal workflow samples to view
-
-TreeValGal depends on the updated [Jbrowse2 tool](#JBrowse2) to present repeats, gaps and other features as tracks in a configurable browser. Currently only available on `usegalaxy.eu` for testing.
+### Treevalgal workflow output samples
 
 [Hummingbird sample output](https://usegalaxy.eu/datasets/4838ba20a6d8676565fed5852c79ff4d/preview) and [Amphioxus fish sample](https://usegalaxy.eu/datasets/4838ba20a6d867655aedf35d84ed3d59/preview) outputs are available. 
 This [hummingbird one](https://usegalaxy.eu/datasets/4838ba20a6d86765a82288eace3c126d/preview) has a crude hic track added as a demonstration but it takes a long
@@ -14,33 +12,32 @@ time to load a half matrix for a whole chromosome. Probably best turned off unle
 
 These are from [the current version](treevalgal) that only has a couple of small subworkflows - for making wiggles, hic and paf.
 
-### 21/Feb: For discussion - what's next?
+TreeValGal depends on the updated [Jbrowse2 tool](#JBrowse2) to present repeats, gaps and other features as tracks in a configurable browser. 
+JBrowse2 is currently only available on `usegalaxy.eu` for testing. 
 
-##### 1. Incorporate tracks from VGP workflow runs into JBrowse2 ?
-  - What additional tracks would be useful for TreeValGal?
-     - for VGP internal use?
+### 21/Feb: For discussion - if it looks potentially useful, what's next?
+
+#### 1. Add tracks and other organisms ?
+  - What additional tracks would be useful?
+     - for VGP internal use? 
+       - Other TreeVal modules: selfcomp
+          - kmer/busco/pretext etc already in VGP)
      - for external researchers
      - for the public - making VGP data really easy to "access"
-  - Artifacts already being generated routinely can be added.
-    - how to find [all the useful](https://galaxyproject.org/projects/vgp/workflows/) existing VGP WF outputs to add?
-
-##### 2. Jbrowse2 outputs are self contained and portable
+  - Track files being generated routinely can be added if there's a URI or path.
+    - Which of [the existing VGP WF](https://galaxyproject.org/projects/vgp/workflows/) outputs would be useful to add?
+      - tracks take some disk space but there's no real technical limit to the size of a track menu. 
+  - Other VGP assemblies to run TreeValGal on to serve as samples?
+    
+#### 2. Jbrowse2 outputs are self contained and portable
   - JBrowse2 directories support interactive display
-    -  Any byte-range request static web server
-    - Typically nginx or apache. 
-       - Setup static web pages with links to the unpacked browser archive directory `index.html` file.
+    -  Any byte-range request static web server like nginx or apache. 
   - Can also view on a local laptop browser without Galaxy or internet access
      - a tiny pop-up python webserver `jb2_webserver.py` is included with the data for local displays.
-  
-##### 3. Downstream uses for JBrowse2 archives
   - How to allow access to big JBrowse2 configurations efficiently?
     - JBrowse2 archives contain compressed/indexed reference sequence and track files - so are big.
-    - What would these look like to be useful enough to expose with other VGP assembly artifacts?
-       - Build centrally with a static public link, for each organism
-       - View without redundant data copies using stable URI for remote on-line viewing.
-
   
-##### 4. How best to represent repeat density?
+#### 3. How best to represent repeat density?
 Anna asked about a repeatmasker version of the repeats, so there's a gff track (no dfam species and defaults) to compare to the windowmasker bed and wiggle on the current [Amphioxus JBrowse2](https://usegalaxy.eu/datasets/4838ba20a6d867655aedf35d84ed3d59/preview).
 
 ![image](https://github.com/fubar2/treeval_gal/assets/6016266/860af67f-00bc-4848-af2f-ba47e9762710)
@@ -55,7 +52,36 @@ Here's a zoomed in part of the current hummingbird TreeValGal output after hidin
 
 Each method and view gives different information about the complex underlying biology here and JBrowse2 makes it easy to pick and choose between them.
 
-#### JBrowse2
+
+### Potential new resource?
+
+Generating and publishing updated live JBrowse2 links for any VGP page is possible, because JBrowse2 configuration can be completely machine driven. 
+- Offer convenient, highly granular tracks derived from VGP and other data
+- readily accessible to anybody with internet, a web browser and a question. 
+- Adding automated feature annotation tracks could build a potentially valuable, accessible and sustainable resource for genome sciences.
+
+Each JBrowse2 directory is independent, with an `index.html`, track files and javascript.
+- served typically by Apache or Nginx
+- potentially stored (untested!) on an S3 bucket.
+
+Most of the components are available. 
+- An initial functional track menu can quickly be made available.
+- It will require storage and effort TBA
+- Proof of concept sample outputs below. 
+
+Challenges.
+- storage for compressed/indexed data (a few GB each perhaps)
+- computational resources required are very substantial for creation.
+- Individual updates are only needed when data changes.
+- Workflow change means recreating everything
+ - not a problem if "reuse jobs" really works...
+- ongoing dedicated effort for sustainable development.
+  
+Given those, configurations can be improved, by editing the workflows, to suit real user needs.
+The [rat database does this](https://rgd.mcw.edu/wg/help3/tools/rgd-genome-browsers/the-rat-jbrowse-genome-browser/) with JB1, so it's not novel, but would add a lot of value to existing data with relatively little additional resources.
+
+
+### JBrowse2
 
 ![image](https://github.com/fubar2/treeval_gal/assets/6016266/8e03a285-efba-49e9-840e-cf9dbfb6b4ec)
 
@@ -75,7 +101,7 @@ They tend to be huge - GB in size, with the reference and all tracks in compress
     paf
     vcf
 
-#### TreeValGal modules 
+### TreeValGal modules 
 
 | Module | Status |
 |---------------------|-----------------------|
@@ -92,7 +118,7 @@ They tend to be huge - GB in size, with the reference and all tracks in compress
 | [synteny](synteny)  |  **Prototype available.** | 
 | [telo_finder](telo_finder) |  **Prototype available in treevalgal workflow now** using seqtk-telo | 
 
-#### January 21
+### January 21
 
 Updating JBrowse1 tool code to JBrowse2 over the past 5 weeks. These are 8 samples - paf and hic are also available.
 
@@ -105,7 +131,7 @@ Deployed on EU as a test tool. See [treevalgal workflow](treevalgal) for more de
 ![image](https://github.com/fubar2/treeval_gal/assets/6016266/7bad8842-3b25-4cfc-a711-29a71eaa6b28)
 
 
-##### Next steps 
+#### Next steps 
  - Need fastk/merquryFK for a KMER subworkflow.
    - A [Fastk wrapper](https://github.com/galaxyproject/tools-iuc/pull/5550) is currently being developed.
  - Bjoern is thinking about how best to integrate binary HiC format data into the existing infrastructure.
@@ -115,7 +141,7 @@ Deployed on EU as a test tool. See [treevalgal workflow](treevalgal) for more de
 Galaxy's integrated support for genomic feature visualisation at scale will be very hard to match. 
 
 
-#### December 15
+### December 15
 With thanks to Bjoern Gruening and Anna Syme for helping with testing and tools, and the support of Galaxy Australia, there is now a [WIP TreeValGal workflow](treevalgal) on usegalaxy.eu that combines the two gap tracks, the repeats track, a telomere track and the coverage track for the TreeVal small sample test data into a single JBrowse viewer.
 
 Please try it on your own pacbio/refseq data and let me know if this is worth more work to add additional TreeVal tracks to for your use?
