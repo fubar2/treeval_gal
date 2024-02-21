@@ -8,10 +8,6 @@ Origins and early progress [documented back here](#December15)
 
 ### Treevalgal workflow output samples
 
-#### Breaking news!
-Bjoern has [created a demonstration public repository](https://usegalaxy.eu/ebp-jbrowse/) as a proof of concept for sharing JBrowse configurations and data. Only has the Hummingbird
-data - as a stand alone full browser window [bird](https://usegalaxy.eu/ebp-jbrowse/bird/index.html), or the view in Galaxy.
-
 [Hummingbird sample output](https://usegalaxy.eu/datasets/4838ba20a6d86765cecca865d35c5146/preview) and [Amphioxus fish sample](https://usegalaxy.eu/datasets/4838ba20a6d86765369b13bd5c7199ce/preview) outputs are available. 
 This [hummingbird one](https://usegalaxy.eu/datasets/4838ba20a6d86765a82288eace3c126d/preview) has a crude hic track added as a demonstration but it takes a long
 time to load a half matrix for a whole chromosome. Probably best turned off unless zoomed in. Not needed since the current pretextview solution works well.
@@ -22,6 +18,8 @@ TreeValGal depends on the updated [Jbrowse2 tool](#JBrowse2) to present repeats,
 JBrowse2 is currently only available on `usegalaxy.eu` for testing. 
 
 ### 21/Feb: For discussion - if it looks potentially useful, what's next?
+
+**Breaking news!**: Bjoern has [created a demonstration public repository](https://usegalaxy.eu/ebp-jbrowse/) as a proof of concept for sharing JBrowse configurations and data. Only has the Hummingbird data - as a stand alone full browser window [bird](https://usegalaxy.eu/ebp-jbrowse/bird/index.html), or the view in Galaxy.
 
 #### 1. Add tracks and other organisms ?
   - What additional tracks would be useful?
