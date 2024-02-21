@@ -47,7 +47,7 @@ Anna asked about a repeatmasker version of the repeats, so there's a gff track (
 
 ![image](https://github.com/fubar2/treeval_gal/assets/6016266/860af67f-00bc-4848-af2f-ba47e9762710)
 
-Repeatmasker seems more selective with half or fewer but bigger hits.
+Repeatmasker seems more selective with half or fewer but bigger hits. It is model based so takes much longer to complete although that's not important for a workflow.
 
 The other repeat data is from a model-free method - [NCBI windowmasker](https://doi.org/10.1093/bioinformatics/bti774) - so no surprise that a model-based method like repeatmasker is verrrrry different with defaults - suggestions appreciated!
 
