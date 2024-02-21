@@ -52,6 +52,9 @@ Here's a zoomed in part of the current hummingbird TreeValGal output after hidin
 
 Each method and view gives different information about the complex underlying biology here and JBrowse2 makes it easy to pick and choose between them.
 
+#### 4. Current track list
+![image](https://github.com/fubar2/treeval_gal/assets/6016266/8daa9117-9a5e-4637-bb62-8bd921809813)
+
 
 ### Potential new resource?
 
