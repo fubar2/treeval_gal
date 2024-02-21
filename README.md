@@ -16,29 +16,33 @@ These are from [the current version](treevalgal) that only has a couple of small
 
 ### 21/Feb: For discussion - what's next?
 
-##### Incorporate tracks from VGP workflow runs into JBrowse2 ?
-- What additional tracks would be useful for TreeValGal?
-   - for VGP internal use?
-     - using windowmasker (https://doi.org/10.1093/bioinformatics/bti774)
-     - add or replace with repeatmasker?
-        - seems fewer hits with default settings but a nice GFF track to view. 
-   - for scientists and the public?
-- What's being generated?
-  - how to find [all the tagged](https://galaxyproject.org/projects/vgp/workflows/) existing VGP WF outputs to add?
-- How to allow access to big JBrowse2 configurations efficiently?
+##### 1. Incorporate tracks from VGP workflow runs into JBrowse2 ?
+  - What additional tracks would be useful for TreeValGal?
+     - for VGP internal use?
+       - using windowmasker (https://doi.org/10.1093/bioinformatics/bti774)
+       - add or replace with repeatmasker?
+          - seems fewer hits with default settings but a nice GFF track to view. 
+     - for scientists and the public?
+  - What's being generated?
+    - how to find [all the tagged](https://galaxyproject.org/projects/vgp/workflows/) existing VGP WF outputs to add?
+
+##### 2. Jbrowse2 outputs are self contained and portable
+  - JBrowse2 directories support interactive display
+    -  Any byte-range request static web server
+    - Typically nginx or apache. 
+       - Setup static web pages with links to the unpacked browser archive directory `index.html` file.
+  - Can also view on a local laptop browser without Galaxy or internet access
+     - a tiny pop-up python webserver `jb2_webserver.py` is included with the data for local displays.
+  
+##### 3. Downstream uses for JBrowse2 archives
+  - How to allow access to big JBrowse2 configurations efficiently?
     - JBrowse2 archives contain compressed/indexed reference sequence and track files - so are big.
     - What would these look like to be useful enough to expose with other VGP assembly artifacts?
        - Build centrally with a static public link, for each organism
        - View without redundant data copies using stable URI for remote on-line viewing.
 
-##### Downstream uses for JBrowse2 archives
-  - JBrowse2 archive contents can be displayed by a byte-range static web server
-    - Typically nginx or apache. 
-       - Setup static web pages with links to the unpacked browser archive directory `index.html` file.
-  - Can also view on a local laptop browser without Galaxy or internet access
-     - a tiny pop-up python webserver is included with the data for local use.
   
-##### How best to represent repeat density?
+##### 4. How best to represent repeat density?
 Anna asked about a repeatmasker version of the repeats, so there's a gff track (no dfam species and defaults) to compare to the windowmasker bed and wiggle on the current [Amphioxus JBrowse2](https://usegalaxy.eu/datasets/4838ba20a6d867655aedf35d84ed3d59/preview).
 
 ![image](https://github.com/fubar2/treeval_gal/assets/6016266/860af67f-00bc-4848-af2f-ba47e9762710)
