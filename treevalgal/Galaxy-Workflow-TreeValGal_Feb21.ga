@@ -37,7 +37,13 @@
             "type": "parameter_input",
             "uuid": "94d89da2-adee-4269-9bad-eb3bf002d19f",
             "when": null,
-            "workflow_outputs": []
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "output",
+                    "uuid": "ec9201d2-84aa-423a-ae69-11bf178a380e"
+                }
+            ]
         },
         "1": {
             "annotation": "Assembly for JBrowse2 tracks",
@@ -118,7 +124,13 @@
             "type": "parameter_input",
             "uuid": "86d90be6-9d0f-4f33-8c81-0bd8b8497b53",
             "when": null,
-            "workflow_outputs": []
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "output",
+                    "uuid": "f1f5362f-2346-4bf2-a08c-17b0132db247"
+                }
+            ]
         },
         "4": {
             "annotation": "Sequence mapping syntenic regions will be displayed.",
@@ -172,7 +184,13 @@
             "type": "parameter_input",
             "uuid": "abbabb72-b9b6-45c8-81d1-04bf0d091767",
             "when": null,
-            "workflow_outputs": []
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "output",
+                    "uuid": "7ee0faff-dd25-4503-8c74-a07f4998147d"
+                }
+            ]
         },
         "6": {
             "annotation": "",
