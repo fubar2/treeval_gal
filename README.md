@@ -23,8 +23,8 @@ These are from [the current version](treevalgal) that only has a couple of small
        - add or replace with repeatmasker?
           - seems fewer hits with default settings but a nice GFF track to view. 
      - for scientists and the public?
-  - What's being generated?
-    - how to find [all the tagged](https://galaxyproject.org/projects/vgp/workflows/) existing VGP WF outputs to add?
+  - Artifacts already being generated routinely can be added.
+    - how to find [all the useful](https://galaxyproject.org/projects/vgp/workflows/) existing VGP WF outputs to add?
 
 ##### 2. Jbrowse2 outputs are self contained and portable
   - JBrowse2 directories support interactive display
