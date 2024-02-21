@@ -19,10 +19,8 @@ These are from [the current version](treevalgal) that only has a couple of small
 ##### 1. Incorporate tracks from VGP workflow runs into JBrowse2 ?
   - What additional tracks would be useful for TreeValGal?
      - for VGP internal use?
-       - using windowmasker (https://doi.org/10.1093/bioinformatics/bti774)
-       - add or replace with repeatmasker?
-          - seems fewer hits with default settings but a nice GFF track to view. 
-     - for scientists and the public?
+     - for external researchers
+     - for the public - making VGP data really easy to "access"
   - Artifacts already being generated routinely can be added.
     - how to find [all the useful](https://galaxyproject.org/projects/vgp/workflows/) existing VGP WF outputs to add?
 
