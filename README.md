@@ -4,6 +4,8 @@
 translate the Sanger [TreeVal NF DDL](https://github.com/sanger-tol/treeval/tree/dev) workflow into something equivalent or better in Galaxy. Everyone with an interest in contributing to
 this effort is cordially invited to pitch in.*
 
+Origins and early progress [documented back here](#December15)
+
 ### Treevalgal workflow output samples
 
 [Hummingbird sample output](https://usegalaxy.eu/datasets/4838ba20a6d86765cecca865d35c5146/preview) and [Amphioxus fish sample](https://usegalaxy.eu/datasets/4838ba20a6d86765369b13bd5c7199ce/preview) outputs are available. 
@@ -144,7 +146,7 @@ Deployed on EU as a test tool. See [treevalgal workflow](treevalgal) for more de
 Galaxy's integrated support for genomic feature visualisation at scale will be very hard to match. 
 
 
-### December 15
+### December15
 With thanks to Bjoern Gruening and Anna Syme for helping with testing and tools, and the support of Galaxy Australia, there is now a [WIP TreeValGal workflow](treevalgal) on usegalaxy.eu that combines the two gap tracks, the repeats track, a telomere track and the coverage track for the TreeVal small sample test data into a single JBrowse viewer.
 
 Please try it on your own pacbio/refseq data and let me know if this is worth more work to add additional TreeVal tracks to for your use?
