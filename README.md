@@ -42,6 +42,11 @@ JBrowse2 is currently only available on `usegalaxy.eu` for testing.
 - The next release (_5) of JBrowse2 on EU will optionally create a zip file instead of being a viewable HTML page. 
   - This enables the Galaxy uploader to push a JBrowse directory to S3. It seemed confused by html
     - Public website proof of concept using a zip from Galaxy to an S3 bucket thanks to Bjoern.
+      
+- Nadolina has nominated the [gene_alignment](gene_alignment) TreeVal subworkflow to implement.
+    - Tools should all be on EU but may have missed something.
+    - Two main subworkflows are used - for nucleotide and peptide mapping so each of those can be built and tested
+    - Once tested, we can figure out how best to fit in with the existing WF.
    
 - mashmap proposed as a way to make multi-organism PAF tracks.
   - Ross built and tested a prototype
