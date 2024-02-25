@@ -32,8 +32,10 @@ JBrowse2 is currently only available on `usegalaxy.eu` for testing.
   - a "good to test" track list with tool tuning parameters as needed.
   - Implement as the initial TreeValGal workflow and hand over
   - Clean-up and acceptance-testing as part of a routine VGP WF run. 
-  - Busco genes could be added to TreeValGal as GFF3 if available - is there a sample gff for any assembly (calanna and bralanc are the two tests so far..)
-    - a gff is probably better for a JB2 track than a bed for annotation.
+  - Busco genes could be added to TreeValGal as GFF3 if available
+    - Action: could someone please make a sample busco gff3 for one of the test assemblies we are currently using: calanna and bralanc ?
+    - a gff is probably more suited for a JB2 track than a bed
+      - easy enough to include both if useful  
       
 - The next release (_5) of JBrowse2 on EU will optionally create a zip file instead of being a viewable HTML page. 
   - This enables the Galaxy uploader to push a JBrowse directory to S3. It seemed confused by html
