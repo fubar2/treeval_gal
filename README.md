@@ -17,7 +17,44 @@ These are from [the current version](treevalgal) that only has a couple of small
 TreeValGal depends on the updated [Jbrowse2 tool](#JBrowse2) to present repeats, gaps and other features as tracks in a configurable browser. 
 JBrowse2 is currently only available on `usegalaxy.eu` for testing. 
 
-### 21/Feb: For discussion - if it looks potentially useful, what's next?
+### 25 Feb: Big picture ideas, mashmap and next steps
+
+- Long term goal
+  - Add interactive JBrowse outputs to genomeArk, to make VGP data easily accessible as tracks in a web browser.
+  
+- Intermediate term milestones
+   - Production TreeValGal for internal VGP use
+   - Build and eventually distribute other VGP JB2 track sets for different audiences
+   - Provide a test bed for the development and display of automated annotation
+     - integrate useful tracks into TreeValGal and other outputs as they become available.
+    
+- Short term milestones
+  - a "good to test" track list with tool tuning parameters as needed.
+  - Implement as the initial TreeValGal workflow and hand over
+  - Clean-up and acceptance-testing as part of a routine VGP WF run. 
+  - Busco genes could be added to TreeValGal as GFF3 if available - is there a sample gff for any assembly (calanna and bralanc are the two tests so far..)
+    - a gff is probably better for a JB2 track than a bed for annotation.
+      
+- The next release (_5) of JBrowse2 on EU will optionally create a zip file instead of being a viewable HTML page. 
+  - This enables the Galaxy uploader to push a JBrowse directory to S3. It seemed confused by html
+    - Public website proof of concept using a zip from Galaxy to an S3 bucket thanks to Bjoern.
+      
+- Giulio mentioned a [paper about automated polishing](https://www.nature.com/articles/s41592-022-01440-3).
+  - Assuming pb-falconc is the same package as falconc, all the dependencies for their [bash script for automated polishing](https://github.com/arangrhie/T2T-Polish/blob/master/automated_polishing/automated-polishing.sh) are in conda.
+  - It can be turned into a Galaxy tool with very little investment...
+  
+- mashmap proposed as a way to make multi-organism PAF tracks.
+  - Ross built and tested a prototype
+  - Bjoern has take the tool over, and made it far better.
+  - Will soon be available from IUC
+  - Sample 3 way PAF display
+    - Other two genomes added as separate linear tracks below the main reference gives reverse mappings!
+    - Easy to configure JB2 - all the references are available.
+    
+![image](https://github.com/fubar2/treeval_gal/assets/6016266/fae539ba-55e0-4fa3-b56c-3e5b96027e3f)
+
+
+### 21 Feb: For discussion - if it looks potentially useful, what's next?
 
 #### 1. Add tracks and other organisms ?
   - What additional tracks would be useful?
