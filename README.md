@@ -55,6 +55,10 @@ JBrowse2 is currently only available on `usegalaxy.eu` for testing.
 ![image](https://github.com/fubar2/treeval_gal/assets/6016266/fae539ba-55e0-4fa3-b56c-3e5b96027e3f)
 
 
+Here are some bird on bird dot plots - they even look a bit like a flock of birds if you squint.
+
+![image](https://github.com/fubar2/treeval_gal/assets/6016266/34e10961-4d55-4bc0-8342-295e03333976)
+
 ### 21 Feb: For discussion - if it looks potentially useful, what's next?
 
 #### 1. Add tracks and other organisms ?
