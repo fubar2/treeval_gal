@@ -27,6 +27,8 @@ JBrowse2 is currently only available on `usegalaxy.eu` for testing.
    - Build and eventually distribute other VGP JB2 track sets for different audiences
    - Provide a test bed for the development and display of automated annotation
      - integrate useful tracks into TreeValGal and other outputs as they become available.
+   - Additional JBrowse2 GTN training modules
+       - create dot plots and reverse mappings from mashmap PAF tracks and so on... 
     
 - Short term milestones
   - a "good to test" track list with tool tuning parameters as needed.
@@ -45,9 +47,10 @@ JBrowse2 is currently only available on `usegalaxy.eu` for testing.
   - Ross built and tested a prototype
   - Bjoern has take the tool over, and made it far better.
   - Will soon be available from IUC
-  - Sample 3 way PAF display
+  - Sample 3 way PAF display below was manually set up, starting with a JBrowse with a single mashmap track and arabidopsis reference.
     - Other two genomes added as separate linear tracks below the main reference gives reverse mappings!
-    - Easy to configure JB2 - all the references are available.
+    - Easy to configure with JB2 - a few moments clicking - all the references are available.
+    - Dot plots too - all there but require manual exposure
     
 ![image](https://github.com/fubar2/treeval_gal/assets/6016266/fae539ba-55e0-4fa3-b56c-3e5b96027e3f)
 
