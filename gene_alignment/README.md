@@ -137,7 +137,7 @@ The .branch() DDL _appears to allow _optional data dependent alignments for pept
 These in turn involve [PEP_ALIGNMENTS](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/pep_alignments.nf) and
 [NUC_ALIGNMENTS ](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/nuc_alignments.nf) subworkflows.
 
-They are complex and have their own decompositions at [nuc_alignments](nuc_alignments) and [pep_alignments](pep_alignments).
+They are complex and have their own decompositions at [nuc_alignments](../nuc_alignments) and [pep_alignments](../pep_alignments).
 
 They in turn involve miniprot-align [available from the IUC](https://toolshed.g2.bx.psu.edu/repository/browse_repositories?f-free-text-search=miniprot&sort=name&operation=view_or_manage_repository&id=8603bdbca905c70e) in the Toolshed, and PAF2BED and PAFTOOLS that appear to be part of minimap so perhaps supplied from the suite in the Toolshed, plus things already in the Toolshed like samtools_faidx.
 
