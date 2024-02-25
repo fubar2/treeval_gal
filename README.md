@@ -38,11 +38,7 @@ JBrowse2 is currently only available on `usegalaxy.eu` for testing.
 - The next release (_5) of JBrowse2 on EU will optionally create a zip file instead of being a viewable HTML page. 
   - This enables the Galaxy uploader to push a JBrowse directory to S3. It seemed confused by html
     - Public website proof of concept using a zip from Galaxy to an S3 bucket thanks to Bjoern.
-      
-- Giulio mentioned a [paper about automated polishing](https://www.nature.com/articles/s41592-022-01440-3).
-  - Assuming pb-falconc is the same package as falconc, all the dependencies for their [bash script for automated polishing](https://github.com/arangrhie/T2T-Polish/blob/master/automated_polishing/automated-polishing.sh) are in conda.
-  - It can be turned into a Galaxy tool with very little investment...
-  
+   
 - mashmap proposed as a way to make multi-organism PAF tracks.
   - Ross built and tested a prototype
   - Bjoern has take the tool over, and made it far better.
