@@ -20,15 +20,15 @@ JBrowse2 is currently only available on `usegalaxy.eu` for testing.
 ### 25 Feb: Big picture ideas, mashmap and next steps
 
 - Long term goal
-  - Add interactive JBrowse outputs to genomeArk, to make VGP data easily accessible as tracks in a web browser.
+  - Add interactive JBrowse configurations to genomeArk web pages, to make VGP data easily accessible as tracks to anyone with a web browser.
   
-- Intermediate term milestones
+- Intermediate milestones
    - Production TreeValGal for internal VGP use
-   - Build and eventually distribute other VGP JB2 track sets for different audiences
+   - Build and distribute other VGP JB2 track sets for different audiences
    - Provide a test bed for the development and display of automated annotation
      - integrate useful tracks into TreeValGal and other outputs as they become available.
    - Additional JBrowse2 GTN training modules
-       - create dot plots and reverse mappings from mashmap PAF tracks and so on... 
+       - create dot plots and reverse mappings from mashmap PAF tracks ... 
     
 - Short term milestones
   - a "good to test" track list with tool tuning parameters as needed.
