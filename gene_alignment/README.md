@@ -177,7 +177,7 @@ The other steps needed for this subworkflow are:
 ```
 paf_to_bed.sh ${file} ${prefix}.bed
 ```
-
+If this is only needed for JBrowse as noted in the code, then it can be ignored because JB2 can display paf.
 
 That bash script is in /treeval/bin and is an exotic awk exercise.
 
