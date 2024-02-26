@@ -4,9 +4,8 @@
 
 This one is complicated and content expertise is needed to describe the logic properly. Looks like a few new tools too. I am just guessing at the DDL - the flow diagram helps.
 
+#### Output files
 ```
-Output files
-
     treeval_upload/
         *.gff.gz: Zipped .gff for each species with peptide data.
         *.gff.gz.tbi: TBI index file of each zipped .gff.
@@ -19,6 +18,23 @@ Output files
         *_cds_punchlist.bed: Punchlist for cds track.
         *_rna_punchlist.bed: Punchlist for rna track.
 
+
+```
+
+#### Input files 
+
+```
+    dot_genome          // Channel [ val(meta), path(file) ]
+    reference_tuple     // Channel [ val(meta), path(file) ]
+    reference_index     // Channel [ val(meta), path(file) ]
+    max_scaff_size      // Channel val(size of largest scaffold in bp)
+    assembly_classT     // Channel val(clade_id)
+    alignment_datadir   // Channel val(geneset_dir)
+    alignment_genesets  // Channel val(geneset_id)
+    alignment_common    // Channel val(common_name) // Not yet in use
+    intron_size         // Channel val(50k)
+    as_files            // Channel [ val(meta), path(file) ]
+    main:
 ```
 
 This DDL has function calls explained below.
