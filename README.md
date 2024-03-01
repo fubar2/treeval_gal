@@ -17,6 +17,15 @@ These are from [the current version](treevalgal) that only has a couple of small
 TreeValGal depends on the updated [Jbrowse2 tool](#JBrowse2) to present repeats, gaps and other features as tracks in a configurable browser. 
 JBrowse2 is currently only available on `usegalaxy.eu` for testing. 
 
+### 1 March: Updated work plans
+
+- Anna working on nucleotide and peptide alignments subworkflows
+  - ncbi downloader improvements suggested
+- New AutogenJB2 (collection -> JB2) tool soon available on EU
+  - In WF needs a collection builder, but that can accept optional inputs
+  - The core of the JB2 track generator requires only a path, name and ext in most cases
+    - paf will need a subcollection of paf, reference1...referenceN
+
 ### 25 Feb: Big picture ideas, mashmap and next steps
 
 - Long term goal
