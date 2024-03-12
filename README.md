@@ -17,6 +17,22 @@ These are from [the current version](treevalgal) that only has a couple of small
 TreeValGal depends on the updated [Jbrowse2 tool](#JBrowse2) to present repeats, gaps and other features as tracks in a configurable browser. 
 JBrowse2 is currently only available on `usegalaxy.eu` for testing. 
 
+### 12 March: Review
+
+- How best to handle variable number of AA/RNA/CDS/gene NCBI annotation files?
+  - may be no useful one or many
+  - cannot see how make minimap or miniprot optional in a WF, with an optional input
+    - tool insists on a non-optional input - doesn't know is running in a WF 
+  - can make them optional as JB2 tracks
+    - Available ones selected from history
+    - Must be already mapped as GFF with miniprot for AA and as minimap BAM for the others 
+- Mashmap is stalling, spinning forever in workflows.
+  - May need additional resources.
+- Self-homology mapping tracks are available to view 
+  - minimap has a special mode, and mashmap may also work.
+  - Should low complexity regions be masked?
+    - ignore likely non-informative "homology" in repetitive sequence?
+
 ### 4 March: Updated work plans
 
 - Anna working on nucleotide and peptide alignments subworkflows
