@@ -28,8 +28,11 @@ JBrowse2 is currently only available on `usegalaxy.eu` for testing.
     - Must be already mapped as GFF with miniprot for AA and as minimap BAM for the others 
 - Mashmap is stalling, spinning forever in workflows.
   - May need additional resources.
-- Self-homology mapping tracks are available to view 
-  - minimap has a special mode, and mashmap may also work.
+- Self-homology mapping tracks prove problematic
+  - Sanger use mummer - a suffix tree mapper. source untouched for >4 years.
+  - max 500k contigs - much flailing to reassemble after cutting and mapping - yumi sims code.
+  - minimap has a special mode
+     - generates many hits and would need filtering
   - Should low complexity regions be masked?
     - ignore likely non-informative "homology" in repetitive sequence?
 
