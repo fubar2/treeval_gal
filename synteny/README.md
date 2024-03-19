@@ -1,6 +1,20 @@
 ## [Synteny](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/synteny.nf)
 
-This is now implemented as a simple Galaxy subworkflow to make a paf for JBrowse2 viewing.
+synteny
+![image](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_synteny.png)
+
+```
+This subworkflow searches along a predetermined path for syntenic genome files based on clade and then aligns with MINIMAP2_ALIGN to the reference genome, emitting an aligned .paf file for each.
+
+Output files
+
+    treeval_upload/
+        *.paf: .paf file for each syntenic genomic aligned to reference.
+
+
+```
+
+This is now implemented as a simple Galaxy subworkflow to make a paf for JBrowse2 viewing. No clade search is performed.
 
 JBrowse2 synteny tracks have been available since January 20 2024.
 Minimap2 will produce a paf.
