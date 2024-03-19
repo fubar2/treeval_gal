@@ -1,6 +1,10 @@
 # treeval_gal
 Sanger treeval nf workflow translation into Galaxy work in progress
 
+Using mummer4 removes any need for all the code chunking before mapping and all the book-keeping to restore the structures after mapping.
+The mapped bams might be 5GB so too big for JB2 but a bed or bigwig might be useable.
+Not sure if we need to block stitching step below - could be done with bedtools if needed...
+
 ![Flow chart](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_self_comp.png)
 
 
