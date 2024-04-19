@@ -9,13 +9,21 @@ Origins and early progress [documented back here](#December15)
 ### Treevalgal workflow output samples
 
 [Hummingbird sample output](https://usegalaxy.eu/datasets/4838ba20a6d86765a97186963230da85/preview) and [Amphioxus fish sample](https://usegalaxy.eu/datasets/4838ba20a6d86765369b13bd5c7199ce/preview) outputs are available. 
-This [hummingbird one](https://usegalaxy.eu/datasets/4838ba20a6d86765a82288eace3c126d/preview) has a crude hic track added as a demonstration but it takes a long
-time to load a half matrix for a whole chromosome. Probably best turned off unless zoomed in. Not needed since the current pretextview solution works well.
 
 These are from [the current version](treevalgal) that only has a couple of small subworkflows - for making wiggles, hic and paf.
 
 TreeValGal depends on the updated [Jbrowse2 tool](#JBrowse2) to present repeats, gaps and other features as tracks in a configurable browser. 
 JBrowse2 is currently only available on `usegalaxy.eu` for testing. 
+
+### April 19: Progress
+Some work on [sequence similarity mapping for haplotypes](https://docs.google.com/presentation/d/1YFP2m92N8n07RhCPH3z_DCFPd84RUylLvRAcJwoGGEU/edit#slide=id.g26eb04dbe33_0_12) suggests that
+automated harmonisation of haplotype strand and contig order/naming could be possible early. With an external reference, the "truth" is known, so only the haplotype fasta ordering/naming
+should be changed, but when the two haplotypes are used, the choice is arbitrary and these could be reordered on one or the other axis to reclaim the latent
+expected diagonal line of similarity between the contigs.
+
+Could simplify situations where comparable information from both haplotypes could be used to help resolve
+ambiguities in either - at least for the very largest contigs with strong sequence similarity between the two haplotypes. 
+
 
 ### 12 March: Review
 
