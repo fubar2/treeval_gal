@@ -1,5 +1,10 @@
 ## TreeValGal workflow 
 
+### April 23 update
+
+The latest TreeValGal workflow is on the EU server at [https://usegalaxy.eu/published/workflow?id=2e93613c688ea52e](https://usegalaxy.eu/published/workflow?id=2e93613c688ea52e)
+
+
 ### February 21 update
 
 The [TreeValGal WF](Galaxy-Workflow-TreeValGal_Feb11.ga) is [available on usegalaxy.eu](https://usegalaxy.eu/published/workflow?id=4d44b055b557cba5) depends on JBrowse2 so only available on usegalaxy.eu for testing.
