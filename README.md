@@ -9,9 +9,13 @@ Origins and early progress [documented back here](#December15)
 ### Treevalgal workflow output samples
 
 [Hummingbird sample output](https://galaxy.genomicsvl-students.cloud.edu.au/jbrowse/jb2_Hummingbird_Demonstration)
+
 [Amphioxus fish sample](https://galaxy.genomicsvl-students.cloud.edu.au/jbrowse/jb2_Amphioxus_Demonstration)
 
-These are from [the current version](TreeValGalAprill30.ga) that only has a couple of small subworkflows - for making wiggles, hic and paf.
+![image](https://github.com/fubar2/treeval_gal/assets/6016266/a547606e-fd44-4baa-b874-36d4f7fe017b)
+
+These are from [the current version](TreeValGalApril30.ga) that has a couple of smaller subworkflows - [TreeValGalSimilarity.ga](TreeValGalSimilarity.ga)
+[TreeValGal_anno_bed_optional.ga](TreeValGal_anno_bed_optional.ga) and [TreeValGal_bed_to_bigwig.ga](TreeValGal_bed_to_bigwig.ga)
 
 TreeValGal depends on the updated [Jbrowse2 tool](#JBrowse2) to present repeats, gaps and other features as tracks in a configurable browser.
 JBrowse2 is currently only available on `usegalaxy.eu` for testing.
@@ -23,16 +27,11 @@ The workflow will soon be [added to the VGP workflow repository](https://github.
 
 
 This repository will be left for the historical record if anyone is interested, since it contains an account of implementing the features of a NextFlow workflow as Galaxy workflows.
-One of the main differences is that none of the Galaxy workflows or subworkflows required any code to be written to make data flow between steps, or to set the parameter values for each step.
+One of the main differences is that Galaxy workflows and subworkflows are built by dropping, configuring and connecting tools on a graphical canvas, without requiring any code to be supplied.
 
-To move the output of one Nextflow module into the input of another, the developer must examine each module's code to discover what inputs and output files and formats are required,
-and then write specific workflow DDL code to create the data channels needed to connect those two modules. Similarly, to set parameter values, the workflow developer must read the code for
-the module, and provide specific DDL to pass in these settings at run time.
+To move the output of one NextFlow module into the input of another in any new Nextflow workflow, the developer must examine each module's DDL code and metadata files, to discover what the input and output file names and formats are. Then they must write dedicated DDL code to create the data channels NextFlow needs to connect those two modules correctly. Similarly, to set the parameter values for each module, the workflow developer must read the code and metadata for the module, noting the names and formats for the parameters, and then provide specific DDL and configuration files with the correct values, to set those module variables at run time. The developer is responsible for getting all these details right because there is no automated interface for NextFlow modules. 
 
-In contrast, the Galaxy server can introspect each tool to discover what data types are involved, so the user can draw a "noodle" to join any two tools on a graphical workflow construction canvas.
-The server will only permit two tools to be connected where the datatypes match or can be converted automatically, preventing users from misconfiguring tool inputs. Rather than requiring the workflow builder
-to examine each tool, Galaxy's GUI provides the usual tool parameter input form automatically for the user to adjust as needed, so requires no explicit code to be written. All tool parameters are saved with the data connections
-in a server generated, shareable JSON document representing the entire workflow.
+In contrast, the Galaxy server's abstract tool interface allows it to automatically discover the files and data types needed for any tool. The user draws a "noodle" to join the output and input of any two tools, on a graphical workflow construction canvas. The server permits two tools to be connected only where the data types match or can be converted automatically, preventing users from misconfiguring tool inputs. Similarly, a Galaxy workflow builder does not need to examine the code for each tool to provide appropriate parameter names and values for a workflow. Galaxy generates the tool input form automatically, from each tool's interface configuration document. The workflow developer fills in each tool form as needed, without any of the internal tool details. Input data files, and run time parameters are added by dropping and configuring workflow input and control tools onto the canvas. Any available Galaxy tool can be dropped onto any workflow canvas. Any data input or individual tool parameter can be turned into a workflow form field for the user to set. All Galaxy tools are interoperable with no additional programming in workflows. Tool parameter and data connection settings are saved in a server generated, shareable JSON document representing the entire workflow. The Galaxy tool abstract interface supports automated tool interoperability, supporting efficient development and improvement of complex workflows without any specialised coding.
 
 
 ### April 19: Progress
