@@ -8,12 +8,28 @@ Origins and early progress [documented back here](#December15)
 
 ### Treevalgal workflow output samples
 
-[Hummingbird sample output](https://usegalaxy.eu/datasets/4838ba20a6d86765a97186963230da85/preview) and [Amphioxus fish sample](https://usegalaxy.eu/datasets/4838ba20a6d86765369b13bd5c7199ce/preview) outputs are available. 
+[Hummingbird sample output](https://galaxy.genomicsvl-students.cloud.edu.au/jbrowse/jb2_Hummingbird_Demonstration)
+[Amphioxus fish sample](https://galaxy.genomicsvl-students.cloud.edu.au/jbrowse/jb2_Amphioxus_Demonstration)
 
-These are from [the current version](treevalgal) that only has a couple of small subworkflows - for making wiggles, hic and paf.
+These are from [the current version](TreeValGalAprill30.ga) that only has a couple of small subworkflows - for making wiggles, hic and paf.
 
-TreeValGal depends on the updated [Jbrowse2 tool](#JBrowse2) to present repeats, gaps and other features as tracks in a configurable browser. 
-JBrowse2 is currently only available on `usegalaxy.eu` for testing. 
+TreeValGal depends on the updated [Jbrowse2 tool](#JBrowse2) to present repeats, gaps and other features as tracks in a configurable browser.
+JBrowse2 is currently only available on `usegalaxy.eu` for testing.
+
+The workflow will soon be [added to the VGP workflow repository](https://github.com/galaxyproject/iwc/tree/main/workflows/VGP-assembly-v2) where development will continue at May 1 2024.
+
+This repository will be left for the historical record if anyone is interested, since it contains an account of implementing the features of a NextFlow workflow as Galaxy workflows.
+One of the main differences is that none of the Galaxy workflows or subworkflows required any code to be written to make data flow between steps, or to set the parameter values for each step.
+
+To move the output of one Nextflow module into the input of another, the developer must examine each module's code to discover what inputs and output files and formats are required,
+and then write specific workflow DDL code to create the data channels needed to connect those two modules. Similarly, to set parameter values, the workflow developer must read the code for
+the module, and provide specific DDL to pass in these settings at run time.
+
+In contrast, the Galaxy server can introspect each tool to discover what data types are involved, so the user can draw a "noodle" to join any two tools on a graphical workflow construction canvas.
+The server will only permit two tools to be connected where the datatypes match or can be converted automatically, preventing users from misconfiguring tool inputs. Rather than requiring the workflow builder
+to examine each tool, Galaxy's GUI provides the usual tool parameter input form automatically for the user to adjust as needed, so requires no explicit code to be written. All tool parameters are saved with the data connections
+in a server generated, shareable JSON document representing the entire workflow.
+
 
 ### April 19: Progress
 Some work on [sequence similarity mapping for haplotypes](https://docs.google.com/presentation/d/1YFP2m92N8n07RhCPH3z_DCFPd84RUylLvRAcJwoGGEU/edit#slide=id.g26eb04dbe33_0_12) suggests that
@@ -22,7 +38,7 @@ should be changed, but when the two haplotypes are used, the choice is arbitrary
 expected diagonal line of similarity between the contigs.
 
 Could simplify situations where comparable information from both haplotypes could be used to help resolve
-ambiguities in either - at least for the very largest contigs with strong sequence similarity between the two haplotypes. 
+ambiguities in either - at least for the very largest contigs with strong sequence similarity between the two haplotypes.
 
 
 ### 12 March: Review
@@ -30,10 +46,10 @@ ambiguities in either - at least for the very largest contigs with strong sequen
 - How best to handle variable number of AA/RNA/CDS/gene NCBI annotation files?
   - may be no useful one or many
   - cannot see how make minimap or miniprot optional in a WF, with an optional input
-    - tool insists on a non-optional input - doesn't know is running in a WF 
+    - tool insists on a non-optional input - doesn't know is running in a WF
   - can make them optional as JB2 tracks
     - Available ones selected from history
-    - Must be already mapped as GFF with miniprot for AA and as minimap BAM for the others 
+    - Must be already mapped as GFF with miniprot for AA and as minimap BAM for the others
 - Mashmap is stalling, spinning forever in workflows.
   - May need additional resources.
 - Self-homology mapping tracks prove problematic
@@ -48,7 +64,7 @@ ambiguities in either - at least for the very largest contigs with strong sequen
 
 - Anna working on nucleotide and peptide alignments subworkflows
   - ncbi downloader improvements suggested
-- Next JB2 release has optional inputs for workflows. 
+- Next JB2 release has optional inputs for workflows.
 - New AutogenJB2 (collection -> JB2) tool soon available on EU
   - The core of the JB2 track generator requires only a path, name and ext in most cases
     - paf will need a subcollection of paf, reference1...referenceN
@@ -57,33 +73,33 @@ ambiguities in either - at least for the very largest contigs with strong sequen
 
 - Long term goal
   - Add interactive JBrowse configurations to genomeArk web pages, to make VGP data easily accessible as tracks to anyone with a web browser.
-  
+
 - Intermediate milestones
    - Production TreeValGal for internal VGP use
    - Build and distribute other VGP JB2 track sets for different audiences
    - Provide a test bed for the development and display of automated annotation
      - integrate useful tracks into TreeValGal and other outputs as they become available.
    - Additional JBrowse2 GTN training modules
-       - create dot plots and reverse mappings from mashmap PAF tracks ... 
-    
+       - create dot plots and reverse mappings from mashmap PAF tracks ...
+
 - Short term milestones
   - a "good to test" track list with tool tuning parameters as needed.
   - Implement as the initial TreeValGal workflow and hand over
-  - Clean-up and acceptance-testing as part of a routine VGP WF run. 
+  - Clean-up and acceptance-testing as part of a routine VGP WF run.
   - Busco genes could be added to TreeValGal as GFF3 if available
     - Action: could someone please make a sample busco gff3 for one of the test assemblies we are currently using: calanna and bralanc ?
     - a gff is probably more suited for a JB2 track than a bed
-      - easy enough to include both if useful  
-      
-- The next release (_5) of JBrowse2 on EU will optionally create a zip file instead of being a viewable HTML page. 
+      - easy enough to include both if useful
+
+- The next release (_5) of JBrowse2 on EU will optionally create a zip file instead of being a viewable HTML page.
   - This enables the Galaxy uploader to push a JBrowse directory to S3. It seemed confused by html
     - Public website proof of concept using a zip from Galaxy to an S3 bucket thanks to Bjoern.
-      
+
 - Nadolina has nominated the [gene_alignment](gene_alignment) TreeVal subworkflow to implement.
     - Tools should all be on EU but may have missed something.
     - Two main subworkflows are used - for nucleotide and peptide mapping so each of those can be built and tested
     - Once tested, we can figure out how best to fit in with the existing WF.
-   
+
 - mashmap proposed as a way to make multi-organism PAF tracks.
   - Ross built and tested a prototype
   - Bjoern has take the tool over, and made it far better.
@@ -92,7 +108,7 @@ ambiguities in either - at least for the very largest contigs with strong sequen
     - Other two genomes added as separate linear tracks below the main reference gives reverse mappings!
     - Easy to configure with JB2 - a few moments clicking - all the references are available.
     - Dot plots too - all there but require manual exposure
-    
+
 ![image](https://github.com/fubar2/treeval_gal/assets/6016266/fae539ba-55e0-4fa3-b56c-3e5b96027e3f)
 
 
@@ -104,24 +120,24 @@ Here are some bird on bird dot plots - they even look a bit like a flock of bird
 
 #### 1. Add tracks and other organisms ?
   - What additional tracks would be useful?
-     - for VGP internal use? 
+     - for VGP internal use?
        - Other TreeVal modules: selfcomp
           - kmer/busco/pretext etc already in VGP)
      - for external researchers
      - for the public - making VGP data really easy to "access"
   - Track files being generated routinely can be added if there's a URI or path.
     - Which of [the existing VGP WF](https://galaxyproject.org/projects/vgp/workflows/) outputs would be useful to add?
-      - tracks take some disk space but there's no real technical limit to the size of a track menu. 
+      - tracks take some disk space but there's no real technical limit to the size of a track menu.
   - Other VGP assemblies to run TreeValGal on to serve as samples?
-    
+
 #### 2. Jbrowse2 outputs are self contained and portable
   - JBrowse2 directories support interactive display
-    -  Any byte-range request static web server like nginx or apache. 
+    -  Any byte-range request static web server like nginx or apache.
   - Can also view on a local laptop browser without Galaxy or internet access
      - a tiny pop-up python webserver `jb2_webserver.py` is included with the data for local displays.
   - How to allow access to big JBrowse2 configurations efficiently?
     - JBrowse2 archives contain compressed/indexed reference sequence and track files - so are big.
-  
+
 #### 3. How best to represent repeat density?
 Anna asked about a repeatmasker version of the repeats, so there's a gff track (no dfam species and defaults) to compare to the windowmasker bed and wiggle on the current [Amphioxus JBrowse2](https://usegalaxy.eu/datasets/4838ba20a6d867655aedf35d84ed3d59/preview).
 
@@ -143,19 +159,19 @@ Each method and view gives different information about the complex underlying bi
 
 ### Potential new resource?
 
-Generating and publishing updated live JBrowse2 links for any VGP page is possible, because JBrowse2 configuration can be completely machine driven. 
+Generating and publishing updated live JBrowse2 links for any VGP page is possible, because JBrowse2 configuration can be completely machine driven.
 - Offer convenient, highly granular tracks derived from VGP and other data
-- readily accessible to anybody with internet, a web browser and a question. 
+- readily accessible to anybody with internet, a web browser and a question.
 - Adding automated feature annotation tracks could build a potentially valuable, accessible and sustainable resource for genome sciences.
 
 Each JBrowse2 directory is independent, with an `index.html`, track files and javascript.
 - served typically by Apache or Nginx
 - potentially stored (untested!) on an S3 bucket.
 
-Most of the components are available. 
+Most of the components are available.
 - An initial functional track menu can quickly be made available.
 - It will require storage and effort TBA
-- Proof of concept sample outputs below. 
+- Proof of concept sample outputs below.
 
 Challenges.
 - storage for compressed/indexed data (a few GB each perhaps)
@@ -164,7 +180,7 @@ Challenges.
 - Workflow change means recreating everything
  - not a problem if "reuse jobs" really works...
 - ongoing dedicated effort for sustainable development.
-  
+
 Given those, configurations can be improved, by editing the workflows, to suit real user needs.
 The [rat database does this](https://rgd.mcw.edu/wg/help3/tools/rgd-genome-browsers/the-rat-jbrowse-genome-browser/) with JB1, so it's not novel, but would add a lot of value to existing data with relatively little additional resources.
 
@@ -173,9 +189,9 @@ The [rat database does this](https://rgd.mcw.edu/wg/help3/tools/rgd-genome-brows
 
 ![image](https://github.com/fubar2/treeval_gal/assets/6016266/8e03a285-efba-49e9-840e-cf9dbfb6b4ec)
 
-Now does 10 track types - any of these datatypes in a Galaxy history or workflow can be added as a track to a JBrowse2 instance. Outputs are immediately viewable in Galaxy. 
-The JBrowse2 directory can be downloaded as a zip file, for local unzipping and viewing using a provided tiny python web server. 
-These can also be served using any byte-range request static web server. 
+Now does 10 track types - any of these datatypes in a Galaxy history or workflow can be added as a track to a JBrowse2 instance. Outputs are immediately viewable in Galaxy.
+The JBrowse2 directory can be downloaded as a zip file, for local unzipping and viewing using a provided tiny python web server.
+These can also be served using any byte-range request static web server.
 They tend to be huge - GB in size, with the reference and all tracks in compressed and indexed formats.
 
     bam
@@ -189,22 +205,22 @@ They tend to be huge - GB in size, with the reference and all tracks in compress
     paf
     vcf
 
-### TreeValGal modules 
+### TreeValGal modules
 
 | Module | Status |
 |---------------------|-----------------------|
-| [yaml_input](yaml_input) | **Not needed** | 
-| [gap_finder](gap_finder) | **Prototype available** | 
-| [generate_genome](generate_genome) | **Not needed** Existing chromosome lengths tool works in one step. | 
-| [hic_mapping](hic_mapping)  | **Fixing hicBuildMatrix for a cool matrix from the VGP hic workflows** | 
-| [kmer](kmer)  | **Awaiting fastk and merquryfk tool wrappers**  | 
-| [longread_coverage](longread_coverage)  | **Partial prototype available**  | 
-| [nuc_alignments](nuc_alignments)  | 
-| [pep_alignments](pep_alignments) | 
-| [punchlist](punchlist)   | **Need help** - part of hic generation  | 
-| [repeat_density](repeat_density)  | **Prototype available.** | 
-| [synteny](synteny)  |  **Prototype available.** | 
-| [telo_finder](telo_finder) |  **Prototype available in treevalgal workflow now** using seqtk-telo | 
+| [yaml_input](yaml_input) | **Not needed** |
+| [gap_finder](gap_finder) | **Prototype available** |
+| [generate_genome](generate_genome) | **Not needed** Existing chromosome lengths tool works in one step. |
+| [hic_mapping](hic_mapping)  | **Fixing hicBuildMatrix for a cool matrix from the VGP hic workflows** |
+| [kmer](kmer)  | **Awaiting fastk and merquryfk tool wrappers**  |
+| [longread_coverage](longread_coverage)  | **Partial prototype available**  |
+| [nuc_alignments](nuc_alignments)  |
+| [pep_alignments](pep_alignments) |
+| [punchlist](punchlist)   | **Need help** - part of hic generation  |
+| [repeat_density](repeat_density)  | **Prototype available.** |
+| [synteny](synteny)  |  **Prototype available.** |
+| [telo_finder](telo_finder) |  **Prototype available in treevalgal workflow now** using seqtk-telo |
 
 ### January 21
 
@@ -212,21 +228,21 @@ Updating JBrowse1 tool code to JBrowse2 over the past 5 weeks. These are 8 sampl
 
 ![image](https://github.com/fubar2/temporary-tools/blob/nohash/jbrowse2/jbrowse8.png)
 
-Working well, but not in IUC yet. Alternative PR is being resurrected so may take some time. 
+Working well, but not in IUC yet. Alternative PR is being resurrected so may take some time.
 
 Deployed on EU as a test tool. See [treevalgal workflow](treevalgal) for more details. Broken wiggle and paf labels in the samples have been fixed.
 
 ![image](https://github.com/fubar2/treeval_gal/assets/6016266/7bad8842-3b25-4cfc-a711-29a71eaa6b28)
 
 
-#### Next steps 
+#### Next steps
  - Need fastk/merquryFK for a KMER subworkflow.
    - A [Fastk wrapper](https://github.com/galaxyproject/tools-iuc/pull/5550) is currently being developed.
  - Bjoern is thinking about how best to integrate binary HiC format data into the existing infrastructure.
  - Jb2 has specialised Multiple Alignment Format (MAF) tracks, and a blastXML track (translated into GFF3), and those will all be useful in VGP work.
     - awaiting a [PR merge and update](https://github.com/chapmanb/bcbb/pull/141) to BCBIO-GFF conda dependency from Brad Chapman to get these activated.
-      
-Galaxy's integrated support for genomic feature visualisation at scale will be very hard to match. 
+
+Galaxy's integrated support for genomic feature visualisation at scale will be very hard to match.
 
 
 ### December15
@@ -234,8 +250,8 @@ With thanks to Bjoern Gruening and Anna Syme for helping with testing and tools,
 
 Please try it on your own pacbio/refseq data and let me know if this is worth more work to add additional TreeVal tracks to for your use?
 
-Sample images below show how JBrowse does all the work for us. 
-All tracks are also in the history as bed files if the user wants them for downstream analyses. 
+Sample images below show how JBrowse does all the work for us.
+All tracks are also in the history as bed files if the user wants them for downstream analyses.
 
 ##### Zoomed out to show windowed bar charts:
 ![image](https://github.com/fubar2/treeval_gal/blob/main/vgp_gaps_repeats_coverage_zoomout.png)
@@ -246,13 +262,13 @@ All tracks are also in the history as bed files if the user wants them for downs
 ##### Zoomed in to base level:
 ![image](https://github.com/fubar2/treeval_gal/blob/main/vgp_gaps_repeats_coverage_basezoom.png)
 
-#### December 13 
-1. Some sample outputs from a [prototype longread_coverage workflow](https://github.com/fubar2/treeval_gal/tree/main/longread_coverage#readme) under development and testing. 
+#### December 13
+1. Some sample outputs from a [prototype longread_coverage workflow](https://github.com/fubar2/treeval_gal/tree/main/longread_coverage#readme) under development and testing.
 
 #### December 12
 1. Some sample outputs from a [prototype repeat_density workflow](https://github.com/fubar2/treeval_gal/tree/main/repeat_density#readme), now available for testing.
 Not yet working on the usegalaxy servers. Needs the window_masker tool installed.
-   
+
 #### December 10 2023 announcements
 1. See sample outputs from a [prototype gap_finder workflow](https://github.com/fubar2/treeval_gal/tree/main/gap_finder#readme), now available for testing.
 2. seqtk-telo is now available in the seqtk suite from the Toolshed.
@@ -372,6 +388,6 @@ As each one is documented, a link will indicate that there is useful material av
 16. selfcomp
 17. [synteny](synteny)
 18. [telo_finder](telo_finder)
-    
+
 
 
