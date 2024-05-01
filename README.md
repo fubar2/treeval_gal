@@ -18,6 +18,10 @@ JBrowse2 is currently only available on `usegalaxy.eu` for testing.
 
 The workflow will soon be [added to the VGP workflow repository](https://github.com/galaxyproject/iwc/tree/main/workflows/VGP-assembly-v2) where development will continue at May 1 2024.
 
+![image](https://github.com/fubar2/treeval_gal/assets/6016266/a53d5ea5-780a-4ab4-b09a-b56547460513)
+
+
+
 This repository will be left for the historical record if anyone is interested, since it contains an account of implementing the features of a NextFlow workflow as Galaxy workflows.
 One of the main differences is that none of the Galaxy workflows or subworkflows required any code to be written to make data flow between steps, or to set the parameter values for each step.
 
