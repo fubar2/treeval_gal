@@ -1,0 +1,391 @@
+{
+    "a_galaxy_workflow": "true",
+    "annotation": "Uses bedtools and does windowing. Couldn't find any easier way..",
+    "comments": [],
+    "creator": [
+        {
+            "class": "Organization",
+            "email": "mailto:ross.lazarus@gmail.com",
+            "name": "Ross Lazarus"
+        }
+    ],
+    "format-version": "0.1",
+    "name": "TreeValGal bed to bigwig",
+    "steps": {
+        "0": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 0,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "Dense bed track file"
+                }
+            ],
+            "label": "Dense bed track file",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 0,
+                "top": 24
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"format\": [\"bed\"], \"tag\": null}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "160d05ea-2a52-4aa6-a4ba-2ee82d767f18",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "1": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 1,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "windowbed_for_wiggle"
+                }
+            ],
+            "label": "windowbed_for_wiggle",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 0,
+                "top": 147
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": null}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "3f60fd0e-4ec2-4605-b950-e410b5c966a3",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "2": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 2,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "Contig lengths from reference"
+                }
+            ],
+            "label": "Contig lengths from reference",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 560,
+                "top": 190
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": null}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "8353a0fc-900a-4d43-9c20-2af42b542194",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "3": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_coveragebed/2.30.0+galaxy1",
+            "errors": null,
+            "id": 3,
+            "input_connections": {
+                "inputA": {
+                    "id": 1,
+                    "output_name": "output"
+                },
+                "reduce_or_iterate|inputB": {
+                    "id": 0,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool bedtools Compute both the depth and breadth of coverage",
+                    "name": "reduce_or_iterate"
+                }
+            ],
+            "label": null,
+            "name": "bedtools Compute both the depth and breadth of coverage",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "bed"
+                }
+            ],
+            "position": {
+                "left": 280,
+                "top": 0
+            },
+            "post_job_actions": {
+                "ChangeDatatypeActionoutput": {
+                    "action_arguments": {
+                        "newtype": "bedgraph"
+                    },
+                    "action_type": "ChangeDatatypeAction",
+                    "output_name": "output"
+                },
+                "RenameDatasetActionoutput": {
+                    "action_arguments": {
+                        "newname": "#{reduce_or_iterate.inputB}"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "output"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_coveragebed/2.30.0+galaxy1",
+            "tool_shed_repository": {
+                "changeset_revision": "a1a923cd89e8",
+                "name": "bedtools",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"a_or_b\": false, \"d\": false, \"hist\": false, \"inputA\": {\"__class__\": \"ConnectedValue\"}, \"mean\": false, \"overlap_a\": null, \"overlap_b\": null, \"reciprocal_overlap\": false, \"reduce_or_iterate\": {\"reduce_or_iterate_selector\": \"iterate\", \"__current_case__\": 0, \"inputB\": {\"__class__\": \"ConnectedValue\"}}, \"sorted\": false, \"split\": false, \"strandedness\": false, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.30.0+galaxy1",
+            "type": "tool",
+            "uuid": "2fcf2cfc-5e0c-43f4-a57f-72d42c2fdffb",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "4": {
+            "annotation": "",
+            "content_id": "Cut1",
+            "errors": null,
+            "id": 4,
+            "input_connections": {
+                "input": {
+                    "id": 3,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Cut",
+            "outputs": [
+                {
+                    "name": "out_file1",
+                    "type": "tabular"
+                }
+            ],
+            "position": {
+                "left": 560,
+                "top": 56
+            },
+            "post_job_actions": {
+                "ChangeDatatypeActionout_file1": {
+                    "action_arguments": {
+                        "newtype": "bedgraph"
+                    },
+                    "action_type": "ChangeDatatypeAction",
+                    "output_name": "out_file1"
+                },
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "#{input}count"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "out_file1"
+                }
+            },
+            "tool_id": "Cut1",
+            "tool_state": "{\"columnList\": \"c1,c2,c3,c5\", \"delimiter\": \"T\", \"input\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.0.2",
+            "type": "tool",
+            "uuid": "665c6c09-5456-43df-8b5c-d8edc5f3e6d2",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "5": {
+            "annotation": "",
+            "content_id": "Cut1",
+            "errors": null,
+            "id": 5,
+            "input_connections": {
+                "input": {
+                    "id": 3,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Cut",
+            "outputs": [
+                {
+                    "name": "out_file1",
+                    "type": "tabular"
+                }
+            ],
+            "position": {
+                "left": 560,
+                "top": 313
+            },
+            "post_job_actions": {
+                "ChangeDatatypeActionout_file1": {
+                    "action_arguments": {
+                        "newtype": "bedgraph"
+                    },
+                    "action_type": "ChangeDatatypeAction",
+                    "output_name": "out_file1"
+                },
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "#{input}frac"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "out_file1"
+                }
+            },
+            "tool_id": "Cut1",
+            "tool_state": "{\"columnList\": \"c1,c2,c3,c7\", \"delimiter\": \"T\", \"input\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.0.2",
+            "type": "tool",
+            "uuid": "0cc5f4ab-1455-4dc5-b32c-49604c93d476",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "6": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/ucsc_wigtobigwig/ucsc_wigtobigwig/447+galaxy0",
+            "errors": null,
+            "id": 6,
+            "input_connections": {
+                "hist_or_builtin|chromfile": {
+                    "id": 2,
+                    "output_name": "output"
+                },
+                "hist_or_builtin|input1": {
+                    "id": 4,
+                    "output_name": "out_file1"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool wigtobigwig",
+                    "name": "hist_or_builtin"
+                },
+                {
+                    "description": "runtime parameter for tool wigtobigwig",
+                    "name": "hist_or_builtin"
+                }
+            ],
+            "label": null,
+            "name": "wigtobigwig",
+            "outputs": [
+                {
+                    "name": "out_file1",
+                    "type": "bigwig"
+                }
+            ],
+            "position": {
+                "left": 840,
+                "top": 66
+            },
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "#{hist_or_builtin.input1}.bw"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "out_file1"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/ucsc_wigtobigwig/ucsc_wigtobigwig/447+galaxy0",
+            "tool_shed_repository": {
+                "changeset_revision": "a2f83a375bf2",
+                "name": "ucsc_wigtobigwig",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__input_ext\": \"input\", \"chromInfo\": \"/mnt/galaxy/tool-data/shared/ucsc/chrom/?.len\", \"hist_or_builtin\": {\"genome_type_select\": \"history\", \"__current_case__\": 1, \"input1\": {\"__class__\": \"ConnectedValue\"}, \"chromfile\": {\"__class__\": \"ConnectedValue\"}}, \"settings\": {\"settingsType\": \"preset\", \"__current_case__\": 0}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "447+galaxy0",
+            "type": "tool",
+            "uuid": "be65aaba-bbdb-426e-9b84-464097c3e1b7",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": "count",
+                    "output_name": "out_file1",
+                    "uuid": "42b0cdb0-8eea-4bbc-9fdc-4b305e7fc5fe"
+                }
+            ]
+        },
+        "7": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/ucsc_wigtobigwig/ucsc_wigtobigwig/447+galaxy0",
+            "errors": null,
+            "id": 7,
+            "input_connections": {
+                "hist_or_builtin|chromfile": {
+                    "id": 2,
+                    "output_name": "output"
+                },
+                "hist_or_builtin|input1": {
+                    "id": 5,
+                    "output_name": "out_file1"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool wigtobigwig",
+                    "name": "hist_or_builtin"
+                },
+                {
+                    "description": "runtime parameter for tool wigtobigwig",
+                    "name": "hist_or_builtin"
+                }
+            ],
+            "label": null,
+            "name": "wigtobigwig",
+            "outputs": [
+                {
+                    "name": "out_file1",
+                    "type": "bigwig"
+                }
+            ],
+            "position": {
+                "left": 840,
+                "top": 272
+            },
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "#{hist_or_builtin.input1}.bw"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "out_file1"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/ucsc_wigtobigwig/ucsc_wigtobigwig/447+galaxy0",
+            "tool_shed_repository": {
+                "changeset_revision": "a2f83a375bf2",
+                "name": "ucsc_wigtobigwig",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__input_ext\": \"input\", \"chromInfo\": \"/mnt/galaxy/tool-data/shared/ucsc/chrom/?.len\", \"hist_or_builtin\": {\"genome_type_select\": \"history\", \"__current_case__\": 1, \"input1\": {\"__class__\": \"ConnectedValue\"}, \"chromfile\": {\"__class__\": \"ConnectedValue\"}}, \"settings\": {\"settingsType\": \"preset\", \"__current_case__\": 0}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "447+galaxy0",
+            "type": "tool",
+            "uuid": "2b36662e-c5f0-483b-93fa-c0ffc21f2e70",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": "frac",
+                    "output_name": "out_file1",
+                    "uuid": "ad4d5986-32ee-4504-8f52-aa0ed800c3ea"
+                }
+            ]
+        }
+    },
+    "tags": [],
+    "uuid": "baaf9317-9d70-40cf-8bd8-ed6d1eba0869",
+    "version": 36
+}

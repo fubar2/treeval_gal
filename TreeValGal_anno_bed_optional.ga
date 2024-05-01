@@ -1,0 +1,1145 @@
+{
+    "a_galaxy_workflow": "true",
+    "annotation": "For TreeValGal NCBI gene/rna etc and other annotation tracks",
+    "comments": [
+        {
+            "color": "none",
+            "data": {
+                "size": 2,
+                "text": "Notes:<br>Uses Delphine's suggested method for optional inputs.<br><br>Not sure if minimap2 mapping preset is right?<br><br>Embedding this is possible but things became flakey so here it is.<br><br><br>"
+            },
+            "id": 0,
+            "position": [
+                1399,
+                56
+            ],
+            "size": [
+                445,
+                1066
+            ],
+            "type": "text"
+        }
+    ],
+    "creator": [
+        {
+            "class": "Person",
+            "identifier": "0000-0003-3939-1961",
+            "name": "Ross Lazarus"
+        },
+        {
+            "class": "Person",
+            "identifier": "anna.syme@gmail.com",
+            "name": "Anna Syme"
+        },
+        {
+            "class": "Person",
+            "identifier": "lariviere.delphine@gmail.com",
+            "name": "Delphine Lariviere"
+        },
+        {
+            "class": "Person",
+            "identifier": "nadibraj@gmail.com",
+            "name": "Nadolina Brajuka"
+        }
+    ],
+    "format-version": "0.1",
+    "name": "TreeValGal_anno_bed_optional",
+    "steps": {
+        "0": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 0,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "reference fasta"
+                }
+            ],
+            "label": "reference fasta",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 37.71506779294461,
+                "top": 0
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": null}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "c12fd7d7-676a-4259-9bf4-5fb30fb57c03",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "1": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 1,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "Do you have a fasta of CDs - NCBI for example?"
+                }
+            ],
+            "label": "Do you have a fasta of CDs - NCBI for example?",
+            "name": "Input parameter",
+            "outputs": [],
+            "position": {
+                "left": 39.91507999997586,
+                "top": 117.14999389648438
+            },
+            "tool_id": null,
+            "tool_state": "{\"parameter_type\": \"boolean\", \"optional\": false}",
+            "tool_version": null,
+            "type": "parameter_input",
+            "uuid": "4778f37e-bc66-41e7-8f04-a725ddb83a37",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "output",
+                    "uuid": "e328995e-46c6-4c2d-a1c7-ddf312e73ce1"
+                }
+            ]
+        },
+        "2": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 2,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "CDS fasta if available"
+                }
+            ],
+            "label": "CDS fasta if available",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 36.84842960935086,
+                "top": 239.39024428711133
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": true, \"tag\": null}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "8d4a9b9a-7da4-4b93-8ef4-e0f4fcf7cc50",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "3": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 3,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "Do you have a fasta of genes - NCBI for example?"
+                }
+            ],
+            "label": "Do you have a fasta of genes - NCBI for example?",
+            "name": "Input parameter",
+            "outputs": [],
+            "position": {
+                "left": 37.281748701147734,
+                "top": 357.9499816894531
+            },
+            "tool_id": null,
+            "tool_state": "{\"parameter_type\": \"boolean\", \"optional\": false}",
+            "tool_version": null,
+            "type": "parameter_input",
+            "uuid": "edc75676-a360-4786-8578-b02361315d85",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "output",
+                    "uuid": "1df7c774-f49f-4890-8a91-613524ad49b8"
+                }
+            ]
+        },
+        "4": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 4,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "Genes fasta if available"
+                }
+            ],
+            "label": "Genes fasta if available",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 29.86509220700711,
+                "top": 509.9499816894532
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": true, \"tag\": null}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "b0cc712e-4ce7-4f40-ae52-4d4e707eec2e",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "5": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 5,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "Do you have a fasta of rna - NCBI for example?"
+                }
+            ],
+            "label": "Do you have a fasta of rna - NCBI for example?",
+            "name": "Input parameter",
+            "outputs": [],
+            "position": {
+                "left": 0,
+                "top": 645
+            },
+            "tool_id": null,
+            "tool_state": "{\"parameter_type\": \"boolean\", \"optional\": false}",
+            "tool_version": null,
+            "type": "parameter_input",
+            "uuid": "7210c646-a2c4-483c-9df6-822dbe630573",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "output",
+                    "uuid": "e9acc996-8136-4209-bb76-c18306cbc60a"
+                }
+            ]
+        },
+        "6": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 6,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "rna fasta if available"
+                }
+            ],
+            "label": "rna fasta if available",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 12,
+                "top": 766
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": true, \"tag\": null}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "541c4ef3-0f3d-4571-b606-6ebf110e9fe8",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "7": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 7,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "protein fasta if available"
+                }
+            ],
+            "label": "protein fasta if available",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 13.833343505859375,
+                "top": 933
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": true, \"tag\": null}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "47914c0d-4a22-4356-bf11-b1437342f91b",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "8": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 8,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "Do you have a fasta of protein amino acids - NCBI for example?"
+                }
+            ],
+            "label": "Do you have a fasta of protein amino acids - NCBI for example?",
+            "name": "Input parameter",
+            "outputs": [],
+            "position": {
+                "left": 1.83331298828125,
+                "top": 1061
+            },
+            "tool_id": null,
+            "tool_state": "{\"default\": false, \"parameter_type\": \"boolean\", \"optional\": true}",
+            "tool_version": null,
+            "type": "parameter_input",
+            "uuid": "b6602b82-6e67-4540-bf76-fedf627c2fa6",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "output",
+                    "uuid": "1759a7cf-b04e-417a-b289-c07617c2bf2c"
+                }
+            ]
+        },
+        "9": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/pick_value/pick_value/0.2.0",
+            "errors": null,
+            "id": 9,
+            "input_connections": {
+                "style_cond|type_cond|pick_from_0|value": {
+                    "id": 2,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Pick parameter value",
+            "outputs": [
+                {
+                    "name": "data_param",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 289.8484296093509,
+                "top": 207.38333129882812
+            },
+            "post_job_actions": {
+                "DeleteIntermediatesActiondata_param": {
+                    "action_arguments": {},
+                    "action_type": "DeleteIntermediatesAction",
+                    "output_name": "data_param"
+                },
+                "RenameDatasetActiondata_param": {
+                    "action_arguments": {
+                        "newname": "cds.fasta"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "data_param"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/pick_value/pick_value/0.2.0",
+            "tool_shed_repository": {
+                "changeset_revision": "b19e21af9c52",
+                "name": "pick_value",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"style_cond\": {\"pick_style\": \"first\", \"__current_case__\": 0, \"type_cond\": {\"param_type\": \"data\", \"__current_case__\": 4, \"pick_from\": [{\"__index__\": 0, \"value\": {\"__class__\": \"ConnectedValue\"}}]}}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "0.2.0",
+            "type": "tool",
+            "uuid": "411dca43-51f1-4960-831f-acbd83c376e9",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "10": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/pick_value/pick_value/0.2.0",
+            "errors": null,
+            "id": 10,
+            "input_connections": {
+                "style_cond|type_cond|pick_from_0|value": {
+                    "id": 4,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Pick parameter value",
+            "outputs": [
+                {
+                    "name": "data_param",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 267.28171818356964,
+                "top": 497.9499816894532
+            },
+            "post_job_actions": {
+                "DeleteIntermediatesActiondata_param": {
+                    "action_arguments": {},
+                    "action_type": "DeleteIntermediatesAction",
+                    "output_name": "data_param"
+                },
+                "RenameDatasetActiondata_param": {
+                    "action_arguments": {
+                        "newname": "genes.fasta"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "data_param"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/pick_value/pick_value/0.2.0",
+            "tool_shed_repository": {
+                "changeset_revision": "b19e21af9c52",
+                "name": "pick_value",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"style_cond\": {\"pick_style\": \"first\", \"__current_case__\": 0, \"type_cond\": {\"param_type\": \"data\", \"__current_case__\": 4, \"pick_from\": [{\"__index__\": 0, \"value\": {\"__class__\": \"ConnectedValue\"}}]}}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "0.2.0",
+            "type": "tool",
+            "uuid": "be586d18-54bd-4214-bd03-1d9a2b66ecef",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "11": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/pick_value/pick_value/0.2.0",
+            "errors": null,
+            "id": 11,
+            "input_connections": {
+                "style_cond|type_cond|pick_from_0|value": {
+                    "id": 6,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Pick parameter value",
+            "outputs": [
+                {
+                    "name": "data_param",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 272.83331298828125,
+                "top": 742
+            },
+            "post_job_actions": {
+                "DeleteIntermediatesActiondata_param": {
+                    "action_arguments": {},
+                    "action_type": "DeleteIntermediatesAction",
+                    "output_name": "data_param"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/pick_value/pick_value/0.2.0",
+            "tool_shed_repository": {
+                "changeset_revision": "b19e21af9c52",
+                "name": "pick_value",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"style_cond\": {\"pick_style\": \"first\", \"__current_case__\": 0, \"type_cond\": {\"param_type\": \"data\", \"__current_case__\": 4, \"pick_from\": [{\"__index__\": 0, \"value\": {\"__class__\": \"ConnectedValue\"}}]}}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "0.2.0",
+            "type": "tool",
+            "uuid": "0527a45d-064b-4d71-889c-0960b1888d2f",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "12": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/pick_value/pick_value/0.2.0",
+            "errors": null,
+            "id": 12,
+            "input_connections": {
+                "style_cond|type_cond|pick_from_0|value": {
+                    "id": 7,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Pick parameter value",
+            "outputs": [
+                {
+                    "name": "data_param",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 275.83331298828125,
+                "top": 929
+            },
+            "post_job_actions": {
+                "DeleteIntermediatesActiondata_param": {
+                    "action_arguments": {},
+                    "action_type": "DeleteIntermediatesAction",
+                    "output_name": "data_param"
+                },
+                "RenameDatasetActiondata_param": {
+                    "action_arguments": {
+                        "newname": "protein.fasta"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "data_param"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/pick_value/pick_value/0.2.0",
+            "tool_shed_repository": {
+                "changeset_revision": "b19e21af9c52",
+                "name": "pick_value",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"style_cond\": {\"pick_style\": \"first\", \"__current_case__\": 0, \"type_cond\": {\"param_type\": \"data\", \"__current_case__\": 4, \"pick_from\": [{\"__index__\": 0, \"value\": {\"__class__\": \"ConnectedValue\"}}]}}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "0.2.0",
+            "type": "tool",
+            "uuid": "681c88e3-f9d0-46f7-b91b-f6734ecc0a2c",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "13": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/minimap2/minimap2/2.28+galaxy0",
+            "errors": null,
+            "id": 13,
+            "input_connections": {
+                "fastq_input|fastq_input1": {
+                    "id": 9,
+                    "output_name": "data_param"
+                },
+                "reference_source|ref_file": {
+                    "id": 0,
+                    "output_name": "output"
+                },
+                "when": {
+                    "id": 1,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Map with minimap2",
+                    "name": "fastq_input"
+                },
+                {
+                    "description": "runtime parameter for tool Map with minimap2",
+                    "name": "reference_source"
+                }
+            ],
+            "label": null,
+            "name": "Map with minimap2",
+            "outputs": [
+                {
+                    "name": "alignment_output",
+                    "type": "bam"
+                }
+            ],
+            "position": {
+                "left": 549.8536696093519,
+                "top": 86.39542259760577
+            },
+            "post_job_actions": {
+                "DeleteIntermediatesActionalignment_output": {
+                    "action_arguments": {},
+                    "action_type": "DeleteIntermediatesAction",
+                    "output_name": "alignment_output"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/minimap2/minimap2/2.28+galaxy0",
+            "tool_shed_repository": {
+                "changeset_revision": "5cc34c3f440d",
+                "name": "minimap2",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"alignment_options\": {\"splicing\": {\"splice_mode\": \"preset\", \"__current_case__\": 0}, \"A\": null, \"B\": null, \"O\": null, \"O2\": null, \"E\": null, \"E2\": null, \"z\": null, \"z2\": null, \"s\": null, \"no_end_flt\": true}, \"fastq_input\": {\"fastq_input_selector\": \"single\", \"__current_case__\": 0, \"fastq_input1\": {\"__class__\": \"ConnectedValue\"}, \"analysis_type_selector\": \"sr\"}, \"indexing_options\": {\"H\": false, \"k\": null, \"w\": null, \"I\": null}, \"io_options\": {\"output_format\": \"BAM\", \"Q\": false, \"L\": false, \"K\": null, \"cs\": null, \"c\": false, \"eqx\": false, \"Y\": false}, \"mapping_options\": {\"N\": null, \"F\": null, \"f\": null, \"kmer_ocurrence_interval\": {\"interval\": \"\", \"__current_case__\": 1}, \"min_occ_floor\": null, \"q_occ_frac\": \"0.01\", \"g\": null, \"r\": null, \"n\": null, \"m\": null, \"max_chain_skip\": null, \"max_chain_iter\": null, \"X\": false, \"p\": null, \"mask_len\": null}, \"reference_source\": {\"reference_source_selector\": \"history\", \"__current_case__\": 1, \"ref_file\": {\"__class__\": \"ConnectedValue\"}}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.28+galaxy0",
+            "type": "tool",
+            "uuid": "c53a0cf0-5b7d-49b8-a8fb-26a3adfef04c",
+            "when": "$(inputs.when)",
+            "workflow_outputs": []
+        },
+        "14": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/minimap2/minimap2/2.28+galaxy0",
+            "errors": null,
+            "id": 14,
+            "input_connections": {
+                "fastq_input|fastq_input1": {
+                    "id": 10,
+                    "output_name": "data_param"
+                },
+                "reference_source|ref_file": {
+                    "id": 0,
+                    "output_name": "output"
+                },
+                "when": {
+                    "id": 3,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Map with minimap2",
+                    "name": "fastq_input"
+                },
+                {
+                    "description": "runtime parameter for tool Map with minimap2",
+                    "name": "reference_source"
+                }
+            ],
+            "label": null,
+            "name": "Map with minimap2",
+            "outputs": [
+                {
+                    "name": "alignment_output",
+                    "type": "bam"
+                }
+            ],
+            "position": {
+                "left": 541.2817181835696,
+                "top": 400.9499816894531
+            },
+            "post_job_actions": {
+                "DeleteIntermediatesActionalignment_output": {
+                    "action_arguments": {},
+                    "action_type": "DeleteIntermediatesAction",
+                    "output_name": "alignment_output"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/minimap2/minimap2/2.28+galaxy0",
+            "tool_shed_repository": {
+                "changeset_revision": "5cc34c3f440d",
+                "name": "minimap2",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"alignment_options\": {\"splicing\": {\"splice_mode\": \"preset\", \"__current_case__\": 0}, \"A\": null, \"B\": null, \"O\": null, \"O2\": null, \"E\": null, \"E2\": null, \"z\": null, \"z2\": null, \"s\": null, \"no_end_flt\": true}, \"fastq_input\": {\"fastq_input_selector\": \"single\", \"__current_case__\": 0, \"fastq_input1\": {\"__class__\": \"ConnectedValue\"}, \"analysis_type_selector\": \"sr\"}, \"indexing_options\": {\"H\": false, \"k\": null, \"w\": null, \"I\": null}, \"io_options\": {\"output_format\": \"BAM\", \"Q\": false, \"L\": false, \"K\": null, \"cs\": null, \"c\": false, \"eqx\": false, \"Y\": false}, \"mapping_options\": {\"N\": null, \"F\": null, \"f\": null, \"kmer_ocurrence_interval\": {\"interval\": \"\", \"__current_case__\": 1}, \"min_occ_floor\": null, \"q_occ_frac\": \"0.01\", \"g\": null, \"r\": null, \"n\": null, \"m\": null, \"max_chain_skip\": null, \"max_chain_iter\": null, \"X\": false, \"p\": null, \"mask_len\": null}, \"reference_source\": {\"reference_source_selector\": \"history\", \"__current_case__\": 1, \"ref_file\": {\"__class__\": \"ConnectedValue\"}}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.28+galaxy0",
+            "type": "tool",
+            "uuid": "60030f45-e02f-46ce-bbbb-708f4503fd66",
+            "when": "$(inputs.when)",
+            "workflow_outputs": []
+        },
+        "15": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/minimap2/minimap2/2.28+galaxy0",
+            "errors": null,
+            "id": 15,
+            "input_connections": {
+                "fastq_input|fastq_input1": {
+                    "id": 11,
+                    "output_name": "data_param"
+                },
+                "reference_source|ref_file": {
+                    "id": 0,
+                    "output_name": "output"
+                },
+                "when": {
+                    "id": 5,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Map with minimap2",
+                    "name": "fastq_input"
+                },
+                {
+                    "description": "runtime parameter for tool Map with minimap2",
+                    "name": "reference_source"
+                }
+            ],
+            "label": null,
+            "name": "Map with minimap2",
+            "outputs": [
+                {
+                    "name": "alignment_output",
+                    "type": "bam"
+                }
+            ],
+            "position": {
+                "left": 549.0000610351562,
+                "top": 633
+            },
+            "post_job_actions": {
+                "DeleteIntermediatesActionalignment_output": {
+                    "action_arguments": {},
+                    "action_type": "DeleteIntermediatesAction",
+                    "output_name": "alignment_output"
+                },
+                "RenameDatasetActionalignment_output": {
+                    "action_arguments": {
+                        "newname": "rna.bam"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "alignment_output"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/minimap2/minimap2/2.28+galaxy0",
+            "tool_shed_repository": {
+                "changeset_revision": "5cc34c3f440d",
+                "name": "minimap2",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"alignment_options\": {\"splicing\": {\"splice_mode\": \"preset\", \"__current_case__\": 0}, \"A\": null, \"B\": null, \"O\": null, \"O2\": null, \"E\": null, \"E2\": null, \"z\": null, \"z2\": null, \"s\": null, \"no_end_flt\": true}, \"fastq_input\": {\"fastq_input_selector\": \"single\", \"__current_case__\": 0, \"fastq_input1\": {\"__class__\": \"ConnectedValue\"}, \"analysis_type_selector\": \"sr\"}, \"indexing_options\": {\"H\": false, \"k\": null, \"w\": null, \"I\": null}, \"io_options\": {\"output_format\": \"BAM\", \"Q\": false, \"L\": false, \"K\": null, \"cs\": null, \"c\": false, \"eqx\": false, \"Y\": false}, \"mapping_options\": {\"N\": null, \"F\": null, \"f\": null, \"kmer_ocurrence_interval\": {\"interval\": \"\", \"__current_case__\": 1}, \"min_occ_floor\": null, \"q_occ_frac\": \"0.01\", \"g\": null, \"r\": null, \"n\": null, \"m\": null, \"max_chain_skip\": null, \"max_chain_iter\": null, \"X\": false, \"p\": null, \"mask_len\": null}, \"reference_source\": {\"reference_source_selector\": \"history\", \"__current_case__\": 1, \"ref_file\": {\"__class__\": \"ConnectedValue\"}}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.28+galaxy0",
+            "type": "tool",
+            "uuid": "77ea3fc4-6cd1-4c6a-9e16-a50ac8602faa",
+            "when": "$(inputs.when)",
+            "workflow_outputs": [
+                {
+                    "label": "rna bam",
+                    "output_name": "alignment_output",
+                    "uuid": "f4ab6482-0654-4900-9604-05508d0b4752"
+                }
+            ]
+        },
+        "16": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/miniprot/miniprot/0.13+galaxy0",
+            "errors": null,
+            "id": 16,
+            "input_connections": {
+                "db|genomic_fasta": {
+                    "id": 0,
+                    "output_name": "output"
+                },
+                "protein_fasta": {
+                    "id": 12,
+                    "output_name": "data_param"
+                },
+                "when": {
+                    "id": 8,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Miniprot align",
+                    "name": "db"
+                }
+            ],
+            "label": null,
+            "name": "Miniprot align",
+            "outputs": [
+                {
+                    "name": "output_alignment",
+                    "type": "gff3"
+                }
+            ],
+            "position": {
+                "left": 578.8333129882812,
+                "top": 912
+            },
+            "post_job_actions": {
+                "RenameDatasetActionoutput_alignment": {
+                    "action_arguments": {
+                        "newname": "protein_gff"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "output_alignment"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/miniprot/miniprot/0.13+galaxy0",
+            "tool_shed_repository": {
+                "changeset_revision": "6b20d051d0dc",
+                "name": "miniprot",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"adv\": {\"options\": \"no\", \"__current_case__\": 1}, \"db\": {\"dbtype\": \"fasta\", \"__current_case__\": 0, \"genomic_fasta\": {\"__class__\": \"ConnectedValue\"}, \"kmer_size\": \"6\", \"bits_per_block\": \"8\", \"modimisers\": \"1\", \"min_ORF\": \"30\"}, \"output_format\": \"gff\", \"protein_fasta\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "0.13+galaxy0",
+            "type": "tool",
+            "uuid": "5fa5553f-6123-4207-b783-9e29908e7fda",
+            "when": "$(inputs.when)",
+            "workflow_outputs": [
+                {
+                    "label": "protein gff",
+                    "output_name": "output_alignment",
+                    "uuid": "3593012a-4d8f-4ec4-9275-2fa141f08f92"
+                }
+            ]
+        },
+        "17": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/pick_value/pick_value/0.2.0",
+            "errors": null,
+            "id": 17,
+            "input_connections": {
+                "style_cond|type_cond|pick_from_0|value": {
+                    "id": 13,
+                    "output_name": "alignment_output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Pick parameter value",
+            "outputs": [
+                {
+                    "name": "data_param",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 819.854342597632,
+                "top": 221.00694350586133
+            },
+            "post_job_actions": {
+                "DeleteIntermediatesActiondata_param": {
+                    "action_arguments": {},
+                    "action_type": "DeleteIntermediatesAction",
+                    "output_name": "data_param"
+                },
+                "RenameDatasetActiondata_param": {
+                    "action_arguments": {
+                        "newname": "cds.bam"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "data_param"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/pick_value/pick_value/0.2.0",
+            "tool_shed_repository": {
+                "changeset_revision": "b19e21af9c52",
+                "name": "pick_value",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"style_cond\": {\"pick_style\": \"first\", \"__current_case__\": 0, \"type_cond\": {\"param_type\": \"data\", \"__current_case__\": 4, \"pick_from\": [{\"__index__\": 0, \"value\": {\"__class__\": \"ConnectedValue\"}}]}}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "0.2.0",
+            "type": "tool",
+            "uuid": "12647688-f068-47f3-adab-235c530ecc2c",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": "data_param",
+                    "output_name": "data_param",
+                    "uuid": "2534bd2f-a17f-499e-b3ae-ebbed596b98d"
+                }
+            ]
+        },
+        "18": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/pick_value/pick_value/0.2.0",
+            "errors": null,
+            "id": 18,
+            "input_connections": {
+                "style_cond|type_cond|pick_from_0|value": {
+                    "id": 14,
+                    "output_name": "alignment_output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Pick parameter value",
+            "outputs": [
+                {
+                    "name": "data_param",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 858.2817181835696,
+                "top": 521.9568946777363
+            },
+            "post_job_actions": {
+                "DeleteIntermediatesActiondata_param": {
+                    "action_arguments": {},
+                    "action_type": "DeleteIntermediatesAction",
+                    "output_name": "data_param"
+                },
+                "RenameDatasetActiondata_param": {
+                    "action_arguments": {
+                        "newname": "genes.bam"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "data_param"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/pick_value/pick_value/0.2.0",
+            "tool_shed_repository": {
+                "changeset_revision": "b19e21af9c52",
+                "name": "pick_value",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"style_cond\": {\"pick_style\": \"first\", \"__current_case__\": 0, \"type_cond\": {\"param_type\": \"data\", \"__current_case__\": 4, \"pick_from\": [{\"__index__\": 0, \"value\": {\"__class__\": \"ConnectedValue\"}}]}}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "0.2.0",
+            "type": "tool",
+            "uuid": "b186a571-fb5c-42b1-aef0-22fc9796d4b3",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": "genes out",
+                    "output_name": "data_param",
+                    "uuid": "aba75900-f1c6-4d4e-a127-80454ae1c01a"
+                }
+            ]
+        },
+        "19": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/pick_value/pick_value/0.2.0",
+            "errors": null,
+            "id": 19,
+            "input_connections": {
+                "style_cond|type_cond|pick_from_0|value": {
+                    "id": 15,
+                    "output_name": "alignment_output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Pick parameter value",
+            "outputs": [
+                {
+                    "name": "data_param",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 840,
+                "top": 710
+            },
+            "post_job_actions": {
+                "DeleteIntermediatesActiondata_param": {
+                    "action_arguments": {},
+                    "action_type": "DeleteIntermediatesAction",
+                    "output_name": "data_param"
+                },
+                "RenameDatasetActiondata_param": {
+                    "action_arguments": {
+                        "newname": "rna.bam"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "data_param"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/pick_value/pick_value/0.2.0",
+            "tool_shed_repository": {
+                "changeset_revision": "b19e21af9c52",
+                "name": "pick_value",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"style_cond\": {\"pick_style\": \"first\", \"__current_case__\": 0, \"type_cond\": {\"param_type\": \"data\", \"__current_case__\": 4, \"pick_from\": [{\"__index__\": 0, \"value\": {\"__class__\": \"ConnectedValue\"}}]}}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "0.2.0",
+            "type": "tool",
+            "uuid": "c95deee3-de93-40a8-a020-8702f4bc60da",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": "rna out",
+                    "output_name": "data_param",
+                    "uuid": "2faefc88-f80d-4015-9edb-db22246e2503"
+                }
+            ]
+        },
+        "20": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_bamtobed/2.30.0+galaxy2",
+            "errors": null,
+            "id": 20,
+            "input_connections": {
+                "input": {
+                    "id": 17,
+                    "output_name": "data_param"
+                },
+                "when": {
+                    "id": 1,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "bedtools BAM to BED",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "bed"
+                }
+            ],
+            "position": {
+                "left": 1140.854342597632,
+                "top": 215.39024428711133
+            },
+            "post_job_actions": {
+                "DeleteIntermediatesActionoutput": {
+                    "action_arguments": {},
+                    "action_type": "DeleteIntermediatesAction",
+                    "output_name": "output"
+                },
+                "RenameDatasetActionoutput": {
+                    "action_arguments": {
+                        "newname": "cds_bed"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "output"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_bamtobed/2.30.0+galaxy2",
+            "tool_shed_repository": {
+                "changeset_revision": "a1a923cd89e8",
+                "name": "bedtools",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"ed_score\": false, \"input\": {\"__class__\": \"ConnectedValue\"}, \"option\": \"\", \"split\": false, \"tag\": null, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.30.0+galaxy2",
+            "type": "tool",
+            "uuid": "591f8c4c-4651-4b23-8958-e143ec5a34d8",
+            "when": "$(inputs.when)",
+            "workflow_outputs": [
+                {
+                    "label": "cds bed",
+                    "output_name": "output",
+                    "uuid": "6f26075a-868f-4b84-850e-e6349fa855d6"
+                }
+            ]
+        },
+        "21": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_bamtobed/2.30.0+galaxy2",
+            "errors": null,
+            "id": 21,
+            "input_connections": {
+                "input": {
+                    "id": 18,
+                    "output_name": "data_param"
+                },
+                "when": {
+                    "id": 3,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "bedtools BAM to BED",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "bed"
+                }
+            ],
+            "position": {
+                "left": 1150,
+                "top": 450
+            },
+            "post_job_actions": {
+                "DeleteIntermediatesActionoutput": {
+                    "action_arguments": {},
+                    "action_type": "DeleteIntermediatesAction",
+                    "output_name": "output"
+                },
+                "RenameDatasetActionoutput": {
+                    "action_arguments": {
+                        "newname": "genes_bed"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "output"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_bamtobed/2.30.0+galaxy2",
+            "tool_shed_repository": {
+                "changeset_revision": "a1a923cd89e8",
+                "name": "bedtools",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"ed_score\": false, \"input\": {\"__class__\": \"ConnectedValue\"}, \"option\": \"\", \"split\": false, \"tag\": null, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.30.0+galaxy2",
+            "type": "tool",
+            "uuid": "8f3df0e6-80e4-45be-9b2c-30e0a6adec74",
+            "when": "$(inputs.when)",
+            "workflow_outputs": [
+                {
+                    "label": "genes bed",
+                    "output_name": "output",
+                    "uuid": "f9e93c96-89ca-47e6-b602-54f332fb5451"
+                }
+            ]
+        },
+        "22": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_bamtobed/2.30.0+galaxy2",
+            "errors": null,
+            "id": 22,
+            "input_connections": {
+                "input": {
+                    "id": 19,
+                    "output_name": "data_param"
+                },
+                "when": {
+                    "id": 5,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "bedtools BAM to BED",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "bed"
+                }
+            ],
+            "position": {
+                "left": 1130,
+                "top": 650
+            },
+            "post_job_actions": {
+                "DeleteIntermediatesActionoutput": {
+                    "action_arguments": {},
+                    "action_type": "DeleteIntermediatesAction",
+                    "output_name": "output"
+                },
+                "RenameDatasetActionoutput": {
+                    "action_arguments": {
+                        "newname": "genes_bed"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "output"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_bamtobed/2.30.0+galaxy2",
+            "tool_shed_repository": {
+                "changeset_revision": "a1a923cd89e8",
+                "name": "bedtools",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"ed_score\": false, \"input\": {\"__class__\": \"ConnectedValue\"}, \"option\": \"\", \"split\": false, \"tag\": null, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.30.0+galaxy2",
+            "type": "tool",
+            "uuid": "892705ee-7de6-4e6b-8897-2a80870cc0df",
+            "when": "$(inputs.when)",
+            "workflow_outputs": [
+                {
+                    "label": "rna bed",
+                    "output_name": "output",
+                    "uuid": "44aed1df-da4f-49e6-ad2b-ed154829216a"
+                }
+            ]
+        }
+    },
+    "tags": [],
+    "uuid": "bc75982e-e19d-4481-af22-ac1dd0a24786",
+    "version": 18
+}
