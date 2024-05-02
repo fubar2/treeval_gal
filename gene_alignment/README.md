@@ -1,39 +1,46 @@
-### [#5 gene_alignment](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/gene_alignment.nf)
+## [#5 gene_alignment](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/gene_alignment.nf)
 
-#### Galaxy version in detail:
+### Galaxy version outputs:
 
-The Galaxy workflow canvas shown below is the entire workflow from a user's perspective. It exposes all the inputs, logic, tools and data flows,
-in the GUI used to build and update workflows, where tool and other settings are easily accessed and configured as typical Galaxy input forms.
+This subworkflow prepares tracks to represent external annotation. NCBI is usually the source but any appropriate fasta can be mapped to the genome being reported.
+Fasta files containing known RNA transcripts, coding sequences, genes and proteins as amino acids can be mapped using the Miniprot and Minimap2 tools, with bam to bed format 
+conversion where needed. Unlike the TreeVal subworkflow it replaces, tabix indexing is delegated to the integrated GMOD JBrowse2 tool downstream in the main TreeValGal workflow,
+and the tracks are integrated into the interactive browser output, ready to view in Galaxy, as shown in this example for the VGP *Calypte anna* (Hummingbird) assembly, where one of the NCBI protein track features has been selected,
+and the annotation for that feature has popped up on the right side of the browser window.
 
-The Miniprot and Minimap2 tools are run, with bam to bed format conversion. Galaxy tools are all interoperable in workflows, without ever requiring any user supplied code for data flows between them. 
-Instead, data flows have been configured by drawing the connections between outputs and inputs, on the canvas with a mouse. Unlike the TreeVal subworkflow it replaces, 
-tabix indexing is delegated to the integrated JBrowse2 tool downstream in the main TreeValGal workflow. 
+![image](https://github.com/fubar2/treeval_gal/assets/6016266/bbc2518e-347e-4e81-a62b-614f4c8b5e5a)
 
-The workflow GUI also obviates any requirement for the workflow developer to supply custom written code setting tool parameters. 
-This is in contrast to the TreeVal subworkflow described below, requiring 284 lines of DDL to be supplied by the workflow developer, 
-specifically written to pass data and parameters between modules used in the subworkflow.
+### Galaxy version complete workflow:
 
 ![image](https://github.com/fubar2/treeval_gal/assets/6016266/792966ba-ea0f-4205-a103-5361a94fa38b)
 
+This Galaxy workflow canvas is the entire workflow from a user's perspective. The GUI used to build and update workflows, exposes all the inputs, logic, tools and data flows,
+allowing tool and other settings to be accessed and configured with the Galaxy input forms. All Galaxy tools are interoperable in workflows, without ever requiring any user supplied 
+code for data flows between them or for setting parameters. Data flows are configured by drawing the connections between outputs and inputs, on the canvas with a mouse pointing device. 
+Tool settings are adjusted using the usual tool forms, without the workflow developer needing to learn anything about their internal code or configuration. 
+
+This is in contrast to the original Nextflow TreeVal subworkflow described below, requiring 284 lines of DDL to be written by the workflow developer, to correctly pass data and parameters suitable 
+for the modules used in the subworkflow. The developer must examine those modules to learn what parameter and data names and formats must be passed. Nextflow does not provide any automated interface between modules.
+
 Of the 23 elements in the Galaxy workflow, 7 are tool steps, 5 are run-time data selections. The remaining 11 are specialised workflow logic elements. They are usually not needed, but are configured to allow 
-optional inputs to tools that do not allow them. These are used here because the workflow may be run on VGP species for which little or no annotation is available, so one or more
-annotation inputs can be left out of the run, and no browser track will be created.
+optional inputs to tools that do not allow them. They are used here for VGP species where little or no external annotation is available. Annotation inputs can be turned off for a run, 
+and no browser track will be created.
 
-Specialised workflow inputs and logic elements are added to the usual tool menu from where elements can be dropped onto the canvas 
-and configured, during workflow GUI editing sessions. The `pick` components enable optional inputs to tools that do not support them. Execution of those tool steps are controlled by 
-a `boolean` GUI input yes/no toggle for the user to click at run-time, to prevent tools from failing if there is no input available. 
-While they look complicated, each requires only a few mouse clicks, and some text labels, to configure. All metadata and other information required to run all the steps is automatically 
-generated for download and storage on the server, in the form of a shareable JSON document, that never needs hand-editing.
+Specialised workflow inputs and logic elements are added to the usual tool menu during workflow GUI editing sessions. Tool menu items can be selected and dropped onto the canvas, ready to be configured.
+The `pick` component is used here to implement optional workflow inputs for tools that do not natively support them. Execution of those tool steps is prevented tools to avoid failure if there is no input available, using a 
+`boolean` GUI input yes/no toggle for the user to click at run-time. While they look complicated, each requires only a few mouse clicks, and some text labels, to be ready for use. 
+When an edited workflow is saved, all metadata and other information required to configure the workflow inputs and to run all the steps, is automatically generated in the form of a shareable JSON document, 
+for download and storage on the server, that never needs manual editing.
 
 
-#### NextFlow version deconstruction in detail:
+### NextFlow version in detail:
 
 ![Flow chart](https://raw.githubusercontent.com/sanger-tol/treeval/dev/docs/images/v1-1-0/treeval_1_1_0_gene_alignment.png)
 
 The NextFlow code to implement this flow chart requires a total of 284 lines of custom written DDL:
 
 ```
- ../subworkflows/local/nuc_alignments.nf                         	16         	41        	121
+../subworkflows/local/nuc_alignments.nf                         	16         	41        	121
 ../subworkflows/local/gene_alignment.nf                         	14         	24         	84
 ../subworkflows/local/pep_alignments.nf                         	14         	35         	79
 ```
