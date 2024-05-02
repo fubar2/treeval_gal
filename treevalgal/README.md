@@ -1,5 +1,10 @@
 ## TreeValGal workflow 
 
+### May 2 update
+
+See the main [README.md](README.md) for the latest updates to the workflow and subworkflows.
+
+
 ### April 23 update
 
 The latest TreeValGal workflow is on the EU server at [https://usegalaxy.eu/published/workflow?id=2e93613c688ea52e](https://usegalaxy.eu/published/workflow?id=2e93613c688ea52e)
