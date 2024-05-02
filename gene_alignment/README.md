@@ -2,26 +2,28 @@
 
 #### Galaxy version in detail:
 
-The Galaxy workflow GUI canvas is the entire working subworkflow from a user's perspective. It shows all the workflow inputs, logic, tools and data flows. Tool and other settings 
-are readily available to configure in the GUI used to build or edit a workflow. 
+The Galaxy workflow canvas shown below is the entire workflow from a user's perspective. It exposes all the inputs, logic, tools and data flows,
+in the GUI used to build and update workflows, where tool and other settings are easily accessed and configured as typical Galaxy input forms.
 
-The Miniprot and Minimap2 tools are run, with bam to bed format conversion, in the TreeValGal subworkflow shown below. Unlike the TreeVal subworkflow it replaces, tabix indexing is 
-delegated to the integrated JBrowse2 tool downstream in the main TreeValGal workflow. 
+The Miniprot and Minimap2 tools are run, with bam to bed format conversion. Galaxy tools are all interoperable in workflows, without ever requiring any user supplied code for data flows between them. 
+Instead, data flows have been configured by drawing the connections between outputs and inputs, on the canvas with a mouse. Unlike the TreeVal subworkflow it replaces, 
+tabix indexing is delegated to the integrated JBrowse2 tool downstream in the main TreeValGal workflow. 
 
-Galaxy tools are all interoperable without any user coding required, and the workflow GUI obviates any requirement for the workflow developer to supply custom written code 
-for setting parameters and dataflows. This is in contrast to the TreeVal subworkflow described below, requiring 284 lines of DDL to be supplied by the workflow developer, 
-specially written to pass data and parameters between modules used in the subworkflow.
+The workflow GUI also obviates any requirement for the workflow developer to supply custom written code setting tool parameters. 
+This is in contrast to the TreeVal subworkflow described below, requiring 284 lines of DDL to be supplied by the workflow developer, 
+specifically written to pass data and parameters between modules used in the subworkflow.
 
 ![image](https://github.com/fubar2/treeval_gal/assets/6016266/792966ba-ea0f-4205-a103-5361a94fa38b)
 
-Of the 23 elements in the Galaxy workflow, 7 are tool steps, 5 are run-time data selections, and 11 are specialised workflow logic elements, configured in this case to allow 
-optional inputs for tools that do not normally allow them. Specialised workflow inputs and logic elements are added to the usual tool menu from where elements can be dropped onto the canvas 
-and configured, during workflow GUI editing sessions. These are used here because the workflow may be run on VGP species for which little or no annotation is available, so one or more
+Of the 23 elements in the Galaxy workflow, 7 are tool steps, 5 are run-time data selections. The remaining 11 are specialised workflow logic elements. They are usually not needed, but are configured to allow 
+optional inputs to tools that do not allow them. These are used here because the workflow may be run on VGP species for which little or no annotation is available, so one or more
 annotation inputs can be left out of the run, and no browser track will be created.
 
-The `pick` components enable optional inputs to tools that do not support them. Execution of those tool steps are controlled by a `boolean` GUI yes/no toggle for the user to click at run-time, to prevent 
-tools from being executed and failing if there is no available input data for the step. While they look complicated, each requires only a few mouse clicks, and some text labels, to configure.
-All metadata and other information required to run all the steps is automatically generated for download and storage on the server, in the form of a shareable JSON document, that never needs hand-editing.
+Specialised workflow inputs and logic elements are added to the usual tool menu from where elements can be dropped onto the canvas 
+and configured, during workflow GUI editing sessions. The `pick` components enable optional inputs to tools that do not support them. Execution of those tool steps are controlled by 
+a `boolean` GUI input yes/no toggle for the user to click at run-time, to prevent tools from failing if there is no input available. 
+While they look complicated, each requires only a few mouse clicks, and some text labels, to configure. All metadata and other information required to run all the steps is automatically 
+generated for download and storage on the server, in the form of a shareable JSON document, that never needs hand-editing.
 
 
 #### NextFlow version deconstruction in detail:
