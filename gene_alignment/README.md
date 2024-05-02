@@ -5,7 +5,7 @@
 The Galaxy workflow GUI canvas is the entire working subworkflow from a user's perspective. It shows all the workflow inputs, logic, tools and data flows. Tool and other settings 
 are readily available to configure in the GUI used to build or edit a workflow. 
 
-The Miniprot and Minimap2 tools are run, with bam to bed format conversion, in the workflow shown below. Unlike the TreeVal inspiration described below, tabix indexing is 
+The Miniprot and Minimap2 tools are run, with bam to bed format conversion, in the TreeValGal subworkflow shown below. Unlike the TreeVal subworkflow it replaces, tabix indexing is 
 delegated to the integrated JBrowse2 tool downstream in the main TreeValGal workflow. 
 
 Galaxy tools are all interoperable without any user coding required, and the workflow GUI obviates any requirement for the workflow developer to supply custom written code 
