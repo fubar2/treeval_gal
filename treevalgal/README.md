@@ -1,8 +1,56 @@
 ## TreeValGal workflow 
 
-### May 2 update
+### May 2: Core TreeValGal components
 
 See the main [README.md](README.md) for the latest updates to the workflow and subworkflows.
+
+The TreeValGal workflow is complex and overwhelming at first glance, so the major components, including 3 subworkflows, are described here.
+
+The JBrowse2 tool on the right side is the most prominent workflow element, producing an integrated interactive JBrowse2 browser configured with 15 tracks. 
+Some tracks (the paf, gaps and telomeres) are turned off in the default view to reduce the complexity at opening the browser screen. 
+All tracks can be turned on and off using the JBrowse2 track menu to allow the user to focus on tracks of specific interest without distraction.
+
+#### 1. Workflows components reporting the fasta reference.
+
+These do not involve external data other than PacBio reads fastqsanger input, and they produce four JBrowse2 tracks for display:
+ - Repeatmasker repeats as a GFF3 track
+ - Windowmasker repeats as a bigwig track
+ - Gaps as a bigwig track
+ - PacBio depth of coverage as a bigwig track
+
+![image](https://github.com/fubar2/treeval_gal/assets/6016266/5fc8697a-ae5a-42f2-9536-99b1a35aa309)
+
+The top row of tools and data flows run the tool `gfastats` on the reference fasta to report sequence gaps as a bigwig track. The second row 
+prepares a file with window start/end coordinates, used to count features as a bigwig track for gaps, coverage and repeats. The third row runs the model-free `Windowmasker` 
+repeat finder tool and the fourth uses `Minimap2` to map PacBio reads to the reference for coverage. The `bamcoverage` tool creates a bigwig directly from the mapped bam file.
+
+The `repeatmasker` tool seen at the bottom of the workflow section shown above, creates a `GFF3` track of repeats. A DFam taxonId can be provided to over-ride the default (*Homo sapiens*) taxon.
+The masked fasta output is retained for use in the creation of sequence similarity paf files from `mashmap` 
+to minimise noise from uninformative low-complexity sequence matches.
+
+Two bigwig tracks (gaps and windowmasker repeats) use a specialised subworkflow to count depth of coverage over the generated window start/end coordinates based on the user window size (default is 100bp) input. 
+
+![TreeValGal bed to bigwig subworkflow](https://github.com/fubar2/treeval_gal/assets/6016266/146176b3-27c0-4b82-8bac-11d1959933ce)
+
+#### 2. Workflow components reporting external fasta annotation data.
+
+The middle segment of the main TreeValGal workflow canvas is responsible for mapping NCBI or other external annotation fasta files to create JBrowse2 `GFF3` and `bed` tracks.
+
+![image](https://github.com/fubar2/treeval_gal/assets/6016266/e9a88a46-5901-4851-8ed3-436d8683c75b)
+
+The subworkflow for these tracks is described in [detail here](../gene_alignment/README.md)
+
+
+#### 3. Workflow components preparing pairwise mapping format (PAF) tracks for haplotype self-comparison and closely related species sequence synteny or similarity.
+
+![image](https://github.com/fubar2/treeval_gal/assets/6016266/db642299-eaa8-44fc-986a-243841809214)
+
+This process uses the `mashmap` tool multiple times with a range of settings, to provide choices for the user, depending on how closely related the provided genomes are, in a third subworkflow.
+
+![image](https://github.com/fubar2/treeval_gal/assets/6016266/1ca4da9f-b0b4-4e85-8c23-656932185e14)
+
+Like the [gene_alignment equivalent](../gene_alignment/README.md), this workflow uses `pick` workflow logic components that make all the `mashmap` steps optional, since the `mashmap` tool
+does not natively allow optional inputs.
 
 
 ### April 23 update
