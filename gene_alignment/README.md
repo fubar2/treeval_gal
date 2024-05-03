@@ -22,9 +22,9 @@ Tool settings are adjusted using the usual tool forms, without the workflow deve
 This is in contrast to the original Nextflow TreeVal subworkflow described below, requiring 284 lines of DDL to be written by the workflow developer, to correctly pass data and parameters suitable 
 for the modules used in the subworkflow. The developer must examine those modules to learn what parameter and data names and formats must be passed. Nextflow does not provide any automated interface between modules.
 
-Of the 23 elements in the Galaxy workflow, 7 are tool steps, 5 are run-time data selections. The remaining 11 are specialised workflow logic elements. They are usually not needed, but are configured to allow 
-optional inputs to tools that do not allow them. They are used here for VGP species where little or no external annotation is available. Annotation inputs can be turned off for a run, 
-and no browser track will be created.
+Of the 23 elements in the Galaxy workflow, 7 are tool steps, 5 are run-time data selections and 11 are specialised workflow control logic elements. They are usually not needed, but are configured to allow 
+optional inputs to tools that do not allow them. They are used here for VGP species where little or no external annotation is available. Missing annotation inputs can be left off for any run,
+without creating any empty browser tracks.
 
 Specialised workflow inputs and logic elements are added to the usual tool menu during workflow GUI editing sessions. Tool menu items can be selected and dropped onto the canvas, ready to be configured.
 The `pick` component is used here to implement optional workflow inputs for tools that do not natively support them. Execution of those tool steps is prevented tools to avoid failure if there is no input available, using a 
