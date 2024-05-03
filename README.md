@@ -20,9 +20,10 @@ These are from [the current version](TreeValGalApril30.ga) that has a couple of 
 TreeValGal depends on the updated [Jbrowse2 tool](#JBrowse2) to present repeats, gaps and other features as tracks in a configurable browser.
 JBrowse2 is currently only available on `usegalaxy.eu` for testing.
 
-The workflow will soon be [added to the VGP workflow repository](https://github.com/galaxyproject/iwc/tree/main/workflows/VGP-assembly-v2) where development will continue at May 1 2024.
+The workflow will soon be [added to the VGP workflow repository](https://github.com/galaxyproject/iwc/tree/main/workflows/VGP-assembly-v2) where development will continue after May 1 2024.
 
-![image](https://github.com/fubar2/treeval_gal/assets/6016266/fa62ba4c-0354-4523-8afc-5476bc2ee6ec)
+![image](https://github.com/fubar2/treeval_gal/assets/6016266/23a37ee6-c7fd-4b38-840b-f109ef44398c)
+
 
 This repository will be left for the historical record if anyone is interested, since it contains an account of implementing the features of a NextFlow workflow as Galaxy workflows.
 One of the main differences is that Galaxy workflows and subworkflows are built by dropping, configuring and connecting tools on a graphical canvas, without requiring any code to be supplied.
