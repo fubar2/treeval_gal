@@ -1,16 +1,19 @@
 ### [#18 telo_finder](https://github.com/sanger-tol/treeval/blob/dev/subworkflows/local/telo_finder.nf)</h3>
 
 ### Update May 4:
-Seqtk-telo from Heng Li has long been incorporated into TreeValGal now. 
+Seqtk-telo from Heng Li has long been incorporated into TreeValGal now, making this complicated TreeVal workflow trivial to implement in Galaxy.
+
 It takes the fasta being reported, an optional repeat and the bed goes straight to the JBrowse2 tool for tabix indexing and display.
-It is the tool at the top of the second column from the right of this part of the TreeValGal workflow. 
-No provenance or references are provided so it's hard to know what the Sanger version
-really does. Might be much better for all I know but this is risibly simple in comparison to the TreeVal solution. 
-Choice is between Heng Li and unknown Java executables. Not hard to decide.
+It is the tool at the top of the second column from the right of this part of the TreeValGal workflow. Two inputs and a single tool is about as simple
+as it gets.
 
 ![image](https://github.com/fubar2/treeval_gal/assets/6016266/67624c2d-ea3a-4d27-af45-3e9dd179df63)
 
 Compare this to the two Java binaries of unknown provenance used in TreeVal as described below. 
+No provenance or references are provided so it's hard to know what the Sanger version
+really does. Might be much better, but this is risibly simple in comparison. 
+Choice is between Heng Li and unknown Java executables. Not hard to decide.
+
 No Galaxy system administrator would be thrilled at the prospect of running what NextFlow developers regard as state of the art security. 
 
 According to Sanger's documentation, TreeVal represents "best practice".
